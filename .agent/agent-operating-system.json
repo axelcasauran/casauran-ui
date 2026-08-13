@@ -1,0 +1,257 @@
+{
+  "$schema": "agent-operating-system.schema.json",
+  "schemaVersion": 1,
+  "ownerRoles": ["maintainer", "evidence-reviewer"],
+  "authorityContract": ".agent/repository-governance.json",
+  "catalogs": {
+    "skillsRoot": "skills",
+    "workflowsRoot": ".agent/workflows",
+    "promptsRoot": ".agent/prompts"
+  },
+  "requiredInputs": [
+    "AGENTS.md",
+    ".agent/status.md",
+    "active stage ledger",
+    "relevant accepted ADRs and policies",
+    "routed skills, workflows, and prompts"
+  ],
+  "executionLifecycle": [
+    {
+      "id": "preflight",
+      "requirements": [
+        "inspect repository status",
+        "verify prerequisite stages",
+        "load authority and active scope"
+      ]
+    },
+    {
+      "id": "classify",
+      "requirements": ["select one primary task class", "add applicable operations and modifiers"]
+    },
+    {
+      "id": "route",
+      "requirements": ["load every required prompt, workflow, and skill before task actions"]
+    },
+    {
+      "id": "acceptance",
+      "requirements": ["derive acceptance criteria from repository contracts", "state boundaries"]
+    },
+    {
+      "id": "execute",
+      "requirements": ["work at the owning layer", "preserve higher-authority contracts"]
+    },
+    {
+      "id": "validate",
+      "requirements": ["run targeted checks", "run the stage-required repository gate"]
+    },
+    {
+      "id": "record",
+      "requirements": ["update durable evidence and status only when justified"]
+    },
+    {
+      "id": "stop",
+      "requirements": ["stop at the active task or stage boundary", "report COMPLETE or BLOCKED"]
+    }
+  ],
+  "taskClasses": [
+    {
+      "id": "foundation",
+      "prompts": ["foundation-stage"],
+      "workflows": [],
+      "skills": ["architecture", "testing", "documentation"]
+    },
+    {
+      "id": "public-component",
+      "prompts": ["component-stage"],
+      "workflows": ["new-component", "reference-to-spec", "parity-audit"],
+      "skills": [
+        "component",
+        "api-design",
+        "testing",
+        "accessibility",
+        "composition",
+        "nextjs-rsc",
+        "documentation",
+        "parity-audit",
+        "reference-analysis"
+      ]
+    },
+    {
+      "id": "engine",
+      "prompts": [],
+      "workflows": ["new-engine"],
+      "skills": ["architecture", "testing", "documentation"]
+    },
+    {
+      "id": "bug",
+      "prompts": ["bug-fix"],
+      "workflows": ["bug-fix"],
+      "skills": ["testing"]
+    },
+    {
+      "id": "documentation",
+      "prompts": [],
+      "workflows": ["documentation"],
+      "skills": ["documentation", "testing"]
+    },
+    {
+      "id": "accessibility",
+      "prompts": [],
+      "workflows": ["accessibility-fix"],
+      "skills": ["accessibility", "testing"]
+    },
+    {
+      "id": "performance",
+      "prompts": [],
+      "workflows": ["performance-regression"],
+      "skills": ["performance", "testing"]
+    },
+    {
+      "id": "dependency",
+      "prompts": [],
+      "workflows": ["dependency-proposal"],
+      "skills": ["dependency-evaluation", "architecture", "adr", "security"]
+    },
+    {
+      "id": "architecture",
+      "prompts": [],
+      "workflows": ["architecture-change"],
+      "skills": ["architecture", "adr", "testing", "documentation"]
+    },
+    {
+      "id": "migration",
+      "prompts": [],
+      "workflows": ["migration"],
+      "skills": ["migration", "api-design", "testing", "documentation", "release"]
+    },
+    {
+      "id": "release",
+      "prompts": [],
+      "workflows": ["release"],
+      "skills": ["release", "testing", "security", "documentation"]
+    },
+    {
+      "id": "composed-artifact",
+      "prompts": [],
+      "workflows": ["composed-artifact"],
+      "skills": ["composition", "testing", "accessibility", "nextjs-rsc", "documentation"]
+    }
+  ],
+  "operations": [
+    {
+      "id": "phase-preparation",
+      "prompts": ["start-phase"],
+      "workflows": [],
+      "skills": ["architecture", "testing", "documentation"]
+    },
+    {
+      "id": "phase-certification",
+      "prompts": ["close-phase"],
+      "workflows": ["phase-certification"],
+      "skills": [
+        "architecture",
+        "testing",
+        "accessibility",
+        "security",
+        "performance",
+        "nextjs-rsc",
+        "parity-audit",
+        "documentation"
+      ]
+    },
+    {
+      "id": "reference-baseline",
+      "prompts": [],
+      "workflows": ["reference-baseline"],
+      "skills": ["reference-analysis", "architecture", "testing", "documentation"]
+    },
+    {
+      "id": "reference-sync",
+      "prompts": [],
+      "workflows": ["reference-sync"],
+      "skills": ["reference-analysis", "architecture", "testing", "documentation"]
+    },
+    {
+      "id": "reference-to-spec",
+      "prompts": [],
+      "workflows": ["reference-to-spec"],
+      "skills": ["reference-analysis", "documentation", "accessibility"]
+    },
+    {
+      "id": "parity-audit",
+      "prompts": ["parity-audit"],
+      "workflows": ["parity-audit"],
+      "skills": ["parity-audit", "testing", "documentation"]
+    },
+    {
+      "id": "toolchain-upgrade",
+      "prompts": [],
+      "workflows": ["toolchain-upgrade"],
+      "skills": ["architecture", "testing", "nextjs-rsc", "security", "documentation"]
+    }
+  ],
+  "modifiers": [
+    {
+      "id": "complex-widget",
+      "prompts": ["complex-widget"],
+      "workflows": ["complex-widget"],
+      "skills": ["complex-widget", "performance", "security"]
+    },
+    {
+      "id": "theme-change",
+      "prompts": [],
+      "workflows": ["new-theme"],
+      "skills": ["design-tokens", "css-architecture", "theming", "visual-regression"]
+    },
+    {
+      "id": "security-sensitive",
+      "prompts": [],
+      "workflows": ["security-review"],
+      "skills": ["security"]
+    },
+    {
+      "id": "internationalization-sensitive",
+      "prompts": [],
+      "workflows": [],
+      "skills": ["internationalization"]
+    },
+    {
+      "id": "large-data",
+      "prompts": [],
+      "workflows": [],
+      "skills": ["virtualization", "performance"]
+    }
+  ],
+  "domainRoutes": [
+    { "id": "ai-ui", "skills": ["ai-components", "ai-tooling", "security"] },
+    { "id": "charts-and-gauges", "skills": ["charting"] },
+    { "id": "collections", "skills": ["collections"] },
+    { "id": "data-operations", "skills": ["data-operations"] },
+    { "id": "date-time", "skills": ["date-time", "internationalization"] },
+    { "id": "diagram-drawing-map", "skills": ["diagram"] },
+    { "id": "drag-drop", "skills": ["drag-drop"] },
+    { "id": "editor", "skills": ["editor", "security"] },
+    { "id": "files", "skills": ["files-upload", "security"] },
+    { "id": "forms", "skills": ["forms"] },
+    { "id": "gantt", "skills": ["gantt", "date-time", "internationalization"] },
+    { "id": "grid", "skills": ["grid", "data-operations"] },
+    { "id": "integration", "skills": ["integration"] },
+    { "id": "overlay", "skills": ["overlay-positioning"] },
+    { "id": "pdf-export", "skills": ["pdf-export", "security"] },
+    { "id": "scheduler", "skills": ["scheduler", "date-time", "internationalization"] },
+    { "id": "spreadsheet", "skills": ["spreadsheet", "security"] },
+    { "id": "tree", "skills": ["tree", "collections"] }
+  ],
+  "blockingConditions": [
+    "a higher-authority contract conflict is unresolved",
+    "the active stage or prerequisite cannot be verified",
+    "a required local reference corpus check fails",
+    "required authority, approval, credentials, or external state is unavailable",
+    "an acceptance gate fails and cannot be repaired within the active scope"
+  ],
+  "stopConditions": [
+    "the active task or stage acceptance criteria are satisfied and evidenced",
+    "the task is blocked with the blocking evidence recorded",
+    "continuation would enter a later stage or materially expand authorized scope"
+  ]
+}

@@ -2,6 +2,10 @@
 
 Skills are specialist operating manuals loaded under the authority of `AGENTS.md`. They are not separate autonomous agents and cannot override accepted ADRs.
 
+The canonical machine-readable route is `.agent/agent-operating-system.json`. This page is the
+human index. The validator requires every `skills/*/SKILL.md` manual to be reachable from a task
+class, operation, modifier, or domain route.
+
 ## Always-loaded reasoning for component stages
 
 - `component`
@@ -12,6 +16,7 @@ Skills are specialist operating manuals loaded under the authority of `AGENTS.md
 - `nextjs-rsc`
 - `documentation`
 - `parity-audit`
+- `reference-analysis`
 
 ## Load by domain
 
@@ -32,9 +37,11 @@ Skills are specialist operating manuals loaded under the authority of `AGENTS.md
 - upload/file/save → `files-upload`, `security`
 - PDF/Excel/export → `pdf-export`, `security` as applicable
 - AI UI/tools → `ai-components`, `ai-tooling`, `security`
+- cross-provider/data/cloud integration → `integration`
 - dependency → `dependency-evaluation`
 - architecture → `architecture`, `adr`
 - parity certification → `parity-audit`
+- visual stories/snapshots → `visual-regression`
 
 ## Cross-cutting escalation
 
@@ -53,3 +60,7 @@ Older discussion labels map to canonical skills:
 ## Skill contract
 
 Every `SKILL.md` defines when to load, prerequisites, hard rules, analysis checklist, implementation discipline, forbidden shortcuts, required records and Definition of Done. Skills should evolve when recurring domain lessons are discovered, but architecture changes still require an ADR.
+
+Load a selected skill completely before task actions. Conditional skills are additive and are
+deduplicated by name. If a skill conflicts with a higher-authority contract, follow authority and
+record the conflict; do not edit the skill opportunistically during unrelated work.

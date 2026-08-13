@@ -35,6 +35,13 @@ Use for subsystem-grade public components with multiple interacting engines: Dat
 - performance budgets
 - internal slice ordering
 
+## Enterprise dimensions
+
+Explicitly decide applicability of functionality, typing/API consistency, accessibility,
+keyboard/touch/IME, security, performance, theming/density, RTL/i18n, SSR/hydration/RSC,
+responsive/adaptive behavior, integration and documentation for the whole widget and every
+architecture-significant internal slice.
+
 ## Implementation discipline
 
 Build the minimum shared contract needed by the current slices, integrate vertically, and run cross-feature regression after each subsystem milestone. Do not defer keyboard/a11y/virtualization until the end when they materially affect architecture.
@@ -48,7 +55,7 @@ Build the minimum shared contract needed by the current slices, integrate vertic
 - weakening tests/types to integrate slices
 - claiming completion after only primary rendering
 
-## Required evidence
+## Required records
 
 Architecture/feature/state/interaction/keyboard/performance/security specs, subsystem tests, browser scenarios, parity audit and final full validation.
 

@@ -1,6 +1,19 @@
 # Quality Gates
 
-Repository gate: governance/schema/stage/dependency/build infrastructure valid.
+Repository gate: governance/schema/stage/dependency/build infrastructure valid. The owned,
+machine-readable validator inventory and gate linkage are defined in
+`.agent/mechanical-governance.json` and explained in `MECHANICAL_GOVERNANCE.md`.
+
+Pre-install gate: `pnpm verify:scaffold` runs the complete read-only mechanical suite without
+requiring repository dependencies. Static gate: `pnpm validate:static` adds formatting, lint,
+strict types, dependency architecture, tests, and builds. Full gate: `pnpm validate` adds browser
+integration and is the stage-close/CI command.
+
+Build/test infrastructure is defined in `.agent/build-test-infrastructure.json` and
+`BUILD_TEST_INFRASTRUCTURE.md`. The static gate verifies emitted library exports and typechecks
+tests/tooling; the full gate exercises a production Next.js runtime in Chromium, Firefox, and
+WebKit.
+
 Component gate: Definition of Done passes.
 Phase gate: phase certification PASS or explicitly PASS WITH DEBT.
 Release gate: compatibility/security/public API/packages/docs certified.

@@ -2,8 +2,13 @@
 
 ## Start here
 
+- `GOVERNANCE.md` — repository ownership, change classification, review, and stage evidence.
+- `MECHANICAL_GOVERNANCE.md` — owned validator inventory, execution rules, and gate linkage.
+- `BUILD_TEST_INFRASTRUCTURE.md` — reproducible builds, test layers, hosts, artifacts, and CI.
 - `README.md` — product objective and repository entry point.
 - `AGENTS.md` — governing constitution for humans and AI.
+- `AI_AGENT_OPERATING_MODEL.md` — model-neutral task routing, lifecycle, and handoff contract.
+- `.agent/protocol.md` — invariant execution procedure.
 - `ARCHITECTURE.md` — capability ownership, layers, packaging and runtime architecture.
 - `BOOTSTRAP.md` — first local development steps.
 - `IMPLEMENTATION_STRATEGY.md` — product sequencing rationale.
@@ -48,6 +53,7 @@
 - `QUALITY_GATES.md`
 - `TESTING_POLICY.md`
 - `TESTING_STRATEGY.md`
+- `BUILD_TEST_INFRASTRUCTURE.md`
 - `DOCUMENTATION_POLICY.md`
 - `RELEASE_POLICY.md`
 - `RELEASE_STRATEGY.md`
@@ -62,6 +68,8 @@
 ## AI operating system
 
 - `AI_AGENT_OPERATING_MODEL.md`
+- `.agent/agent-operating-system.json`
+- `.agent/agent-operating-system.schema.json`
 - `.agent/protocol.md`
 - `.agent/status.md`
 - `.agent/roadmap.md`
@@ -84,6 +92,13 @@
 
 ## Specification and review templates
 
+Repository governance is machine-readable in `.agent/repository-governance.json` with its schema
+beside it. Agent routing is machine-readable in `.agent/agent-operating-system.json`. GitHub path
+ownership mirrors those contracts in `.github/CODEOWNERS`. Mechanical enforcement is
+machine-readable in `.agent/mechanical-governance.json` with its schema beside it.
+Build/test topology is machine-readable in `.agent/build-test-infrastructure.json` with its schema
+beside it.
+
 - `specs/templates/`
 - `templates/component-dna/`
 - `templates/api/`
@@ -93,6 +108,11 @@
 ## Mechanical enforcement
 
 - `scripts/verify-scaffold.mjs`
+- `scripts/validate-repository-governance.mjs`
+- `scripts/validate-agent-operating-system.mjs`
+- `scripts/validate-mechanical-governance.mjs`
+- `scripts/validate-build-test-infrastructure.mjs`
+- `scripts/verify-build-output.mjs`
 - architecture/registry/reference/composition/package/public-API/toolchain/platform validators
 - `dependency-cruiser.config.cjs`
 - strict TypeScript

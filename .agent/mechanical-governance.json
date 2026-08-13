@@ -1,0 +1,208 @@
+{
+  "$schema": "mechanical-governance.schema.json",
+  "schemaVersion": 1,
+  "ownerRoles": ["maintainer", "evidence-reviewer"],
+  "authorityContracts": [
+    ".agent/repository-governance.json",
+    ".agent/agent-operating-system.json",
+    "AGENTS.md",
+    ".agent/decisions/ADR-999-architecture-freeze.md"
+  ],
+  "execution": {
+    "runner": "scripts/verify-scaffold.mjs",
+    "packageScript": "verify:scaffold",
+    "mode": "read-only",
+    "network": "forbidden",
+    "failureMode": "collect-and-fail",
+    "supportScripts": [
+      "scripts/lib.mjs",
+      "scripts/repository-governance.mjs",
+      "scripts/agent-operating-system.mjs",
+      "scripts/mechanical-governance.mjs",
+      "scripts/build-test-infrastructure.mjs"
+    ]
+  },
+  "unitTests": {
+    "script": "scripts/mechanical-governance.test.mjs",
+    "packageScript": "test:mechanical-governance"
+  },
+  "validators": [
+    {
+      "id": "repository-governance",
+      "script": "scripts/validate-repository-governance.mjs",
+      "packageScript": "validate:governance",
+      "ownerRoles": ["maintainer", "evidence-reviewer"],
+      "contracts": ["GOVERNANCE.md", ".agent/repository-governance.json"]
+    },
+    {
+      "id": "agent-operating-system",
+      "script": "scripts/validate-agent-operating-system.mjs",
+      "packageScript": "validate:agent-os",
+      "ownerRoles": ["maintainer", "evidence-reviewer"],
+      "contracts": ["AI_AGENT_OPERATING_MODEL.md", ".agent/agent-operating-system.json"]
+    },
+    {
+      "id": "mechanical-governance",
+      "script": "scripts/validate-mechanical-governance.mjs",
+      "packageScript": "validate:mechanical-governance",
+      "ownerRoles": ["maintainer", "evidence-reviewer"],
+      "contracts": ["MECHANICAL_GOVERNANCE.md", ".agent/mechanical-governance.json"]
+    },
+    {
+      "id": "build-test-infrastructure",
+      "script": "scripts/validate-build-test-infrastructure.mjs",
+      "packageScript": "validate:build-test-infrastructure",
+      "ownerRoles": ["maintainer", "evidence-reviewer"],
+      "contracts": ["BUILD_TEST_INFRASTRUCTURE.md", ".agent/build-test-infrastructure.json"]
+    },
+    {
+      "id": "local-reference-config",
+      "script": "scripts/validate-local-reference-config.mjs",
+      "packageScript": "validate:local-reference-config",
+      "ownerRoles": ["maintainer", "evidence-reviewer"],
+      "contracts": ["KENDO_REFERENCE_POLICY.md", "reference/local-reference.json"]
+    },
+    {
+      "id": "branding",
+      "script": "scripts/validate-branding.mjs",
+      "packageScript": "validate:branding",
+      "ownerRoles": ["maintainer", "domain-owner"],
+      "contracts": ["BRANDING.md", "NAMING_CONVENTIONS.md"]
+    },
+    {
+      "id": "registry",
+      "script": "scripts/validate-registry.mjs",
+      "packageScript": "validate:registry",
+      "ownerRoles": ["maintainer", "domain-owner"],
+      "contracts": ["COMPONENT_REGISTRY.md", "registry/schemas/component.schema.json"]
+    },
+    {
+      "id": "stages",
+      "script": "scripts/validate-stages.mjs",
+      "packageScript": "validate:stages",
+      "ownerRoles": ["maintainer", "evidence-reviewer"],
+      "contracts": [".agent/stages/index.json", ".agent/component-order.md"]
+    },
+    {
+      "id": "reference-provenance",
+      "script": "scripts/validate-reference-provenance.mjs",
+      "packageScript": "validate:reference",
+      "ownerRoles": ["maintainer", "evidence-reviewer"],
+      "contracts": ["KENDO_REFERENCE_POLICY.md", "reference/kendo-react-baseline.json"]
+    },
+    {
+      "id": "dependencies",
+      "script": "scripts/validate-dependencies.mjs",
+      "packageScript": "validate:dependencies",
+      "ownerRoles": ["maintainer", "domain-owner", "security-reviewer"],
+      "contracts": [
+        "DEPENDENCY_POLICY.md",
+        ".agent/decisions/ADR-002-zero-external-runtime-dependency-first.md"
+      ]
+    },
+    {
+      "id": "client-boundaries",
+      "script": "scripts/validate-client-boundaries.mjs",
+      "packageScript": "validate:client-boundaries",
+      "ownerRoles": ["maintainer", "domain-owner"],
+      "contracts": [
+        "NEXTJS_COMPATIBILITY.md",
+        ".agent/decisions/ADR-008-minimal-rsc-client-boundaries.md"
+      ]
+    },
+    {
+      "id": "documentation-depth",
+      "script": "scripts/validate-doc-depth.mjs",
+      "packageScript": "validate:docs",
+      "ownerRoles": ["maintainer", "evidence-reviewer"],
+      "contracts": ["DOCUMENTATION_POLICY.md", "HANDBOOK_INDEX.md"]
+    },
+    {
+      "id": "placeholder-content",
+      "script": "scripts/validate-no-placeholders.mjs",
+      "packageScript": "validate:placeholders",
+      "ownerRoles": ["maintainer", "evidence-reviewer"],
+      "contracts": ["DOCUMENTATION_POLICY.md", "DEFINITION_OF_DONE.md"]
+    },
+    {
+      "id": "specifications",
+      "script": "scripts/validate-specs.mjs",
+      "packageScript": "validate:specs",
+      "ownerRoles": ["maintainer", "domain-owner", "evidence-reviewer"],
+      "contracts": ["specs/README.md", ".agent/decisions/ADR-010-registry-spec-before-code.md"]
+    },
+    {
+      "id": "parity",
+      "script": "scripts/validate-parity.mjs",
+      "packageScript": "validate:parity",
+      "ownerRoles": ["maintainer", "domain-owner", "evidence-reviewer"],
+      "contracts": ["PARITY_DEFINITION.md", "KENDO_FEATURE_COMPARISON.md"]
+    },
+    {
+      "id": "package-exports",
+      "script": "scripts/validate-package-exports.mjs",
+      "packageScript": "validate:package-exports",
+      "ownerRoles": ["maintainer", "domain-owner"],
+      "contracts": ["PACKAGE_POLICY.md", ".agent/decisions/ADR-016-supported-package-surface.md"]
+    },
+    {
+      "id": "component-composition",
+      "script": "scripts/validate-component-composition.mjs",
+      "packageScript": "validate:composition",
+      "ownerRoles": ["maintainer", "domain-owner"],
+      "contracts": [
+        "COMPONENT_COMPOSITION_RULES.md",
+        ".agent/decisions/ADR-014-canonical-component-composition.md"
+      ]
+    },
+    {
+      "id": "package-boundaries",
+      "script": "scripts/validate-package-boundaries.mjs",
+      "packageScript": "validate:boundaries",
+      "ownerRoles": ["maintainer", "domain-owner"],
+      "contracts": ["DEPENDENCY_GRAPH.md", ".agent/decisions/ADR-007-package-layering.md"]
+    },
+    {
+      "id": "public-api",
+      "script": "scripts/validate-public-api.mjs",
+      "packageScript": "validate:public-api",
+      "ownerRoles": ["maintainer", "domain-owner", "release-manager"],
+      "contracts": ["API_GOVERNANCE.md", ".agent/decisions/ADR-017-api-lifecycle-governance.md"]
+    },
+    {
+      "id": "toolchain",
+      "script": "scripts/validate-toolchain.mjs",
+      "packageScript": "validate:toolchain",
+      "ownerRoles": ["maintainer", "security-reviewer"],
+      "contracts": ["TOOLCHAIN.md", "package.json"]
+    },
+    {
+      "id": "platform",
+      "script": "scripts/validate-platform.mjs",
+      "packageScript": "validate:platform",
+      "ownerRoles": ["maintainer", "domain-owner", "evidence-reviewer"],
+      "contracts": ["PLATFORM_PARITY.md", "registry/platform"]
+    }
+  ],
+  "rootGates": [
+    {
+      "id": "preinstall",
+      "packageScript": "verify:scaffold",
+      "requiredFor": ["clean checkout inspection", "dependency bootstrap preflight"]
+    },
+    {
+      "id": "static",
+      "packageScript": "validate:static",
+      "requiredFor": ["local integration", "stage validation"]
+    },
+    {
+      "id": "full",
+      "packageScript": "validate",
+      "requiredFor": ["stage close", "pull request", "main branch"]
+    }
+  ],
+  "ci": {
+    "workflow": ".github/workflows/ci.yml",
+    "requiredCommand": "pnpm validate"
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "$schema": "repository-governance.schema.json",
+  "schemaVersion": 1,
+  "repository": {
+    "slug": "axelcasauran/casauran-ui",
+    "defaultBranch": "main",
+    "maintainer": "@axelcasauran"
+  },
+  "roles": [
+    {
+      "id": "maintainer",
+      "holders": ["@axelcasauran"],
+      "accountabilities": [
+        "repository administration",
+        "governance interpretation",
+        "architecture approval",
+        "final merge authority"
+      ]
+    },
+    {
+      "id": "domain-owner",
+      "holders": ["@axelcasauran"],
+      "accountabilities": ["domain correctness", "compatibility", "owned-layer evidence"]
+    },
+    {
+      "id": "evidence-reviewer",
+      "holders": ["@axelcasauran"],
+      "accountabilities": ["acceptance criteria", "validation evidence", "stage boundaries"]
+    },
+    {
+      "id": "security-reviewer",
+      "holders": ["@axelcasauran"],
+      "accountabilities": ["trust boundaries", "credentials", "dependency and disclosure risk"]
+    },
+    {
+      "id": "release-manager",
+      "holders": ["@axelcasauran"],
+      "accountabilities": ["versioning", "changesets", "migration", "release channels"]
+    }
+  ],
+  "authority": [
+    {
+      "rank": 1,
+      "id": "accepted-adrs",
+      "sources": [".agent/decisions/ADR-*.md"]
+    },
+    { "rank": 2, "id": "constitution", "sources": ["AGENTS.md"] },
+    {
+      "rank": 3,
+      "id": "architecture-and-policy",
+      "sources": [
+        "ARCHITECTURE.md",
+        "DEPENDENCY_GRAPH.md",
+        "PACKAGE_POLICY.md",
+        "API_GOVERNANCE.md",
+        "SECURITY_ARCHITECTURE.md",
+        "NEXTJS_COMPATIBILITY.md"
+      ]
+    },
+    {
+      "rank": 4,
+      "id": "registry-and-schemas",
+      "sources": ["registry/schemas/*.json", ".agent/stages/index.json"]
+    },
+    { "rank": 5, "id": "stage-ledger", "sources": [".agent/stages/*.md"] },
+    { "rank": 6, "id": "approved-specifications", "sources": ["specs/"] },
+    { "rank": 7, "id": "executable-evidence", "sources": ["tests/", "scripts/"] },
+    { "rank": 8, "id": "implementation", "sources": ["packages/", "apps/"] },
+    {
+      "rank": 9,
+      "id": "documentation-examples",
+      "sources": ["apps/docs/", "apps/playground/"]
+    }
+  ],
+  "changeClasses": [
+    {
+      "id": "active-stage",
+      "workflow": ".agent/protocol.md",
+      "requiredRoles": ["domain-owner", "maintainer", "evidence-reviewer"],
+      "requiredEvidence": ["active stage ledger", "relevant validation"]
+    },
+    {
+      "id": "architecture",
+      "workflow": ".agent/workflows/architecture-change.md",
+      "requiredRoles": ["domain-owner", "maintainer", "evidence-reviewer"],
+      "requiredEvidence": ["accepted ADR", "impact and migration analysis"]
+    },
+    {
+      "id": "dependency",
+      "workflow": ".agent/workflows/dependency-proposal.md",
+      "requiredRoles": ["domain-owner", "security-reviewer", "maintainer"],
+      "requiredEvidence": ["dependency evaluation", "exit strategy"]
+    },
+    {
+      "id": "public-api",
+      "workflow": ".agent/workflows/migration.md",
+      "requiredRoles": ["domain-owner", "release-manager", "maintainer"],
+      "requiredEvidence": ["API review", "version and migration impact"]
+    },
+    {
+      "id": "reference-scope",
+      "workflow": ".agent/workflows/reference-sync.md",
+      "requiredRoles": ["evidence-reviewer", "maintainer"],
+      "requiredEvidence": ["pinned provenance", "scope impact"]
+    },
+    {
+      "id": "security-sensitive",
+      "workflow": ".agent/workflows/security-review.md",
+      "requiredRoles": ["domain-owner", "security-reviewer", "maintainer"],
+      "requiredEvidence": ["threat analysis", "negative tests"]
+    },
+    {
+      "id": "release",
+      "workflow": ".agent/workflows/release.md",
+      "requiredRoles": ["evidence-reviewer", "release-manager", "maintainer"],
+      "requiredEvidence": ["release gates", "changeset and migration status"]
+    }
+  ],
+  "pathOwnership": [
+    { "pattern": "*", "owners": ["@axelcasauran"], "roles": ["maintainer"] },
+    {
+      "pattern": "/AGENTS.md",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer"]
+    },
+    {
+      "pattern": "/GOVERNANCE.md",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer"]
+    },
+    {
+      "pattern": "/AI_AGENT_OPERATING_MODEL.md",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/.agent/agent-operating-system*.json",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/MECHANICAL_GOVERNANCE.md",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/BUILD_TEST_INFRASTRUCTURE.md",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/.agent/build-test-infrastructure*.json",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/.agent/mechanical-governance*.json",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/scripts/validate-*.mjs",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/scripts/*governance*.mjs",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/scripts/verify-scaffold.mjs",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/scripts/*build-test*.mjs",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/scripts/verify-build-output.mjs",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/tests/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/playwright.config.ts",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/vitest.config.mts",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/package.json",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/.agent/protocol.md",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/.agent/prompts/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/.agent/workflows/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/skills/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/.agent/decisions/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer"]
+    },
+    {
+      "pattern": "/.agent/stages/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/registry/schemas/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner"]
+    },
+    {
+      "pattern": "/.github/workflows/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "security-reviewer"]
+    },
+    {
+      "pattern": "/.changeset/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "release-manager"]
+    }
+  ],
+  "stageLifecycle": {
+    "statuses": ["not-started", "in-progress", "complete", "blocked"],
+    "terminalStatuses": ["complete", "blocked"],
+    "allowedTransitions": [
+      ["not-started", "in-progress"],
+      ["in-progress", "complete"],
+      ["in-progress", "blocked"],
+      ["blocked", "in-progress"]
+    ],
+    "completionEvidence": [
+      "Outcome",
+      "Delivered scope",
+      "Contracts and files",
+      "Validation",
+      "Enterprise applicability",
+      "Boundary audit"
+    ]
+  }
+}

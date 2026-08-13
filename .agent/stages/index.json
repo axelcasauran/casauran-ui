@@ -4,28 +4,28 @@
     "phase": 0,
     "type": "foundation",
     "title": "Repository Governance",
-    "status": "not-started"
+    "status": "complete"
   },
   {
     "id": "F0.02",
     "phase": 0,
     "type": "foundation",
     "title": "Agent Operating System",
-    "status": "not-started"
+    "status": "complete"
   },
   {
     "id": "F0.03",
     "phase": 0,
     "type": "foundation",
     "title": "Mechanical Governance",
-    "status": "not-started"
+    "status": "complete"
   },
   {
     "id": "F0.04",
     "phase": 0,
     "type": "foundation",
     "title": "Build and Test Infrastructure",
-    "status": "not-started"
+    "status": "complete"
   },
   {
     "id": "F0.05",

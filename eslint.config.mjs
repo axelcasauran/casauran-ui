@@ -77,7 +77,7 @@ export default tseslint.config(
 
   // Root TypeScript configuration files don't need typed rules.
   {
-    files: ['vitest.config.ts', 'playwright.config.ts'],
+    files: ['vitest.config.mts', 'playwright.config.ts'],
     ...tseslint.configs.disableTypeChecked,
     languageOptions: {
       ...tseslint.configs.disableTypeChecked.languageOptions,

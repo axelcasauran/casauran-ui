@@ -1,0 +1,116 @@
+{
+  "$schema": "build-test-infrastructure.schema.json",
+  "schemaVersion": 1,
+  "ownerRoles": ["maintainer", "evidence-reviewer"],
+  "authorityContracts": [
+    "AGENTS.md",
+    "ARCHITECTURE.md",
+    "TESTING_POLICY.md",
+    "TESTING_STRATEGY.md",
+    "NEXTJS_COMPATIBILITY.md",
+    ".agent/decisions/ADR-001-next-js-first-host.md",
+    ".agent/decisions/ADR-008-minimal-rsc-client-boundaries.md",
+    ".agent/decisions/ADR-013-no-storybook-initially.md"
+  ],
+  "environment": {
+    "nodeRange": ">=24.18.0 <27",
+    "nodeBaseline": "24.18.0",
+    "packageManager": "pnpm@11.17.0",
+    "lockfile": "pnpm-lock.yaml",
+    "installCommand": "pnpm install --frozen-lockfile"
+  },
+  "build": {
+    "packageScript": "build",
+    "workspaceBuildScript": "pnpm -r --if-present build",
+    "libraryRoot": "packages",
+    "libraryCount": 27,
+    "hostRoot": "apps",
+    "hostCount": 4,
+    "libraryCompiler": "typescript",
+    "moduleFormat": "esm",
+    "declarations": true,
+    "sourceMaps": true,
+    "outputDirectory": "dist",
+    "outputVerifier": "scripts/verify-build-output.mjs"
+  },
+  "typecheck": {
+    "packageScript": "typecheck",
+    "workspaceScript": "typecheck:workspaces",
+    "testsScript": "typecheck:tests",
+    "toolingScript": "typecheck:tooling",
+    "configs": ["tsconfig.base.json", "tests/tsconfig.json", "tsconfig.tooling.json"]
+  },
+  "testLayers": [
+    {
+      "id": "contracts",
+      "runner": "node:test",
+      "packageScript": "test:contracts",
+      "roots": ["scripts/*.test.mjs"],
+      "purpose": "repository contracts and infrastructure regressions"
+    },
+    {
+      "id": "unit",
+      "runner": "vitest",
+      "packageScript": "test:unit",
+      "config": "vitest.config.mts",
+      "roots": [
+        "packages/**/*.test.ts",
+        "packages/**/*.test.tsx",
+        "tests/unit/**/*.test.ts",
+        "tests/unit/**/*.test.tsx"
+      ],
+      "purpose": "pure package and cross-package behavior"
+    },
+    {
+      "id": "browser",
+      "runner": "playwright",
+      "packageScript": "test:browser",
+      "config": "playwright.config.ts",
+      "roots": ["tests/browser"],
+      "purpose": "production Next.js runtime, SSR, hydration, interaction and visual evidence",
+      "productionHost": true
+    }
+  ],
+  "hosts": [
+    {
+      "id": "docs",
+      "package": "@casauran-internal/docs",
+      "port": 3100,
+      "purpose": "supported documentation and executable examples"
+    },
+    {
+      "id": "playground",
+      "package": "@casauran-internal/playground",
+      "port": 3101,
+      "purpose": "interactive supported-API exploration"
+    },
+    {
+      "id": "showcase",
+      "package": "@casauran-internal/showcase",
+      "port": 3102,
+      "purpose": "application-level integration evidence"
+    },
+    {
+      "id": "visual-tests",
+      "package": "@casauran-internal/visual-tests",
+      "port": 3103,
+      "purpose": "deterministic browser and visual scenarios"
+    }
+  ],
+  "browserProjects": ["chromium", "firefox", "webkit"],
+  "ci": {
+    "workflow": ".github/workflows/ci.yml",
+    "permissions": "contents: read",
+    "installCommand": "pnpm install --frozen-lockfile",
+    "browserInstallCommand": "pnpm exec playwright install --with-deps chromium firefox webkit",
+    "validateCommand": "pnpm validate"
+  },
+  "generatedArtifacts": [
+    "**/.next/**",
+    "**/dist/**",
+    "**/coverage/**",
+    "**/playwright-report/**",
+    "**/test-results/**",
+    "**/*.tsbuildinfo"
+  ]
+}

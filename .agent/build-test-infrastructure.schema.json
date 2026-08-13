@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://casauran.dev/schemas/build-test-infrastructure.schema.json",
+  "title": "Casauran build and test infrastructure contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "ownerRoles",
+    "authorityContracts",
+    "environment",
+    "build",
+    "typecheck",
+    "testLayers",
+    "hosts",
+    "browserProjects",
+    "ci",
+    "generatedArtifacts"
+  ],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": 1 },
+    "ownerRoles": { "$ref": "#/$defs/nonEmptyStrings" },
+    "authorityContracts": { "$ref": "#/$defs/nonEmptyStrings" },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["nodeRange", "nodeBaseline", "packageManager", "lockfile", "installCommand"],
+      "properties": {
+        "nodeRange": { "type": "string", "minLength": 1 },
+        "nodeBaseline": { "type": "string", "minLength": 1 },
+        "packageManager": { "type": "string", "minLength": 1 },
+        "lockfile": { "type": "string", "minLength": 1 },
+        "installCommand": { "type": "string", "minLength": 1 }
+      }
+    },
+    "build": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "packageScript",
+        "workspaceBuildScript",
+        "libraryRoot",
+        "libraryCount",
+        "hostRoot",
+        "hostCount",
+        "libraryCompiler",
+        "moduleFormat",
+        "declarations",
+        "sourceMaps",
+        "outputDirectory",
+        "outputVerifier"
+      ],
+      "properties": {
+        "packageScript": { "type": "string", "minLength": 1 },
+        "workspaceBuildScript": { "type": "string", "minLength": 1 },
+        "libraryRoot": { "type": "string", "minLength": 1 },
+        "libraryCount": { "type": "integer", "minimum": 1 },
+        "hostRoot": { "type": "string", "minLength": 1 },
+        "hostCount": { "type": "integer", "minimum": 1 },
+        "libraryCompiler": { "const": "typescript" },
+        "moduleFormat": { "const": "esm" },
+        "declarations": { "const": true },
+        "sourceMaps": { "const": true },
+        "outputDirectory": { "const": "dist" },
+        "outputVerifier": { "type": "string", "minLength": 1 }
+      }
+    },
+    "typecheck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["packageScript", "workspaceScript", "testsScript", "toolingScript", "configs"],
+      "properties": {
+        "packageScript": { "type": "string", "minLength": 1 },
+        "workspaceScript": { "type": "string", "minLength": 1 },
+        "testsScript": { "type": "string", "minLength": 1 },
+        "toolingScript": { "type": "string", "minLength": 1 },
+        "configs": { "$ref": "#/$defs/nonEmptyStrings" }
+      }
+    },
+    "testLayers": {
+      "type": "array",
+      "minItems": 3,
+      "items": { "$ref": "#/$defs/testLayer" }
+    },
+    "hosts": {
+      "type": "array",
+      "minItems": 4,
+      "items": { "$ref": "#/$defs/host" }
+    },
+    "browserProjects": { "$ref": "#/$defs/nonEmptyStrings" },
+    "ci": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "workflow",
+        "permissions",
+        "installCommand",
+        "browserInstallCommand",
+        "validateCommand"
+      ],
+      "properties": {
+        "workflow": { "type": "string", "minLength": 1 },
+        "permissions": { "const": "contents: read" },
+        "installCommand": { "type": "string", "minLength": 1 },
+        "browserInstallCommand": { "type": "string", "minLength": 1 },
+        "validateCommand": { "type": "string", "minLength": 1 }
+      }
+    },
+    "generatedArtifacts": { "$ref": "#/$defs/nonEmptyStrings" }
+  },
+  "$defs": {
+    "nonEmptyStrings": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "testLayer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "runner", "packageScript", "roots", "purpose"],
+      "properties": {
+        "id": { "enum": ["contracts", "unit", "browser"] },
+        "runner": { "enum": ["node:test", "vitest", "playwright"] },
+        "packageScript": { "type": "string", "minLength": 1 },
+        "config": { "type": "string", "minLength": 1 },
+        "roots": { "$ref": "#/$defs/nonEmptyStrings" },
+        "purpose": { "type": "string", "minLength": 1 },
+        "productionHost": { "type": "boolean" }
+      }
+    },
+    "host": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "package", "port", "purpose"],
+      "properties": {
+        "id": { "enum": ["docs", "playground", "showcase", "visual-tests"] },
+        "package": { "type": "string", "minLength": 1 },
+        "port": { "type": "integer", "minimum": 1024, "maximum": 65535 },
+        "purpose": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

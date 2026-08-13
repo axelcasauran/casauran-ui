@@ -1,27 +1,20 @@
 import { spawnSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const contract = JSON.parse(
+  readFileSync(path.join(root, '.agent/mechanical-governance.json'), 'utf8'),
+);
+const mandatoryValidator = 'scripts/validate-mechanical-governance.mjs';
 const scripts = [
-  'validate-local-reference-config.mjs',
-  'validate-branding.mjs',
-  'validate-registry.mjs',
-  'validate-stages.mjs',
-  'validate-reference-provenance.mjs',
-  'validate-dependencies.mjs',
-  'validate-client-boundaries.mjs',
-  'validate-doc-depth.mjs',
-  'validate-no-placeholders.mjs',
-  'validate-specs.mjs',
-  'validate-parity.mjs',
-  'validate-package-exports.mjs',
-  'validate-component-composition.mjs',
-  'validate-package-boundaries.mjs',
-  'validate-public-api.mjs',
-  'validate-toolchain.mjs',
-  'validate-platform.mjs',
+  ...new Set([mandatoryValidator, ...contract.validators.map((validator) => validator.script)]),
 ];
 let failed = false;
-for (const s of scripts) {
-  const r = spawnSync(process.execPath, [`scripts/${s}`], { stdio: 'inherit' });
+for (const script of scripts) {
+  const r = spawnSync(process.execPath, [script], { cwd: root, stdio: 'inherit' });
   if (r.status !== 0) failed = true;
 }
 if (failed) process.exit(1);
-console.log('PASS: scaffold governance verification complete');
+console.log(`PASS: scaffold governance verification complete (${scripts.length} validators)`);

@@ -4,13 +4,14 @@ Prerequisite: Node 24 LTS and Corepack.
 
 ```bash
 corepack enable
-pnpm install
+pnpm install --frozen-lockfile
 node scripts/verify-scaffold.mjs
-pnpm exec playwright install --with-deps
+pnpm exec playwright install --with-deps chromium firefox webkit
 pnpm validate
 ```
 
-Commit the generated `pnpm-lock.yaml` immediately. CI uses frozen lockfile when present. Begin Phase 0, not Button.
+The committed `pnpm-lock.yaml` is mandatory; CI never falls back to an unlocked install. Begin
+Phase 0, not Button.
 
 ## External reference corpus
 

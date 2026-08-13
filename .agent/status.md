@@ -1,10 +1,11 @@
 # Program Status
 
-Program: READY FOR PHASE 0
+Program: PHASE 0 IN PROGRESS
 Architecture: FROZEN
 Reference baseline: PINNED
 Public component implementation: NOT STARTED
-Next stage: `F0.01 — Repository Governance`
+Active stage: NONE
+Next stage: `F0.05 — Tokens`
 
 Update only through stage/phase close workflow. BLOCKED phases cannot roll forward.
 

@@ -1,7 +1,0 @@
-import { defineConfig } from 'vitest/config';
-export default defineConfig({
-  test: {
-    include: ['packages/**/*.test.ts', 'packages/**/*.test.tsx', 'tests/unit/**/*.test.ts'],
-    coverage: { enabled: false },
-  },
-});
