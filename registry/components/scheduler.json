@@ -1,0 +1,60 @@
+{
+  "name": "Scheduler",
+  "slug": "scheduler",
+  "category": "scheduler",
+  "phase": 6,
+  "stage": "6.04",
+  "status": "unreviewed",
+  "package": "@casauran/react",
+  "reference": {
+    "path": "docs/content/scheduler",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b"
+  },
+  "composition": {
+    "uses": [
+      "Calendar",
+      "Dialog",
+      "DatePicker",
+      "TimePicker",
+      "DropDownList",
+      "Button"
+    ],
+    "nativeInteractiveExceptions": []
+  },
+  "rendering": {
+    "serverRenderable": null,
+    "requiresClient": null,
+    "clientReasons": [],
+    "hydrationSensitive": null
+  },
+  "parity": {
+    "functionality": "unreviewed",
+    "states": "unreviewed",
+    "interaction": "unreviewed",
+    "keyboard": "unreviewed",
+    "accessibility": "unreviewed",
+    "responsive": "unreviewed",
+    "i18n": "unreviewed",
+    "rtl": "unreviewed",
+    "theming": "unreviewed",
+    "ssrNext": "unreviewed",
+    "performance": "unreviewed",
+    "security": "unreviewed",
+    "docs": "unreviewed"
+  },
+  "features": [
+    "views",
+    "events",
+    "resources",
+    "editing",
+    "selection",
+    "drag-drop",
+    "resize",
+    "recurrence",
+    "timezones",
+    "date-navigation",
+    "keyboard-navigation",
+    "accessibility",
+    "globalization"
+  ]
+}

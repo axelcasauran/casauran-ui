@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Component Registry Entry",
+  "type": "object",
+  "required": [
+    "name",
+    "slug",
+    "category",
+    "phase",
+    "stage",
+    "status",
+    "package",
+    "reference",
+    "composition",
+    "rendering",
+    "parity",
+    "features"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "integer"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "unreviewed",
+        "reference-analyzed",
+        "specified",
+        "api-approved",
+        "implemented",
+        "tested",
+        "documented",
+        "parity-verified",
+        "improved"
+      ]
+    }
+  }
+}

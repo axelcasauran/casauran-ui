@@ -1,0 +1,51 @@
+{
+  "name": "casauran-ui-monorepo",
+  "private": true,
+  "packageManager": "pnpm@11.17.0",
+  "engines": {
+    "node": ">=24.18.0 <27"
+  },
+  "scripts": {
+    "verify:scaffold": "node scripts/verify-scaffold.mjs",
+    "validate:registry": "node scripts/validate-registry.mjs",
+    "validate:stages": "node scripts/validate-stages.mjs",
+    "validate:dependencies": "node scripts/validate-dependencies.mjs",
+    "validate:reference": "node scripts/validate-reference-provenance.mjs",
+    "validate:docs": "node scripts/validate-doc-depth.mjs",
+    "validate:placeholders": "node scripts/validate-no-placeholders.mjs",
+    "validate:client-boundaries": "node scripts/validate-client-boundaries.mjs",
+    "validate:specs": "node scripts/validate-specs.mjs",
+    "validate:parity": "node scripts/validate-parity.mjs",
+    "generate:required-by": "node scripts/generate-required-by.mjs",
+    "format": "prettier --check .",
+    "format:write": "prettier --write .",
+    "lint": "eslint .",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "test": "pnpm -r --if-present test",
+    "test:e2e": "playwright test",
+    "architecture": "dependency-cruiser packages apps --config dependency-cruiser.config.cjs",
+    "build": "pnpm -r --if-present build",
+    "validate": "pnpm validate:static && pnpm test:e2e",
+    "validate:composition": "node scripts/validate-component-composition.mjs",
+    "validate:boundaries": "node scripts/validate-package-boundaries.mjs",
+    "validate:public-api": "node scripts/validate-public-api.mjs",
+    "validate:toolchain": "node scripts/validate-toolchain.mjs",
+    "validate:platform": "node scripts/validate-platform.mjs",
+    "validate:static": "pnpm verify:scaffold && pnpm format && pnpm lint && pnpm typecheck && pnpm architecture && pnpm test && pnpm build",
+    "validate:branding": "node scripts/validate-branding.mjs"
+  },
+  "devDependencies": {
+    "@changesets/cli": "2.31.0",
+    "@playwright/test": "1.62.0",
+    "@types/node": "24.13.3",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "dependency-cruiser": "18.1.0",
+    "eslint": "10.8.0",
+    "prettier": "3.9.6",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.65.0",
+    "vitest": "4.1.0",
+    "@eslint/js": "10.8.0"
+  }
+}

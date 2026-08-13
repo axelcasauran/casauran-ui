@@ -1,0 +1,9 @@
+{
+  "name": "recurrence",
+  "owner": "packages/recurrence",
+  "status": "planned",
+  "consumers": [
+    "Scheduler"
+  ],
+  "externalAdapterPolicy": "native-first; adapter only after dependency approval and real alternate implementation"
+}

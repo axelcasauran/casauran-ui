@@ -1,0 +1,13 @@
+{
+  "name": "internationalization",
+  "referencePath": "docs/content/intl",
+  "referenceCommit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+  "status": "unreviewed",
+  "goal": "locale/messages/number/date formatting and RTL",
+  "parity": {
+    "architecture": "unreviewed",
+    "implementation": "unreviewed",
+    "tests": "unreviewed",
+    "documentation": "unreviewed"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "@casauran/theme",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "supported CSS theme artifacts",
+  "files": [
+    "dist",
+    "src/**/*.css",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./theme.css": "./src/theme.css"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "engines": {
+    "node": ">=24.18.0 <27"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

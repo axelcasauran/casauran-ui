@@ -1,0 +1,764 @@
+{
+  "Button": {
+    "category": "buttons",
+    "path": "docs/content/buttons",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Icon": {
+    "category": "icons",
+    "path": "docs/content/icons",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "SVGIcon": {
+    "category": "icons",
+    "path": "docs/content/icons",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Typography": {
+    "category": "typography",
+    "path": "docs/content/typography",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Label": {
+    "category": "labels",
+    "path": "docs/content/labels",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Input": {
+    "category": "inputs",
+    "path": "docs/content/inputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Checkbox": {
+    "category": "inputs",
+    "path": "docs/content/inputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "RadioButton": {
+    "category": "inputs",
+    "path": "docs/content/inputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Switch": {
+    "category": "inputs",
+    "path": "docs/content/inputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Popup": {
+    "category": "popup",
+    "path": "docs/content/popup",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Tooltip": {
+    "category": "tooltip",
+    "path": "docs/content/tooltip",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Dialog": {
+    "category": "dialogs",
+    "path": "docs/content/dialogs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "ListBox": {
+    "category": "listbox",
+    "path": "docs/content/listbox",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Hint": {
+    "category": "labels",
+    "path": "docs/content/labels",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Error": {
+    "category": "labels",
+    "path": "docs/content/labels",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "FloatingLabel": {
+    "category": "labels",
+    "path": "docs/content/labels",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "TextBox": {
+    "category": "inputs",
+    "path": "docs/content/inputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "TextArea": {
+    "category": "inputs",
+    "path": "docs/content/inputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "RadioGroup": {
+    "category": "inputs",
+    "path": "docs/content/inputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "NumericTextBox": {
+    "category": "inputs",
+    "path": "docs/content/inputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "MaskedTextBox": {
+    "category": "inputs",
+    "path": "docs/content/inputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Slider": {
+    "category": "inputs",
+    "path": "docs/content/inputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "RangeSlider": {
+    "category": "inputs",
+    "path": "docs/content/inputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Rating": {
+    "category": "inputs",
+    "path": "docs/content/inputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "OTPInput": {
+    "category": "inputs",
+    "path": "docs/content/inputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Signature": {
+    "category": "inputs",
+    "path": "docs/content/inputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "ColorPalette": {
+    "category": "inputs",
+    "path": "docs/content/inputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "ColorGradient": {
+    "category": "inputs",
+    "path": "docs/content/inputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "ColorPicker": {
+    "category": "inputs",
+    "path": "docs/content/inputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "FlatColorPicker": {
+    "category": "inputs",
+    "path": "docs/content/inputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "ButtonGroup": {
+    "category": "buttons",
+    "path": "docs/content/buttons",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Chip": {
+    "category": "buttons",
+    "path": "docs/content/buttons",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "ChipList": {
+    "category": "buttons",
+    "path": "docs/content/buttons",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "SegmentedControl": {
+    "category": "buttons",
+    "path": "docs/content/buttons",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "FloatingActionButton": {
+    "category": "buttons",
+    "path": "docs/content/buttons",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "DropDownButton": {
+    "category": "buttons",
+    "path": "docs/content/buttons",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "SplitButton": {
+    "category": "buttons",
+    "path": "docs/content/buttons",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Toolbar": {
+    "category": "buttons",
+    "path": "docs/content/buttons",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Calendar": {
+    "category": "dateinputs",
+    "path": "docs/content/dateinputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "MultiViewCalendar": {
+    "category": "dateinputs",
+    "path": "docs/content/dateinputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "DateInput": {
+    "category": "dateinputs",
+    "path": "docs/content/dateinputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "TimePicker": {
+    "category": "dateinputs",
+    "path": "docs/content/dateinputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "DatePicker": {
+    "category": "dateinputs",
+    "path": "docs/content/dateinputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "DateTimePicker": {
+    "category": "dateinputs",
+    "path": "docs/content/dateinputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "DateRangePicker": {
+    "category": "dateinputs",
+    "path": "docs/content/dateinputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "TreeView": {
+    "category": "treeview",
+    "path": "docs/content/treeview",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "AutoComplete": {
+    "category": "dropdowns",
+    "path": "docs/content/dropdowns",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "DropDownList": {
+    "category": "dropdowns",
+    "path": "docs/content/dropdowns",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "ComboBox": {
+    "category": "dropdowns",
+    "path": "docs/content/dropdowns",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "MultiSelect": {
+    "category": "dropdowns",
+    "path": "docs/content/dropdowns",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "MultiColumnComboBox": {
+    "category": "dropdowns",
+    "path": "docs/content/dropdowns",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "DropDownTree": {
+    "category": "dropdowns",
+    "path": "docs/content/dropdowns",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "MultiSelectTree": {
+    "category": "dropdowns",
+    "path": "docs/content/dropdowns",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Badge": {
+    "category": "indicators",
+    "path": "docs/content/indicators",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Loader": {
+    "category": "indicators",
+    "path": "docs/content/indicators",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Skeleton": {
+    "category": "indicators",
+    "path": "docs/content/indicators",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "ProgressBar": {
+    "category": "progressbars",
+    "path": "docs/content/progressbars",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "ChunkProgressBar": {
+    "category": "progressbars",
+    "path": "docs/content/progressbars",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Avatar": {
+    "category": "layout",
+    "path": "docs/content/layout",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Card": {
+    "category": "layout",
+    "path": "docs/content/layout",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "StackLayout": {
+    "category": "layout",
+    "path": "docs/content/layout",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "GridLayout": {
+    "category": "layout",
+    "path": "docs/content/layout",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "ExpansionPanel": {
+    "category": "layout",
+    "path": "docs/content/layout",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "PanelBar": {
+    "category": "layout",
+    "path": "docs/content/layout",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Splitter": {
+    "category": "layout",
+    "path": "docs/content/layout",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "TabStrip": {
+    "category": "layout",
+    "path": "docs/content/layout",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Stepper": {
+    "category": "layout",
+    "path": "docs/content/layout",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Breadcrumb": {
+    "category": "layout",
+    "path": "docs/content/layout",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Menu": {
+    "category": "layout",
+    "path": "docs/content/layout",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "ContextMenu": {
+    "category": "layout",
+    "path": "docs/content/layout",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Drawer": {
+    "category": "layout",
+    "path": "docs/content/layout",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "AppBar": {
+    "category": "layout",
+    "path": "docs/content/layout",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "BottomNavigation": {
+    "category": "layout",
+    "path": "docs/content/layout",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "ActionSheet": {
+    "category": "layout",
+    "path": "docs/content/layout",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "TileLayout": {
+    "category": "layout",
+    "path": "docs/content/layout",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Timeline": {
+    "category": "layout",
+    "path": "docs/content/layout",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Popover": {
+    "category": "popup",
+    "path": "docs/content/popup",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Notification": {
+    "category": "notification",
+    "path": "docs/content/notification",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Window": {
+    "category": "dialogs",
+    "path": "docs/content/dialogs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Pager": {
+    "category": "datatools",
+    "path": "docs/content/datatools",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Filter": {
+    "category": "datatools",
+    "path": "docs/content/datatools",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "ListView": {
+    "category": "listview",
+    "path": "docs/content/listview",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "DataGrid": {
+    "category": "grid",
+    "path": "docs/content/grid",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "TreeList": {
+    "category": "treelist",
+    "path": "docs/content/treelist",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "OrgChart": {
+    "category": "orgchart",
+    "path": "docs/content/orgchart",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "PivotGrid": {
+    "category": "pivotgrid",
+    "path": "docs/content/pivotgrid",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Sortable": {
+    "category": "sortable",
+    "path": "docs/content/sortable",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "ScrollView": {
+    "category": "scrollview",
+    "path": "docs/content/scrollview",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "TaskBoard": {
+    "category": "taskboard",
+    "path": "docs/content/taskboard",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Scheduler": {
+    "category": "scheduler",
+    "path": "docs/content/scheduler",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Gantt": {
+    "category": "gantt",
+    "path": "docs/content/gantt",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Form": {
+    "category": "form",
+    "path": "docs/content/form",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Upload": {
+    "category": "upload",
+    "path": "docs/content/upload",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "ExternalDropZone": {
+    "category": "upload",
+    "path": "docs/content/upload",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Editor": {
+    "category": "editor",
+    "path": "docs/content/editor",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "FileSaver": {
+    "category": "common",
+    "path": "docs/content/common",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "ExcelExport": {
+    "category": "excel",
+    "path": "docs/content/excel",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "PDFProcessing": {
+    "category": "pdf",
+    "path": "docs/content/pdf",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "PDFViewer": {
+    "category": "pdf-viewer",
+    "path": "docs/content/pdf-viewer",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Expand": {
+    "category": "animation",
+    "path": "docs/content/animation",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Fade": {
+    "category": "animation",
+    "path": "docs/content/animation",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Push": {
+    "category": "animation",
+    "path": "docs/content/animation",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Reveal": {
+    "category": "animation",
+    "path": "docs/content/animation",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Slide": {
+    "category": "animation",
+    "path": "docs/content/animation",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Zoom": {
+    "category": "animation",
+    "path": "docs/content/animation",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Ripple": {
+    "category": "ripple",
+    "path": "docs/content/ripple",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Barcode": {
+    "category": "barcodes",
+    "path": "docs/content/barcodes",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "QRCode": {
+    "category": "barcodes",
+    "path": "docs/content/barcodes",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "ArcGauge": {
+    "category": "gauges",
+    "path": "docs/content/gauges",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "LinearGauge": {
+    "category": "gauges",
+    "path": "docs/content/gauges",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "RadialGauge": {
+    "category": "gauges",
+    "path": "docs/content/gauges",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "CircularGauge": {
+    "category": "gauges",
+    "path": "docs/content/gauges",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Chart": {
+    "category": "charts",
+    "path": "docs/content/charts",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Sparkline": {
+    "category": "charts",
+    "path": "docs/content/charts",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "StockChart": {
+    "category": "charts",
+    "path": "docs/content/charts",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Sankey": {
+    "category": "charts",
+    "path": "docs/content/charts",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "ChartWizard": {
+    "category": "chart-wizard",
+    "path": "docs/content/chart-wizard",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Drawing": {
+    "category": "drawing",
+    "path": "docs/content/drawing",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Diagram": {
+    "category": "diagram",
+    "path": "docs/content/diagram",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Map": {
+    "category": "map",
+    "path": "docs/content/map",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Spreadsheet": {
+    "category": "spreadsheet",
+    "path": "docs/content/spreadsheet",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "PromptBox": {
+    "category": "ai-components",
+    "path": "docs/content/ai-components",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "AIPrompt": {
+    "category": "ai-components",
+    "path": "docs/content/ai-components",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "InlineAIPrompt": {
+    "category": "ai-components",
+    "path": "docs/content/ai-components",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "Chat": {
+    "category": "ai-components",
+    "path": "docs/content/ai-components",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "SmartPasteButton": {
+    "category": "ai-tools",
+    "path": "docs/content/ai-tools",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  },
+  "SpeechToTextButton": {
+    "category": "ai-tools",
+    "path": "docs/content/ai-tools",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+    "analysisStatus": "unreviewed"
+  }
+}

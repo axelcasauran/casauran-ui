@@ -1,0 +1,11 @@
+{
+  "name": "drag-drop",
+  "owner": "packages/drag-drop",
+  "status": "planned",
+  "consumers": [
+    "Scheduler",
+    "Gantt",
+    "Diagram"
+  ],
+  "externalAdapterPolicy": "native-first; adapter only after dependency approval and real alternate implementation"
+}

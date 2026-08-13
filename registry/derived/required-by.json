@@ -1,0 +1,246 @@
+{
+  "ActionSheet": [],
+  "AIPrompt": [],
+  "AppBar": [],
+  "ArcGauge": [],
+  "AutoComplete": [],
+  "Avatar": [
+    "Chat"
+  ],
+  "Badge": [],
+  "Barcode": [],
+  "BottomNavigation": [],
+  "Breadcrumb": [],
+  "ButtonGroup": [],
+  "Button": [
+    "AIPrompt",
+    "ChartWizard",
+    "Chat",
+    "ComboBox",
+    "DatePicker",
+    "DateRangePicker",
+    "DateTimePicker",
+    "Dialog",
+    "DropDownList",
+    "DropDownTree",
+    "Editor",
+    "Gantt",
+    "InlineAIPrompt",
+    "Menu",
+    "MultiColumnComboBox",
+    "MultiSelect",
+    "MultiSelectTree",
+    "Scheduler",
+    "SmartPasteButton",
+    "SpeechToTextButton",
+    "TaskBoard",
+    "Toolbar",
+    "Upload",
+    "Window"
+  ],
+  "Calendar": [
+    "DatePicker",
+    "DateRangePicker",
+    "DateTimePicker",
+    "Scheduler"
+  ],
+  "Card": [
+    "TaskBoard"
+  ],
+  "ChartWizard": [],
+  "Chart": [
+    "ChartWizard"
+  ],
+  "Chat": [],
+  "Checkbox": [],
+  "ChipList": [
+    "MultiSelect",
+    "MultiSelectTree"
+  ],
+  "Chip": [],
+  "ChunkProgressBar": [],
+  "CircularGauge": [],
+  "ColorGradient": [],
+  "ColorPalette": [],
+  "ColorPicker": [],
+  "ComboBox": [],
+  "ContextMenu": [],
+  "DataGrid": [
+    "Gantt"
+  ],
+  "DateInput": [
+    "DateRangePicker",
+    "DateTimePicker"
+  ],
+  "DatePicker": [
+    "Gantt",
+    "Scheduler"
+  ],
+  "DateRangePicker": [],
+  "DateTimePicker": [],
+  "Diagram": [],
+  "Dialog": [
+    "ChartWizard",
+    "Scheduler"
+  ],
+  "Drawer": [],
+  "Drawing": [],
+  "DropDownButton": [],
+  "DropDownList": [
+    "Editor",
+    "Scheduler"
+  ],
+  "DropDownTree": [],
+  "Editor": [],
+  "Error": [
+    "Form"
+  ],
+  "ExcelExport": [],
+  "Expand": [],
+  "ExpansionPanel": [],
+  "ExternalDropZone": [],
+  "Fade": [],
+  "FileSaver": [],
+  "Filter": [],
+  "FlatColorPicker": [],
+  "FloatingActionButton": [],
+  "FloatingLabel": [],
+  "Form": [],
+  "Gantt": [],
+  "GridLayout": [],
+  "Hint": [
+    "Form"
+  ],
+  "Icon": [
+    "ComboBox",
+    "DatePicker",
+    "DateRangePicker",
+    "DateTimePicker",
+    "DropDownList",
+    "DropDownTree",
+    "MultiColumnComboBox",
+    "MultiSelect",
+    "MultiSelectTree",
+    "Toolbar",
+    "Window"
+  ],
+  "InlineAIPrompt": [],
+  "Input": [
+    "ComboBox",
+    "DropDownList",
+    "DropDownTree",
+    "InlineAIPrompt",
+    "MultiColumnComboBox",
+    "MultiSelect",
+    "MultiSelectTree"
+  ],
+  "Label": [
+    "Form"
+  ],
+  "LinearGauge": [],
+  "ListBox": [
+    "ComboBox",
+    "DropDownList",
+    "MultiColumnComboBox",
+    "MultiSelect"
+  ],
+  "ListView": [],
+  "Loader": [],
+  "Map": [],
+  "MaskedTextBox": [],
+  "Menu": [
+    "ContextMenu"
+  ],
+  "MultiColumnComboBox": [],
+  "MultiSelectTree": [],
+  "MultiSelect": [],
+  "MultiViewCalendar": [],
+  "Notification": [],
+  "NumericTextBox": [],
+  "OTPInput": [],
+  "OrgChart": [],
+  "Pager": [],
+  "PanelBar": [],
+  "PDFProcessing": [],
+  "PDFViewer": [],
+  "PivotGrid": [],
+  "Popover": [],
+  "Popup": [
+    "ComboBox",
+    "ContextMenu",
+    "DatePicker",
+    "DateRangePicker",
+    "DateTimePicker",
+    "DropDownList",
+    "DropDownTree",
+    "Editor",
+    "InlineAIPrompt",
+    "Menu",
+    "MultiColumnComboBox",
+    "MultiSelect",
+    "MultiSelectTree"
+  ],
+  "ProgressBar": [
+    "Upload"
+  ],
+  "PromptBox": [],
+  "Push": [],
+  "QRCode": [],
+  "RadialGauge": [],
+  "RadioButton": [],
+  "RadioGroup": [],
+  "RangeSlider": [],
+  "Rating": [],
+  "Reveal": [],
+  "Ripple": [],
+  "Sankey": [],
+  "Scheduler": [],
+  "ScrollView": [],
+  "SegmentedControl": [],
+  "Signature": [],
+  "Skeleton": [],
+  "Slide": [],
+  "Slider": [],
+  "SmartPasteButton": [],
+  "Sortable": [],
+  "Sparkline": [],
+  "SpeechToTextButton": [],
+  "SplitButton": [],
+  "Splitter": [],
+  "Spreadsheet": [],
+  "StackLayout": [],
+  "Stepper": [],
+  "StockChart": [],
+  "SVGIcon": [],
+  "Switch": [],
+  "TabStrip": [],
+  "TaskBoard": [],
+  "TextArea": [
+    "AIPrompt",
+    "Chat"
+  ],
+  "TextBox": [
+    "DatePicker"
+  ],
+  "TileLayout": [],
+  "TimePicker": [
+    "DateTimePicker",
+    "Scheduler"
+  ],
+  "Timeline": [],
+  "Toolbar": [
+    "Editor"
+  ],
+  "Tooltip": [],
+  "TreeList": [],
+  "TreeView": [
+    "DropDownTree",
+    "MultiSelectTree"
+  ],
+  "Typography": [],
+  "Upload": [
+    "ExternalDropZone"
+  ],
+  "Window": [],
+  "Zoom": []
+}

@@ -1,0 +1,7 @@
+{
+  "name": "formula",
+  "owner": "packages/formula",
+  "status": "planned",
+  "consumers": [],
+  "externalAdapterPolicy": "native-first; adapter only after dependency approval and real alternate implementation"
+}

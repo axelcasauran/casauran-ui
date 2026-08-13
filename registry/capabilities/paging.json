@@ -1,0 +1,10 @@
+{
+  "name": "paging",
+  "owner": "packages/data",
+  "status": "planned",
+  "consumers": [
+    "DataGrid",
+    "TreeList"
+  ],
+  "externalAdapterPolicy": "native-first; adapter only after dependency approval and real alternate implementation"
+}

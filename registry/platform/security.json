@@ -1,0 +1,13 @@
+{
+  "name": "security",
+  "referencePath": "docs/content/common-features/security",
+  "referenceCommit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+  "status": "unreviewed",
+  "goal": "security architecture and trust-boundary guidance",
+  "parity": {
+    "architecture": "unreviewed",
+    "implementation": "unreviewed",
+    "tests": "unreviewed",
+    "documentation": "unreviewed"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "DatePicker",
+  "slug": "date-picker",
+  "category": "dateinputs",
+  "phase": 3,
+  "stage": "3.05",
+  "status": "unreviewed",
+  "package": "@casauran/react",
+  "reference": {
+    "path": "docs/content/dateinputs",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b"
+  },
+  "composition": {
+    "uses": [
+      "TextBox",
+      "Popup",
+      "Calendar",
+      "Button",
+      "Icon"
+    ],
+    "nativeInteractiveExceptions": []
+  },
+  "rendering": {
+    "serverRenderable": null,
+    "requiresClient": null,
+    "clientReasons": [],
+    "hydrationSensitive": null
+  },
+  "parity": {
+    "functionality": "unreviewed",
+    "states": "unreviewed",
+    "interaction": "unreviewed",
+    "keyboard": "unreviewed",
+    "accessibility": "unreviewed",
+    "responsive": "unreviewed",
+    "i18n": "unreviewed",
+    "rtl": "unreviewed",
+    "theming": "unreviewed",
+    "ssrNext": "unreviewed",
+    "performance": "unreviewed",
+    "security": "unreviewed",
+    "docs": "unreviewed"
+  },
+  "features": []
+}

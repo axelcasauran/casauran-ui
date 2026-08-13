@@ -1,0 +1,59 @@
+{
+  "name": "DataGrid",
+  "slug": "data-grid",
+  "category": "grid",
+  "phase": 5,
+  "stage": "5.04",
+  "status": "unreviewed",
+  "package": "@casauran/react",
+  "reference": {
+    "path": "docs/content/grid",
+    "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b"
+  },
+  "composition": {
+    "uses": [],
+    "nativeInteractiveExceptions": []
+  },
+  "rendering": {
+    "serverRenderable": null,
+    "requiresClient": null,
+    "clientReasons": [],
+    "hydrationSensitive": null
+  },
+  "parity": {
+    "functionality": "unreviewed",
+    "states": "unreviewed",
+    "interaction": "unreviewed",
+    "keyboard": "unreviewed",
+    "accessibility": "unreviewed",
+    "responsive": "unreviewed",
+    "i18n": "unreviewed",
+    "rtl": "unreviewed",
+    "theming": "unreviewed",
+    "ssrNext": "unreviewed",
+    "performance": "unreviewed",
+    "security": "unreviewed",
+    "docs": "unreviewed"
+  },
+  "features": [
+    "adaptive-rendering",
+    "accessibility",
+    "cells",
+    "columns",
+    "sorting",
+    "filtering",
+    "grouping",
+    "aggregates",
+    "paging",
+    "selection",
+    "editing",
+    "hierarchy",
+    "virtualization",
+    "keyboard-navigation",
+    "globalization",
+    "export",
+    "column-resize",
+    "column-reorder",
+    "column-locking"
+  ]
+}

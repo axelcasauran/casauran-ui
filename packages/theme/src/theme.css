@@ -1,0 +1,21 @@
+@layer reset, tokens, base, components, utilities, overrides;
+
+@layer tokens {
+  :root {
+    --csn-space-1: 0.25rem;
+    --csn-space-2: 0.5rem;
+    --csn-space-3: 0.75rem;
+    --csn-space-4: 1rem;
+    --csn-radius-sm: 0.25rem;
+    --csn-radius-md: 0.5rem;
+    --csn-surface-canvas: Canvas;
+    --csn-text-primary: CanvasText;
+    --csn-focus-ring: Highlight;
+    --csn-motion-scale: 1;
+    --csn-density-scale: 1;
+  }
+  [data-theme='dark'] { color-scheme: dark; }
+  [data-density='compact'] { --csn-density-scale: 0.875; }
+}
+@media (prefers-reduced-motion: reduce) { :root { --csn-motion-scale: 0; } }
+@media (forced-colors: active) { :root { --csn-focus-ring: Highlight; } }

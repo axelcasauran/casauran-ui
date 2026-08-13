@@ -1,0 +1,13 @@
+{
+  "name": "web-ai-tooling",
+  "referencePath": "docs/content/webmcp",
+  "referenceCommit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+  "status": "unreviewed",
+  "goal": "web-exposed AI tool/integration capability tracking",
+  "parity": {
+    "architecture": "unreviewed",
+    "implementation": "unreviewed",
+    "tests": "unreviewed",
+    "documentation": "unreviewed"
+  }
+}

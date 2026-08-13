@@ -1,0 +1,11 @@
+{
+  "name": "export",
+  "owner": "packages/export",
+  "status": "planned",
+  "consumers": [
+    "DataGrid",
+    "TreeList",
+    "Chart"
+  ],
+  "externalAdapterPolicy": "native-first; adapter only after dependency approval and real alternate implementation"
+}

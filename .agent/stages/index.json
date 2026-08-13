@@ -1,0 +1,1326 @@
+[
+  {
+    "id": "F0.01",
+    "phase": 0,
+    "type": "foundation",
+    "title": "Repository Governance",
+    "status": "not-started"
+  },
+  {
+    "id": "F0.02",
+    "phase": 0,
+    "type": "foundation",
+    "title": "Agent Operating System",
+    "status": "not-started"
+  },
+  {
+    "id": "F0.03",
+    "phase": 0,
+    "type": "foundation",
+    "title": "Mechanical Governance",
+    "status": "not-started"
+  },
+  {
+    "id": "F0.04",
+    "phase": 0,
+    "type": "foundation",
+    "title": "Build and Test Infrastructure",
+    "status": "not-started"
+  },
+  {
+    "id": "F0.05",
+    "phase": 0,
+    "type": "foundation",
+    "title": "Tokens",
+    "status": "not-started"
+  },
+  {
+    "id": "F0.06",
+    "phase": 0,
+    "type": "foundation",
+    "title": "CSS and Theme Runtime",
+    "status": "not-started"
+  },
+  {
+    "id": "F0.07",
+    "phase": 0,
+    "type": "foundation",
+    "title": "Accessibility Foundation",
+    "status": "not-started"
+  },
+  {
+    "id": "F0.08",
+    "phase": 0,
+    "type": "foundation",
+    "title": "React State Foundation",
+    "status": "not-started"
+  },
+  {
+    "id": "F0.09",
+    "phase": 0,
+    "type": "foundation",
+    "title": "Collection Engine",
+    "status": "not-started"
+  },
+  {
+    "id": "F0.10",
+    "phase": 0,
+    "type": "foundation",
+    "title": "Overlay Foundation",
+    "status": "not-started"
+  },
+  {
+    "id": "F0.11",
+    "phase": 0,
+    "type": "foundation",
+    "title": "Animation Foundation",
+    "status": "not-started"
+  },
+  {
+    "id": "F0.12",
+    "phase": 0,
+    "type": "foundation",
+    "title": "Data Engine",
+    "status": "not-started"
+  },
+  {
+    "id": "F0.13",
+    "phase": 0,
+    "type": "foundation",
+    "title": "Internationalization",
+    "status": "not-started"
+  },
+  {
+    "id": "F0.14",
+    "phase": 0,
+    "type": "foundation",
+    "title": "Date Math",
+    "status": "not-started"
+  },
+  {
+    "id": "F0.15",
+    "phase": 0,
+    "type": "foundation",
+    "title": "Virtualization",
+    "status": "not-started"
+  },
+  {
+    "id": "F0.16",
+    "phase": 0,
+    "type": "foundation",
+    "title": "Drag and Drop",
+    "status": "not-started"
+  },
+  {
+    "id": "F0.17",
+    "phase": 0,
+    "type": "foundation",
+    "title": "Reference Baseline",
+    "status": "not-started"
+  },
+  {
+    "id": "1.01",
+    "phase": 1,
+    "type": "public-component",
+    "title": "Button",
+    "component": "Button",
+    "status": "not-started"
+  },
+  {
+    "id": "1.02",
+    "phase": 1,
+    "type": "public-component",
+    "title": "Icon",
+    "component": "Icon",
+    "status": "not-started"
+  },
+  {
+    "id": "1.03",
+    "phase": 1,
+    "type": "public-component",
+    "title": "SVGIcon",
+    "component": "SVGIcon",
+    "status": "not-started"
+  },
+  {
+    "id": "1.04",
+    "phase": 1,
+    "type": "public-component",
+    "title": "Typography",
+    "component": "Typography",
+    "status": "not-started"
+  },
+  {
+    "id": "1.05",
+    "phase": 1,
+    "type": "public-component",
+    "title": "Label",
+    "component": "Label",
+    "status": "not-started"
+  },
+  {
+    "id": "1.06",
+    "phase": 1,
+    "type": "public-component",
+    "title": "Input",
+    "component": "Input",
+    "status": "not-started"
+  },
+  {
+    "id": "1.07",
+    "phase": 1,
+    "type": "public-component",
+    "title": "Checkbox",
+    "component": "Checkbox",
+    "status": "not-started"
+  },
+  {
+    "id": "1.08",
+    "phase": 1,
+    "type": "public-component",
+    "title": "RadioButton",
+    "component": "RadioButton",
+    "status": "not-started"
+  },
+  {
+    "id": "1.09",
+    "phase": 1,
+    "type": "public-component",
+    "title": "Switch",
+    "component": "Switch",
+    "status": "not-started"
+  },
+  {
+    "id": "1.10",
+    "phase": 1,
+    "type": "public-component",
+    "title": "Popup",
+    "component": "Popup",
+    "status": "not-started"
+  },
+  {
+    "id": "1.11",
+    "phase": 1,
+    "type": "public-component",
+    "title": "Tooltip",
+    "component": "Tooltip",
+    "status": "not-started"
+  },
+  {
+    "id": "1.12",
+    "phase": 1,
+    "type": "public-component",
+    "title": "Dialog",
+    "component": "Dialog",
+    "status": "not-started"
+  },
+  {
+    "id": "1.13",
+    "phase": 1,
+    "type": "public-component",
+    "title": "ListBox",
+    "component": "ListBox",
+    "status": "not-started"
+  },
+  {
+    "id": "2.01",
+    "phase": 2,
+    "type": "public-component",
+    "title": "Hint",
+    "component": "Hint",
+    "status": "not-started"
+  },
+  {
+    "id": "2.02",
+    "phase": 2,
+    "type": "public-component",
+    "title": "Error",
+    "component": "Error",
+    "status": "not-started"
+  },
+  {
+    "id": "2.03",
+    "phase": 2,
+    "type": "public-component",
+    "title": "FloatingLabel",
+    "component": "FloatingLabel",
+    "status": "not-started"
+  },
+  {
+    "id": "2.04",
+    "phase": 2,
+    "type": "public-component",
+    "title": "TextBox",
+    "component": "TextBox",
+    "status": "not-started"
+  },
+  {
+    "id": "2.05",
+    "phase": 2,
+    "type": "public-component",
+    "title": "TextArea",
+    "component": "TextArea",
+    "status": "not-started"
+  },
+  {
+    "id": "2.06",
+    "phase": 2,
+    "type": "public-component",
+    "title": "RadioGroup",
+    "component": "RadioGroup",
+    "status": "not-started"
+  },
+  {
+    "id": "2.07",
+    "phase": 2,
+    "type": "public-component",
+    "title": "NumericTextBox",
+    "component": "NumericTextBox",
+    "status": "not-started"
+  },
+  {
+    "id": "2.08",
+    "phase": 2,
+    "type": "public-component",
+    "title": "MaskedTextBox",
+    "component": "MaskedTextBox",
+    "status": "not-started"
+  },
+  {
+    "id": "2.09",
+    "phase": 2,
+    "type": "public-component",
+    "title": "Slider",
+    "component": "Slider",
+    "status": "not-started"
+  },
+  {
+    "id": "2.10",
+    "phase": 2,
+    "type": "public-component",
+    "title": "RangeSlider",
+    "component": "RangeSlider",
+    "status": "not-started"
+  },
+  {
+    "id": "2.11",
+    "phase": 2,
+    "type": "public-component",
+    "title": "Rating",
+    "component": "Rating",
+    "status": "not-started"
+  },
+  {
+    "id": "2.12",
+    "phase": 2,
+    "type": "public-component",
+    "title": "OTPInput",
+    "component": "OTPInput",
+    "status": "not-started"
+  },
+  {
+    "id": "2.13",
+    "phase": 2,
+    "type": "public-component",
+    "title": "Signature",
+    "component": "Signature",
+    "status": "not-started"
+  },
+  {
+    "id": "2.14",
+    "phase": 2,
+    "type": "public-component",
+    "title": "ColorPalette",
+    "component": "ColorPalette",
+    "status": "not-started"
+  },
+  {
+    "id": "2.15",
+    "phase": 2,
+    "type": "public-component",
+    "title": "ColorGradient",
+    "component": "ColorGradient",
+    "status": "not-started"
+  },
+  {
+    "id": "2.16",
+    "phase": 2,
+    "type": "public-component",
+    "title": "ColorPicker",
+    "component": "ColorPicker",
+    "status": "not-started"
+  },
+  {
+    "id": "2.17",
+    "phase": 2,
+    "type": "public-component",
+    "title": "FlatColorPicker",
+    "component": "FlatColorPicker",
+    "status": "not-started"
+  },
+  {
+    "id": "2.18",
+    "phase": 2,
+    "type": "public-component",
+    "title": "ButtonGroup",
+    "component": "ButtonGroup",
+    "status": "not-started"
+  },
+  {
+    "id": "2.19",
+    "phase": 2,
+    "type": "public-component",
+    "title": "Chip",
+    "component": "Chip",
+    "status": "not-started"
+  },
+  {
+    "id": "2.20",
+    "phase": 2,
+    "type": "public-component",
+    "title": "ChipList",
+    "component": "ChipList",
+    "status": "not-started"
+  },
+  {
+    "id": "2.21",
+    "phase": 2,
+    "type": "public-component",
+    "title": "SegmentedControl",
+    "component": "SegmentedControl",
+    "status": "not-started"
+  },
+  {
+    "id": "2.22",
+    "phase": 2,
+    "type": "public-component",
+    "title": "FloatingActionButton",
+    "component": "FloatingActionButton",
+    "status": "not-started"
+  },
+  {
+    "id": "2.23",
+    "phase": 2,
+    "type": "public-component",
+    "title": "DropDownButton",
+    "component": "DropDownButton",
+    "status": "not-started"
+  },
+  {
+    "id": "2.24",
+    "phase": 2,
+    "type": "public-component",
+    "title": "SplitButton",
+    "component": "SplitButton",
+    "status": "not-started"
+  },
+  {
+    "id": "2.25",
+    "phase": 2,
+    "type": "public-component",
+    "title": "Toolbar",
+    "component": "Toolbar",
+    "status": "not-started"
+  },
+  {
+    "id": "3.01",
+    "phase": 3,
+    "type": "public-component",
+    "title": "Calendar",
+    "component": "Calendar",
+    "status": "not-started"
+  },
+  {
+    "id": "3.02",
+    "phase": 3,
+    "type": "public-component",
+    "title": "MultiViewCalendar",
+    "component": "MultiViewCalendar",
+    "status": "not-started"
+  },
+  {
+    "id": "3.03",
+    "phase": 3,
+    "type": "public-component",
+    "title": "DateInput",
+    "component": "DateInput",
+    "status": "not-started"
+  },
+  {
+    "id": "3.04",
+    "phase": 3,
+    "type": "public-component",
+    "title": "TimePicker",
+    "component": "TimePicker",
+    "status": "not-started"
+  },
+  {
+    "id": "3.05",
+    "phase": 3,
+    "type": "public-component",
+    "title": "DatePicker",
+    "component": "DatePicker",
+    "status": "not-started"
+  },
+  {
+    "id": "3.06",
+    "phase": 3,
+    "type": "public-component",
+    "title": "DateTimePicker",
+    "component": "DateTimePicker",
+    "status": "not-started"
+  },
+  {
+    "id": "3.07",
+    "phase": 3,
+    "type": "public-component",
+    "title": "DateRangePicker",
+    "component": "DateRangePicker",
+    "status": "not-started"
+  },
+  {
+    "id": "3.08",
+    "phase": 3,
+    "type": "public-component",
+    "title": "TreeView",
+    "component": "TreeView",
+    "status": "not-started"
+  },
+  {
+    "id": "3.09",
+    "phase": 3,
+    "type": "public-component",
+    "title": "AutoComplete",
+    "component": "AutoComplete",
+    "status": "not-started"
+  },
+  {
+    "id": "3.10",
+    "phase": 3,
+    "type": "public-component",
+    "title": "DropDownList",
+    "component": "DropDownList",
+    "status": "not-started"
+  },
+  {
+    "id": "3.11",
+    "phase": 3,
+    "type": "public-component",
+    "title": "ComboBox",
+    "component": "ComboBox",
+    "status": "not-started"
+  },
+  {
+    "id": "3.12",
+    "phase": 3,
+    "type": "public-component",
+    "title": "MultiSelect",
+    "component": "MultiSelect",
+    "status": "not-started"
+  },
+  {
+    "id": "3.13",
+    "phase": 3,
+    "type": "public-component",
+    "title": "MultiColumnComboBox",
+    "component": "MultiColumnComboBox",
+    "status": "not-started"
+  },
+  {
+    "id": "3.14",
+    "phase": 3,
+    "type": "public-component",
+    "title": "DropDownTree",
+    "component": "DropDownTree",
+    "status": "not-started"
+  },
+  {
+    "id": "3.15",
+    "phase": 3,
+    "type": "public-component",
+    "title": "MultiSelectTree",
+    "component": "MultiSelectTree",
+    "status": "not-started"
+  },
+  {
+    "id": "4.01",
+    "phase": 4,
+    "type": "public-component",
+    "title": "Badge",
+    "component": "Badge",
+    "status": "not-started"
+  },
+  {
+    "id": "4.02",
+    "phase": 4,
+    "type": "public-component",
+    "title": "Loader",
+    "component": "Loader",
+    "status": "not-started"
+  },
+  {
+    "id": "4.03",
+    "phase": 4,
+    "type": "public-component",
+    "title": "Skeleton",
+    "component": "Skeleton",
+    "status": "not-started"
+  },
+  {
+    "id": "4.04",
+    "phase": 4,
+    "type": "public-component",
+    "title": "ProgressBar",
+    "component": "ProgressBar",
+    "status": "not-started"
+  },
+  {
+    "id": "4.05",
+    "phase": 4,
+    "type": "public-component",
+    "title": "ChunkProgressBar",
+    "component": "ChunkProgressBar",
+    "status": "not-started"
+  },
+  {
+    "id": "4.06",
+    "phase": 4,
+    "type": "public-component",
+    "title": "Avatar",
+    "component": "Avatar",
+    "status": "not-started"
+  },
+  {
+    "id": "4.07",
+    "phase": 4,
+    "type": "public-component",
+    "title": "Card",
+    "component": "Card",
+    "status": "not-started"
+  },
+  {
+    "id": "4.08",
+    "phase": 4,
+    "type": "public-component",
+    "title": "StackLayout",
+    "component": "StackLayout",
+    "status": "not-started"
+  },
+  {
+    "id": "4.09",
+    "phase": 4,
+    "type": "public-component",
+    "title": "GridLayout",
+    "component": "GridLayout",
+    "status": "not-started"
+  },
+  {
+    "id": "4.10",
+    "phase": 4,
+    "type": "public-component",
+    "title": "ExpansionPanel",
+    "component": "ExpansionPanel",
+    "status": "not-started"
+  },
+  {
+    "id": "4.11",
+    "phase": 4,
+    "type": "public-component",
+    "title": "PanelBar",
+    "component": "PanelBar",
+    "status": "not-started"
+  },
+  {
+    "id": "4.12",
+    "phase": 4,
+    "type": "public-component",
+    "title": "Splitter",
+    "component": "Splitter",
+    "status": "not-started"
+  },
+  {
+    "id": "4.13",
+    "phase": 4,
+    "type": "public-component",
+    "title": "TabStrip",
+    "component": "TabStrip",
+    "status": "not-started"
+  },
+  {
+    "id": "4.14",
+    "phase": 4,
+    "type": "public-component",
+    "title": "Stepper",
+    "component": "Stepper",
+    "status": "not-started"
+  },
+  {
+    "id": "4.15",
+    "phase": 4,
+    "type": "public-component",
+    "title": "Breadcrumb",
+    "component": "Breadcrumb",
+    "status": "not-started"
+  },
+  {
+    "id": "4.16",
+    "phase": 4,
+    "type": "public-component",
+    "title": "Menu",
+    "component": "Menu",
+    "status": "not-started"
+  },
+  {
+    "id": "4.17",
+    "phase": 4,
+    "type": "public-component",
+    "title": "ContextMenu",
+    "component": "ContextMenu",
+    "status": "not-started"
+  },
+  {
+    "id": "4.18",
+    "phase": 4,
+    "type": "public-component",
+    "title": "Drawer",
+    "component": "Drawer",
+    "status": "not-started"
+  },
+  {
+    "id": "4.19",
+    "phase": 4,
+    "type": "public-component",
+    "title": "AppBar",
+    "component": "AppBar",
+    "status": "not-started"
+  },
+  {
+    "id": "4.20",
+    "phase": 4,
+    "type": "public-component",
+    "title": "BottomNavigation",
+    "component": "BottomNavigation",
+    "status": "not-started"
+  },
+  {
+    "id": "4.21",
+    "phase": 4,
+    "type": "public-component",
+    "title": "ActionSheet",
+    "component": "ActionSheet",
+    "status": "not-started"
+  },
+  {
+    "id": "4.22",
+    "phase": 4,
+    "type": "public-component",
+    "title": "TileLayout",
+    "component": "TileLayout",
+    "status": "not-started"
+  },
+  {
+    "id": "4.23",
+    "phase": 4,
+    "type": "public-component",
+    "title": "Timeline",
+    "component": "Timeline",
+    "status": "not-started"
+  },
+  {
+    "id": "4.24",
+    "phase": 4,
+    "type": "public-component",
+    "title": "Popover",
+    "component": "Popover",
+    "status": "not-started"
+  },
+  {
+    "id": "4.25",
+    "phase": 4,
+    "type": "public-component",
+    "title": "Notification",
+    "component": "Notification",
+    "status": "not-started"
+  },
+  {
+    "id": "4.26",
+    "phase": 4,
+    "type": "public-component",
+    "title": "Window",
+    "component": "Window",
+    "status": "not-started"
+  },
+  {
+    "id": "5.01",
+    "phase": 5,
+    "type": "public-component",
+    "title": "Pager",
+    "component": "Pager",
+    "status": "not-started"
+  },
+  {
+    "id": "5.02",
+    "phase": 5,
+    "type": "public-component",
+    "title": "Filter",
+    "component": "Filter",
+    "status": "not-started"
+  },
+  {
+    "id": "5.03",
+    "phase": 5,
+    "type": "public-component",
+    "title": "ListView",
+    "component": "ListView",
+    "status": "not-started"
+  },
+  {
+    "id": "5.04",
+    "phase": 5,
+    "type": "public-component",
+    "title": "DataGrid",
+    "component": "DataGrid",
+    "status": "not-started"
+  },
+  {
+    "id": "5.05",
+    "phase": 5,
+    "type": "public-component",
+    "title": "TreeList",
+    "component": "TreeList",
+    "status": "not-started"
+  },
+  {
+    "id": "5.06",
+    "phase": 5,
+    "type": "public-component",
+    "title": "OrgChart",
+    "component": "OrgChart",
+    "status": "not-started"
+  },
+  {
+    "id": "5.07",
+    "phase": 5,
+    "type": "public-component",
+    "title": "PivotGrid",
+    "component": "PivotGrid",
+    "status": "not-started"
+  },
+  {
+    "id": "6.01",
+    "phase": 6,
+    "type": "public-component",
+    "title": "Sortable",
+    "component": "Sortable",
+    "status": "not-started"
+  },
+  {
+    "id": "6.02",
+    "phase": 6,
+    "type": "public-component",
+    "title": "ScrollView",
+    "component": "ScrollView",
+    "status": "not-started"
+  },
+  {
+    "id": "6.03",
+    "phase": 6,
+    "type": "public-component",
+    "title": "TaskBoard",
+    "component": "TaskBoard",
+    "status": "not-started"
+  },
+  {
+    "id": "6.04",
+    "phase": 6,
+    "type": "public-component",
+    "title": "Scheduler",
+    "component": "Scheduler",
+    "status": "not-started"
+  },
+  {
+    "id": "6.05",
+    "phase": 6,
+    "type": "public-component",
+    "title": "Gantt",
+    "component": "Gantt",
+    "status": "not-started"
+  },
+  {
+    "id": "7.01",
+    "phase": 7,
+    "type": "public-component",
+    "title": "Form",
+    "component": "Form",
+    "status": "not-started"
+  },
+  {
+    "id": "7.02",
+    "phase": 7,
+    "type": "public-component",
+    "title": "Upload",
+    "component": "Upload",
+    "status": "not-started"
+  },
+  {
+    "id": "7.03",
+    "phase": 7,
+    "type": "public-component",
+    "title": "ExternalDropZone",
+    "component": "ExternalDropZone",
+    "status": "not-started"
+  },
+  {
+    "id": "7.04",
+    "phase": 7,
+    "type": "public-component",
+    "title": "Editor",
+    "component": "Editor",
+    "status": "not-started"
+  },
+  {
+    "id": "7.05",
+    "phase": 7,
+    "type": "public-component",
+    "title": "FileSaver",
+    "component": "FileSaver",
+    "status": "not-started"
+  },
+  {
+    "id": "7.06",
+    "phase": 7,
+    "type": "public-component",
+    "title": "ExcelExport",
+    "component": "ExcelExport",
+    "status": "not-started"
+  },
+  {
+    "id": "7.07",
+    "phase": 7,
+    "type": "public-component",
+    "title": "PDFProcessing",
+    "component": "PDFProcessing",
+    "status": "not-started"
+  },
+  {
+    "id": "7.08",
+    "phase": 7,
+    "type": "public-component",
+    "title": "PDFViewer",
+    "component": "PDFViewer",
+    "status": "not-started"
+  },
+  {
+    "id": "8.01",
+    "phase": 8,
+    "type": "public-component",
+    "title": "Expand",
+    "component": "Expand",
+    "status": "not-started"
+  },
+  {
+    "id": "8.02",
+    "phase": 8,
+    "type": "public-component",
+    "title": "Fade",
+    "component": "Fade",
+    "status": "not-started"
+  },
+  {
+    "id": "8.03",
+    "phase": 8,
+    "type": "public-component",
+    "title": "Push",
+    "component": "Push",
+    "status": "not-started"
+  },
+  {
+    "id": "8.04",
+    "phase": 8,
+    "type": "public-component",
+    "title": "Reveal",
+    "component": "Reveal",
+    "status": "not-started"
+  },
+  {
+    "id": "8.05",
+    "phase": 8,
+    "type": "public-component",
+    "title": "Slide",
+    "component": "Slide",
+    "status": "not-started"
+  },
+  {
+    "id": "8.06",
+    "phase": 8,
+    "type": "public-component",
+    "title": "Zoom",
+    "component": "Zoom",
+    "status": "not-started"
+  },
+  {
+    "id": "8.07",
+    "phase": 8,
+    "type": "public-component",
+    "title": "Ripple",
+    "component": "Ripple",
+    "status": "not-started"
+  },
+  {
+    "id": "8.08",
+    "phase": 8,
+    "type": "public-component",
+    "title": "Barcode",
+    "component": "Barcode",
+    "status": "not-started"
+  },
+  {
+    "id": "8.09",
+    "phase": 8,
+    "type": "public-component",
+    "title": "QRCode",
+    "component": "QRCode",
+    "status": "not-started"
+  },
+  {
+    "id": "8.10",
+    "phase": 8,
+    "type": "public-component",
+    "title": "ArcGauge",
+    "component": "ArcGauge",
+    "status": "not-started"
+  },
+  {
+    "id": "8.11",
+    "phase": 8,
+    "type": "public-component",
+    "title": "LinearGauge",
+    "component": "LinearGauge",
+    "status": "not-started"
+  },
+  {
+    "id": "8.12",
+    "phase": 8,
+    "type": "public-component",
+    "title": "RadialGauge",
+    "component": "RadialGauge",
+    "status": "not-started"
+  },
+  {
+    "id": "8.13",
+    "phase": 8,
+    "type": "public-component",
+    "title": "CircularGauge",
+    "component": "CircularGauge",
+    "status": "not-started"
+  },
+  {
+    "id": "8.14",
+    "phase": 8,
+    "type": "public-component",
+    "title": "Chart",
+    "component": "Chart",
+    "status": "not-started"
+  },
+  {
+    "id": "8.15",
+    "phase": 8,
+    "type": "public-component",
+    "title": "Sparkline",
+    "component": "Sparkline",
+    "status": "not-started"
+  },
+  {
+    "id": "8.16",
+    "phase": 8,
+    "type": "public-component",
+    "title": "StockChart",
+    "component": "StockChart",
+    "status": "not-started"
+  },
+  {
+    "id": "8.17",
+    "phase": 8,
+    "type": "public-component",
+    "title": "Sankey",
+    "component": "Sankey",
+    "status": "not-started"
+  },
+  {
+    "id": "8.18",
+    "phase": 8,
+    "type": "public-component",
+    "title": "ChartWizard",
+    "component": "ChartWizard",
+    "status": "not-started"
+  },
+  {
+    "id": "8.19",
+    "phase": 8,
+    "type": "public-component",
+    "title": "Drawing",
+    "component": "Drawing",
+    "status": "not-started"
+  },
+  {
+    "id": "8.20",
+    "phase": 8,
+    "type": "public-component",
+    "title": "Diagram",
+    "component": "Diagram",
+    "status": "not-started"
+  },
+  {
+    "id": "8.21",
+    "phase": 8,
+    "type": "public-component",
+    "title": "Map",
+    "component": "Map",
+    "status": "not-started"
+  },
+  {
+    "id": "9.01",
+    "phase": 9,
+    "type": "public-component",
+    "title": "Spreadsheet",
+    "component": "Spreadsheet",
+    "status": "not-started"
+  },
+  {
+    "id": "10.01",
+    "phase": 10,
+    "type": "public-component",
+    "title": "PromptBox",
+    "component": "PromptBox",
+    "status": "not-started"
+  },
+  {
+    "id": "10.02",
+    "phase": 10,
+    "type": "public-component",
+    "title": "AIPrompt",
+    "component": "AIPrompt",
+    "status": "not-started"
+  },
+  {
+    "id": "10.03",
+    "phase": 10,
+    "type": "public-component",
+    "title": "InlineAIPrompt",
+    "component": "InlineAIPrompt",
+    "status": "not-started"
+  },
+  {
+    "id": "10.04",
+    "phase": 10,
+    "type": "public-component",
+    "title": "Chat",
+    "component": "Chat",
+    "status": "not-started"
+  },
+  {
+    "id": "10.05",
+    "phase": 10,
+    "type": "public-component",
+    "title": "SmartPasteButton",
+    "component": "SmartPasteButton",
+    "status": "not-started"
+  },
+  {
+    "id": "10.06",
+    "phase": 10,
+    "type": "public-component",
+    "title": "SpeechToTextButton",
+    "component": "SpeechToTextButton",
+    "status": "not-started"
+  },
+  {
+    "id": "11.01",
+    "phase": 11,
+    "type": "pattern",
+    "title": "SearchForm",
+    "status": "not-started"
+  },
+  {
+    "id": "11.02",
+    "phase": 11,
+    "type": "pattern",
+    "title": "FilterPanel",
+    "status": "not-started"
+  },
+  {
+    "id": "11.03",
+    "phase": 11,
+    "type": "pattern",
+    "title": "CommandPalette",
+    "status": "not-started"
+  },
+  {
+    "id": "11.04",
+    "phase": 11,
+    "type": "pattern",
+    "title": "MasterDetail",
+    "status": "not-started"
+  },
+  {
+    "id": "11.05",
+    "phase": 11,
+    "type": "pattern",
+    "title": "EditableDataTable",
+    "status": "not-started"
+  },
+  {
+    "id": "11.06",
+    "phase": 11,
+    "type": "pattern",
+    "title": "Wizard",
+    "status": "not-started"
+  },
+  {
+    "id": "11.07",
+    "phase": 11,
+    "type": "pattern",
+    "title": "PropertyPanel",
+    "status": "not-started"
+  },
+  {
+    "id": "11.08",
+    "phase": 11,
+    "type": "pattern",
+    "title": "DateRangeFilter",
+    "status": "not-started"
+  },
+  {
+    "id": "11.09",
+    "phase": 11,
+    "type": "pattern",
+    "title": "BulkActionBar",
+    "status": "not-started"
+  },
+  {
+    "id": "11.10",
+    "phase": 11,
+    "type": "pattern",
+    "title": "SettingsPanel",
+    "status": "not-started"
+  },
+  {
+    "id": "12.01",
+    "phase": 12,
+    "type": "block",
+    "title": "AppShell",
+    "status": "not-started"
+  },
+  {
+    "id": "12.02",
+    "phase": 12,
+    "type": "block",
+    "title": "AdminSidebar",
+    "status": "not-started"
+  },
+  {
+    "id": "12.03",
+    "phase": 12,
+    "type": "block",
+    "title": "DashboardHeader",
+    "status": "not-started"
+  },
+  {
+    "id": "12.04",
+    "phase": 12,
+    "type": "block",
+    "title": "KPIGrid",
+    "status": "not-started"
+  },
+  {
+    "id": "12.05",
+    "phase": 12,
+    "type": "block",
+    "title": "AnalyticsDashboard",
+    "status": "not-started"
+  },
+  {
+    "id": "12.06",
+    "phase": 12,
+    "type": "block",
+    "title": "DataManagementScreen",
+    "status": "not-started"
+  },
+  {
+    "id": "12.07",
+    "phase": 12,
+    "type": "block",
+    "title": "AuthenticationScreen",
+    "status": "not-started"
+  },
+  {
+    "id": "12.08",
+    "phase": 12,
+    "type": "block",
+    "title": "PricingSection",
+    "status": "not-started"
+  },
+  {
+    "id": "12.09",
+    "phase": 12,
+    "type": "block",
+    "title": "ProfileSettings",
+    "status": "not-started"
+  },
+  {
+    "id": "12.10",
+    "phase": 12,
+    "type": "block",
+    "title": "NotificationCenter",
+    "status": "not-started"
+  },
+  {
+    "id": "13.01",
+    "phase": 13,
+    "type": "template",
+    "title": "Analytics",
+    "status": "not-started"
+  },
+  {
+    "id": "13.02",
+    "phase": 13,
+    "type": "template",
+    "title": "CRM",
+    "status": "not-started"
+  },
+  {
+    "id": "13.03",
+    "phase": 13,
+    "type": "template",
+    "title": "ERP",
+    "status": "not-started"
+  },
+  {
+    "id": "13.04",
+    "phase": 13,
+    "type": "template",
+    "title": "CMS",
+    "status": "not-started"
+  },
+  {
+    "id": "13.05",
+    "phase": 13,
+    "type": "template",
+    "title": "Ecommerce",
+    "status": "not-started"
+  },
+  {
+    "id": "13.06",
+    "phase": 13,
+    "type": "template",
+    "title": "ProjectManagement",
+    "status": "not-started"
+  },
+  {
+    "id": "14.01",
+    "phase": 14,
+    "type": "certification",
+    "title": "Enterprise 1.0 Certification",
+    "status": "not-started"
+  }
+]

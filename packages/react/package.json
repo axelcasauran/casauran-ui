@@ -1,0 +1,46 @@
+{
+  "name": "@casauran/react",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "supported React component surface",
+  "files": [
+    "dist",
+    "src/**/*.css",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "engines": {
+    "node": ">=24.18.0 <27"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "dependencies": {
+    "@casauran-internal/core": "workspace:*",
+    "@casauran-internal/accessibility": "workspace:*",
+    "@casauran-internal/events": "workspace:*",
+    "@casauran-internal/collections": "workspace:*",
+    "@casauran-internal/overlay": "workspace:*",
+    "@casauran-internal/positioning": "workspace:*",
+    "@casauran-internal/i18n": "workspace:*",
+    "@casauran-internal/date-math": "workspace:*",
+    "@casauran-internal/animation": "workspace:*"
+  }
+}

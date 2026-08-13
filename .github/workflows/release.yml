@@ -1,0 +1,14 @@
+name: Release Preparation
+on: { workflow_dispatch: {} }
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '24.18.0' }
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm validate
+      - run: pnpm changeset status
+      - run: echo "Publishing intentionally disabled until registry credentials and release policy are configured."

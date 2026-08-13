@@ -1,0 +1,17 @@
+{
+  "name": "accessibility",
+  "owner": "packages/accessibility",
+  "status": "planned",
+  "consumers": [
+    "DataGrid",
+    "PivotGrid",
+    "Scheduler",
+    "Gantt",
+    "Editor",
+    "Chart",
+    "Diagram",
+    "Map",
+    "Spreadsheet"
+  ],
+  "externalAdapterPolicy": "native-first; adapter only after dependency approval and real alternate implementation"
+}

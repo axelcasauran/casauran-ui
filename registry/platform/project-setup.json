@@ -1,0 +1,13 @@
+{
+  "name": "project-setup",
+  "referencePath": "docs/content/project-setup",
+  "referenceCommit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+  "status": "unreviewed",
+  "goal": "installation/setup/consumer integration",
+  "parity": {
+    "architecture": "unreviewed",
+    "implementation": "unreviewed",
+    "tests": "unreviewed",
+    "documentation": "unreviewed"
+  }
+}

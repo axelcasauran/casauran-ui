@@ -1,0 +1,13 @@
+{
+  "name": "troubleshooting",
+  "referencePath": "docs/content/troubleshooting",
+  "referenceCommit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+  "status": "unreviewed",
+  "goal": "diagnostics and known-issue documentation",
+  "parity": {
+    "architecture": "unreviewed",
+    "implementation": "unreviewed",
+    "tests": "unreviewed",
+    "documentation": "unreviewed"
+  }
+}
