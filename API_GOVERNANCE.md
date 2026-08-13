@@ -15,3 +15,9 @@ Conventions:
 - supported APIs never leak third-party types.
 
 Every stable API documents defaults, state ownership, events, a11y implications, rendering behavior and deprecation path. Breaking stable APIs require semver + migration guidance.
+
+The shared React state contract is specified in `specs/foundation/react-state.md`. Controlled
+ownership is determined by `value !== undefined`; all other falsy values remain valid controlled
+values. Setters emit only changed values and do not mutate controlled state. Switching ownership
+mode while mounted is unsupported. Stable event callbacks observe the latest committed render,
+not work from an abandoned concurrent render.

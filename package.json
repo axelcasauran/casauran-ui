@@ -23,6 +23,12 @@
     "test:theme": "vitest run --config vitest.config.mts tests/unit/theme-runtime.test.ts",
     "validate:accessibility-foundation": "node scripts/validate-accessibility-foundation.mjs",
     "test:accessibility-foundation": "vitest run --config vitest.config.mts tests/unit/accessibility-foundation.test.ts",
+    "validate:react-state-foundation": "node scripts/validate-react-state-foundation.mjs",
+    "test:react-state-foundation": "vitest run --config vitest.config.mts tests/unit/react-state-foundation.test.tsx",
+    "validate:collection-engine": "node scripts/validate-collection-engine.mjs",
+    "test:collection-engine": "vitest run --config vitest.config.mts tests/unit/collection-engine.test.ts",
+    "validate:overlay-foundation": "node scripts/validate-overlay-foundation.mjs",
+    "test:overlay-foundation": "vitest run --config vitest.config.mts tests/unit/overlay-foundation.test.ts",
     "validate:registry": "node scripts/validate-registry.mjs",
     "validate:stages": "node scripts/validate-stages.mjs",
     "validate:dependencies": "node scripts/validate-dependencies.mjs",
@@ -57,7 +63,12 @@
     "validate:static": "pnpm verify:scaffold && pnpm format && pnpm lint && pnpm typecheck && pnpm architecture && pnpm test && pnpm build",
     "validate:branding": "node scripts/validate-branding.mjs",
     "reference:check": "node scripts/reference-check.mjs",
-    "validate:local-reference-config": "node scripts/validate-local-reference-config.mjs"
+    "validate:local-reference-config": "node scripts/validate-local-reference-config.mjs",
+    "dev": "pnpm --filter @casauran-internal/docs dev",
+    "dev:docs": "pnpm --filter @casauran-internal/docs dev",
+    "dev:playground": "pnpm --filter @casauran-internal/playground dev",
+    "dev:showcase": "pnpm --filter @casauran-internal/showcase dev",
+    "dev:visual": "pnpm --filter @casauran-internal/visual-tests dev"
   },
   "devDependencies": {
     "@changesets/cli": "2.31.0",
@@ -70,6 +81,8 @@
     "eslint": "10.8.0",
     "globals": "17.7.0",
     "prettier": "3.9.6",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
     "typescript": "6.0.3",
     "typescript-eslint": "8.65.0",
     "vitest": "4.1.0"

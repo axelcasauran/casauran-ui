@@ -28,3 +28,22 @@ Accessibility engine changes begin with `registry/accessibility/foundation.json`
 specification. Run `pnpm test:accessibility-foundation`, real-browser keyboard/focus evidence where
 applicable, and `pnpm validate:accessibility-foundation`. Do not move React state, collection
 registration, overlay lifecycle, or component-specific APG behavior into the foundation package.
+
+React state changes begin with `registry/react-state/foundation.json` and
+`specs/foundation/react-state.md`. Keep pure state/ID rules in core and hooks behind
+`@casauran/react/state`; never add a broad package-root client directive. Run
+`pnpm test:react-state-foundation`, production hydration/browser evidence, and
+`pnpm validate:react-state-foundation`. Collection, overlay, form, persistence, and component state
+machines stay with their owners.
+
+Collection-engine changes begin with `registry/collections/foundation.json` and
+`specs/foundation/collection-engine.md`. Preserve immutable snapshots, stable key ordering,
+token-aware registration cleanup, disabled-item handling, caller-owned timing/IME behavior, and
+the React/DOM-free package boundary. Run `pnpm test:collection-engine`, production SSR evidence,
+and `pnpm validate:collection-engine`.
+
+Overlay lifecycle changes begin with `registry/overlay/foundation.json` and
+`specs/foundation/overlay.md`. Preserve top-layer-only dismissal, token-safe cleanup, nested focus
+restoration, native-inert ownership, enumerated portal scope attributes, SSR-safe imports, and the
+positioning/animation/component boundaries. Run `pnpm test:overlay-foundation`, production browser
+focus/pointer evidence, and `pnpm validate:overlay-foundation`.

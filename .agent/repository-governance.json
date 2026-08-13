@@ -254,6 +254,21 @@
       "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
     },
     {
+      "pattern": "/registry/react-state/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/registry/collections/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/registry/overlay/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
       "pattern": "/packages/tokens/**",
       "owners": ["@axelcasauran"],
       "roles": ["maintainer", "domain-owner"]
@@ -267,6 +282,26 @@
       "pattern": "/packages/accessibility/**",
       "owners": ["@axelcasauran"],
       "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/packages/core/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/packages/react/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/packages/collections/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/packages/overlay/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
     },
     {
       "pattern": "/scripts/*token*.mjs",
@@ -284,6 +319,21 @@
       "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
     },
     {
+      "pattern": "/scripts/*react-state*.mjs",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/scripts/*collection*.mjs",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/scripts/*overlay*.mjs",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
       "pattern": "/specs/foundation/tokens.md",
       "owners": ["@axelcasauran"],
       "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
@@ -297,6 +347,21 @@
       "pattern": "/specs/foundation/accessibility.md",
       "owners": ["@axelcasauran"],
       "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/specs/foundation/react-state.md",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/specs/foundation/collection-engine.md",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/specs/foundation/overlay.md",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
     },
     {
       "pattern": "/.github/workflows/**",

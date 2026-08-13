@@ -53,21 +53,21 @@
     "phase": 0,
     "type": "foundation",
     "title": "React State Foundation",
-    "status": "not-started"
+    "status": "complete"
   },
   {
     "id": "F0.09",
     "phase": 0,
     "type": "foundation",
     "title": "Collection Engine",
-    "status": "not-started"
+    "status": "complete"
   },
   {
     "id": "F0.10",
     "phase": 0,
     "type": "foundation",
     "title": "Overlay Foundation",
-    "status": "not-started"
+    "status": "complete"
   },
   {
     "id": "F0.11",

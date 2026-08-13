@@ -16,3 +16,16 @@ is internal evidence, not a public component or consumer API.
 accessibility-tree roles/names/states, RTL roving focus, disabled skipping, IME composition,
 visible focus, tabbability, programmatic focus, text-only announcements, and visually hidden
 content. It does not expose a public component.
+
+`/react-state-foundation` is the F0.08 production SSR/hydration probe for the supported
+`@casauran/react/state` entry point. It verifies controlled/uncontrolled ownership, composed
+functional updates, committed callback identity/content, hydration readiness, and stable explicit
+and generated IDs. It is evidence, not a public component.
+
+`/collection-engine` is the F0.09 server-only probe for the compiled internal collections entry
+point. It verifies deterministic visible-tree, active-item, selection, and typeahead projections;
+it adds no React client boundary or public component.
+
+`/overlay-foundation` is the F0.10 production SSR/browser probe for the compiled internal overlay
+entry point. Its local client fixture verifies portal scope/cleanup, nested dismissal, focus
+containment/restoration, and inert isolation. It is engine evidence, not a public overlay component.

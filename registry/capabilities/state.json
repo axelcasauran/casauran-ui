@@ -1,0 +1,7 @@
+{
+  "name": "state",
+  "owner": "packages/core and packages/react",
+  "status": "implemented",
+  "consumers": ["packages/react", "future public component stages"],
+  "externalAdapterPolicy": "React/native-first; adapter only after dependency approval and a real alternate implementation"
+}

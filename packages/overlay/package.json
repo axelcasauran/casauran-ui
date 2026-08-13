@@ -21,6 +21,9 @@
   "engines": {
     "node": ">=24.18.0 <27"
   },
+  "dependencies": {
+    "@casauran-internal/accessibility": "workspace:*"
+  },
   "sideEffects": false,
   "publishConfig": {
     "access": "public"

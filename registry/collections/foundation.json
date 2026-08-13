@@ -1,0 +1,64 @@
+{
+  "$schema": "../schemas/collection-engine.schema.json",
+  "schemaVersion": 1,
+  "package": "@casauran-internal/collections",
+  "capabilities": [
+    {
+      "id": "snapshot",
+      "module": "packages/collections/src/snapshot.ts",
+      "exports": ["CollectionInvariantError", "createCollectionSnapshot"],
+      "evidence": ["unit", "ssr", "typing", "large-data"]
+    },
+    {
+      "id": "registration",
+      "module": "packages/collections/src/registry.ts",
+      "exports": ["createCollectionRegistry"],
+      "evidence": ["unit", "typing"]
+    },
+    {
+      "id": "active-item",
+      "module": "packages/collections/src/active.ts",
+      "exports": ["resolveActiveKey", "moveActiveKey"],
+      "evidence": ["unit", "ssr", "typing"]
+    },
+    {
+      "id": "selection",
+      "module": "packages/collections/src/selection.ts",
+      "exports": ["createSelectionState", "applySelectionIntent", "isKeySelected"],
+      "evidence": ["unit", "ssr", "typing"]
+    },
+    {
+      "id": "visible-tree",
+      "module": "packages/collections/src/tree.ts",
+      "exports": ["getVisibleKeys"],
+      "evidence": ["unit", "ssr", "typing", "large-data"]
+    },
+    {
+      "id": "typeahead",
+      "module": "packages/collections/src/typeahead.ts",
+      "exports": ["updateTypeaheadState", "getTypeaheadQuery", "findTypeaheadMatch"],
+      "evidence": ["unit", "ssr", "typing", "security"]
+    }
+  ],
+  "boundaries": {
+    "owned": [
+      "immutable ordered and tree collection snapshots",
+      "mutation-safe keyed registration and cleanup",
+      "enabled active-item resolution and logical movement",
+      "single multiple toggle and range selection models",
+      "expanded-tree visible key projection",
+      "caller-timed text-value typeahead matching"
+    ],
+    "excluded": [
+      "public React components hooks contexts or providers",
+      "keyboard event to navigation intent mapping",
+      "DOM focus roving tabindex or overlay focus lifecycle",
+      "component-specific ARIA roles states or APG policies",
+      "virtualization measurement scrolling or paging",
+      "data sorting filtering grouping or transport",
+      "locale ownership translation or collation policy",
+      "persistent serialized or server-synchronized selection",
+      "F0.10 overlay portal dismissal or positioning"
+    ]
+  }
+}

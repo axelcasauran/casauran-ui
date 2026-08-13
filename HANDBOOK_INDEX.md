@@ -91,6 +91,7 @@
 - `registry/tokens/foundation.json` — canonical versioned primitive and semantic token vocabulary.
 - `registry/themes/foundation.json` — canonical light/dark, density, and adaptive theme assignments.
 - `registry/accessibility/foundation.json` — canonical focus, keyboard, live-region, and hidden-content foundation.
+- `registry/react-state/foundation.json` — canonical pure state/ID and React hook foundation.
 - `registry/derived/`
 
 ## Specification and review templates
@@ -119,6 +120,9 @@ beside it.
 - `scripts/validate-token-contract.mjs`
 - `scripts/validate-theme-contract.mjs`
 - `scripts/validate-accessibility-foundation.mjs`
+- `scripts/validate-react-state-foundation.mjs`
+- `scripts/validate-collection-engine.mjs`
+- `scripts/validate-overlay-foundation.mjs`
 - architecture/registry/reference/composition/package/public-API/toolchain/platform validators
 - `dependency-cruiser.config.cjs`
 - strict TypeScript

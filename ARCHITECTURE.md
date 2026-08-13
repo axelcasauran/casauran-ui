@@ -54,6 +54,11 @@ Composition is semantic, not mechanical. A Grid cell does not become Button mere
 
 Core owns stable IDs, controllable state/invariants and browser-safe utilities. Events remain idiomatic React callbacks; event utilities compose handlers, cancellation and normalized project event payloads. We do not create a global event bus for normal component interaction.
 
+Pure state-update, controlled-value, and generated-ID rules live in `core`. React coordination is
+exposed from the local client entry point `@casauran/react/state`; the package root does not
+re-export hooks. The foundation owns controllable state, committed callbacks, hydration readiness,
+and stable IDs—not global stores, generic contexts, domain reducers, or component state machines.
+
 ## Collections
 
 Collections model ordered/tree item registration, active item, disabled items, selection and typeahead. ListBox, Menu, TreeView, dropdowns, Tabs and related controls reuse collection primitives while maintaining pattern-specific ARIA behavior.
@@ -61,6 +66,12 @@ Collections model ordered/tree item registration, active item, disabled items, s
 ## Overlay/positioning
 
 Overlay owns portal, dismissable-layer and focus lifecycle. Positioning owns geometry, placement, collision, viewport constraints and observer-driven repositioning. Popup/Tooltip/Popover/Dialog/Menu/dropdowns compose these capabilities rather than duplicate them.
+
+The F0.10 overlay foundation implements governed portal hosts, token-safe top-layer arbitration,
+centralized Escape/pointer-outside dismissal, nested focus entry/containment/restoration, and
+native-inert modal isolation. It remains an internal React-free engine. Components decide open
+state, semantic pattern, modality, content and styling; positioning and animation remain separate
+owners.
 
 ## Data
 
@@ -196,3 +207,11 @@ or the path supplied through `CASAURAN_KENDO_DOCS_PATH`.
 The corpus is outside the Casauran repository, read-only, and not a runtime/build dependency. Online fallback is disabled. Pinned GitHub repository/commit metadata exists only for provenance and controlled reference-sync work.
 
 If the corpus cannot be validated, dependent reference-analysis/component work is blocked.
+
+## Collection engine foundation
+
+`@casauran-internal/collections` owns framework-neutral immutable ordered/tree snapshots, keyed
+registration, active-item movement, selection/range rules, visible-tree projection, and typeahead.
+React bindings and public components compose this engine later. Accessibility owns focus/keyboard
+primitives; component patterns own ARIA and event mappings; overlay, virtualization, data, i18n,
+and persistence retain their separate owner layers.

@@ -2,9 +2,12 @@
 
 **Ownership:** stable IDs, controllable state, invariants and browser-safe utilities.
 
-## Status
+## State and ID foundation
 
-Foundation scaffold. Implementation begins only in the relevant active stage.
+The package supplies framework-neutral `StateUpdate`, controlled-value resolution, functional
+update resolution, and deterministic scoped-ID normalization. React hooks remain in
+`@casauran/react/state`; collection, overlay, form, and persistence state remain with their domain
+owners.
 
 ## Boundary
 

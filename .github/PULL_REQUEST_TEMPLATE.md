@@ -35,6 +35,9 @@ Stage ledger / status:
 - [ ] Theme changes regenerated with contrast, adaptive-media, RTL, and visual evidence where applicable
 - [ ] Accessibility changes cover semantics, keyboard/focus, announcements, disabled behavior, RTL/IME, and manual-review obligations where applicable
 - [ ] Accessibility reviewed
+- [ ] Controlled/uncontrolled state, committed callbacks, hydration, and stable IDs reviewed where applicable
+- [ ] Collection identity/order, registration cleanup, active/selection separation, tree visibility, typeahead, and large-data behavior reviewed where applicable
+- [ ] Overlay portal scope, top-layer dismissal, nested focus restoration, modal inertness, cleanup, and positioning/animation boundaries reviewed where applicable
 - [ ] SSR/Next.js reviewed
 - [ ] RTL/i18n/IME reviewed where applicable
 - [ ] Security/performance reviewed where applicable

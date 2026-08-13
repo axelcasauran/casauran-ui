@@ -64,6 +64,18 @@ Static light/dark and comfortable/compact theme behavior is regenerated with
 The internal accessibility foundation is validated with `pnpm validate:accessibility-foundation`
 and documented in `ACCESSIBILITY_POLICY.md` and `specs/foundation/accessibility.md`.
 
+The React state foundation is validated with `pnpm validate:react-state-foundation`, tested with
+`pnpm test:react-state-foundation`, and documented in `specs/foundation/react-state.md` and the
+`@casauran/react` package README.
+
+The framework-neutral collection engine is validated with `pnpm validate:collection-engine`,
+tested with `pnpm test:collection-engine`, and documented in
+`specs/foundation/collection-engine.md` and the internal collections package README.
+
+The internal overlay foundation is validated with `pnpm validate:overlay-foundation`, tested with
+`pnpm test:overlay-foundation`, and documented in `specs/foundation/overlay.md` and the internal
+overlay package README.
+
 Build/test topology and output wiring are checked with `pnpm validate:build-test-infrastructure`
 and `pnpm test:build-test-infrastructure`. Unit tests run once through `pnpm test:unit`; production
 SSR/hydration/browser checks run through `pnpm test:browser`.

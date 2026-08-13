@@ -18,7 +18,12 @@ for (const p of files('packages/react/src').filter((p) => /\.(ts|tsx)$/.test(p))
     (m) => m[2],
   );
   for (const spec of externalImports) {
-    if (!spec.startsWith('@casauran/') && spec !== 'react' && spec !== 'react-dom') {
+    if (
+      !spec.startsWith('@casauran/') &&
+      !spec.startsWith('@casauran-internal/') &&
+      spec !== 'react' &&
+      spec !== 'react-dom'
+    ) {
       fail(`${p}: public React source imports unapproved external runtime module ${spec}`);
     }
   }

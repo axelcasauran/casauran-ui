@@ -1,0 +1,7 @@
+{
+  "name": "ids",
+  "owner": "packages/core",
+  "status": "implemented",
+  "consumers": ["packages/react", "future public component stages"],
+  "externalAdapterPolicy": "native-first; adapter only after dependency approval and a real alternate implementation"
+}

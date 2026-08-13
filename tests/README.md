@@ -19,3 +19,16 @@ Accessibility foundation scenarios use native controls and the production Next.j
 the browser accessibility tree, keyboard/focus behavior, RTL, IME, disabled items, live-region
 text safety, and visually-hidden layout in Chromium, Firefox, and WebKit. Manual certification is
 still required later for complex public patterns.
+
+React state foundation tests pair pure/server-rendered Vitest assertions with production browser
+checks for hydration, controlled/uncontrolled updates, committed callbacks, and stable IDs across
+Chromium, Firefox, and WebKit.
+
+Collection engine tests pair pure Vitest invariants and a 10,000-item stack-safety case with a
+server-only Next.js route. Playwright verifies deterministic visible, active, selected, and
+typeahead projections from the compiled internal package in Chromium, Firefox, and WebKit.
+
+Overlay foundation tests pair pure token-safe stack and server-import assertions with a production
+Next.js client fixture. Playwright verifies governed portal scope, non-cascading top-layer
+dismissal, IME-safe Escape, nested Tab focus/restoration, native-inert isolation, and cleanup in
+Chromium, Firefox, and WebKit.

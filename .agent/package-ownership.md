@@ -75,3 +75,20 @@ The accessibility owner maintains native focus/tabbability inspection, pure rovi
 direction-aware keyboard intent, safe live-region text updates, and visually-hidden CSS. React
 hooks/state remain with the React state foundation, registration/selection with collections,
 focus traps/restoration lifecycle with overlay, and pattern semantics with public components.
+
+The core owner maintains framework-neutral controllable-value/update resolution and generated-ID
+normalization. The React owner maintains the supported `@casauran/react/state` client entry point
+for controllable state, committed callbacks, hydration readiness, and stable React IDs. Collection,
+overlay, form, serialization, and component-specific state remain with their domain owners; the
+React package root remains server-safe.
+
+The collections owner maintains immutable ordered/tree snapshots, token-aware keyed registration,
+logical enabled-item movement, deterministic selection/range rules, visible-tree projection, and
+caller-timed typeahead. It owns no React hook, DOM focus, keyboard-event mapping, APG semantics,
+overlay lifecycle, virtualization, data processing, locale policy, or persistence.
+
+The overlay owner maintains portal-host lifecycle and governed theme/density/direction scope,
+ordered top-layer arbitration, Escape/pointer-outside dismissal intent, nested focus entry/trap/
+restoration, and native-inert modal isolation. Positioning owns geometry/observers; animation owns
+presence/motion; components own open state, semantics, styling, content, and pattern keyboard
+tables. Overlay remains internal and React-free.

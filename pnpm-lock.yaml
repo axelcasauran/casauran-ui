@@ -37,6 +37,12 @@ importers:
       prettier:
         specifier: 3.9.6
         version: 3.9.6
+      react:
+        specifier: 19.2.7
+        version: 19.2.7
+      react-dom:
+        specifier: 19.2.7
+        version: 19.2.7(react@19.2.7)
       typescript:
         specifier: 6.0.3
         version: 6.0.3
@@ -154,6 +160,12 @@ importers:
       '@casauran-internal/accessibility':
         specifier: workspace:*
         version: link:../../packages/accessibility
+      '@casauran-internal/collections':
+        specifier: workspace:*
+        version: link:../../packages/collections
+      '@casauran-internal/overlay':
+        specifier: workspace:*
+        version: link:../../packages/overlay
       '@casauran/icons':
         specifier: workspace:*
         version: link:../../packages/icons
@@ -222,7 +234,11 @@ importers:
 
   packages/icons: {}
 
-  packages/overlay: {}
+  packages/overlay:
+    dependencies:
+      '@casauran-internal/accessibility':
+        specifier: workspace:*
+        version: link:../accessibility
 
   packages/positioning: {}
 

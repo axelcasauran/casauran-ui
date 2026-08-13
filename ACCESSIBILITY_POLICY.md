@@ -50,3 +50,12 @@ advance reference-derived platform parity or certify a future component.
 
 Accessibility failures are release blockers unless a higher-authority, explicitly approved
 exception exists. Tests are not disabled to avoid accessibility work.
+
+## Overlay lifecycle
+
+The overlay foundation coordinates top-layer dismissal, nested focus entry/containment/restoration,
+and native-inert background isolation. Only the top active scope traps focus or receives dismissal.
+Escape is ignored during IME composition or with command modifiers. These mechanics do not assign
+roles, names, `aria-modal`, close controls, visible focus, announcements, or a pattern keyboard
+table; each overlay component must supply and verify those semantics and decide whether modal
+isolation is appropriate.

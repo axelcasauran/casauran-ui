@@ -2,9 +2,28 @@
 
 **Ownership:** supported React component surface.
 
-## Status
+## React state foundation
 
-Foundation scaffold. Implementation begins only in the relevant active stage.
+`@casauran/react/state` is the supported client entry point for `useControllableState`,
+`useCommittedCallback`, `useHydrated`, and `useStableId`. The package root remains server safe and
+does not re-export hooks. Components should expose conventional `value/defaultValue` pairs and use
+these hooks only inside narrow client modules.
+
+```tsx
+'use client';
+
+import { useControllableState } from '@casauran/react/state';
+
+const [open, setOpen] = useControllableState({
+  value: props.open,
+  defaultValue: props.defaultOpen ?? false,
+  onChange: props.onOpenChange,
+});
+```
+
+Controlled setters request a change; the controlling owner must provide the next value. Switching
+ownership mode while mounted is unsupported. `useHydrated` is reserved for behavior that truly
+requires a mounted browser, not ordinary derived state.
 
 ## Boundary
 

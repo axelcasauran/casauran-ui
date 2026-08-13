@@ -1,7 +1,7 @@
 {
   "name": "collections",
   "owner": "packages/collections",
-  "status": "planned",
-  "consumers": [],
+  "status": "implemented",
+  "consumers": ["ListBox", "Menu", "TreeView", "DropDownList", "Tabs"],
   "externalAdapterPolicy": "native-first; adapter only after dependency approval and real alternate implementation"
 }

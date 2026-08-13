@@ -22,7 +22,10 @@
       "scripts/build-test-infrastructure.mjs",
       "scripts/token-contract.mjs",
       "scripts/theme-contract.mjs",
-      "scripts/accessibility-foundation.mjs"
+      "scripts/accessibility-foundation.mjs",
+      "scripts/react-state-foundation.mjs",
+      "scripts/collection-engine.mjs",
+      "scripts/overlay-foundation.mjs"
     ]
   },
   "unitTests": {
@@ -90,6 +93,40 @@
         "ACCESSIBILITY_POLICY.md",
         "registry/accessibility/foundation.json",
         "specs/foundation/accessibility.md"
+      ]
+    },
+    {
+      "id": "react-state-foundation",
+      "script": "scripts/validate-react-state-foundation.mjs",
+      "packageScript": "validate:react-state-foundation",
+      "ownerRoles": ["maintainer", "domain-owner", "evidence-reviewer"],
+      "contracts": [
+        "API_GOVERNANCE.md",
+        "NEXTJS_COMPATIBILITY.md",
+        "registry/react-state/foundation.json",
+        "specs/foundation/react-state.md"
+      ]
+    },
+    {
+      "id": "collection-engine",
+      "script": "scripts/validate-collection-engine.mjs",
+      "packageScript": "validate:collection-engine",
+      "ownerRoles": ["maintainer", "domain-owner", "evidence-reviewer"],
+      "contracts": [
+        "registry/collections/foundation.json",
+        "specs/foundation/collection-engine.md",
+        "packages/collections/src/index.ts"
+      ]
+    },
+    {
+      "id": "overlay-foundation",
+      "script": "scripts/validate-overlay-foundation.mjs",
+      "packageScript": "validate:overlay-foundation",
+      "ownerRoles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"],
+      "contracts": [
+        "registry/overlay/foundation.json",
+        "specs/foundation/overlay.md",
+        "packages/overlay/src/index.ts"
       ]
     },
     {
