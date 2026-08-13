@@ -1,4 +1,3 @@
-
 # ADR-019: Casauran Product Identity
 
 Status: Accepted

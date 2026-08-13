@@ -1,4 +1,3 @@
-
 # Casauran Brand Identity
 
 ## Canonical identity
@@ -15,6 +14,7 @@
 ## Public naming
 
 Use:
+
 - Casauran
 - Casauran UI
 - Casauran Design System
@@ -70,9 +70,7 @@ Project-owned CSS custom properties use the short prefix:
 Intentionally public anatomy/state hooks may use:
 
 ```html
-data-csn-component="button"
-data-csn-part="trigger"
-data-csn-state="open"
+data-csn-component="button" data-csn-part="trigger" data-csn-state="open"
 ```
 
 Internal implementation selectors are not stable public API unless explicitly documented.
@@ -93,6 +91,7 @@ Error-code schemes must remain documented and must not expose sensitive data.
 ## Competitor references
 
 Competitor names may appear only in:
+
 - reference provenance,
 - clean-room/reference policy,
 - parity research,

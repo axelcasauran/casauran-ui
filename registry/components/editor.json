@@ -11,12 +11,7 @@
     "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b"
   },
   "composition": {
-    "uses": [
-      "Toolbar",
-      "Button",
-      "DropDownList",
-      "Popup"
-    ],
+    "uses": ["Toolbar", "Button", "DropDownList", "Popup"],
     "nativeInteractiveExceptions": []
   },
   "rendering": {

@@ -1,6 +1,7 @@
 # Testing Strategy
 
 Testing forms a pyramid with contract-appropriate layers:
+
 - pure engines/state: Vitest;
 - component interaction/layout/focus/pointer/touch: Playwright real browsers;
 - Next.js integration: production build + SSR/hydration/RSC-safe import routes;

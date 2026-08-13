@@ -1,4 +1,5 @@
 # Dependency Policy
+
 External library runtime dependencies are zero-by-default in library packages. Internal workspace dependencies are allowed; React/ReactDOM are peers of the public React package.
 
 Before adoption prove: native/internal options are insufficient or materially worse; capability/maintenance benefit is measured; license/security/SSR/RSC/bundle/tree-shaking are acceptable; public API remains independent; exit strategy exists.

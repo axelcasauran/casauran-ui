@@ -2,13 +2,6 @@
   "name": "selection",
   "owner": "packages/collections",
   "status": "planned",
-  "consumers": [
-    "DataGrid",
-    "TreeList",
-    "Scheduler",
-    "Editor",
-    "Diagram",
-    "Spreadsheet"
-  ],
+  "consumers": ["DataGrid", "TreeList", "Scheduler", "Editor", "Diagram", "Spreadsheet"],
   "externalAdapterPolicy": "native-first; adapter only after dependency approval and real alternate implementation"
 }

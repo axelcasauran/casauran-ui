@@ -1,14 +1,17 @@
 # Workflow: reference-to-spec
 
 ## Purpose
+
 Produce independent spec from public behavior.
 
 ## Entry conditions
+
 - Active stage/phase known.
 - Governing policies and relevant skills loaded.
 - Acceptance criteria established.
 
 ## Procedure
+
 1. collect pages.
 2. extract observable features.
 3. separate cross-cutting requirements.
@@ -18,15 +21,18 @@ Produce independent spec from public behavior.
 7. review for implementation leakage.
 
 ## Records
+
 - affected stage/phase
 - decisions/evidence
 - tests/validators
 - debt/follow-up
 
 ## Hard gates
+
 - no copied implementation.
 
 ## Exit
+
 Update authoritative registry/stage/status and stop at workflow boundary.
 
 ## Local-only reference requirement

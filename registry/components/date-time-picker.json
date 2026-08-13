@@ -11,14 +11,7 @@
     "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b"
   },
   "composition": {
-    "uses": [
-      "DateInput",
-      "Popup",
-      "Calendar",
-      "TimePicker",
-      "Button",
-      "Icon"
-    ],
+    "uses": ["DateInput", "Popup", "Calendar", "TimePicker", "Button", "Icon"],
     "nativeInteractiveExceptions": []
   },
   "rendering": {

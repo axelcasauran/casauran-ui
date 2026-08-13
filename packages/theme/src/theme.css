@@ -14,8 +14,20 @@
     --csn-motion-scale: 1;
     --csn-density-scale: 1;
   }
-  [data-theme='dark'] { color-scheme: dark; }
-  [data-density='compact'] { --csn-density-scale: 0.875; }
+  [data-theme='dark'] {
+    color-scheme: dark;
+  }
+  [data-density='compact'] {
+    --csn-density-scale: 0.875;
+  }
 }
-@media (prefers-reduced-motion: reduce) { :root { --csn-motion-scale: 0; } }
-@media (forced-colors: active) { :root { --csn-focus-ring: Highlight; } }
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --csn-motion-scale: 0;
+  }
+}
+@media (forced-colors: active) {
+  :root {
+    --csn-focus-ring: Highlight;
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "types": ["node"]
+  },
+  "include": [
+    "browser/**/*.ts",
+    "browser/**/*.tsx",
+    "unit/**/*.ts",
+    "unit/**/*.tsx",
+    "fixtures/**/*.ts",
+    "fixtures/**/*.tsx",
+    "certification/**/*.ts",
+    "certification/**/*.tsx"
+  ]
+}

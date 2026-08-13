@@ -11,13 +11,7 @@
     "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b"
   },
   "composition": {
-    "uses": [
-      "TextBox",
-      "Popup",
-      "Calendar",
-      "Button",
-      "Icon"
-    ],
+    "uses": ["TextBox", "Popup", "Calendar", "Button", "Icon"],
     "nativeInteractiveExceptions": []
   },
   "rendering": {

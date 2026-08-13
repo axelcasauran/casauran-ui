@@ -1,4 +1,5 @@
 # Data Architecture
+
 Data operations are independent of visual widgets.
 
 Canonical descriptor families: filters, sorts, groups, aggregates, paging and composite DataState. Processing is deterministic, immutable-by-default, type-safe and serializable where practical.

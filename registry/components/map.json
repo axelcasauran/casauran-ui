@@ -35,13 +35,5 @@
     "security": "unreviewed",
     "docs": "unreviewed"
   },
-  "features": [
-    "layers",
-    "markers",
-    "shapes",
-    "navigation",
-    "zoom-pan",
-    "events",
-    "accessibility"
-  ]
+  "features": ["layers", "markers", "shapes", "navigation", "zoom-pan", "events", "accessibility"]
 }

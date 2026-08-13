@@ -1,4 +1,5 @@
 # Toolchain Snapshot
+
 - Node: >=24.18.0 <27
 - pnpm: 11.17.0
 - Next.js: 16.2.11 (stable Active LTS line selected)

@@ -7,17 +7,21 @@ This is a scope and gap-management artifact. It compares our planned platform ag
 ## Three-dimensional comparison
 
 ### 1. Component parity
+
 The registry contains 127 planned public component stages across documented domains including buttons, inputs, dropdowns, date inputs, data widgets, planning, files, editor, charts, diagram/map, spreadsheet and AI surfaces.
 
 ### 2. Feature parity
+
 Complex components have seeded feature matrices so a name does not count as parity. Grid, for example, tracks column/data operations, selection, editing, hierarchy, virtualization, keyboard/globalization/export and adaptive behavior independently.
 
 ### 3. Platform parity
+
 The platform registry tracks cross-cutting domains independently: accessibility, cloud/integration, data binding, security, server capabilities, styling, internationalization, date math, migration, troubleshooting, AI components/tools, web AI tooling and project setup.
 
 ## Deliberate architectural differences
 
 Our project intentionally:
+
 - uses independent APIs and implementation;
 - keeps data/date/virtualization/etc. reusable rather than owned by Grid;
 - uses a small supported public package surface initially;

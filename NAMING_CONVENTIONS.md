@@ -1,4 +1,3 @@
-
 # Naming Conventions
 
 ## Product
@@ -8,12 +7,14 @@ Use **Casauran UI** for the React UI platform and **Casauran** for the umbrella 
 ## Packages
 
 Supported:
+
 - `@casauran/react`
 - `@casauran/tokens`
 - `@casauran/theme`
 - `@casauran/icons`
 
 Internal:
+
 - `@casauran-internal/<domain>`
 
 Do not mix the two namespaces.
@@ -21,6 +22,7 @@ Do not mix the two namespaces.
 ## Components
 
 Use domain-standard names without a brand prefix:
+
 - Button
 - Dialog
 - DatePicker
@@ -30,12 +32,14 @@ Use domain-standard names without a brand prefix:
 ## TypeScript
 
 Prefer:
+
 - `DataState`
 - `SelectionModel`
 - `Virtualizer`
 - `PositioningResult`
 
 Avoid:
+
 - `CasauranDataState`
 - `CasauranSelectionModel`
 

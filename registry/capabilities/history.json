@@ -2,9 +2,6 @@
   "name": "history",
   "owner": "packages/commands",
   "status": "planned",
-  "consumers": [
-    "Editor",
-    "Spreadsheet"
-  ],
+  "consumers": ["Editor", "Spreadsheet"],
   "externalAdapterPolicy": "native-first; adapter only after dependency approval and real alternate implementation"
 }

@@ -1,6 +1,7 @@
 # Reference Overview
 
 Approved behavioral benchmark:
+
 - `telerik/kendo-react`
 - `docs/content`
 - `6a05c926c4f08b89782c25336fc159fea3a3f26b`

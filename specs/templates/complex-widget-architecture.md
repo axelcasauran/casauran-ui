@@ -1,6 +1,7 @@
 # Complex Widget Architecture: <Name>
 
 Required sections:
+
 - feature map;
 - subsystem boundaries;
 - shared-engine dependencies;

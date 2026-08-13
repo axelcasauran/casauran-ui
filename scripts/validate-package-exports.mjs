@@ -6,8 +6,9 @@ for (const p of files('packages').filter((p) => p.endsWith('/package.json'))) {
     // false is valid only when the package has no CSS side effects; actual theme/react packages declare CSS.
   }
 }
-for (const pkg of ['theme','react']) {
+for (const pkg of ['theme', 'react']) {
   const m = json(`packages/${pkg}/package.json`);
-  if (!Array.isArray(m.sideEffects) || !m.sideEffects.some((x) => x.includes('.css'))) fail(`${pkg}: CSS sideEffects missing`);
+  if (!Array.isArray(m.sideEffects) || !m.sideEffects.some((x) => x.includes('.css')))
+    fail(`${pkg}: CSS sideEffects missing`);
 }
 pass('package export/side-effect baseline');

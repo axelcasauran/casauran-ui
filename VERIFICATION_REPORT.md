@@ -45,6 +45,7 @@ It intentionally does **not** claim that the 127 public components are implement
 A full dependency installation/build was attempted in the artifact-generation sandbox, but that environment has no npm-registry network access and runs Node 22 rather than the scaffold's Node 24 LTS baseline. Therefore no synthetic lockfile was fabricated.
 
 On the first real development machine/CI environment:
+
 1. install Node 24 LTS,
 2. `corepack enable`,
 3. `pnpm install`,

@@ -4,9 +4,7 @@
   "AppBar": [],
   "ArcGauge": [],
   "AutoComplete": [],
-  "Avatar": [
-    "Chat"
-  ],
+  "Avatar": ["Chat"],
   "Badge": [],
   "Barcode": [],
   "BottomNavigation": [],
@@ -38,25 +36,13 @@
     "Upload",
     "Window"
   ],
-  "Calendar": [
-    "DatePicker",
-    "DateRangePicker",
-    "DateTimePicker",
-    "Scheduler"
-  ],
-  "Card": [
-    "TaskBoard"
-  ],
+  "Calendar": ["DatePicker", "DateRangePicker", "DateTimePicker", "Scheduler"],
+  "Card": ["TaskBoard"],
   "ChartWizard": [],
-  "Chart": [
-    "ChartWizard"
-  ],
+  "Chart": ["ChartWizard"],
   "Chat": [],
   "Checkbox": [],
-  "ChipList": [
-    "MultiSelect",
-    "MultiSelectTree"
-  ],
+  "ChipList": ["MultiSelect", "MultiSelectTree"],
   "Chip": [],
   "ChunkProgressBar": [],
   "CircularGauge": [],
@@ -65,36 +51,20 @@
   "ColorPicker": [],
   "ComboBox": [],
   "ContextMenu": [],
-  "DataGrid": [
-    "Gantt"
-  ],
-  "DateInput": [
-    "DateRangePicker",
-    "DateTimePicker"
-  ],
-  "DatePicker": [
-    "Gantt",
-    "Scheduler"
-  ],
+  "DataGrid": ["Gantt"],
+  "DateInput": ["DateRangePicker", "DateTimePicker"],
+  "DatePicker": ["Gantt", "Scheduler"],
   "DateRangePicker": [],
   "DateTimePicker": [],
   "Diagram": [],
-  "Dialog": [
-    "ChartWizard",
-    "Scheduler"
-  ],
+  "Dialog": ["ChartWizard", "Scheduler"],
   "Drawer": [],
   "Drawing": [],
   "DropDownButton": [],
-  "DropDownList": [
-    "Editor",
-    "Scheduler"
-  ],
+  "DropDownList": ["Editor", "Scheduler"],
   "DropDownTree": [],
   "Editor": [],
-  "Error": [
-    "Form"
-  ],
+  "Error": ["Form"],
   "ExcelExport": [],
   "Expand": [],
   "ExpansionPanel": [],
@@ -108,9 +78,7 @@
   "Form": [],
   "Gantt": [],
   "GridLayout": [],
-  "Hint": [
-    "Form"
-  ],
+  "Hint": ["Form"],
   "Icon": [
     "ComboBox",
     "DatePicker",
@@ -134,23 +102,14 @@
     "MultiSelect",
     "MultiSelectTree"
   ],
-  "Label": [
-    "Form"
-  ],
+  "Label": ["Form"],
   "LinearGauge": [],
-  "ListBox": [
-    "ComboBox",
-    "DropDownList",
-    "MultiColumnComboBox",
-    "MultiSelect"
-  ],
+  "ListBox": ["ComboBox", "DropDownList", "MultiColumnComboBox", "MultiSelect"],
   "ListView": [],
   "Loader": [],
   "Map": [],
   "MaskedTextBox": [],
-  "Menu": [
-    "ContextMenu"
-  ],
+  "Menu": ["ContextMenu"],
   "MultiColumnComboBox": [],
   "MultiSelectTree": [],
   "MultiSelect": [],
@@ -180,9 +139,7 @@
     "MultiSelect",
     "MultiSelectTree"
   ],
-  "ProgressBar": [
-    "Upload"
-  ],
+  "ProgressBar": ["Upload"],
   "PromptBox": [],
   "Push": [],
   "QRCode": [],
@@ -215,32 +172,17 @@
   "Switch": [],
   "TabStrip": [],
   "TaskBoard": [],
-  "TextArea": [
-    "AIPrompt",
-    "Chat"
-  ],
-  "TextBox": [
-    "DatePicker"
-  ],
+  "TextArea": ["AIPrompt", "Chat"],
+  "TextBox": ["DatePicker"],
   "TileLayout": [],
-  "TimePicker": [
-    "DateTimePicker",
-    "Scheduler"
-  ],
+  "TimePicker": ["DateTimePicker", "Scheduler"],
   "Timeline": [],
-  "Toolbar": [
-    "Editor"
-  ],
+  "Toolbar": ["Editor"],
   "Tooltip": [],
   "TreeList": [],
-  "TreeView": [
-    "DropDownTree",
-    "MultiSelectTree"
-  ],
+  "TreeView": ["DropDownTree", "MultiSelectTree"],
   "Typography": [],
-  "Upload": [
-    "ExternalDropZone"
-  ],
+  "Upload": ["ExternalDropZone"],
   "Window": [],
   "Zoom": []
 }

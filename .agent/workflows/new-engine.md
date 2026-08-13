@@ -1,14 +1,17 @@
 # Workflow: new-engine
 
 ## Purpose
+
 Create/extend shared capability owner.
 
 ## Entry conditions
+
 - Active stage/phase known.
 - Governing policies and relevant skills loaded.
 - Acceptance criteria established.
 
 ## Procedure
+
 1. prove reuse need.
 2. select owner.
 3. define minimal contract.
@@ -18,14 +21,17 @@ Create/extend shared capability owner.
 7. update dependency graph.
 
 ## Records
+
 - affected stage/phase
 - decisions/evidence
 - tests/validators
 - debt/follow-up
 
 ## Hard gates
+
 - no speculative adapter.
 - no upward dependency.
 
 ## Exit
+
 Update authoritative registry/stage/status and stop at workflow boundary.

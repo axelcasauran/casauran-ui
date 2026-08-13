@@ -20,5 +20,8 @@ export const files = (dir) => {
   walk(base);
   return out;
 };
-export const fail = (message) => { console.error(`FAIL: ${message}`); process.exitCode = 1; };
+export const fail = (message) => {
+  console.error(`FAIL: ${message}`);
+  process.exitCode = 1;
+};
 export const pass = (message) => console.log(`PASS: ${message}`);

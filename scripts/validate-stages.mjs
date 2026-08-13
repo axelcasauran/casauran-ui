@@ -13,5 +13,6 @@ for (const s of components) {
   if (names.has(s.component)) fail(`component in multiple stages: ${s.component}`);
   names.add(s.component);
 }
-if (components.length !== 127) fail(`expected 127 public component stages, got ${components.length}`);
+if (components.length !== 127)
+  fail(`expected 127 public component stages, got ${components.length}`);
 else pass('one unique component per 127 public-component stages');

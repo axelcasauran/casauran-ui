@@ -5,6 +5,7 @@ Created only when a public component stage starts:
 `packages/react/src/components/<domain>/<slug>/`
 
 Completed source normally contains:
+
 - `index.ts`
 - implementation/types
 - component CSS

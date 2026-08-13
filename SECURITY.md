@@ -3,6 +3,7 @@
 Security architecture is governed by `SECURITY_ARCHITECTURE.md`.
 
 During development:
+
 - never commit credentials, tokens, production data or private keys;
 - treat dependency advisories as release-blocking according to severity/exploitability;
 - security-sensitive changes receive explicit review evidence;

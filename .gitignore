@@ -9,3 +9,6 @@ test-results
 .env
 .env.*
 !.env.example
+
+# Next.js generated TypeScript environment declarations
+apps/*/next-env.d.ts

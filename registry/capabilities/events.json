@@ -2,9 +2,6 @@
   "name": "events",
   "owner": "packages/events",
   "status": "planned",
-  "consumers": [
-    "Scheduler",
-    "Map"
-  ],
+  "consumers": ["Scheduler", "Map"],
   "externalAdapterPolicy": "native-first; adapter only after dependency approval and real alternate implementation"
 }

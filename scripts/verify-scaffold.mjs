@@ -17,7 +17,6 @@ const scripts = [
   'validate-public-api.mjs',
   'validate-toolchain.mjs',
   'validate-platform.mjs',
-  'generate-required-by.mjs',
 ];
 let failed = false;
 for (const s of scripts) {

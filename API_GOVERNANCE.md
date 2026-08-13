@@ -1,7 +1,9 @@
 # API Governance
+
 Project-wide consistency is mandatory.
 
 Conventions:
+
 - controlled/uncontrolled pairs use predictable names such as `value/defaultValue`, `open/defaultOpen`;
 - callbacks describe state/change intent with stable typed payloads;
 - avoid dual sources of truth;

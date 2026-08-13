@@ -1,4 +1,3 @@
-
 # Local KendoReact Documentation Reference
 
 Casauran uses a **strict local-only** KendoReact documentation corpus.

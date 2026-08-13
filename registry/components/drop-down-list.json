@@ -11,13 +11,7 @@
     "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b"
   },
   "composition": {
-    "uses": [
-      "Input",
-      "Popup",
-      "ListBox",
-      "Button",
-      "Icon"
-    ],
+    "uses": ["Input", "Popup", "ListBox", "Button", "Icon"],
     "nativeInteractiveExceptions": []
   },
   "rendering": {

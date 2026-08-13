@@ -1,10 +1,16 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { files, json, root, pass } from './lib.mjs';
-const entries = files('registry/components').filter((p) => p.endsWith('.json')).map(json);
+const entries = files('registry/components')
+  .filter((p) => p.endsWith('.json'))
+  .map(json);
 const out = Object.fromEntries(entries.map((e) => [e.name, []]));
-for (const e of entries) for (const dep of e.composition.uses ?? []) if (out[dep]) out[dep].push(e.name);
+for (const e of entries)
+  for (const dep of e.composition.uses ?? []) if (out[dep]) out[dep].push(e.name);
 for (const v of Object.values(out)) v.sort();
-fs.mkdirSync(path.join(root,'registry/derived'), {recursive:true});
-fs.writeFileSync(path.join(root,'registry/derived/required-by.json'), JSON.stringify(out,null,2)+'\n');
+fs.mkdirSync(path.join(root, 'registry/derived'), { recursive: true });
+fs.writeFileSync(
+  path.join(root, 'registry/derived/required-by.json'),
+  JSON.stringify(out, null, 2) + '\n',
+);
 pass('generated required-by');

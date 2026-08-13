@@ -1,4 +1,5 @@
 # Parity Definition
+
 Parity is verified product quality, not visual similarity.
 
 A component is `parity-verified` only when the approved independent specification covers applicable functionality, states, pointer/touch, keyboard, accessibility, data behavior, responsive/adaptive behavior, i18n/localization, RTL, theming/density, SSR/hydration/Next.js, performance, integrations and documented edge cases.

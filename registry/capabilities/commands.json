@@ -2,9 +2,6 @@
   "name": "commands",
   "owner": "packages/commands",
   "status": "planned",
-  "consumers": [
-    "Editor",
-    "Diagram"
-  ],
+  "consumers": ["Editor", "Diagram"],
   "externalAdapterPolicy": "native-first; adapter only after dependency approval and real alternate implementation"
 }

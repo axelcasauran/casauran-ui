@@ -1,5 +1,7 @@
 # KendoReact Reference Policy
+
 Approved baseline:
+
 - repository `telerik/kendo-react`
 - path `docs/content`
 - commit `6a05c926c4f08b89782c25336fc159fea3a3f26b`
@@ -26,6 +28,7 @@ The repository and commit recorded in `reference/kendo-react-baseline.json` are 
 **Online fallback is disabled.**
 
 Agents MUST NOT compensate for a missing local corpus by browsing:
+
 - the KendoReact GitHub repository;
 - live Telerik/KendoReact documentation;
 - search engines;
@@ -39,6 +42,7 @@ The local corpus must point specifically to `docs/content`, not a repository roo
 ## Local corpus update rule
 
 Updating the local docs corpus is deliberate maintenance:
+
 1. update the external corpus;
 2. record its intended upstream provenance;
 3. run `pnpm reference:check`;

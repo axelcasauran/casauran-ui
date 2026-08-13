@@ -13,6 +13,7 @@ Phase 0 is not "setup work to rush through"; it defines contracts that determine
 ## Proving the architecture
 
 Phase 1 uses small components as probes:
+
 - Button proves semantic primitives, tokens, states, event composition and keyboard/focus.
 - Popup/Tooltip/Dialog prove overlay, positioning, portal and focus lifecycle.
 - ListBox proves collections, active item, selection and keyboard navigation.
@@ -40,6 +41,7 @@ The Next.js docs, playground, showcase and visual-test apps continuously exercis
 ## Enterprise product disciplines
 
 Every phase considers:
+
 - API/version lifecycle
 - accessibility and keyboard
 - security/trust boundaries

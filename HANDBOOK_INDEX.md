@@ -1,6 +1,7 @@
 # Handbook Index
 
 ## Start here
+
 - `README.md` — product objective and repository entry point.
 - `AGENTS.md` — governing constitution for humans and AI.
 - `ARCHITECTURE.md` — capability ownership, layers, packaging and runtime architecture.
@@ -9,6 +10,7 @@
 - `.agent/PROMPT_PLAN.md` — exact phase/stage execution plan.
 
 ## Reference and parity
+
 - `KENDO_REFERENCE_POLICY.md`
 - `KENDO_FEATURE_COMPARISON.md`
 - `PARITY_DEFINITION.md`
@@ -20,6 +22,7 @@
 - `.agent/reference-map.md`
 
 ## Architecture and product policies
+
 - `DEPENDENCY_POLICY.md`
 - `DEPENDENCY_GRAPH.md`
 - `PACKAGE_POLICY.md`
@@ -40,6 +43,7 @@
 - `PERFORMANCE_POLICY.md`
 
 ## Quality and lifecycle
+
 - `DEFINITION_OF_DONE.md`
 - `QUALITY_GATES.md`
 - `TESTING_POLICY.md`
@@ -56,6 +60,7 @@
 - `SECURITY.md`
 
 ## AI operating system
+
 - `AI_AGENT_OPERATING_MODEL.md`
 - `.agent/protocol.md`
 - `.agent/status.md`
@@ -67,6 +72,7 @@
 - `skills/`
 
 ## Machine-readable product truth
+
 - `registry/components/`
 - `registry/capabilities/`
 - `registry/platform/`
@@ -77,6 +83,7 @@
 - `registry/derived/`
 
 ## Specification and review templates
+
 - `specs/templates/`
 - `templates/component-dna/`
 - `templates/api/`
@@ -84,6 +91,7 @@
 - `templates/reviews/`
 
 ## Mechanical enforcement
+
 - `scripts/verify-scaffold.mjs`
 - architecture/registry/reference/composition/package/public-API/toolchain/platform validators
 - `dependency-cruiser.config.cjs`
@@ -95,6 +103,7 @@
 - Changesets
 
 ## Development hosts
+
 - `apps/docs`
 - `apps/playground`
 - `apps/showcase`

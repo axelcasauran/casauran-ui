@@ -14,7 +14,8 @@ const expected = {
 if (p.packageManager !== expected.packageManager) fail(`packageManager drift: ${p.packageManager}`);
 for (const [name, version] of Object.entries(expected)) {
   if (name === 'packageManager') continue;
-  if (p.devDependencies?.[name] !== version) fail(`toolchain drift ${name}: ${p.devDependencies?.[name]} expected ${version}`);
+  if (p.devDependencies?.[name] !== version)
+    fail(`toolchain drift ${name}: ${p.devDependencies?.[name]} expected ${version}`);
 }
 if (p.engines?.node !== '>=24.18.0 <27') fail(`unexpected Node support range ${p.engines?.node}`);
 pass('pinned mutually-supported toolchain snapshot');

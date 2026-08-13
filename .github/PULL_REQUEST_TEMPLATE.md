@@ -1,10 +1,13 @@
 ## Scope
+
 Active phase/stage:
 
 ## Contracts changed
+
 Specs / registry / API / ADR:
 
 ## Quality
+
 - [ ] One public component maximum for component stage
 - [ ] Tests added/updated
 - [ ] Accessibility reviewed

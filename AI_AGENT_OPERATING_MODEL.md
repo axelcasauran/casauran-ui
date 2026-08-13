@@ -30,6 +30,7 @@ This separation lets future models change without losing project operating disci
 ## Agent behavior
 
 An agent must:
+
 - inspect repository status rather than infer progress from conversation;
 - report conflicting policies rather than silently choose;
 - update durable records after work;
@@ -37,6 +38,7 @@ An agent must:
 - stop at public stage boundaries.
 
 An agent must not:
+
 - optimize for finishing a prompt at the cost of platform ownership;
 - create duplicate public components;
 - use undocumented private imports;

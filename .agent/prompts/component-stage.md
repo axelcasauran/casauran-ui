@@ -11,7 +11,9 @@ Use only `CASAURAN_KENDO_DOCS_PATH` (default `../references/kendo-react-docs/doc
 Do not browse the online KendoReact repository or live documentation as fallback. If the local reference check fails, stop this stage as BLOCKED.
 
 # Component Stage Prompt
+
 Execute only `{{STAGE_ID}} — {{COMPONENT}}`.
+
 1. Read AGENTS, stage, ADRs/policies/skills.
 2. Read approved pinned public reference pages.
 3. Extract observable features/cross-cutting requirements only.

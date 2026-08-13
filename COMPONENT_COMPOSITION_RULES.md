@@ -1,4 +1,5 @@
 # Component Composition Rules
+
 Composite components reuse canonical lower-level components when equivalent semantics exist.
 
 Examples: Toolbar→Button/Icon; DatePicker→field+Popup+Calendar+trigger; Editor→Toolbar/Button/dropdowns; Form→Label/Hint/Error; Upload→Button/ProgressBar.

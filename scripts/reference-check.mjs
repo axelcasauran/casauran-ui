@@ -1,11 +1,9 @@
-
 import fs from 'node:fs';
 import path from 'node:path';
 import { root, fail, pass } from './lib.mjs';
 
 const configured =
-  process.env.CASAURAN_KENDO_DOCS_PATH ??
-  '../references/kendo-react-docs/docs/content';
+  process.env.CASAURAN_KENDO_DOCS_PATH ?? '../references/kendo-react-docs/docs/content';
 
 const resolved = path.resolve(root, configured);
 
@@ -39,9 +37,7 @@ const expectedDomains = [
   'charts',
 ];
 
-const missing = expectedDomains.filter(
-  (domain) => !fs.existsSync(path.join(resolved, domain)),
-);
+const missing = expectedDomains.filter((domain) => !fs.existsSync(path.join(resolved, domain)));
 
 if (missing.length > 0) {
   fail(`local reference corpus is missing expected domains: ${missing.join(', ')}`);

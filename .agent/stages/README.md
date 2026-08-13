@@ -1,6 +1,7 @@
 # Stage Ledger
 
 171 stages total:
+
 - 17 foundation
 - 127 public component
 - 10 patterns

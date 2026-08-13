@@ -1,4 +1,5 @@
 # Token Architecture
+
 Primitive → semantic → component → theme assignment.
 
 Primitive tokens are raw design vocabulary; semantic tokens express intent; component tokens expose durable customization; theme assignments produce visual families.

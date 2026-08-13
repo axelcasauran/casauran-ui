@@ -43,6 +43,7 @@ Load `security` whenever untrusted content/files/URLs/SVG/clipboard/serializatio
 ## Earlier conceptual names
 
 Older discussion labels map to canonical skills:
+
 - design-system → design-tokens + theming + css-architecture
 - positioning → overlay-positioning
 - scheduling → scheduler + date-time + internationalization
