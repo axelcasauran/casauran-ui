@@ -1,0 +1,85 @@
+import assert from 'node:assert/strict';
+import test from 'node:test';
+import { renderTokenModule, validateTokenContract } from './token-contract.mjs';
+
+const validContract = () => ({
+  $schema: '../schemas/token-contract.schema.json',
+  schemaVersion: 1,
+  package: '@casauran/tokens',
+  cssNamespace: 'csn',
+  layers: ['primitive', 'semantic', 'component', 'theme'],
+  tokenTypes: [
+    'color',
+    'dimension',
+    'font-family',
+    'font-size',
+    'font-weight',
+    'line-height',
+    'shadow',
+    'duration',
+    'easing',
+    'number',
+    'z-index',
+  ],
+  primitives: Array.from({ length: 60 }, (_, index) => ({
+    name: `color.test.${index}`,
+    type: 'color',
+    value: '#112233',
+    cssVariable: `--csn-ref-color-test-${index}`,
+    description: `Primitive ${index}`,
+  })),
+  semantics: Array.from({ length: 50 }, (_, index) => ({
+    name: `surface.test-${index}`,
+    type: 'color',
+    reference: `color.test.${index % 60}`,
+    cssVariable: `--csn-surface-test-${index}`,
+    description: `Semantic ${index}`,
+  })),
+  components: [],
+});
+
+test('accepts a complete primitive and semantic token contract', () => {
+  assert.deepEqual(validateTokenContract(validContract()), []);
+});
+
+test('rejects unknown and type-incompatible semantic references', () => {
+  const contract = validContract();
+  contract.semantics[0].reference = 'color.missing';
+  contract.semantics[1].type = 'dimension';
+  const errors = validateTokenContract(contract);
+  assert.ok(errors.includes('surface.test-0 references unknown primitive color.missing'));
+  assert.ok(
+    errors.includes('surface.test-1 type dimension does not match color.test.1 type color'),
+  );
+});
+
+test('rejects duplicate names and CSS variables', () => {
+  const contract = validContract();
+  contract.semantics[0].name = contract.primitives[0].name;
+  contract.semantics[1].cssVariable = contract.semantics[2].cssVariable;
+  const errors = validateTokenContract(contract);
+  assert.ok(errors.includes('duplicate token name color.test.0'));
+  assert.ok(errors.includes('duplicate token CSS variable --csn-surface-test-2'));
+});
+
+test('rejects invalid primitive values and CSS namespace drift', () => {
+  const contract = validContract();
+  contract.primitives[0].value = 'red';
+  contract.primitives[1].cssVariable = '--other-color';
+  const errors = validateTokenContract(contract);
+  assert.ok(errors.includes('color.test.0 has invalid color value red'));
+  assert.ok(errors.includes('color.test.1 has invalid primitive CSS variable --other-color'));
+});
+
+test('rejects speculative component tokens in F0.05', () => {
+  const contract = validContract();
+  contract.components.push({ component: 'Button' });
+  assert.ok(validateTokenContract(contract).includes('F0.05 must not predeclare component tokens'));
+});
+
+test('renders deterministic typed token source', () => {
+  const output = renderTokenModule(validContract());
+  assert.ok(output.startsWith('/* This file is generated'));
+  assert.ok(output.includes('export const tokenContractVersion = 1 as const;'));
+  assert.ok(output.includes('export type TokenName = PrimitiveTokenName | SemanticTokenName;'));
+});

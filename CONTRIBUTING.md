@@ -15,3 +15,16 @@ add per-package root test loops, empty-test bypasses, generated build artifacts,
 browser evidence.
 
 Architectural proposals use ADR workflow rather than opportunistic refactors.
+
+Token changes begin in `registry/tokens/foundation.json`. Run `pnpm generate:tokens`, review the
+public identifier and value impact, and run `pnpm validate:tokens`; never hand-edit generated token
+source. Theme assignments and CSS runtime behavior are separate changes owned by the theme stage.
+
+Theme mapping changes begin in `registry/themes/foundation.json`. Run `pnpm generate:theme`, review
+contrast and browser/visual evidence, and run `pnpm validate:theme`. Never edit generated
+`packages/theme/src/theme.css` directly or introduce proprietary theme values/selectors.
+
+Accessibility engine changes begin with `registry/accessibility/foundation.json` and the owning
+specification. Run `pnpm test:accessibility-foundation`, real-browser keyboard/focus evidence where
+applicable, and `pnpm validate:accessibility-foundation`. Do not move React state, collection
+registration, overlay lifecycle, or component-specific APG behavior into the foundation package.

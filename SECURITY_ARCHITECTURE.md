@@ -5,3 +5,6 @@ Treat HTML, URLs, SVG, clipboard/paste, drag payloads, uploaded files/metadata, 
 Escape text by default. Avoid arbitrary HTML rendering. Validate URL protocols. Never trust extension/MIME alone. Avoid executing serialized content. Keep AI output outside privileged tool execution unless validated. Document CSP requirements.
 
 Editor, Upload, PDF, SVG/Diagram, Spreadsheet import and AI stages require explicit security review and negative tests.
+
+Accessibility announcements treat message strings as untrusted text. Shared live-region utilities
+write only `textContent`; they do not accept HTML, URLs, or executable callbacks from message data.

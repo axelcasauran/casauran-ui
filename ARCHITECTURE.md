@@ -138,6 +138,11 @@ Vitest for pure logic/engines. Playwright for real browser interaction, focus, p
 
 WCAG 2.2 AA + applicable WAI-ARIA APG. Semantic HTML first. Component specs define keyboard/focus/announcements/touch/IME/forced-colors/reduced-motion. Complex patterns require manual evidence in addition to automation.
 
+The internal accessibility owner supplies native tabbability/focus helpers, stateless roving-focus
+and direction-aware keyboard intent, safe live-region updates, and visually-hidden CSS. It does not
+own React state, collection registration/selection, overlay focus lifecycle, or component-specific
+ARIA patterns.
+
 ## Security
 
 HTML/URLs/SVG/files/clipboard/drag/serialized state/AI output are untrusted. Dangerous sinks/escape hatches are explicit and reviewed. Editor, Upload, PDF, Spreadsheet import, SVG/Diagram and AI stages require security evidence.

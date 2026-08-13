@@ -1,0 +1,25 @@
+@layer components {
+  .accessibility-probe {
+    display: grid;
+    gap: var(--csn-spacing-content-gap);
+    max-inline-size: 48rem;
+    padding-block: var(--csn-spacing-layout-section);
+    padding-inline: var(--csn-spacing-layout-gutter);
+  }
+
+  .accessibility-probe__group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--csn-spacing-control-block);
+    padding: var(--csn-spacing-content-gap);
+    border: var(--csn-border-width-default) solid var(--csn-border-default);
+    border-radius: var(--csn-radius-surface);
+  }
+
+  .accessibility-probe button,
+  .accessibility-probe a,
+  .accessibility-probe [tabindex='-1'] {
+    padding-block: var(--csn-spacing-control-block);
+    padding-inline: var(--csn-spacing-control-inline);
+  }
+}

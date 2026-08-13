@@ -88,6 +88,9 @@
 - `registry/blocks/`
 - `registry/templates/`
 - `registry/schemas/`
+- `registry/tokens/foundation.json` — canonical versioned primitive and semantic token vocabulary.
+- `registry/themes/foundation.json` — canonical light/dark, density, and adaptive theme assignments.
+- `registry/accessibility/foundation.json` — canonical focus, keyboard, live-region, and hidden-content foundation.
 - `registry/derived/`
 
 ## Specification and review templates
@@ -113,6 +116,9 @@ beside it.
 - `scripts/validate-mechanical-governance.mjs`
 - `scripts/validate-build-test-infrastructure.mjs`
 - `scripts/verify-build-output.mjs`
+- `scripts/validate-token-contract.mjs`
+- `scripts/validate-theme-contract.mjs`
+- `scripts/validate-accessibility-foundation.mjs`
 - architecture/registry/reference/composition/package/public-API/toolchain/platform validators
 - `dependency-cruiser.config.cjs`
 - strict TypeScript

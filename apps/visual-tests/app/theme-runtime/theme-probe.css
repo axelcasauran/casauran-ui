@@ -1,0 +1,60 @@
+@layer components {
+  .theme-matrix {
+    min-block-size: 100vh;
+    padding-block: var(--csn-spacing-layout-section);
+    padding-inline: var(--csn-spacing-layout-gutter);
+    background: var(--csn-surface-canvas);
+    color: var(--csn-text-primary);
+  }
+
+  .theme-matrix__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: var(--csn-spacing-content-gap);
+  }
+
+  .theme-probe {
+    padding-block: var(--csn-spacing-control-block);
+    padding-inline: var(--csn-spacing-control-inline);
+    border: var(--csn-border-width-default) solid var(--csn-border-default);
+    border-radius: var(--csn-radius-surface);
+    background: var(--csn-surface-raised);
+    color: var(--csn-text-primary);
+    box-shadow: var(--csn-elevation-surface);
+  }
+
+  .theme-probe__secondary {
+    color: var(--csn-text-secondary);
+  }
+
+  .theme-probe__action {
+    display: inline-block;
+    padding-block: var(--csn-spacing-control-block);
+    padding-inline: var(--csn-spacing-control-inline);
+    border-radius: var(--csn-radius-control);
+    background: var(--csn-interactive-primary);
+    color: var(--csn-interactive-on-primary);
+    transition: background-color var(--csn-motion-duration-standard)
+      var(--csn-motion-easing-standard);
+  }
+
+  .theme-probe__logical {
+    inline-size: var(--csn-ref-space-4);
+    block-size: var(--csn-ref-space-4);
+    margin-inline-start: var(--csn-spacing-control-inline);
+    margin-inline-end: 0;
+    background: var(--csn-focus-ring);
+  }
+
+  .theme-probe__status {
+    padding: var(--csn-ref-space-2);
+    background: var(--csn-status-success-surface);
+    color: var(--csn-status-success);
+  }
+}
+
+@layer overrides {
+  .theme-probe--override {
+    --csn-interactive-primary: var(--csn-ref-color-red-500);
+  }
+}

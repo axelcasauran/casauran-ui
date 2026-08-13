@@ -65,3 +65,13 @@ test-host routes and may not create consumer exports.
 Testing helpers are owned by `@casauran-internal/testing`. Next.js hosts under `apps/` prove
 integration but do not own reusable component or engine behavior. A change that crosses owners
 identifies one primary owner and obtains review from every materially affected owner.
+
+The theme owner maintains the versioned assignment registry, generated static stylesheet,
+light/dark and comfortable/compact contracts, cascade order, adaptive media assignments, public
+attribute helpers, and documented override/portal inheritance seams. It does not own application
+preference persistence, overlay mechanics, component styles, or accessibility behavior engines.
+
+The accessibility owner maintains native focus/tabbability inspection, pure roving-focus and
+direction-aware keyboard intent, safe live-region text updates, and visually-hidden CSS. React
+hooks/state remain with the React state foundation, registration/selection with collections,
+focus traps/restoration lifecycle with overlay, and pattern semantics with public components.

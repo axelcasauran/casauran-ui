@@ -54,6 +54,16 @@ Repository ownership and stage-order checks are also available directly through
 read-only safety, and root-gate linkage are verified through `pnpm validate:mechanical-governance`
 and `pnpm test:mechanical-governance`.
 
+The canonical token vocabulary is validated with `pnpm validate:tokens`, regenerated with
+`pnpm generate:tokens`, and documented in `TOKEN_ARCHITECTURE.md`.
+
+Static light/dark and comfortable/compact theme behavior is regenerated with
+`pnpm generate:theme`, validated with `pnpm validate:theme`, and documented in `THEME_POLICY.md` and
+`CSS_ARCHITECTURE.md`.
+
+The internal accessibility foundation is validated with `pnpm validate:accessibility-foundation`
+and documented in `ACCESSIBILITY_POLICY.md` and `specs/foundation/accessibility.md`.
+
 Build/test topology and output wiring are checked with `pnpm validate:build-test-infrastructure`
 and `pnpm test:build-test-infrastructure`. Unit tests run once through `pnpm test:unit`; production
 SSR/hydration/browser checks run through `pnpm test:browser`.

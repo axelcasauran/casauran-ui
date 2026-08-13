@@ -1,0 +1,65 @@
+{
+  "$schema": "../schemas/accessibility-foundation.schema.json",
+  "schemaVersion": 1,
+  "package": "@casauran-internal/accessibility",
+  "baseline": {
+    "wcag": "2.2 AA",
+    "semanticHtmlFirst": true,
+    "apgPatternSpecific": true
+  },
+  "capabilities": [
+    {
+      "id": "focus",
+      "module": "packages/accessibility/src/focus.ts",
+      "exports": ["isElementTabbable", "getTabbableElements", "tryFocus"],
+      "evidence": ["unit", "browser"]
+    },
+    {
+      "id": "roving-focus",
+      "module": "packages/accessibility/src/roving-focus.ts",
+      "exports": ["resolveRovingTabStop", "getRovingTabIndex", "moveRovingFocus"],
+      "evidence": ["unit", "browser"]
+    },
+    {
+      "id": "keyboard",
+      "module": "packages/accessibility/src/keyboard.ts",
+      "exports": [
+        "getDirectionalNavigationIntent",
+        "isActivationKey",
+        "isDismissKey",
+        "isKeyboardEventModified"
+      ],
+      "evidence": ["unit", "browser"]
+    },
+    {
+      "id": "live-region",
+      "module": "packages/accessibility/src/live-region.ts",
+      "exports": ["getLiveRegionAttributes", "createLiveRegionController"],
+      "evidence": ["unit", "browser", "ssr", "accessibility-tree", "security"]
+    },
+    {
+      "id": "visually-hidden",
+      "module": "packages/accessibility/src/accessibility.css",
+      "exports": ["data-csn-visually-hidden"],
+      "evidence": ["browser", "accessibility-tree"]
+    }
+  ],
+  "boundaries": {
+    "owned": [
+      "native focusability and tabbability inspection",
+      "one-shot focus attempts",
+      "pure roving-tab-stop calculation",
+      "direction-aware keyboard intent",
+      "safe text-only live-region announcements",
+      "static visually-hidden utility"
+    ],
+    "excluded": [
+      "public React components or hooks",
+      "controlled or uncontrolled React state",
+      "collection registration or selection",
+      "focus traps or overlay focus lifecycle",
+      "component-specific ARIA roles or APG behavior",
+      "screen-reader certification claims"
+    ]
+  }
+}

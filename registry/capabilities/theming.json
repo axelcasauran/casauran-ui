@@ -1,7 +1,13 @@
 {
   "name": "theming",
   "owner": "packages/theme",
-  "status": "planned",
-  "consumers": [],
+  "status": "implemented",
+  "consumers": [
+    "packages/react",
+    "apps/docs",
+    "apps/playground",
+    "apps/showcase",
+    "apps/visual-tests"
+  ],
   "externalAdapterPolicy": "native-first; adapter only after dependency approval and real alternate implementation"
 }

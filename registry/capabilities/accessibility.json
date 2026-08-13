@@ -1,7 +1,7 @@
 {
   "name": "accessibility",
   "owner": "packages/accessibility",
-  "status": "planned",
+  "status": "implemented",
   "consumers": [
     "DataGrid",
     "PivotGrid",

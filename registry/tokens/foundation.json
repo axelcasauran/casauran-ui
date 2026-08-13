@@ -1,0 +1,928 @@
+{
+  "$schema": "../schemas/token-contract.schema.json",
+  "schemaVersion": 1,
+  "package": "@casauran/tokens",
+  "cssNamespace": "csn",
+  "layers": ["primitive", "semantic", "component", "theme"],
+  "tokenTypes": [
+    "color",
+    "dimension",
+    "font-family",
+    "font-size",
+    "font-weight",
+    "line-height",
+    "shadow",
+    "duration",
+    "easing",
+    "number",
+    "z-index"
+  ],
+  "primitives": [
+    {
+      "name": "color.neutral.0",
+      "type": "color",
+      "value": "#ffffff",
+      "cssVariable": "--csn-ref-color-neutral-0",
+      "description": "Lightest neutral reference color."
+    },
+    {
+      "name": "color.neutral.50",
+      "type": "color",
+      "value": "#f8fafc",
+      "cssVariable": "--csn-ref-color-neutral-50",
+      "description": "Very light neutral reference color."
+    },
+    {
+      "name": "color.neutral.100",
+      "type": "color",
+      "value": "#f1f5f9",
+      "cssVariable": "--csn-ref-color-neutral-100",
+      "description": "Light neutral reference color."
+    },
+    {
+      "name": "color.neutral.200",
+      "type": "color",
+      "value": "#e2e8f0",
+      "cssVariable": "--csn-ref-color-neutral-200",
+      "description": "Soft neutral reference color."
+    },
+    {
+      "name": "color.neutral.300",
+      "type": "color",
+      "value": "#cbd5e1",
+      "cssVariable": "--csn-ref-color-neutral-300",
+      "description": "Mid-light neutral reference color."
+    },
+    {
+      "name": "color.neutral.500",
+      "type": "color",
+      "value": "#64748b",
+      "cssVariable": "--csn-ref-color-neutral-500",
+      "description": "Mid neutral reference color."
+    },
+    {
+      "name": "color.neutral.700",
+      "type": "color",
+      "value": "#334155",
+      "cssVariable": "--csn-ref-color-neutral-700",
+      "description": "Dark neutral reference color."
+    },
+    {
+      "name": "color.neutral.900",
+      "type": "color",
+      "value": "#0f172a",
+      "cssVariable": "--csn-ref-color-neutral-900",
+      "description": "Very dark neutral reference color."
+    },
+    {
+      "name": "color.neutral.1000",
+      "type": "color",
+      "value": "#000000",
+      "cssVariable": "--csn-ref-color-neutral-1000",
+      "description": "Darkest neutral reference color."
+    },
+    {
+      "name": "color.brand.50",
+      "type": "color",
+      "value": "#eff6ff",
+      "cssVariable": "--csn-ref-color-brand-50",
+      "description": "Light brand reference color."
+    },
+    {
+      "name": "color.brand.100",
+      "type": "color",
+      "value": "#dbeafe",
+      "cssVariable": "--csn-ref-color-brand-100",
+      "description": "Soft brand reference color."
+    },
+    {
+      "name": "color.brand.500",
+      "type": "color",
+      "value": "#2563eb",
+      "cssVariable": "--csn-ref-color-brand-500",
+      "description": "Primary brand reference color."
+    },
+    {
+      "name": "color.brand.600",
+      "type": "color",
+      "value": "#1d4ed8",
+      "cssVariable": "--csn-ref-color-brand-600",
+      "description": "Strong brand reference color."
+    },
+    {
+      "name": "color.brand.700",
+      "type": "color",
+      "value": "#1e40af",
+      "cssVariable": "--csn-ref-color-brand-700",
+      "description": "Dark brand reference color."
+    },
+    {
+      "name": "color.red.50",
+      "type": "color",
+      "value": "#fef2f2",
+      "cssVariable": "--csn-ref-color-red-50",
+      "description": "Light danger reference color."
+    },
+    {
+      "name": "color.red.500",
+      "type": "color",
+      "value": "#dc2626",
+      "cssVariable": "--csn-ref-color-red-500",
+      "description": "Danger reference color."
+    },
+    {
+      "name": "color.red.700",
+      "type": "color",
+      "value": "#b91c1c",
+      "cssVariable": "--csn-ref-color-red-700",
+      "description": "Strong danger reference color."
+    },
+    {
+      "name": "color.green.50",
+      "type": "color",
+      "value": "#f0fdf4",
+      "cssVariable": "--csn-ref-color-green-50",
+      "description": "Light success reference color."
+    },
+    {
+      "name": "color.green.500",
+      "type": "color",
+      "value": "#16a34a",
+      "cssVariable": "--csn-ref-color-green-500",
+      "description": "Success reference color."
+    },
+    {
+      "name": "color.green.700",
+      "type": "color",
+      "value": "#15803d",
+      "cssVariable": "--csn-ref-color-green-700",
+      "description": "Strong success reference color."
+    },
+    {
+      "name": "color.amber.50",
+      "type": "color",
+      "value": "#fffbeb",
+      "cssVariable": "--csn-ref-color-amber-50",
+      "description": "Light warning reference color."
+    },
+    {
+      "name": "color.amber.500",
+      "type": "color",
+      "value": "#d97706",
+      "cssVariable": "--csn-ref-color-amber-500",
+      "description": "Warning reference color."
+    },
+    {
+      "name": "color.amber.700",
+      "type": "color",
+      "value": "#b45309",
+      "cssVariable": "--csn-ref-color-amber-700",
+      "description": "Strong warning reference color."
+    },
+    {
+      "name": "space.0",
+      "type": "dimension",
+      "value": "0",
+      "cssVariable": "--csn-ref-space-0",
+      "description": "Zero spacing reference."
+    },
+    {
+      "name": "space.1",
+      "type": "dimension",
+      "value": "0.25rem",
+      "cssVariable": "--csn-ref-space-1",
+      "description": "Extra-small spacing reference."
+    },
+    {
+      "name": "space.2",
+      "type": "dimension",
+      "value": "0.5rem",
+      "cssVariable": "--csn-ref-space-2",
+      "description": "Small spacing reference."
+    },
+    {
+      "name": "space.3",
+      "type": "dimension",
+      "value": "0.75rem",
+      "cssVariable": "--csn-ref-space-3",
+      "description": "Compact spacing reference."
+    },
+    {
+      "name": "space.4",
+      "type": "dimension",
+      "value": "1rem",
+      "cssVariable": "--csn-ref-space-4",
+      "description": "Base spacing reference."
+    },
+    {
+      "name": "space.5",
+      "type": "dimension",
+      "value": "1.25rem",
+      "cssVariable": "--csn-ref-space-5",
+      "description": "Medium spacing reference."
+    },
+    {
+      "name": "space.6",
+      "type": "dimension",
+      "value": "1.5rem",
+      "cssVariable": "--csn-ref-space-6",
+      "description": "Large spacing reference."
+    },
+    {
+      "name": "space.8",
+      "type": "dimension",
+      "value": "2rem",
+      "cssVariable": "--csn-ref-space-8",
+      "description": "Extra-large spacing reference."
+    },
+    {
+      "name": "space.10",
+      "type": "dimension",
+      "value": "2.5rem",
+      "cssVariable": "--csn-ref-space-10",
+      "description": "Section spacing reference."
+    },
+    {
+      "name": "space.12",
+      "type": "dimension",
+      "value": "3rem",
+      "cssVariable": "--csn-ref-space-12",
+      "description": "Large section spacing reference."
+    },
+    {
+      "name": "radius.none",
+      "type": "dimension",
+      "value": "0",
+      "cssVariable": "--csn-ref-radius-none",
+      "description": "Square corner reference."
+    },
+    {
+      "name": "radius.sm",
+      "type": "dimension",
+      "value": "0.25rem",
+      "cssVariable": "--csn-ref-radius-sm",
+      "description": "Small corner radius reference."
+    },
+    {
+      "name": "radius.md",
+      "type": "dimension",
+      "value": "0.5rem",
+      "cssVariable": "--csn-ref-radius-md",
+      "description": "Medium corner radius reference."
+    },
+    {
+      "name": "radius.lg",
+      "type": "dimension",
+      "value": "0.75rem",
+      "cssVariable": "--csn-ref-radius-lg",
+      "description": "Large corner radius reference."
+    },
+    {
+      "name": "radius.full",
+      "type": "dimension",
+      "value": "9999px",
+      "cssVariable": "--csn-ref-radius-full",
+      "description": "Pill and circular radius reference."
+    },
+    {
+      "name": "border.width.0",
+      "type": "dimension",
+      "value": "0",
+      "cssVariable": "--csn-ref-border-width-0",
+      "description": "No-border width reference."
+    },
+    {
+      "name": "border.width.1",
+      "type": "dimension",
+      "value": "1px",
+      "cssVariable": "--csn-ref-border-width-1",
+      "description": "Default border width reference."
+    },
+    {
+      "name": "border.width.2",
+      "type": "dimension",
+      "value": "2px",
+      "cssVariable": "--csn-ref-border-width-2",
+      "description": "Strong border width reference."
+    },
+    {
+      "name": "font.family.sans",
+      "type": "font-family",
+      "value": "ui-sans-serif, system-ui, sans-serif",
+      "cssVariable": "--csn-ref-font-family-sans",
+      "description": "System-oriented sans-serif font stack."
+    },
+    {
+      "name": "font.family.mono",
+      "type": "font-family",
+      "value": "ui-monospace, SFMono-Regular, Consolas, monospace",
+      "cssVariable": "--csn-ref-font-family-mono",
+      "description": "System-oriented monospace font stack."
+    },
+    {
+      "name": "font.size.xs",
+      "type": "font-size",
+      "value": "0.75rem",
+      "cssVariable": "--csn-ref-font-size-xs",
+      "description": "Extra-small text size reference."
+    },
+    {
+      "name": "font.size.sm",
+      "type": "font-size",
+      "value": "0.875rem",
+      "cssVariable": "--csn-ref-font-size-sm",
+      "description": "Small text size reference."
+    },
+    {
+      "name": "font.size.md",
+      "type": "font-size",
+      "value": "1rem",
+      "cssVariable": "--csn-ref-font-size-md",
+      "description": "Body text size reference."
+    },
+    {
+      "name": "font.size.lg",
+      "type": "font-size",
+      "value": "1.125rem",
+      "cssVariable": "--csn-ref-font-size-lg",
+      "description": "Large text size reference."
+    },
+    {
+      "name": "font.size.xl",
+      "type": "font-size",
+      "value": "1.25rem",
+      "cssVariable": "--csn-ref-font-size-xl",
+      "description": "Extra-large text size reference."
+    },
+    {
+      "name": "font.size.2xl",
+      "type": "font-size",
+      "value": "1.5rem",
+      "cssVariable": "--csn-ref-font-size-2xl",
+      "description": "Heading text size reference."
+    },
+    {
+      "name": "font.weight.regular",
+      "type": "font-weight",
+      "value": 400,
+      "cssVariable": "--csn-ref-font-weight-regular",
+      "description": "Regular font weight reference."
+    },
+    {
+      "name": "font.weight.medium",
+      "type": "font-weight",
+      "value": 500,
+      "cssVariable": "--csn-ref-font-weight-medium",
+      "description": "Medium font weight reference."
+    },
+    {
+      "name": "font.weight.semibold",
+      "type": "font-weight",
+      "value": 600,
+      "cssVariable": "--csn-ref-font-weight-semibold",
+      "description": "Semibold font weight reference."
+    },
+    {
+      "name": "font.weight.bold",
+      "type": "font-weight",
+      "value": 700,
+      "cssVariable": "--csn-ref-font-weight-bold",
+      "description": "Bold font weight reference."
+    },
+    {
+      "name": "line-height.tight",
+      "type": "line-height",
+      "value": 1.25,
+      "cssVariable": "--csn-ref-line-height-tight",
+      "description": "Tight line-height reference."
+    },
+    {
+      "name": "line-height.normal",
+      "type": "line-height",
+      "value": 1.5,
+      "cssVariable": "--csn-ref-line-height-normal",
+      "description": "Default line-height reference."
+    },
+    {
+      "name": "line-height.relaxed",
+      "type": "line-height",
+      "value": 1.75,
+      "cssVariable": "--csn-ref-line-height-relaxed",
+      "description": "Relaxed line-height reference."
+    },
+    {
+      "name": "shadow.none",
+      "type": "shadow",
+      "value": "none",
+      "cssVariable": "--csn-ref-shadow-none",
+      "description": "No-elevation shadow reference."
+    },
+    {
+      "name": "shadow.sm",
+      "type": "shadow",
+      "value": "0 1px 2px rgb(15 23 42 / 0.08)",
+      "cssVariable": "--csn-ref-shadow-sm",
+      "description": "Low-elevation shadow reference."
+    },
+    {
+      "name": "shadow.md",
+      "type": "shadow",
+      "value": "0 4px 12px rgb(15 23 42 / 0.12)",
+      "cssVariable": "--csn-ref-shadow-md",
+      "description": "Medium-elevation shadow reference."
+    },
+    {
+      "name": "shadow.lg",
+      "type": "shadow",
+      "value": "0 12px 32px rgb(15 23 42 / 0.18)",
+      "cssVariable": "--csn-ref-shadow-lg",
+      "description": "High-elevation shadow reference."
+    },
+    {
+      "name": "duration.instant",
+      "type": "duration",
+      "value": "0ms",
+      "cssVariable": "--csn-ref-duration-instant",
+      "description": "No-motion duration reference."
+    },
+    {
+      "name": "duration.fast",
+      "type": "duration",
+      "value": "120ms",
+      "cssVariable": "--csn-ref-duration-fast",
+      "description": "Fast motion duration reference."
+    },
+    {
+      "name": "duration.standard",
+      "type": "duration",
+      "value": "200ms",
+      "cssVariable": "--csn-ref-duration-standard",
+      "description": "Standard motion duration reference."
+    },
+    {
+      "name": "duration.slow",
+      "type": "duration",
+      "value": "320ms",
+      "cssVariable": "--csn-ref-duration-slow",
+      "description": "Slow motion duration reference."
+    },
+    {
+      "name": "easing.standard",
+      "type": "easing",
+      "value": "cubic-bezier(0.2, 0, 0, 1)",
+      "cssVariable": "--csn-ref-easing-standard",
+      "description": "Standard motion easing reference."
+    },
+    {
+      "name": "easing.emphasized",
+      "type": "easing",
+      "value": "cubic-bezier(0.2, 0, 0, 1.2)",
+      "cssVariable": "--csn-ref-easing-emphasized",
+      "description": "Emphasized motion easing reference."
+    },
+    {
+      "name": "opacity.50",
+      "type": "number",
+      "value": 0.5,
+      "cssVariable": "--csn-ref-opacity-50",
+      "description": "Half-opacity reference."
+    },
+    {
+      "name": "density.comfortable",
+      "type": "number",
+      "value": 1,
+      "cssVariable": "--csn-ref-density-comfortable",
+      "description": "Comfortable density scale reference."
+    },
+    {
+      "name": "density.compact",
+      "type": "number",
+      "value": 0.875,
+      "cssVariable": "--csn-ref-density-compact",
+      "description": "Compact density scale reference."
+    },
+    {
+      "name": "z-index.base",
+      "type": "z-index",
+      "value": 0,
+      "cssVariable": "--csn-ref-z-index-base",
+      "description": "Base stacking reference."
+    },
+    {
+      "name": "z-index.overlay",
+      "type": "z-index",
+      "value": 1000,
+      "cssVariable": "--csn-ref-z-index-overlay",
+      "description": "Overlay stacking reference."
+    },
+    {
+      "name": "z-index.modal",
+      "type": "z-index",
+      "value": 1100,
+      "cssVariable": "--csn-ref-z-index-modal",
+      "description": "Modal stacking reference."
+    },
+    {
+      "name": "z-index.toast",
+      "type": "z-index",
+      "value": 1200,
+      "cssVariable": "--csn-ref-z-index-toast",
+      "description": "Toast stacking reference."
+    }
+  ],
+  "semantics": [
+    {
+      "name": "surface.canvas",
+      "type": "color",
+      "reference": "color.neutral.0",
+      "cssVariable": "--csn-surface-canvas",
+      "description": "Application canvas surface."
+    },
+    {
+      "name": "surface.subtle",
+      "type": "color",
+      "reference": "color.neutral.50",
+      "cssVariable": "--csn-surface-subtle",
+      "description": "Subtle grouped surface."
+    },
+    {
+      "name": "surface.raised",
+      "type": "color",
+      "reference": "color.neutral.0",
+      "cssVariable": "--csn-surface-raised",
+      "description": "Raised content surface."
+    },
+    {
+      "name": "surface.inverse",
+      "type": "color",
+      "reference": "color.neutral.900",
+      "cssVariable": "--csn-surface-inverse",
+      "description": "High-contrast inverse surface."
+    },
+    {
+      "name": "text.primary",
+      "type": "color",
+      "reference": "color.neutral.900",
+      "cssVariable": "--csn-text-primary",
+      "description": "Primary content text."
+    },
+    {
+      "name": "text.secondary",
+      "type": "color",
+      "reference": "color.neutral.700",
+      "cssVariable": "--csn-text-secondary",
+      "description": "Secondary content text."
+    },
+    {
+      "name": "text.muted",
+      "type": "color",
+      "reference": "color.neutral.500",
+      "cssVariable": "--csn-text-muted",
+      "description": "Muted supporting text."
+    },
+    {
+      "name": "text.inverse",
+      "type": "color",
+      "reference": "color.neutral.0",
+      "cssVariable": "--csn-text-inverse",
+      "description": "Text on inverse surfaces."
+    },
+    {
+      "name": "border.default",
+      "type": "color",
+      "reference": "color.neutral.200",
+      "cssVariable": "--csn-border-default",
+      "description": "Default boundary color."
+    },
+    {
+      "name": "border.strong",
+      "type": "color",
+      "reference": "color.neutral.300",
+      "cssVariable": "--csn-border-strong",
+      "description": "Emphasized boundary color."
+    },
+    {
+      "name": "interactive.primary",
+      "type": "color",
+      "reference": "color.brand.500",
+      "cssVariable": "--csn-interactive-primary",
+      "description": "Primary interactive color."
+    },
+    {
+      "name": "interactive.primary-hover",
+      "type": "color",
+      "reference": "color.brand.600",
+      "cssVariable": "--csn-interactive-primary-hover",
+      "description": "Primary interactive hover color."
+    },
+    {
+      "name": "interactive.primary-active",
+      "type": "color",
+      "reference": "color.brand.700",
+      "cssVariable": "--csn-interactive-primary-active",
+      "description": "Primary interactive active color."
+    },
+    {
+      "name": "interactive.on-primary",
+      "type": "color",
+      "reference": "color.neutral.0",
+      "cssVariable": "--csn-interactive-on-primary",
+      "description": "Content color on primary interaction surfaces."
+    },
+    {
+      "name": "interactive.secondary",
+      "type": "color",
+      "reference": "color.neutral.100",
+      "cssVariable": "--csn-interactive-secondary",
+      "description": "Secondary interactive surface color."
+    },
+    {
+      "name": "interactive.secondary-hover",
+      "type": "color",
+      "reference": "color.neutral.200",
+      "cssVariable": "--csn-interactive-secondary-hover",
+      "description": "Secondary interactive hover color."
+    },
+    {
+      "name": "focus.ring",
+      "type": "color",
+      "reference": "color.brand.500",
+      "cssVariable": "--csn-focus-ring",
+      "description": "Visible focus indicator color."
+    },
+    {
+      "name": "status.danger",
+      "type": "color",
+      "reference": "color.red.500",
+      "cssVariable": "--csn-status-danger",
+      "description": "Danger status foreground color."
+    },
+    {
+      "name": "status.danger-surface",
+      "type": "color",
+      "reference": "color.red.50",
+      "cssVariable": "--csn-status-danger-surface",
+      "description": "Danger status surface color."
+    },
+    {
+      "name": "status.success",
+      "type": "color",
+      "reference": "color.green.500",
+      "cssVariable": "--csn-status-success",
+      "description": "Success status foreground color."
+    },
+    {
+      "name": "status.success-surface",
+      "type": "color",
+      "reference": "color.green.50",
+      "cssVariable": "--csn-status-success-surface",
+      "description": "Success status surface color."
+    },
+    {
+      "name": "status.warning",
+      "type": "color",
+      "reference": "color.amber.500",
+      "cssVariable": "--csn-status-warning",
+      "description": "Warning status foreground color."
+    },
+    {
+      "name": "status.warning-surface",
+      "type": "color",
+      "reference": "color.amber.50",
+      "cssVariable": "--csn-status-warning-surface",
+      "description": "Warning status surface color."
+    },
+    {
+      "name": "spacing.control-inline",
+      "type": "dimension",
+      "reference": "space.3",
+      "cssVariable": "--csn-spacing-control-inline",
+      "description": "Default inline control spacing."
+    },
+    {
+      "name": "spacing.control-block",
+      "type": "dimension",
+      "reference": "space.2",
+      "cssVariable": "--csn-spacing-control-block",
+      "description": "Default block control spacing."
+    },
+    {
+      "name": "spacing.content-gap",
+      "type": "dimension",
+      "reference": "space.4",
+      "cssVariable": "--csn-spacing-content-gap",
+      "description": "Default content gap."
+    },
+    {
+      "name": "spacing.layout-gutter",
+      "type": "dimension",
+      "reference": "space.6",
+      "cssVariable": "--csn-spacing-layout-gutter",
+      "description": "Default layout gutter."
+    },
+    {
+      "name": "spacing.layout-section",
+      "type": "dimension",
+      "reference": "space.12",
+      "cssVariable": "--csn-spacing-layout-section",
+      "description": "Default layout section spacing."
+    },
+    {
+      "name": "radius.control",
+      "type": "dimension",
+      "reference": "radius.md",
+      "cssVariable": "--csn-radius-control",
+      "description": "Default control corner radius."
+    },
+    {
+      "name": "radius.surface",
+      "type": "dimension",
+      "reference": "radius.lg",
+      "cssVariable": "--csn-radius-surface",
+      "description": "Default surface corner radius."
+    },
+    {
+      "name": "radius.pill",
+      "type": "dimension",
+      "reference": "radius.full",
+      "cssVariable": "--csn-radius-pill",
+      "description": "Pill-shaped corner radius."
+    },
+    {
+      "name": "border-width.default",
+      "type": "dimension",
+      "reference": "border.width.1",
+      "cssVariable": "--csn-border-width-default",
+      "description": "Default semantic border width."
+    },
+    {
+      "name": "border-width.strong",
+      "type": "dimension",
+      "reference": "border.width.2",
+      "cssVariable": "--csn-border-width-strong",
+      "description": "Strong semantic border width."
+    },
+    {
+      "name": "typography.body-family",
+      "type": "font-family",
+      "reference": "font.family.sans",
+      "cssVariable": "--csn-typography-body-family",
+      "description": "Body text font family."
+    },
+    {
+      "name": "typography.code-family",
+      "type": "font-family",
+      "reference": "font.family.mono",
+      "cssVariable": "--csn-typography-code-family",
+      "description": "Code text font family."
+    },
+    {
+      "name": "typography.body-size",
+      "type": "font-size",
+      "reference": "font.size.md",
+      "cssVariable": "--csn-typography-body-size",
+      "description": "Body text font size."
+    },
+    {
+      "name": "typography.small-size",
+      "type": "font-size",
+      "reference": "font.size.sm",
+      "cssVariable": "--csn-typography-small-size",
+      "description": "Supporting text font size."
+    },
+    {
+      "name": "typography.heading-size",
+      "type": "font-size",
+      "reference": "font.size.2xl",
+      "cssVariable": "--csn-typography-heading-size",
+      "description": "Default heading font size."
+    },
+    {
+      "name": "typography.body-weight",
+      "type": "font-weight",
+      "reference": "font.weight.regular",
+      "cssVariable": "--csn-typography-body-weight",
+      "description": "Body text font weight."
+    },
+    {
+      "name": "typography.emphasis-weight",
+      "type": "font-weight",
+      "reference": "font.weight.medium",
+      "cssVariable": "--csn-typography-emphasis-weight",
+      "description": "Emphasized text font weight."
+    },
+    {
+      "name": "typography.heading-weight",
+      "type": "font-weight",
+      "reference": "font.weight.semibold",
+      "cssVariable": "--csn-typography-heading-weight",
+      "description": "Heading font weight."
+    },
+    {
+      "name": "typography.body-line-height",
+      "type": "line-height",
+      "reference": "line-height.normal",
+      "cssVariable": "--csn-typography-body-line-height",
+      "description": "Body text line height."
+    },
+    {
+      "name": "typography.heading-line-height",
+      "type": "line-height",
+      "reference": "line-height.tight",
+      "cssVariable": "--csn-typography-heading-line-height",
+      "description": "Heading line height."
+    },
+    {
+      "name": "elevation.surface",
+      "type": "shadow",
+      "reference": "shadow.sm",
+      "cssVariable": "--csn-elevation-surface",
+      "description": "Raised surface elevation."
+    },
+    {
+      "name": "elevation.overlay",
+      "type": "shadow",
+      "reference": "shadow.lg",
+      "cssVariable": "--csn-elevation-overlay",
+      "description": "Overlay surface elevation."
+    },
+    {
+      "name": "motion.duration-fast",
+      "type": "duration",
+      "reference": "duration.fast",
+      "cssVariable": "--csn-motion-duration-fast",
+      "description": "Fast semantic motion duration."
+    },
+    {
+      "name": "motion.duration-standard",
+      "type": "duration",
+      "reference": "duration.standard",
+      "cssVariable": "--csn-motion-duration-standard",
+      "description": "Standard semantic motion duration."
+    },
+    {
+      "name": "motion.duration-slow",
+      "type": "duration",
+      "reference": "duration.slow",
+      "cssVariable": "--csn-motion-duration-slow",
+      "description": "Slow semantic motion duration."
+    },
+    {
+      "name": "motion.easing-standard",
+      "type": "easing",
+      "reference": "easing.standard",
+      "cssVariable": "--csn-motion-easing-standard",
+      "description": "Standard semantic motion easing."
+    },
+    {
+      "name": "motion.easing-emphasized",
+      "type": "easing",
+      "reference": "easing.emphasized",
+      "cssVariable": "--csn-motion-easing-emphasized",
+      "description": "Emphasized semantic motion easing."
+    },
+    {
+      "name": "opacity.disabled",
+      "type": "number",
+      "reference": "opacity.50",
+      "cssVariable": "--csn-opacity-disabled",
+      "description": "Disabled-content opacity."
+    },
+    {
+      "name": "density.scale",
+      "type": "number",
+      "reference": "density.comfortable",
+      "cssVariable": "--csn-density-scale",
+      "description": "Default density scale."
+    },
+    {
+      "name": "stacking.base",
+      "type": "z-index",
+      "reference": "z-index.base",
+      "cssVariable": "--csn-stacking-base",
+      "description": "Base content stacking level."
+    },
+    {
+      "name": "stacking.overlay",
+      "type": "z-index",
+      "reference": "z-index.overlay",
+      "cssVariable": "--csn-stacking-overlay",
+      "description": "Overlay stacking level."
+    },
+    {
+      "name": "stacking.modal",
+      "type": "z-index",
+      "reference": "z-index.modal",
+      "cssVariable": "--csn-stacking-modal",
+      "description": "Modal stacking level."
+    },
+    {
+      "name": "stacking.toast",
+      "type": "z-index",
+      "reference": "z-index.toast",
+      "cssVariable": "--csn-stacking-toast",
+      "description": "Toast stacking level."
+    }
+  ],
+  "components": []
+}

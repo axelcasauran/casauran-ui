@@ -32,21 +32,21 @@
     "phase": 0,
     "type": "foundation",
     "title": "Tokens",
-    "status": "not-started"
+    "status": "complete"
   },
   {
     "id": "F0.06",
     "phase": 0,
     "type": "foundation",
     "title": "CSS and Theme Runtime",
-    "status": "not-started"
+    "status": "complete"
   },
   {
     "id": "F0.07",
     "phase": 0,
     "type": "foundation",
     "title": "Accessibility Foundation",
-    "status": "not-started"
+    "status": "complete"
   },
   {
     "id": "F0.08",

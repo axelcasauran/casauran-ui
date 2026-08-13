@@ -24,5 +24,17 @@
 /.agent/decisions/** @axelcasauran
 /.agent/stages/** @axelcasauran
 /registry/schemas/** @axelcasauran
+/registry/tokens/** @axelcasauran
+/registry/themes/** @axelcasauran
+/registry/accessibility/** @axelcasauran
+/packages/tokens/** @axelcasauran
+/packages/theme/** @axelcasauran
+/packages/accessibility/** @axelcasauran
+/scripts/*token*.mjs @axelcasauran
+/scripts/*theme*.mjs @axelcasauran
+/scripts/*accessibility*.mjs @axelcasauran
+/specs/foundation/tokens.md @axelcasauran
+/specs/foundation/css-theme-runtime.md @axelcasauran
+/specs/foundation/accessibility.md @axelcasauran
 /.github/workflows/** @axelcasauran
 /.changeset/** @axelcasauran

@@ -1,8 +1,9 @@
 import '@casauran/theme/theme.css';
+import '@casauran-internal/accessibility/accessibility.css';
 import type { ReactNode } from 'react';
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" data-theme="light">
+    <html lang="en" data-density="comfortable" data-theme="light">
       <body>{children}</body>
     </html>
   );

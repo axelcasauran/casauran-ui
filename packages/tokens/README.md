@@ -1,15 +1,16 @@
 # @casauran/tokens
 
-**Ownership:** supported design token source/types.
+Framework-neutral, supported design-token data and types for Casauran.
 
-## Status
+```ts
+import { resolveTokenValue, tokenVariable } from '@casauran/tokens';
 
-Foundation scaffold. Implementation begins only in the relevant active stage.
+resolveTokenValue('surface.canvas'); // '#ffffff'
+tokenVariable('focus.ring'); // 'var(--csn-focus-ring)'
+```
 
-## Boundary
+The package publishes primitive and semantic definitions, literal name unions, stable CSS custom-property names, and pure lookup helpers. It is safe to evaluate during SSR and has no runtime dependencies.
 
-Supported consumer package. Documented exports are public API.
+The canonical source is `registry/tokens/foundation.json`. Run `pnpm generate:tokens` after intentional registry changes and `pnpm validate:tokens` to prove schema, reference, API, and generated-source consistency. Generated source is never hand-edited.
 
-## Dependency discipline
-
-No external runtime dependency without DEPENDENCY_POLICY review. Domain-owned contracts/adapters stay here when justified.
+Prefer semantic intent such as `text.primary` to raw primitives. CSS emission, theme assignment, dark mode, density application, forced-colors behavior, and reduced-motion overrides belong to F0.06 and are not provided by this package.

@@ -31,6 +31,9 @@ Stage ledger / status:
 - [ ] Tests added/updated
 - [ ] Mechanical gate registry/ownership/command updated if a validator changed
 - [ ] Build/test layer, strict typecheck, production-host, and generated-artifact contracts preserved
+- [ ] Token registry changes regenerated and `pnpm validate:tokens` passes where applicable
+- [ ] Theme changes regenerated with contrast, adaptive-media, RTL, and visual evidence where applicable
+- [ ] Accessibility changes cover semantics, keyboard/focus, announcements, disabled behavior, RTL/IME, and manual-review obligations where applicable
 - [ ] Accessibility reviewed
 - [ ] SSR/Next.js reviewed
 - [ ] RTL/i18n/IME reviewed where applicable

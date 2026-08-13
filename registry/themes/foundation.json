@@ -1,0 +1,126 @@
+{
+  "$schema": "../schemas/theme-contract.schema.json",
+  "schemaVersion": 1,
+  "package": "@casauran/theme",
+  "attributes": {
+    "theme": "data-theme",
+    "density": "data-density"
+  },
+  "cascadeLayers": ["reset", "tokens", "base", "components", "utilities", "overrides"],
+  "themes": [
+    {
+      "name": "light",
+      "colorScheme": "light",
+      "assignments": {
+        "surface.canvas": "#ffffff",
+        "surface.subtle": "#f8fafc",
+        "surface.raised": "#ffffff",
+        "surface.inverse": "#0f172a",
+        "text.primary": "#0f172a",
+        "text.secondary": "#334155",
+        "text.muted": "#64748b",
+        "text.inverse": "#ffffff",
+        "border.default": "#e2e8f0",
+        "border.strong": "#cbd5e1",
+        "interactive.primary": "#2563eb",
+        "interactive.primary-hover": "#1d4ed8",
+        "interactive.primary-active": "#1e40af",
+        "interactive.on-primary": "#ffffff",
+        "interactive.secondary": "#f1f5f9",
+        "interactive.secondary-hover": "#e2e8f0",
+        "focus.ring": "#2563eb",
+        "status.danger": "#b91c1c",
+        "status.danger-surface": "#fef2f2",
+        "status.success": "#15803d",
+        "status.success-surface": "#f0fdf4",
+        "status.warning": "#b45309",
+        "status.warning-surface": "#fffbeb",
+        "elevation.surface": "0 1px 2px rgb(15 23 42 / 0.08)",
+        "elevation.overlay": "0 12px 32px rgb(15 23 42 / 0.18)"
+      }
+    },
+    {
+      "name": "dark",
+      "colorScheme": "dark",
+      "assignments": {
+        "surface.canvas": "#0f172a",
+        "surface.subtle": "#1e293b",
+        "surface.raised": "#334155",
+        "surface.inverse": "#f8fafc",
+        "text.primary": "#f8fafc",
+        "text.secondary": "#e2e8f0",
+        "text.muted": "#cbd5e1",
+        "text.inverse": "#0f172a",
+        "border.default": "#475569",
+        "border.strong": "#64748b",
+        "interactive.primary": "#60a5fa",
+        "interactive.primary-hover": "#93c5fd",
+        "interactive.primary-active": "#bfdbfe",
+        "interactive.on-primary": "#0f172a",
+        "interactive.secondary": "#334155",
+        "interactive.secondary-hover": "#475569",
+        "focus.ring": "#93c5fd",
+        "status.danger": "#fca5a5",
+        "status.danger-surface": "#450a0a",
+        "status.success": "#86efac",
+        "status.success-surface": "#052e16",
+        "status.warning": "#fcd34d",
+        "status.warning-surface": "#451a03",
+        "elevation.surface": "0 1px 2px rgb(0 0 0 / 0.32)",
+        "elevation.overlay": "0 12px 32px rgb(0 0 0 / 0.48)"
+      }
+    }
+  ],
+  "densities": [
+    {
+      "name": "comfortable",
+      "assignments": {
+        "density.scale": 1,
+        "spacing.control-inline": "0.75rem",
+        "spacing.control-block": "0.5rem",
+        "spacing.content-gap": "1rem"
+      }
+    },
+    {
+      "name": "compact",
+      "assignments": {
+        "density.scale": 0.875,
+        "spacing.control-inline": "0.5rem",
+        "spacing.control-block": "0.25rem",
+        "spacing.content-gap": "0.75rem"
+      }
+    }
+  ],
+  "motion": {
+    "motion.duration-fast": "0ms",
+    "motion.duration-standard": "0ms",
+    "motion.duration-slow": "0ms"
+  },
+  "forcedColors": {
+    "surface.canvas": "Canvas",
+    "surface.subtle": "Canvas",
+    "surface.raised": "Canvas",
+    "surface.inverse": "CanvasText",
+    "text.primary": "CanvasText",
+    "text.secondary": "CanvasText",
+    "text.muted": "GrayText",
+    "text.inverse": "Canvas",
+    "border.default": "CanvasText",
+    "border.strong": "CanvasText",
+    "interactive.primary": "Highlight",
+    "interactive.primary-hover": "Highlight",
+    "interactive.primary-active": "Highlight",
+    "interactive.on-primary": "HighlightText",
+    "interactive.secondary": "Canvas",
+    "interactive.secondary-hover": "Canvas",
+    "focus.ring": "Highlight",
+    "status.danger": "CanvasText",
+    "status.danger-surface": "Canvas",
+    "status.success": "CanvasText",
+    "status.success-surface": "Canvas",
+    "status.warning": "CanvasText",
+    "status.warning-surface": "Canvas",
+    "elevation.surface": "none",
+    "elevation.overlay": "none"
+  }
+}

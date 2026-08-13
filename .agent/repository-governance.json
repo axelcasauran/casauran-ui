@@ -239,6 +239,66 @@
       "roles": ["maintainer", "domain-owner"]
     },
     {
+      "pattern": "/registry/tokens/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/registry/themes/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/registry/accessibility/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/packages/tokens/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner"]
+    },
+    {
+      "pattern": "/packages/theme/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner"]
+    },
+    {
+      "pattern": "/packages/accessibility/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/scripts/*token*.mjs",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/scripts/*theme*.mjs",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/scripts/*accessibility*.mjs",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/specs/foundation/tokens.md",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/specs/foundation/css-theme-runtime.md",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/specs/foundation/accessibility.md",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
       "pattern": "/.github/workflows/**",
       "owners": ["@axelcasauran"],
       "roles": ["maintainer", "security-reviewer"]

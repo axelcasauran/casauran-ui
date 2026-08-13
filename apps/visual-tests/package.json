@@ -9,6 +9,7 @@
     "typecheck": "next typegen && tsc --noEmit"
   },
   "dependencies": {
+    "@casauran-internal/accessibility": "workspace:*",
     "@casauran/icons": "workspace:*",
     "@casauran/react": "workspace:*",
     "@casauran/theme": "workspace:*",

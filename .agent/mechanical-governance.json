@@ -19,7 +19,10 @@
       "scripts/repository-governance.mjs",
       "scripts/agent-operating-system.mjs",
       "scripts/mechanical-governance.mjs",
-      "scripts/build-test-infrastructure.mjs"
+      "scripts/build-test-infrastructure.mjs",
+      "scripts/token-contract.mjs",
+      "scripts/theme-contract.mjs",
+      "scripts/accessibility-foundation.mjs"
     ]
   },
   "unitTests": {
@@ -54,6 +57,40 @@
       "packageScript": "validate:build-test-infrastructure",
       "ownerRoles": ["maintainer", "evidence-reviewer"],
       "contracts": ["BUILD_TEST_INFRASTRUCTURE.md", ".agent/build-test-infrastructure.json"]
+    },
+    {
+      "id": "token-contract",
+      "script": "scripts/validate-token-contract.mjs",
+      "packageScript": "validate:tokens",
+      "ownerRoles": ["maintainer", "domain-owner", "evidence-reviewer"],
+      "contracts": [
+        "TOKEN_ARCHITECTURE.md",
+        "registry/tokens/foundation.json",
+        "specs/foundation/tokens.md"
+      ]
+    },
+    {
+      "id": "theme-contract",
+      "script": "scripts/validate-theme-contract.mjs",
+      "packageScript": "validate:theme",
+      "ownerRoles": ["maintainer", "domain-owner", "evidence-reviewer"],
+      "contracts": [
+        "THEME_POLICY.md",
+        "CSS_ARCHITECTURE.md",
+        "registry/themes/foundation.json",
+        "specs/foundation/css-theme-runtime.md"
+      ]
+    },
+    {
+      "id": "accessibility-foundation",
+      "script": "scripts/validate-accessibility-foundation.mjs",
+      "packageScript": "validate:accessibility-foundation",
+      "ownerRoles": ["maintainer", "domain-owner", "evidence-reviewer"],
+      "contracts": [
+        "ACCESSIBILITY_POLICY.md",
+        "registry/accessibility/foundation.json",
+        "specs/foundation/accessibility.md"
+      ]
     },
     {
       "id": "local-reference-config",

@@ -5,7 +5,7 @@ Architecture: FROZEN
 Reference baseline: PINNED
 Public component implementation: NOT STARTED
 Active stage: NONE
-Next stage: `F0.05 — Tokens`
+Next stage: `F0.08 — React State Foundation`
 
 Update only through stage/phase close workflow. BLOCKED phases cannot roll forward.
 

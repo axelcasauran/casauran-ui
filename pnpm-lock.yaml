@@ -151,6 +151,9 @@ importers:
 
   apps/visual-tests:
     dependencies:
+      '@casauran-internal/accessibility':
+        specifier: workspace:*
+        version: link:../../packages/accessibility
       '@casauran/icons':
         specifier: workspace:*
         version: link:../../packages/icons

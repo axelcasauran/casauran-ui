@@ -5,3 +5,5 @@ Specifications are created when their stage begins, after reference analysis. Fu
 Use the complete templates under `specs/templates/`.
 
 Complex widgets create a folder under `specs/components/<slug>/` and use the complex-widget architecture template plus feature/state/interaction/keyboard/performance/security documents.
+
+Foundation contracts live under `specs/foundation/`. The implemented token contract is documented in `specs/foundation/tokens.md`.
