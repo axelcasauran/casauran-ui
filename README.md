@@ -35,3 +35,14 @@ After bootstrap:
 ```bash
 pnpm validate
 ```
+
+## Local KendoReact documentation prerequisite
+
+Place the external documentation corpus beside the repository and configure:
+
+```bash
+CASAURAN_KENDO_DOCS_PATH=../references/kendo-react-docs/docs/content
+pnpm reference:check
+```
+
+Normal component/reference analysis is local-only. There is no online fallback.

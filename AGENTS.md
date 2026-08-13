@@ -161,3 +161,28 @@ Once development begins, preference is not enough to alter architecture. New evi
 
 ## Success condition
 The platform is successful when serious applications can be built only from supported public APIs with coherent design, accessibility, performance, i18n, Next.js behavior and predictable upgrades. Visual similarity alone is not success.
+
+## Local KendoReact Reference Rule
+
+Reference analysis is **strictly local-only**.
+
+Canonical configuration:
+
+```bash
+CASAURAN_KENDO_DOCS_PATH=../references/kendo-react-docs/docs/content
+```
+
+For every reference-analysis task:
+
+1. Resolve `CASAURAN_KENDO_DOCS_PATH`; if unset, use the documented default.
+2. Run `pnpm reference:check`.
+3. Read only the relevant files below that documentation root.
+4. Record the relative paths examined.
+5. Produce/update the independent Casauran reference-analysis artifact and specification.
+6. Implement from the Casauran specification.
+
+Agents MUST NOT use the online KendoReact GitHub repository, live Telerik docs, search engines, third-party tutorials, or model memory as fallback during normal implementation.
+
+If the local corpus is missing, unreadable, structurally invalid, or clearly mismatched with the pinned provenance, mark the affected reference-analysis work **BLOCKED** and do not continue to implementation.
+
+Repository/commit metadata is retained for provenance only.

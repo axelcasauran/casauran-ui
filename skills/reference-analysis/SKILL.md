@@ -47,3 +47,16 @@ Update the target spec/registry/stage evidence, tests and docs relevant to this 
 
 ## Definition of Done
 Domain checklist and applicable project Definition of Done gates pass; `pnpm validate` succeeds; evidence is recorded.
+
+## Local reference resolution
+
+1. Read `reference/local-reference.json`.
+2. Resolve `CASAURAN_KENDO_DOCS_PATH`; default to `../references/kendo-react-docs/docs/content`.
+3. Run `pnpm reference:check`.
+4. Inventory only the relevant component/domain directory.
+5. Read targeted files; never load the entire documentation corpus merely because it is local.
+6. Record every relative document path examined.
+7. Do not use the online GitHub repository or live web documentation as fallback.
+8. If validation fails, mark the work BLOCKED.
+
+The production implementation should primarily consume the resulting independent Casauran spec, not continuously re-read competitor documentation.

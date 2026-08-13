@@ -57,3 +57,14 @@ The pre-install validator `node scripts/verify-scaffold.mjs` requires only Node 
 ## Integrity
 
 `MANIFEST.sha256` contains a SHA-256 digest for every file in the scaffold except itself.
+
+## Local reference configuration verification
+
+- Strict local-only KendoReact reference mode: PASS
+- `CASAURAN_KENDO_DOCS_PATH`: PASS
+- Default path `../references/kendo-react-docs/docs/content`: PASS
+- Online fallback disabled: PASS
+- `pnpm reference:check` command present: PASS
+- Scaffold validator checks policy/prompt/agent consistency: PASS
+
+Note: the external documentation corpus itself is intentionally not included in this ZIP. `pnpm reference:check` validates it on the development machine.

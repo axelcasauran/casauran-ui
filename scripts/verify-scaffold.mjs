@@ -1,5 +1,6 @@
 import { spawnSync } from 'node:child_process';
 const scripts = [
+  'validate-local-reference-config.mjs',
   'validate-branding.mjs',
   'validate-registry.mjs',
   'validate-stages.mjs',

@@ -5,5 +5,10 @@
   "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
   "capturedAt": "2026-08-13",
   "purpose": "functional-behavioral-reference-only",
-  "policy": "KENDO_REFERENCE_POLICY.md"
+  "policy": "KENDO_REFERENCE_POLICY.md",
+  "accessMode": "local-only",
+  "localPathEnvironmentVariable": "CASAURAN_KENDO_DOCS_PATH",
+  "defaultLocalPath": "../references/kendo-react-docs/docs/content",
+  "onlineFallback": false,
+  "repositoryRole": "provenance-metadata-only"
 }

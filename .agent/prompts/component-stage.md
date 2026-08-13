@@ -1,3 +1,15 @@
+## Mandatory local reference preflight
+
+Before step 2 of this prompt:
+
+```bash
+pnpm reference:check
+```
+
+Use only `CASAURAN_KENDO_DOCS_PATH` (default `../references/kendo-react-docs/docs/content`) for KendoReact reference analysis.
+
+Do not browse the online KendoReact repository or live documentation as fallback. If the local reference check fails, stop this stage as BLOCKED.
+
 # Component Stage Prompt
 Execute only `{{STAGE_ID}} — {{COMPONENT}}`.
 1. Read AGENTS, stage, ADRs/policies/skills.

@@ -142,3 +142,15 @@ Brand and namespace contracts are architectural because they shape package names
 - Diagnostic namespace: `CSN`
 
 See `BRANDING.md`, `NAMING_CONVENTIONS.md`, and ADR-019.
+
+## Local reference architecture
+
+Casauran reference analysis uses an external documentation-only corpus at:
+
+`../references/kendo-react-docs/docs/content`
+
+or the path supplied through `CASAURAN_KENDO_DOCS_PATH`.
+
+The corpus is outside the Casauran repository, read-only, and not a runtime/build dependency. Online fallback is disabled. Pinned GitHub repository/commit metadata exists only for provenance and controlled reference-sync work.
+
+If the corpus cannot be validated, dependent reference-analysis/component work is blocked.

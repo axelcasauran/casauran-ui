@@ -27,3 +27,9 @@ Review upstream changes without silent scope expansion.
 
 ## Exit
 Update authoritative registry/stage/status and stop at workflow boundary.
+
+## Local-only reference requirement
+
+This workflow operates on the external corpus resolved by `CASAURAN_KENDO_DOCS_PATH`.
+
+Run `pnpm reference:check` first. Online fallback is prohibited. If validation fails, stop as BLOCKED.

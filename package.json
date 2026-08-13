@@ -32,7 +32,9 @@
     "validate:toolchain": "node scripts/validate-toolchain.mjs",
     "validate:platform": "node scripts/validate-platform.mjs",
     "validate:static": "pnpm verify:scaffold && pnpm format && pnpm lint && pnpm typecheck && pnpm architecture && pnpm test && pnpm build",
-    "validate:branding": "node scripts/validate-branding.mjs"
+    "validate:branding": "node scripts/validate-branding.mjs",
+    "reference:check": "node scripts/reference-check.mjs",
+    "validate:local-reference-config": "node scripts/validate-local-reference-config.mjs"
   },
   "devDependencies": {
     "@changesets/cli": "2.31.0",

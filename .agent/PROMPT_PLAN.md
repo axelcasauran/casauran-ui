@@ -339,3 +339,13 @@ Serialize foundation and architecture-defining stages. Parallelize only leaf sta
 ## Source of truth
 
 `.agent/stages/index.json` is the machine-readable stage order. The stage Markdown files contain the execution ledger/evidence slot. This document is the human-readable plan and must be regenerated/reviewed when an ADR deliberately changes sequencing.
+
+## Reference-analysis precondition
+
+Any stage requiring KendoReact analysis first runs:
+
+```bash
+pnpm reference:check
+```
+
+The source is strictly local through `CASAURAN_KENDO_DOCS_PATH`. Online fallback is prohibited.
