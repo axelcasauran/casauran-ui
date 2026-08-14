@@ -94,6 +94,16 @@ the complete Phase 0 prefix, and isolation from public component lifecycles. The
 suite never opens the external corpus; `pnpm reference:check` separately recomputes its exact
 SHA-256 file/domain inventory before reference analysis or sync.
 
+F0.18 adds the read-only `documentation-experience` validator and focused rejection suite. It
+checks the accepted architecture decision, current ledger boundary, private app ownership,
+capability inventory, stage-registry metadata, narrow client boundaries, source-display security,
+stable completed-component routes, reusable structures, playground separation, and production
+browser/visual evidence without rendering pages or mutating generated artifacts.
+
+The F0.17 validator continues to require F0.01-F0.17 as an exact complete prerequisite set while
+allowing separately governed later foundation remediation. This preserves the pinned reference
+baseline without falsely prohibiting a new accepted stage after Phase 0 certification.
+
 The validator must use precise failure messages and cover at least one rejection case for each new
 invariant. Broad exceptions, warning-only enforcement, network-dependent checks, generated file
 rewrites, test disabling, and silent validator discovery are prohibited. If a rule cannot be

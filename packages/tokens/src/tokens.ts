@@ -1,5 +1,6 @@
-import { primitiveTokens, semanticTokens, type TokenName } from './generated.js';
+import { componentTokens, primitiveTokens, semanticTokens, type TokenName } from './generated.js';
 import type {
+  ComponentTokenDefinition,
   PrimitiveTokenDefinition,
   SemanticTokenDefinition,
   TokenCssVariable,
@@ -13,13 +14,17 @@ const primitivesByName: ReadonlyMap<string, PrimitiveTokenDefinition> = new Map(
 const semanticsByName: ReadonlyMap<string, SemanticTokenDefinition> = new Map(
   semanticTokens.map((token) => [token.name, token]),
 );
+const componentsByName: ReadonlyMap<string, ComponentTokenDefinition> = new Map(
+  componentTokens.map((token) => [token.name, token]),
+);
 
 function unknownToken(name: string): RangeError {
   return new RangeError(`CSN-TOKEN-001: Unknown token "${name}".`);
 }
 
 export function getTokenDefinition(name: TokenName): TokenDefinition {
-  const definition = primitivesByName.get(name) ?? semanticsByName.get(name);
+  const definition =
+    primitivesByName.get(name) ?? semanticsByName.get(name) ?? componentsByName.get(name);
   if (definition === undefined) {
     throw unknownToken(name);
   }
@@ -32,13 +37,12 @@ export function resolveTokenValue(name: TokenName): TokenValue {
     return definition.value;
   }
 
-  const primitive = primitivesByName.get(definition.reference);
-  if (primitive === undefined) {
-    throw new Error(
-      `CSN-TOKEN-002: Semantic token "${name}" has an unresolved primitive reference.`,
-    );
+  const referenced =
+    primitivesByName.get(definition.reference) ?? semanticsByName.get(definition.reference);
+  if (referenced === undefined) {
+    throw new Error(`CSN-TOKEN-002: Token "${name}" has an unresolved reference.`);
   }
-  return primitive.value;
+  return 'value' in referenced ? referenced.value : resolveTokenValue(referenced.name as TokenName);
 }
 
 export function getTokenCssVariable(name: TokenName): TokenCssVariable {

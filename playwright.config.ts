@@ -25,12 +25,20 @@ export default defineConfig({
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
   },
-  webServer: {
-    command: 'pnpm --filter @casauran-internal/visual-tests start',
-    url: 'http://localhost:3103',
-    reuseExistingServer: false,
-    timeout: 120_000,
-  },
+  webServer: [
+    {
+      command: 'pnpm --filter @casauran-internal/visual-tests start',
+      url: 'http://localhost:3103',
+      reuseExistingServer: false,
+      timeout: 120_000,
+    },
+    {
+      command: 'pnpm --filter @casauran-internal/docs start',
+      url: 'http://localhost:3100',
+      reuseExistingServer: false,
+      timeout: 120_000,
+    },
+  ],
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
     { name: 'firefox', use: { ...devices['Desktop Firefox'] } },

@@ -36,6 +36,8 @@
 /registry/date-math/** @axelcasauran
 /registry/virtualization/** @axelcasauran
 /registry/drag-drop/** @axelcasauran
+/registry/documentation/** @axelcasauran
+/apps/docs/** @axelcasauran
 /packages/tokens/** @axelcasauran
 /packages/theme/** @axelcasauran
 /packages/accessibility/** @axelcasauran
@@ -61,6 +63,7 @@
 /scripts/*date-math*.mjs @axelcasauran
 /scripts/*virtualization*.mjs @axelcasauran
 /scripts/*drag-drop*.mjs @axelcasauran
+/scripts/*documentation-experience*.mjs @axelcasauran
 /scripts/*reference*.mjs @axelcasauran
 /reference/** @axelcasauran
 /specs/foundation/tokens.md @axelcasauran
@@ -76,5 +79,6 @@
 /specs/foundation/virtualization.md @axelcasauran
 /specs/foundation/drag-drop.md @axelcasauran
 /specs/foundation/reference-baseline.md @axelcasauran
+/specs/foundation/documentation-experience.md @axelcasauran
 /.github/workflows/** @axelcasauran
 /.changeset/** @axelcasauran

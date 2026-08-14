@@ -1,5 +1,10 @@
 # Rendering Matrix
 
+Icon `1.02` is server-renderable from the package root with no client boundary and no hydration
+sensitivity. It reads no browser global during module evaluation or render and creates no observer,
+portal, listener, timer, storage, random source, or network activity. The production visual host
+renders deterministic known and unknown names across Chromium, Firefox, and WebKit.
+
 Every registry entry declares serverRenderable, requiresClient, clientReasons, hydrationSensitive, observer and portal implications. RSC-safe import and client interaction are separate concerns.
 
 F0.10 overlay modules are server-safe to import but portal creation, event listeners, focus, and
@@ -36,3 +41,10 @@ directive or browser-global import behavior. Native capture and frame scheduling
 mounted owners after hydration. Production SSR renders deterministic compiled-root collision/drop
 state, while one local client fixture proves pointer, keyboard, touch event, autoscroll and cleanup
 behavior without establishing DOM, preview, style, or public component contracts.
+
+Button `1.01` is server-renderable and exported from the server-safe package root through a narrow
+implementation-level client boundary. Client behavior is required for activation handler
+composition and optional uncontrolled pressed state. Equal props produce hydration-stable native
+markup; no browser global is read during module evaluation/render, and no observer, portal, random
+source, timer, storage, or network access exists. Production Next SSR markup and hydration run in
+Chromium, Firefox, and WebKit without console or page errors.

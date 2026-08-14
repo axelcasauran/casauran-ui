@@ -2,9 +2,11 @@
 
 **Ownership:** event composition and normalized project event contracts.
 
-## Status
+## Cancellable composition
 
-Foundation scaffold. Implementation begins only in the relevant active stage.
+`composeEventHandlers` runs a consumer handler before component-owned behavior and skips the owner
+handler when the consumer calls `preventDefault()`. This keeps cancellation consistent without
+introducing a global event bus or hiding native React events.
 
 ## Boundary
 

@@ -207,7 +207,7 @@ export const validateBuildTestInfrastructure = (
     [layerById.contracts?.packageScript]: 'node --test scripts/*.test.mjs',
     [layerById.unit?.packageScript]: 'vitest run --config vitest.config.mts',
     [layerById.browser?.packageScript]:
-      'pnpm --filter @casauran-internal/visual-tests build && playwright test',
+      'pnpm --filter @casauran-internal/visual-tests build && pnpm --filter @casauran-internal/docs build && playwright test',
   };
   for (const [script, expected] of Object.entries(expectedTestCommands)) {
     if (script === 'undefined' || packageManifest.scripts?.[script] !== expected) {
@@ -248,6 +248,7 @@ export const validateBuildTestInfrastructure = (
   for (const marker of [
     "baseURL: 'http://localhost:3103'",
     "command: 'pnpm --filter @casauran-internal/visual-tests start'",
+    "command: 'pnpm --filter @casauran-internal/docs start'",
     "locale: 'en-US'",
     "timezoneId: 'UTC'",
     "animations: 'disabled'",

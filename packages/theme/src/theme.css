@@ -212,6 +212,26 @@
     --csn-spacing-control-block: 0.25rem;
     --csn-spacing-content-gap: 0.75rem;
   }
+
+  :where(:root, [data-theme], [data-density]) {
+    --csn-button-background: var(--csn-interactive-secondary);
+    --csn-button-foreground: var(--csn-text-primary);
+    --csn-button-border: var(--csn-border-strong);
+    --csn-button-focus-ring: var(--csn-focus-ring);
+    --csn-button-padding-inline: var(--csn-spacing-control-inline);
+    --csn-button-padding-block: var(--csn-spacing-control-block);
+    --csn-button-gap: var(--csn-spacing-control-block);
+    --csn-button-radius: var(--csn-radius-control);
+    --csn-button-font-size: var(--csn-typography-body-size);
+    --csn-button-font-weight: var(--csn-typography-emphasis-weight);
+    --csn-button-line-height: var(--csn-typography-body-line-height);
+    --csn-button-min-block-size: var(--csn-ref-space-12);
+    --csn-button-disabled-opacity: var(--csn-opacity-disabled);
+    --csn-button-transition-duration: var(--csn-motion-duration-fast);
+    --csn-button-icon-size: var(--csn-typography-body-size);
+    --csn-icon-size: var(--csn-typography-body-size);
+    --csn-icon-color: var(--csn-text-primary);
+  }
 }
 
 @layer base {

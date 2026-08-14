@@ -289,6 +289,9 @@ importers:
       '@casauran-internal/positioning':
         specifier: workspace:*
         version: link:../positioning
+      '@casauran/icons':
+        specifier: workspace:*
+        version: link:../icons
       react:
         specifier: ^19.2.0
         version: 19.2.7

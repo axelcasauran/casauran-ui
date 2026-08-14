@@ -156,6 +156,16 @@ SVG only. No icon font. Tree-shakeable definitions. Icon/SVGIcon components own 
 
 Next.js App Router hosts docs/playground/showcase/visual-tests. Libraries remain framework-agnostic. Routes default to Server Components. Interactive boundaries are minimal. Server-safe models/utilities do not import browser-only code. SSR output is deterministic and IDs/theme are hydration-safe.
 
+### Documentation experience foundation
+
+F0.18 makes `apps/docs` the canonical customer documentation experience. The application owns a
+private reusable shell, stable route and anchor conventions, documentation-only example/API/
+accessibility/keyboard/callout presentation, and registry-derived navigation/search metadata.
+These modules remain above supported packages and export no consumer API. Only presentation
+preference controls form a local client boundary; content, navigation, and metadata default to
+server rendering. `apps/playground` remains an engineering sandbox and `apps/visual-tests` remains
+the deterministic fixture host, with production browser coverage also exercising `apps/docs`.
+
 ## RSC strategy
 
 Do not maintain a duplicate server-components product by default. Components are decomposed into server-safe models/formatters/renderable shells plus client interaction boundaries as needed. Registry records serverRenderable, requiresClient, clientReasons and hydrationSensitive.

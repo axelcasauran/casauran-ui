@@ -124,7 +124,7 @@
     "type": "public-component",
     "title": "Button",
     "component": "Button",
-    "status": "not-started"
+    "status": "complete"
   },
   {
     "id": "1.02",
@@ -132,7 +132,14 @@
     "type": "public-component",
     "title": "Icon",
     "component": "Icon",
-    "status": "not-started"
+    "status": "complete"
+  },
+  {
+    "id": "F0.18",
+    "phase": 0,
+    "type": "foundation",
+    "title": "Documentation Experience Foundation",
+    "status": "complete"
   },
   {
     "id": "1.03",

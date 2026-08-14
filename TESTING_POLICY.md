@@ -66,6 +66,12 @@ validator runs in the scaffold suite; `pnpm reference:check` separately hashes t
 corpus and verifies all mapped paths. No browser/runtime test applies because F0.17 renders and
 exports nothing.
 
+The documentation-experience contract has focused Node rejection tests and a read-only validator.
+The production browser matrix starts both `apps/visual-tests` and `apps/docs`; docs-shell cases
+verify SSR/deep links, registry metadata, local preference hydration, keyboard landmarks,
+responsive reflow, runtime errors, and deterministic shell screenshots in Chromium, Firefox, and
+WebKit.
+
 Tests and tooling are strict-typechecked. Empty discovery, duplicate per-package root execution,
 development-server-only evidence, and `--passWithNoTests` are not accepted by the root gate. Do not
 test private reference implementation details. See `BUILD_TEST_INFRASTRUCTURE.md`.

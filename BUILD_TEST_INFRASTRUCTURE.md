@@ -32,12 +32,12 @@ that each library export target and its maps exist and agree with the package ma
 
 The four Next.js App Router hosts are built in production mode:
 
-| Host         | Port | Responsibility                                        |
-| ------------ | ---- | ----------------------------------------------------- |
-| docs         | 3100 | Supported documentation and executable examples       |
-| playground   | 3101 | Interactive supported-API exploration                 |
-| showcase     | 3102 | Application-level integration evidence                |
-| visual-tests | 3103 | Deterministic browser and visual-regression scenarios |
+| Host         | Port | Responsibility                                           |
+| ------------ | ---- | -------------------------------------------------------- |
+| docs         | 3100 | Canonical customer documentation and executable examples |
+| playground   | 3101 | Interactive supported-API exploration                    |
+| showcase     | 3102 | Application-level integration evidence                   |
+| visual-tests | 3103 | Deterministic browser and visual-regression scenarios    |
 
 Routes remain Server Components by default. Test-only client probes must have a local `'use
 client'` boundary and may not become a consumer export.
@@ -62,8 +62,8 @@ Tests run at the cheapest reliable layer and are centrally orchestrated once per
 - `pnpm test:unit` uses Vitest once from the repository root for package-local pure tests and
   cross-package tests under `tests/unit`. Empty discovery is a failure; `--passWithNoTests` is not
   part of the root gate.
-- `pnpm test:browser` builds the visual-test host, starts it with `next start`, and uses Playwright
-  against that production runtime. Chromium, Firefox, and WebKit are mandatory.
+- `pnpm test:browser` builds the visual-test and documentation hosts, starts both with `next start`,
+  and uses Playwright against those production runtimes. Chromium, Firefox, and WebKit are mandatory.
 - `pnpm test` combines contract and unit layers. `pnpm validate` combines the full static gate with
   the production browser layer.
 

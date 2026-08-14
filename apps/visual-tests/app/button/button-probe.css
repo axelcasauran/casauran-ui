@@ -1,0 +1,43 @@
+@layer base {
+  .button-probe {
+    display: grid;
+    gap: var(--csn-spacing-content-gap);
+    max-inline-size: 72rem;
+    margin-inline: auto;
+    padding: var(--csn-spacing-layout-gutter);
+  }
+
+  .button-probe__matrix {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    gap: var(--csn-spacing-content-gap);
+  }
+
+  .button-probe__panel {
+    display: grid;
+    align-content: start;
+    gap: var(--csn-spacing-control-block);
+    padding: var(--csn-spacing-content-gap);
+    border: var(--csn-border-width-default) solid var(--csn-border-default);
+    border-radius: var(--csn-radius-surface);
+    background: var(--csn-surface-canvas);
+    color: var(--csn-text-primary);
+  }
+
+  .button-probe__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--csn-spacing-control-block);
+  }
+
+  .button-probe__narrow {
+    inline-size: 12rem;
+  }
+
+  .button-probe__override {
+    --csn-button-background: var(--csn-status-success-surface);
+    --csn-button-foreground: var(--csn-status-success);
+    --csn-button-border: var(--csn-status-success);
+  }
+}

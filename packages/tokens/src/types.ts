@@ -30,4 +30,14 @@ export interface SemanticTokenDefinition {
   readonly description: string;
 }
 
-export type TokenDefinition = PrimitiveTokenDefinition | SemanticTokenDefinition;
+export interface ComponentTokenDefinition {
+  readonly component: string;
+  readonly name: string;
+  readonly type: TokenType;
+  readonly reference: string;
+  readonly cssVariable: TokenCssVariable;
+  readonly description: string;
+}
+
+export type TokenDefinition =
+  PrimitiveTokenDefinition | SemanticTokenDefinition | ComponentTokenDefinition;

@@ -232,10 +232,12 @@ export const validateReferenceBaseline = (
   const foundationStages = Array.isArray(stages)
     ? stages.filter((stage) => stage.type === 'foundation')
     : [];
-  if (
-    foundationStages.length !== 17 ||
-    foundationStages.some((stage) => stage.status !== 'complete')
-  ) {
+  const requiredFoundationIds = Array.from(
+    { length: 17 },
+    (_, index) => `F0.${String(index + 1).padStart(2, '0')}`,
+  );
+  const foundationById = new Map(foundationStages.map((stage) => [stage.id, stage]));
+  if (requiredFoundationIds.some((id) => foundationById.get(id)?.status !== 'complete')) {
     errors.push('F0.01-F0.17 must form a complete foundation prefix');
   }
   if (publicStages.length !== 127)

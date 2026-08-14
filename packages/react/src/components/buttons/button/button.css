@@ -1,0 +1,210 @@
+@layer components {
+  .csn-button {
+    --_csn-button-tone: var(--csn-button-background);
+    --_csn-button-on-tone: var(--csn-button-foreground);
+    --_csn-button-tone-foreground: var(--csn-button-foreground);
+    --_csn-button-soft: var(--csn-button-background);
+    --_csn-button-border: var(--csn-button-border);
+    --_csn-button-background: var(--_csn-button-soft);
+    --_csn-button-foreground: var(--_csn-button-tone-foreground);
+    --_csn-button-border-current: var(--_csn-button-border);
+
+    position: relative;
+    display: inline-flex;
+    min-block-size: var(--csn-button-min-block-size);
+    align-items: center;
+    justify-content: center;
+    gap: var(--csn-button-gap);
+    padding-block: var(--csn-button-padding-block);
+    padding-inline: var(--csn-button-padding-inline);
+    border: var(--csn-border-width-default) solid var(--_csn-button-border-current);
+    border-radius: var(--csn-button-radius);
+    background: var(--_csn-button-background);
+    color: var(--_csn-button-foreground);
+    font-family: inherit;
+    font-size: var(--csn-button-font-size);
+    font-weight: var(--csn-button-font-weight);
+    line-height: var(--csn-button-line-height);
+    text-align: center;
+    text-decoration: none;
+    touch-action: manipulation;
+    user-select: none;
+    cursor: pointer;
+    transition:
+      background-color var(--csn-button-transition-duration) var(--csn-motion-easing-standard),
+      border-color var(--csn-button-transition-duration) var(--csn-motion-easing-standard),
+      color var(--csn-button-transition-duration) var(--csn-motion-easing-standard),
+      box-shadow var(--csn-button-transition-duration) var(--csn-motion-easing-standard);
+  }
+
+  .csn-button:hover:not(:disabled) {
+    filter: brightness(0.94);
+  }
+
+  .csn-button:active:not(:disabled),
+  .csn-button[data-pressed='true'] {
+    filter: brightness(0.86);
+  }
+
+  .csn-button:focus-visible {
+    outline: var(--csn-border-width-strong) solid var(--csn-button-focus-ring);
+    outline-offset: var(--csn-ref-space-1);
+  }
+
+  .csn-button:disabled {
+    opacity: var(--csn-button-disabled-opacity);
+    cursor: not-allowed;
+  }
+
+  .csn-button[data-tone='accent'] {
+    --_csn-button-tone: var(--csn-interactive-primary);
+    --_csn-button-on-tone: var(--csn-interactive-on-primary);
+    --_csn-button-tone-foreground: var(--csn-interactive-primary);
+    --_csn-button-soft: color-mix(
+      in srgb,
+      var(--csn-interactive-primary) 16%,
+      var(--csn-surface-canvas)
+    );
+    --_csn-button-border: var(--csn-interactive-primary);
+  }
+
+  .csn-button[data-tone='positive'] {
+    --_csn-button-tone: var(--csn-status-success);
+    --_csn-button-on-tone: var(--csn-text-inverse);
+    --_csn-button-tone-foreground: var(--csn-status-success);
+    --_csn-button-soft: var(--csn-status-success-surface);
+    --_csn-button-border: var(--csn-status-success);
+  }
+
+  .csn-button[data-tone='caution'] {
+    --_csn-button-tone: var(--csn-status-warning);
+    --_csn-button-on-tone: var(--csn-text-inverse);
+    --_csn-button-tone-foreground: var(--csn-status-warning);
+    --_csn-button-soft: var(--csn-status-warning-surface);
+    --_csn-button-border: var(--csn-status-warning);
+  }
+
+  .csn-button[data-tone='critical'] {
+    --_csn-button-tone: var(--csn-status-danger);
+    --_csn-button-on-tone: var(--csn-text-inverse);
+    --_csn-button-tone-foreground: var(--csn-status-danger);
+    --_csn-button-soft: var(--csn-status-danger-surface);
+    --_csn-button-border: var(--csn-status-danger);
+  }
+
+  .csn-button[data-tone='inverse'] {
+    --_csn-button-tone: var(--csn-surface-inverse);
+    --_csn-button-on-tone: var(--csn-text-inverse);
+    --_csn-button-tone-foreground: var(--csn-surface-inverse);
+    --_csn-button-soft: var(--csn-surface-inverse);
+    --_csn-button-border: var(--csn-surface-inverse);
+  }
+
+  .csn-button[data-appearance='solid'] {
+    --_csn-button-background: var(--_csn-button-tone);
+    --_csn-button-foreground: var(--_csn-button-on-tone);
+  }
+
+  .csn-button[data-appearance='outline'] {
+    --_csn-button-background: transparent;
+    --_csn-button-foreground: var(--_csn-button-tone);
+    --_csn-button-border-current: var(--_csn-button-tone);
+  }
+
+  .csn-button[data-appearance='ghost'],
+  .csn-button[data-appearance='link'] {
+    --_csn-button-background: transparent;
+    --_csn-button-foreground: var(--_csn-button-tone);
+    --_csn-button-border-current: transparent;
+  }
+
+  .csn-button[data-appearance='link'] {
+    min-block-size: auto;
+    padding-inline: var(--csn-ref-space-1);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  .csn-button[data-size='sm'] {
+    min-block-size: calc(var(--csn-button-min-block-size) - var(--csn-ref-space-2));
+    padding-block: var(--csn-ref-space-1);
+    padding-inline: var(--csn-ref-space-2);
+    font-size: var(--csn-typography-small-size);
+  }
+
+  .csn-button[data-size='lg'] {
+    padding-block: var(--csn-ref-space-3);
+    padding-inline: var(--csn-ref-space-4);
+    font-size: var(--csn-ref-font-size-lg);
+  }
+
+  .csn-button[data-radius='none'] {
+    border-radius: var(--csn-ref-radius-none);
+  }
+
+  .csn-button[data-radius='sm'] {
+    border-radius: var(--csn-ref-radius-sm);
+  }
+
+  .csn-button[data-radius='lg'] {
+    border-radius: var(--csn-ref-radius-lg);
+  }
+
+  .csn-button[data-radius='full'] {
+    border-radius: var(--csn-radius-pill);
+  }
+
+  .csn-button[data-icon-only] {
+    inline-size: var(--csn-button-min-block-size);
+    padding-inline: var(--csn-button-padding-block);
+  }
+
+  .csn-button__start,
+  .csn-button__end {
+    display: inline-flex;
+    flex: none;
+    inline-size: var(--csn-button-icon-size);
+    block-size: var(--csn-button-icon-size);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .csn-button__content {
+    min-inline-size: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @layer components {
+    .csn-button {
+      transition-duration: 0ms;
+    }
+  }
+}
+
+@media (forced-colors: active) {
+  @layer components {
+    .csn-button {
+      border-color: ButtonText;
+      background: ButtonFace;
+      color: ButtonText;
+      filter: none;
+      forced-color-adjust: auto;
+    }
+
+    .csn-button:hover:not(:disabled),
+    .csn-button:active:not(:disabled),
+    .csn-button[data-pressed='true'] {
+      border-color: Highlight;
+      background: Highlight;
+      color: HighlightText;
+      filter: none;
+    }
+
+    .csn-button:disabled {
+      border-color: GrayText;
+      color: GrayText;
+      opacity: 1;
+    }
+  }
+}

@@ -1,5 +1,11 @@
 # Accessibility Matrix
 
+Icon `1.02` is decorative (`aria-hidden`) by default; `label` deliberately promotes the span to a
+named `role=img`. Its nested SVG is always hidden and unfocusable. It owns no keyboard, focus,
+pointer, disabled, target-size, IME, or announcement behavior; actions compose Icon within their
+semantic owner. Browser and manual visual review cover labelled/decorative separation, RTL, narrow
+reflow, dark/light, and Chromium forced-colors exposure.
+
 Map each component to its native semantic or applicable APG pattern and record role/name/state,
 keyboard table, focus entry/movement/exit/restoration, announcements, disabled/read-only behavior,
 touch/target size, zoom/reflow, forced colors, reduced motion, RTL, and IME requirements.
@@ -54,3 +60,11 @@ transitions, but renders no role/name/state, instructions, live result, focus mo
 APG keyboard table. Each consuming component must keep focus visible, localize instructions and
 results, define disabled/read-only policy, verify target size/zoom/reflow/touch behavior, and
 manually review the complete assistive-technology workflow; no parity row is advanced.
+
+Button `1.01` uses one native `<button>` with visible or caller-supplied naming, native `disabled`,
+and `aria-pressed` only in explicit toggleable mode. Tab uses document order; Enter and Space use
+native activation; focus remains on the button. Decorative start/end slots are hidden from the
+accessibility tree and prohibit interactive descendants. Production browser evidence covers
+role/name/state, keyboard, touch, a minimum 44px default target, visible focus, RTL, narrow reflow,
+reduced motion, and Chromium forced-colors emulation. Manual code/pattern and visual review passed;
+no claim is made for an unexecuted external screen-reader certification matrix.

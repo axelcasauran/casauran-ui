@@ -13,6 +13,8 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
+    "./button.css": "./src/components/buttons/button/button.css",
+    "./icon.css": "./src/components/icons/icon/icon.css",
     "./state": {
       "types": "./dist/state/index.d.ts",
       "import": "./dist/state/index.js"
@@ -36,6 +38,7 @@
     "react-dom": "^19.2.0"
   },
   "dependencies": {
+    "@casauran/icons": "workspace:*",
     "@casauran-internal/core": "workspace:*",
     "@casauran-internal/accessibility": "workspace:*",
     "@casauran-internal/events": "workspace:*",

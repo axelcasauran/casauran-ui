@@ -4,7 +4,7 @@
   "category": "icons",
   "phase": 1,
   "stage": "1.02",
-  "status": "unreviewed",
+  "status": "parity-verified",
   "package": "@casauran/react",
   "reference": {
     "path": "docs/content/common/icon",
@@ -15,25 +15,36 @@
     "nativeInteractiveExceptions": []
   },
   "rendering": {
-    "serverRenderable": null,
-    "requiresClient": null,
+    "serverRenderable": true,
+    "requiresClient": false,
     "clientReasons": [],
-    "hydrationSensitive": null
+    "hydrationSensitive": false
   },
   "parity": {
-    "functionality": "unreviewed",
-    "states": "unreviewed",
-    "interaction": "unreviewed",
-    "keyboard": "unreviewed",
-    "accessibility": "unreviewed",
-    "responsive": "unreviewed",
-    "i18n": "unreviewed",
-    "rtl": "unreviewed",
-    "theming": "unreviewed",
-    "ssrNext": "unreviewed",
-    "performance": "unreviewed",
-    "security": "unreviewed",
-    "docs": "unreviewed"
+    "functionality": "pass",
+    "states": "pass",
+    "interaction": "not-applicable",
+    "keyboard": "not-applicable",
+    "accessibility": "pass",
+    "responsive": "pass",
+    "i18n": "pass",
+    "rtl": "pass",
+    "theming": "pass",
+    "ssrNext": "pass",
+    "performance": "pass",
+    "security": "pass",
+    "docs": "pass"
   },
-  "features": []
+  "features": [
+    "named-definition",
+    "decorative-default",
+    "labelled-image",
+    "size",
+    "semantic-tone",
+    "flip",
+    "theme-and-density",
+    "rtl",
+    "forced-colors",
+    "ssr-rsc"
+  ]
 }

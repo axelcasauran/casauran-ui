@@ -101,7 +101,8 @@ const validFixture = () => {
       typecheck: 'pnpm typecheck:workspaces && pnpm typecheck:tests && pnpm typecheck:tooling',
       'test:contracts': 'node --test scripts/*.test.mjs',
       'test:unit': 'vitest run --config vitest.config.mts',
-      'test:browser': 'pnpm --filter @casauran-internal/visual-tests build && playwright test',
+      'test:browser':
+        'pnpm --filter @casauran-internal/visual-tests build && pnpm --filter @casauran-internal/docs build && playwright test',
       test: 'pnpm test:contracts && pnpm test:unit',
       'test:e2e': 'pnpm test:browser',
     },
@@ -154,7 +155,7 @@ const validFixture = () => {
     'vitest.config.mts':
       "environment: 'node'; 'packages/**/*.test.ts'; 'tests/unit/**/*.test.ts'; clearMocks: true; restoreMocks: true;",
     'playwright.config.ts':
-      "baseURL: 'http://localhost:3103'; command: 'pnpm --filter @casauran-internal/visual-tests start'; locale: 'en-US'; timezoneId: 'UTC'; animations: 'disabled'; name: 'chromium'; name: 'firefox'; name: 'webkit';",
+      "baseURL: 'http://localhost:3103'; command: 'pnpm --filter @casauran-internal/visual-tests start'; command: 'pnpm --filter @casauran-internal/docs start'; locale: 'en-US'; timezoneId: 'UTC'; animations: 'disabled'; name: 'chromium'; name: 'firefox'; name: 'webkit';",
     'tests/browser/scaffold.spec.ts': "reducedMotion: 'reduce'",
     '.github/workflows/ci.yml':
       'permissions:\n  contents: read\npnpm install --frozen-lockfile\npnpm exec playwright install --with-deps chromium firefox webkit\npnpm validate',

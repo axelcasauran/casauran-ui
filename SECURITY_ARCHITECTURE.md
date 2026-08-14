@@ -59,3 +59,9 @@ untrusted inputs. F0.17 accepts only an exact `docs/content` root, rejects symbo
 traversal, hashes bytes without executing content, performs no network access, and never imports
 the corpus into a runtime package or build. A digest/path mismatch blocks analysis; it is not
 silently repaired by regenerating provenance.
+
+Documentation metadata and displayed source are repository-authored data but remain escaped text.
+F0.18 provides no Markdown HTML bypass, raw HTML sink, remote fetch, executable playground, dynamic
+module path, URL protocol sink, storage bootstrap, analytics, or third-party search transport. The
+public metadata route serializes a bounded normalized index. Any future CMS/search/analytics or
+interactive source execution introduces a new reviewed trust boundary.

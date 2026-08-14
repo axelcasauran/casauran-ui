@@ -4,7 +4,11 @@ import { json, root } from './lib.mjs';
 import { renderTokenModule, validateTokenContract } from './token-contract.mjs';
 
 const contract = json('registry/tokens/foundation.json');
-const errors = validateTokenContract(contract, (source) => fs.existsSync(path.join(root, source)));
+const errors = validateTokenContract(
+  contract,
+  (source) => fs.existsSync(path.join(root, source)),
+  (slug) => json(`registry/components/${slug}.json`).status,
+);
 if (errors.length > 0) {
   for (const error of errors) console.error(`FAIL: ${error}`);
   process.exit(1);

@@ -17,3 +17,7 @@
 - **M14 — 1.0 Enterprise Release Candidate**
 
 Milestones measure product capability, not raw component count. Each phase ends with certification.
+
+ADR-020 adds `F0.18 Documentation Experience Foundation` as a governed Phase 0 remediation at the
+current machine-ledger boundary after completed stage 1.02 and before 1.03. It establishes the
+canonical customer documentation platform without rewriting historical completion order.

@@ -2,6 +2,39 @@
 
 **Ownership:** supported React component surface.
 
+## Button
+
+`Button` is the canonical native action component. Import its static stylesheet once at an
+application boundary:
+
+```tsx
+import '@casauran/react/button.css';
+import { Button } from '@casauran/react';
+
+<Button appearance="solid" tone="accent">
+  Save
+</Button>;
+```
+
+It defaults to `type="button"`. Set `type="submit"` or `type="reset"` for native form behavior.
+Toggleable state follows `pressed/defaultPressed/onPressedChange`; consumer `onClick`
+`preventDefault()` cancels the pressed-state request. Decorative start/end content must not contain
+interactive descendants, and icon-only buttons need an accessible name.
+
+## Icon
+
+`Icon` renders a named definition from `@casauran/icons`; import its CSS once at the application
+boundary. Icons are decorative by default. Use `label` only for standalone meaningful artwork;
+actions compose an Icon within Button rather than turning an icon into a custom button.
+
+```tsx
+import '@casauran/react/icon.css';
+import { Icon } from '@casauran/react';
+
+<Icon name="search" />;
+<Icon label="Search records" name="search" tone="accent" />;
+```
+
 ## React state foundation
 
 `@casauran/react/state` is the supported client entry point for `useControllableState`,

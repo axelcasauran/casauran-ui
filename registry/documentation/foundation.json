@@ -1,0 +1,41 @@
+{
+  "$schema": "../schemas/documentation-experience.schema.json",
+  "schemaVersion": 1,
+  "owner": "apps/docs",
+  "sourceRegistry": ".agent/stages/index.json",
+  "capabilities": [
+    "global-shell",
+    "brand-header",
+    "category-navigation",
+    "page-table-of-contents",
+    "responsive-layout",
+    "stable-routing",
+    "examples-and-source",
+    "api-reference",
+    "accessibility-and-keyboard",
+    "callouts",
+    "presentation-controls",
+    "search-metadata",
+    "registry-integration",
+    "application-accessibility",
+    "ssr-rsc",
+    "deterministic-visual-coverage"
+  ],
+  "boundaries": {
+    "owned": [
+      "private documentation application shell and information architecture",
+      "documentation-only presentation primitives and component-page composition",
+      "registry-derived navigation and search metadata",
+      "local post-hydration documentation presentation controls",
+      "production documentation host browser and visual evidence"
+    ],
+    "excluded": [
+      "public React components hooks packages or supported consumer APIs",
+      "component behavior feature parity or lifecycle advancement",
+      "external search content management analytics authentication or deployment services",
+      "raw HTML executable source remote modules untrusted URLs or dynamic code execution",
+      "apps playground engineering sandbox ownership",
+      "SVGIcon or any stage 1.03 implementation"
+    ]
+  }
+}

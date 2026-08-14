@@ -71,15 +71,44 @@ test('rejects invalid primitive values and CSS namespace drift', () => {
   assert.ok(errors.includes('color.test.1 has invalid primitive CSS variable --other-color'));
 });
 
-test('rejects speculative component tokens in F0.05', () => {
+test('accepts an owning component token after API approval', () => {
   const contract = validContract();
-  contract.components.push({ component: 'Button' });
-  assert.ok(validateTokenContract(contract).includes('F0.05 must not predeclare component tokens'));
+  contract.components.push({
+    component: 'Button',
+    name: 'button.background',
+    type: 'color',
+    reference: 'surface.test-0',
+    cssVariable: '--csn-button-background',
+    description: 'Button background.',
+  });
+  assert.deepEqual(validateTokenContract(contract), []);
+});
+
+test('rejects premature and invalid component tokens', () => {
+  const contract = validContract();
+  contract.components.push({
+    component: 'Button',
+    name: 'other.background',
+    type: 'dimension',
+    reference: 'surface.test-0',
+    cssVariable: '--other-background',
+    description: '',
+  });
+  const errors = validateTokenContract(
+    contract,
+    () => true,
+    () => 'specified',
+  );
+  assert.ok(errors.some((error) => error.includes('API approval gate')));
+  assert.ok(errors.some((error) => error.includes('invalid component token name')));
+  assert.ok(errors.some((error) => error.includes('invalid component CSS variable')));
+  assert.ok(errors.some((error) => error.includes('must define a description')));
+  assert.ok(errors.some((error) => error.includes('does not match')));
 });
 
 test('renders deterministic typed token source', () => {
   const output = renderTokenModule(validContract());
   assert.ok(output.startsWith('/* This file is generated'));
   assert.ok(output.includes('export const tokenContractVersion = 1 as const;'));
-  assert.ok(output.includes('export type TokenName = PrimitiveTokenName | SemanticTokenName;'));
+  assert.ok(output.includes('ComponentTokenName'));
 });

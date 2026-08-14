@@ -67,7 +67,7 @@
       "packageScript": "test:browser",
       "config": "playwright.config.ts",
       "roots": ["tests/browser"],
-      "purpose": "production Next.js runtime, SSR, hydration, interaction and visual evidence",
+      "purpose": "production Next.js docs and fixture runtimes, SSR, hydration, interaction and visual evidence",
       "productionHost": true
     }
   ],
@@ -76,7 +76,7 @@
       "id": "docs",
       "package": "@casauran-internal/docs",
       "port": 3100,
-      "purpose": "supported documentation and executable examples"
+      "purpose": "canonical customer documentation and executable examples"
     },
     {
       "id": "playground",

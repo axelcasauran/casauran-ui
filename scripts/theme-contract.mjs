@@ -162,19 +162,25 @@ export const validateThemeContract = (contract, tokenContract, sourceExists = ()
       errors.push(`forced colors ${name} must remove decorative elevation`);
     }
   }
-  if (tokenContract?.components?.length !== 0) {
-    errors.push('F0.06 must not add component token assignments');
-  }
   return errors;
 };
 
 export const renderThemeCss = (contract, tokenContract) => {
   const semanticByName = new Map(tokenContract.semantics.map((token) => [token.name, token]));
+  const foundationByName = new Map(
+    [...tokenContract.primitives, ...tokenContract.semantics].map((token) => [token.name, token]),
+  );
   const primitiveLines = tokenContract.primitives
     .map((token) => `    ${token.cssVariable}: ${String(token.value)};`)
     .join('\n');
   const semanticLines = tokenContract.semantics
     .map((token) => `    ${token.cssVariable}: var(${cssName(`ref-${token.reference}`)});`)
+    .join('\n');
+  const componentLines = tokenContract.components
+    .map(
+      (token) =>
+        `    ${token.cssVariable}: var(${foundationByName.get(token.reference).cssVariable});`,
+    )
     .join('\n');
   const themeBlocks = contract.themes
     .map(
@@ -213,6 +219,10 @@ ${semanticLines}
 ${themeBlocks}
 
 ${densityBlocks}
+
+  :where(:root, [data-theme], [data-density]) {
+${componentLines}
+  }
 }
 
 @layer base {

@@ -1,4 +1,5 @@
 import '@casauran/theme/theme.css';
+import '@casauran/react/button.css';
 import type { ReactNode } from 'react';
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

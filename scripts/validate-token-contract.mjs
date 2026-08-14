@@ -2,7 +2,11 @@ import { exists, fail, json, pass, read } from './lib.mjs';
 import { renderTokenModule, validateTokenContract } from './token-contract.mjs';
 
 const contract = json('registry/tokens/foundation.json');
-const errors = validateTokenContract(contract, exists);
+const errors = validateTokenContract(
+  contract,
+  exists,
+  (slug) => json(`registry/components/${slug}.json`).status,
+);
 
 if (
   read('packages/tokens/src/generated.ts').replaceAll('\r\n', '\n') !== renderTokenModule(contract)
@@ -42,5 +46,7 @@ for (const heading of [
 
 for (const error of errors) fail(error);
 if (errors.length === 0) {
-  pass(`${contract.primitives.length} primitive and ${contract.semantics.length} semantic tokens`);
+  pass(
+    `${contract.primitives.length} primitive, ${contract.semantics.length} semantic and ${contract.components.length} component tokens`,
+  );
 }

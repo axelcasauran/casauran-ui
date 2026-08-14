@@ -1,4 +1,6 @@
 import '@casauran/theme/theme.css';
+import '@casauran/react/button.css';
+import '@casauran/react/icon.css';
 import '@casauran-internal/accessibility/accessibility.css';
 import type { ReactNode } from 'react';
 export default function RootLayout({ children }: { children: ReactNode }) {

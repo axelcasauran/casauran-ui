@@ -4,7 +4,9 @@
 
 ## Status
 
-Foundation scaffold. Implementation begins only in the relevant active stage.
+The initial catalog is available for the Icon stage. `getIconDefinition(name)` returns immutable
+tree-shakeable SVG path data for supported names, or `undefined` for an unknown name. It accepts no
+raw SVG, URL, or external resource. Direct definition rendering remains the SVGIcon stage boundary.
 
 ## Boundary
 

@@ -25,3 +25,7 @@ Reference gate: `pnpm validate:reference-baseline` checks stored provenance/inve
 contracts, while `pnpm reference:check` recomputes the external local-only snapshot digest and
 mapped paths. Both pass before reference-derived work; the full stage-close gate remains
 `pnpm validate`.
+
+Documentation foundation gate: `pnpm validate:documentation-experience` checks ADR/stage
+ownership, capability/route/metadata contracts, narrow client/security boundaries, and required
+production docs-host evidence. The full browser gate starts both documentation and visual hosts.

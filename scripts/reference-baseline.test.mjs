@@ -118,6 +118,12 @@ test('accepts the complete reference baseline contract', () => {
   assert.deepEqual(validate(expandToProgramSize(structuredClone(base))), []);
 });
 
+test('allows a separately governed later foundation remediation', () => {
+  const contract = expandToProgramSize(structuredClone(base));
+  contract.stages.push({ id: 'F0.18', type: 'foundation', status: 'in-progress' });
+  assert.deepEqual(validate(contract), []);
+});
+
 test('rejects provenance and clean-room boundary drift', () => {
   const contract = expandToProgramSize(structuredClone(base));
   contract.baseline.commit = 'b'.repeat(40);

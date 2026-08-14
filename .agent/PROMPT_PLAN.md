@@ -45,8 +45,13 @@ Repository, governance, engines, build/test hosts and reference baseline are rea
 | `F0.15` | foundation | Virtualization                |
 | `F0.16` | foundation | Drag and Drop                 |
 | `F0.17` | foundation | Reference Baseline            |
+| `F0.18` | foundation | Documentation Experience      |
 
 **Exit:** run the phase-close prompt and record `PASS`, `PASS WITH DEBT`, or `BLOCKED`. A `BLOCKED` phase cannot activate the next phase.
+
+F0.18 is a governed remediation accepted by ADR-020 after stages 1.01 and 1.02 had already closed.
+The machine ledger inserts it at the current boundary before 1.03 rather than rewriting historical
+completion order.
 
 ### Phase 1 — Core Interaction Proof
 

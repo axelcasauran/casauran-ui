@@ -299,6 +299,16 @@
       "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
     },
     {
+      "pattern": "/registry/documentation/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
+      "pattern": "/apps/docs/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
       "pattern": "/packages/tokens/**",
       "owners": ["@axelcasauran"],
       "roles": ["maintainer", "domain-owner"]
@@ -424,6 +434,11 @@
       "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
     },
     {
+      "pattern": "/scripts/*documentation-experience*.mjs",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
       "pattern": "/scripts/*reference*.mjs",
       "owners": ["@axelcasauran"],
       "roles": ["maintainer", "evidence-reviewer", "security-reviewer"]
@@ -497,6 +512,11 @@
       "pattern": "/specs/foundation/reference-baseline.md",
       "owners": ["@axelcasauran"],
       "roles": ["maintainer", "evidence-reviewer", "security-reviewer"]
+    },
+    {
+      "pattern": "/specs/foundation/documentation-experience.md",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
     },
     {
       "pattern": "/.github/workflows/**",

@@ -31,6 +31,12 @@ Domain owners own tests under their packages and scenarios; `@casauran-internal/
 reusable internal test helpers, not root orchestration or product behavior. The visual-test app owns
 test-host routes and may not create consumer exports.
 
+The documentation application owner maintains the private F0.18 shell, documentation presentation
+primitives, stable route conventions, registry-derived navigation/search metadata, and production
+docs-host visual evidence under `apps/docs`. It consumes supported package exports and owns no
+public component behavior or consumer API. `apps/playground` remains the engineering sandbox;
+`apps/visual-tests` retains general deterministic fixture ownership.
+
 ## Capability package ownership
 
 | Package                             | Owned capability                                                   |

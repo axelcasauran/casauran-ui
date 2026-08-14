@@ -26,7 +26,12 @@ if (reactManifest.peerDependencies?.react !== '^19.2.0') {
   errors.push('React state foundation must use the governed React peer');
 }
 const runtimeDependencies = Object.keys(reactManifest.dependencies ?? {});
-if (runtimeDependencies.some((dependency) => !dependency.startsWith('@casauran-internal/'))) {
+if (
+  runtimeDependencies.some(
+    (dependency) =>
+      !dependency.startsWith('@casauran-internal/') && !dependency.startsWith('@casauran/'),
+  )
+) {
   errors.push('React state foundation added an external runtime dependency');
 }
 

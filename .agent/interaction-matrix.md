@@ -1,5 +1,10 @@
 # Interaction Matrix
 
+Icon `1.02` has no interaction contract. Pointer, keyboard, touch, focus, IME, clipboard, drag,
+resize, scroll, and animation behavior are not applicable; native attributes are forwarded only for
+caller-owned noninteractive integration. Its flip transform is visual and does not alter direction
+or input semantics.
+
 Evaluate keyboard, pointer/mouse, touch, screen-reader modes, IME composition, clipboard, drag/drop, resize/scroll, reduced motion and high zoom. Mouse behavior is not the primary model for keyboard semantics.
 
 Directional-key helpers ignore command-modified and composing events. Each owning pattern decides
@@ -48,3 +53,10 @@ retains capture through move/up, and cancels on pointercancel, capture loss, dis
 intent. Keyboard sessions use the same target/drop/cancel state but consume caller-supplied logical
 deltas; components own key maps, focus, announcements, composition/modifier gating, touch-action,
 click suppression, domain mutations, and RTL logical intent. Autoscroll stops explicitly.
+
+Button `1.01` delegates pointer, touch, Enter, Space, focus order, and form activation to its native
+`<button>`. Consumer `onClick` runs before pressed-state intent and `preventDefault()` cancels the
+owner transition. Production Playwright evidence covers pointer/click, touch tap, Enter, Space,
+disabled suppression, controlled/uncontrolled pressed state, cancellation, form submission, and
+forwarded focus across Chromium, Firefox, and WebKit. It owns no text input, clipboard, drag,
+resize, or IME commit path.

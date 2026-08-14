@@ -128,16 +128,13 @@ test('rejects contrast below the WCAG AA normal-text threshold', () => {
   assert.ok(contrastRatio('#777777', '#ffffff') < 4.5);
 });
 
-test('rejects cascade order, selector identity, and component-token drift', () => {
+test('rejects cascade order and selector identity drift', () => {
   const contract = structuredClone(fixture);
   contract.cascadeLayers.reverse();
   contract.attributes.theme = 'class';
-  const tokenContract = structuredClone(tokens);
-  tokenContract.components.push({ name: 'button.background' });
-  const errors = validateThemeContract(contract, tokenContract);
+  const errors = validateThemeContract(contract, tokens);
   assert.ok(errors.some((error) => error.includes('cascade layers')));
   assert.ok(errors.some((error) => error.includes('runtime attributes')));
-  assert.ok(errors.some((error) => error.includes('component token')));
 });
 
 test('rejects nonzero reduced-motion durations', () => {
@@ -158,9 +155,17 @@ test('rejects malformed theme, density, and forced-color values', () => {
 });
 
 test('renders deterministic layered CSS with adaptive media queries', () => {
-  const first = renderThemeCss(fixture, tokens);
-  assert.equal(first, renderThemeCss(fixture, tokens));
+  const tokenContract = structuredClone(tokens);
+  tokenContract.components.push({
+    name: 'button.background',
+    reference: 'surface.canvas',
+    cssVariable: '--csn-button-background',
+  });
+  const first = renderThemeCss(fixture, tokenContract);
+  assert.equal(first, renderThemeCss(fixture, tokenContract));
   assert.match(first, /@layer reset, tokens, base, components, utilities, overrides;/u);
   assert.match(first, /prefers-reduced-motion: reduce/u);
   assert.match(first, /forced-colors: active/u);
+  assert.match(first, /--csn-button-background: var\(--csn-surface-canvas\)/u);
+  assert.match(first, /:where\(:root, \[data-theme\], \[data-density\]\)/u);
 });

@@ -32,7 +32,8 @@
       "scripts/date-math.mjs",
       "scripts/virtualization-foundation.mjs",
       "scripts/drag-drop-foundation.mjs",
-      "scripts/reference-baseline.mjs"
+      "scripts/reference-baseline.mjs",
+      "scripts/documentation-experience.mjs"
     ]
   },
   "unitTests": {
@@ -229,6 +230,18 @@
       "packageScript": "validate:branding",
       "ownerRoles": ["maintainer", "domain-owner"],
       "contracts": ["BRANDING.md", "NAMING_CONVENTIONS.md"]
+    },
+    {
+      "id": "documentation-experience",
+      "script": "scripts/validate-documentation-experience.mjs",
+      "packageScript": "validate:documentation-experience",
+      "ownerRoles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"],
+      "contracts": [
+        "DOCUMENTATION_POLICY.md",
+        ".agent/decisions/ADR-020-documentation-experience-foundation.md",
+        "registry/documentation/foundation.json",
+        "specs/foundation/documentation-experience.md"
+      ]
     },
     {
       "id": "registry",
