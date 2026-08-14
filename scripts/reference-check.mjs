@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { root, fail, pass } from './lib.mjs';
+import { root, fail, json, pass } from './lib.mjs';
+import { computeReferenceInventory, sameReferenceInventory } from './reference-baseline.mjs';
 
 const configured =
   process.env.CASAURAN_KENDO_DOCS_PATH ?? '../references/kendo-react-docs/docs/content';
@@ -24,27 +25,40 @@ if (path.basename(resolved) !== 'content' || path.basename(path.dirname(resolved
   process.exit(1);
 }
 
-const expectedDomains = [
-  'buttons',
-  'inputs',
-  'dropdowns',
-  'dateinputs',
-  'grid',
-  'scheduler',
-  'gantt',
-  'editor',
-  'diagram',
-  'charts',
-];
+const baseline = json('reference/kendo-react-baseline.json');
+const pinnedInventory = json('reference/kendo-react-inventory.json');
+const actualInventory = computeReferenceInventory(resolved, baseline.commit);
+if (!sameReferenceInventory(actualInventory, pinnedInventory)) {
+  fail('local reference corpus does not match the pinned file/domain inventory');
+  console.error(`Expected digest: ${pinnedInventory.aggregate?.sha256 ?? '<missing>'}`);
+  console.error(`Actual digest:   ${actualInventory.aggregate.sha256}`);
+  process.exit(1);
+}
 
-const missing = expectedDomains.filter((domain) => !fs.existsSync(path.join(resolved, domain)));
-
-if (missing.length > 0) {
-  fail(`local reference corpus is missing expected domains: ${missing.join(', ')}`);
+const referenceMap = json('reference/reference-map.json');
+const missingMappings = [];
+for (const [component, entry] of Object.entries(referenceMap)) {
+  const relativePath = entry.path?.replace(/^docs\/content\/?/u, '');
+  const candidate = path.resolve(resolved, relativePath ?? '');
+  if (
+    typeof relativePath !== 'string' ||
+    relativePath.length === 0 ||
+    (!candidate.startsWith(`${resolved}${path.sep}`) && candidate !== resolved) ||
+    !fs.existsSync(candidate) ||
+    !fs.statSync(candidate).isDirectory()
+  ) {
+    missingMappings.push(`${component}: ${entry.path}`);
+  }
+}
+if (missingMappings.length > 0) {
+  fail(`local reference corpus is missing mapped component paths: ${missingMappings.join(', ')}`);
   process.exit(1);
 }
 
 pass(`local KendoReact docs: ${resolved}`);
-pass(`expected documentation domains present: ${expectedDomains.length}`);
+pass(
+  `pinned snapshot: ${actualInventory.aggregate.fileCount} files across ${actualInventory.aggregate.domainCount} domains (${actualInventory.aggregate.sha256})`,
+);
+pass(`mapped component paths present: ${Object.keys(referenceMap).length}`);
 pass('reference access mode: LOCAL-ONLY');
 pass('online fallback: DISABLED');

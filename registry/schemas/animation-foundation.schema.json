@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://casauran.dev/schemas/animation-foundation.schema.json",
+  "title": "Casauran animation foundation contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "package", "capabilities", "boundaries"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": 1 },
+    "package": { "const": "@casauran-internal/animation" },
+    "capabilities": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": { "$ref": "#/$defs/capability" }
+    },
+    "boundaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["owned", "excluded"],
+      "properties": {
+        "owned": { "$ref": "#/$defs/nonEmptyStrings" },
+        "excluded": { "$ref": "#/$defs/nonEmptyStrings" }
+      }
+    }
+  },
+  "$defs": {
+    "nonEmptyStrings": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "capability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "module", "exports", "evidence"],
+      "properties": {
+        "id": {
+          "enum": [
+            "motion-timing",
+            "reduced-motion",
+            "waapi-playback",
+            "animation-registry",
+            "presence-state"
+          ]
+        },
+        "module": { "type": "string", "minLength": 1 },
+        "exports": { "$ref": "#/$defs/nonEmptyStrings" },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": ["unit", "ssr", "browser", "accessibility", "typing", "performance"]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "$schema": "../schemas/drag-drop-foundation.schema.json",
+  "schemaVersion": 1,
+  "package": "@casauran-internal/drag-drop",
+  "capabilities": [
+    {
+      "id": "pointer-session",
+      "module": "packages/drag-drop/src/session.ts",
+      "exports": ["createDragSession", "DragSession", "DragSnapshot", "PointerDragStart"],
+      "evidence": ["unit", "ssr", "browser", "typing", "security"]
+    },
+    {
+      "id": "target-collision",
+      "module": "packages/drag-drop/src/geometry.ts",
+      "exports": ["createDropTargetRegistry", "DropTargetRegistry", "DragCollisionStrategy"],
+      "evidence": ["unit", "ssr", "browser", "typing", "performance", "security"]
+    },
+    {
+      "id": "pointer-capture",
+      "module": "packages/drag-drop/src/pointer.ts",
+      "exports": ["createPointerDragController", "PointerDragController"],
+      "evidence": ["unit", "browser", "typing", "accessibility", "security"]
+    },
+    {
+      "id": "keyboard-session",
+      "module": "packages/drag-drop/src/session.ts",
+      "exports": ["KeyboardDragStart", "DragCompletion"],
+      "evidence": ["unit", "browser", "typing", "accessibility"]
+    },
+    {
+      "id": "cancellation-cleanup",
+      "module": "packages/drag-drop/src/pointer.ts",
+      "exports": ["PointerCaptureElementLike", "PointerDragController"],
+      "evidence": ["unit", "browser", "typing", "accessibility", "security"]
+    },
+    {
+      "id": "autoscroll",
+      "module": "packages/drag-drop/src/autoscroll.ts",
+      "exports": ["calculateAutoScrollDelta", "createAutoScroller", "AutoScroller"],
+      "evidence": ["unit", "browser", "typing", "performance", "security"]
+    }
+  ],
+  "boundaries": {
+    "owned": [
+      "framework-neutral pointer and keyboard drag session state with explicit activation threshold and immutable snapshots",
+      "token-safe drop target registration with pointer rectangle-intersection and closest-center collision strategies",
+      "explicit native Pointer Events capture lifecycle for primary mouse pen and touch input",
+      "deterministic drop cancellation pointer-cancel capture-loss and disposal completion",
+      "bounded edge-proximity autoscroll with caller-supplied frame scheduling and inner-to-outer containers",
+      "opaque generic payload and target data transport without rendering parsing serialization or execution",
+      "dependency-free server-safe package imports with browser work beginning only after explicit mounted owners are supplied"
+    ],
+    "excluded": [
+      "public React components hooks providers sensors renderers drag previews DOM structure styles or component event APIs",
+      "collection ordering selection tree state data mutation commands history persistence or optimistic server updates",
+      "focus movement restoration ARIA roles names states live announcements or component keyboard tables",
+      "automatic item reordering resize rotate lasso selection snapping guides or domain-specific drag constraints",
+      "HTML5 DataTransfer file external-window clipboard operating-system or cross-document drag transport",
+      "overlay portals positioning animation theme density CSS forced-colors reduced-motion or responsive rendering policy",
+      "locale formatting RTL browser scrollLeft normalization IME text commit or translated announcement policy",
+      "untrusted callback construction HTML URLs SVG files storage network dynamic code or serialized executable payloads",
+      "reference-derived drag-drop parity or future Sortable Grid TaskBoard Scheduler Gantt Diagram Upload components",
+      "F0.17 reference baseline analysis or any later-stage capability"
+    ]
+  }
+}

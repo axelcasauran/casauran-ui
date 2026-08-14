@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://casauran.dev/schemas/reference-map.schema.json",
+  "title": "Casauran component reference map",
+  "type": "object",
+  "minProperties": 127,
+  "maxProperties": 127,
+  "additionalProperties": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["category", "path", "commit", "analysisStatus"],
+    "properties": {
+      "category": { "type": "string", "minLength": 1 },
+      "path": { "type": "string", "pattern": "^docs/content/[a-z0-9][a-z0-9/-]*$" },
+      "commit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+      "analysisStatus": {
+        "enum": [
+          "unreviewed",
+          "reference-analyzed",
+          "specified",
+          "api-approved",
+          "implemented",
+          "tested",
+          "documented",
+          "parity-verified",
+          "improved"
+        ]
+      }
+    }
+  }
+}

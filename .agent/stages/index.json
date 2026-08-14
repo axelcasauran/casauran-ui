@@ -74,49 +74,49 @@
     "phase": 0,
     "type": "foundation",
     "title": "Animation Foundation",
-    "status": "not-started"
+    "status": "complete"
   },
   {
     "id": "F0.12",
     "phase": 0,
     "type": "foundation",
     "title": "Data Engine",
-    "status": "not-started"
+    "status": "complete"
   },
   {
     "id": "F0.13",
     "phase": 0,
     "type": "foundation",
     "title": "Internationalization",
-    "status": "not-started"
+    "status": "complete"
   },
   {
     "id": "F0.14",
     "phase": 0,
     "type": "foundation",
     "title": "Date Math",
-    "status": "not-started"
+    "status": "complete"
   },
   {
     "id": "F0.15",
     "phase": 0,
     "type": "foundation",
     "title": "Virtualization",
-    "status": "not-started"
+    "status": "complete"
   },
   {
     "id": "F0.16",
     "phase": 0,
     "type": "foundation",
     "title": "Drag and Drop",
-    "status": "not-started"
+    "status": "complete"
   },
   {
     "id": "F0.17",
     "phase": 0,
     "type": "foundation",
     "title": "Reference Baseline",
-    "status": "not-started"
+    "status": "complete"
   },
   {
     "id": "1.01",

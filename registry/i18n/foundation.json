@@ -1,0 +1,79 @@
+{
+  "$schema": "../schemas/internationalization.schema.json",
+  "schemaVersion": 1,
+  "package": "@casauran-internal/i18n",
+  "capabilities": [
+    {
+      "id": "locale-resolution",
+      "module": "packages/i18n/src/locale.ts",
+      "exports": ["canonicalizeLocale", "getLocaleFallbackChain"],
+      "evidence": ["unit", "ssr", "browser", "typing"]
+    },
+    {
+      "id": "text-direction",
+      "module": "packages/i18n/src/direction.ts",
+      "exports": ["getLocaleDirection", "resolveDirection", "TextDirection"],
+      "evidence": ["unit", "ssr", "browser", "typing", "accessibility"]
+    },
+    {
+      "id": "message-catalogs",
+      "module": "packages/i18n/src/messages.ts",
+      "exports": [
+        "createMessageCatalog",
+        "formatMessage",
+        "resolveMessage",
+        "MessageCatalog",
+        "MessageParameter",
+        "ResolvedMessage"
+      ],
+      "evidence": ["unit", "ssr", "browser", "security", "typing", "accessibility"]
+    },
+    {
+      "id": "plural-selection",
+      "module": "packages/i18n/src/plural.ts",
+      "exports": ["selectPluralMessage", "PluralMessageSet", "PluralSelection"],
+      "evidence": ["unit", "ssr", "browser", "typing", "accessibility"]
+    },
+    {
+      "id": "number-formatting",
+      "module": "packages/i18n/src/number.ts",
+      "exports": ["createNumberFormatter", "formatNumber", "NumberFormatter"],
+      "evidence": ["unit", "ssr", "browser", "typing", "accessibility"]
+    },
+    {
+      "id": "date-time-formatting",
+      "module": "packages/i18n/src/date-time.ts",
+      "exports": ["createDateTimeFormatter", "formatDateTime", "DateTimeFormatter"],
+      "evidence": ["unit", "ssr", "browser", "typing", "accessibility"]
+    },
+    {
+      "id": "collation",
+      "module": "packages/i18n/src/collation.ts",
+      "exports": ["createCollator", "compareLocalized", "LocalizedCollator"],
+      "evidence": ["unit", "ssr", "browser", "typing"]
+    }
+  ],
+  "boundaries": {
+    "owned": [
+      "BCP 47 locale canonicalization and deterministic explicit fallback chains",
+      "locale-derived text direction with explicit application override",
+      "stable flat message identifiers plain-text catalogs safe interpolation and fallback resolution",
+      "cardinal and ordinal plural category selection through the native Intl platform",
+      "locale-aware number date-time formatting and string collation through native Intl factories",
+      "framework-neutral immutable server-safe behavior with no module-global locale state"
+    ],
+    "excluded": [
+      "public React components hooks providers contexts renderers or component event APIs",
+      "calendar date range time arithmetic timezone conversion or F0.14 date-math implementation",
+      "recurrence parsing generation expansion or scheduling rules",
+      "number date time duration message or locale parsing from user input",
+      "translation authoring loading fetching persistence storage routing or locale negotiation from requests",
+      "trusted HTML rich-text templates dynamic code execution URLs SVG files or sanitization",
+      "CSS mirroring string reversal focus keyboard pointer touch or IME composition ownership",
+      "global mutable locale catalog formatter or collator singletons",
+      "external localization adapters runtime dependencies or third-party public types",
+      "reference-derived platform parity or future public localized components",
+      "F0.14 date-math runtime or any later-stage capability"
+    ]
+  }
+}

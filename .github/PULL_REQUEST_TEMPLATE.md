@@ -38,6 +38,10 @@ Stage ledger / status:
 - [ ] Controlled/uncontrolled state, committed callbacks, hydration, and stable IDs reviewed where applicable
 - [ ] Collection identity/order, registration cleanup, active/selection separation, tree visibility, typeahead, and large-data behavior reviewed where applicable
 - [ ] Overlay portal scope, top-layer dismissal, nested focus restoration, modal inertness, cleanup, and positioning/animation boundaries reviewed where applicable
+- [ ] Animation timing, reduced motion, settlement, interruption ownership, presence revisions, and component/data boundaries reviewed where applicable
+- [ ] Data descriptors, own-field safety, deterministic processing order, large-data evidence, and transport/persistence/i18n/component boundaries reviewed where applicable
+- [ ] Locale fallback, direction, plain-text messages, plurals/formatting/collation, SSR safety, and date-math/IME boundaries reviewed where applicable
+- [ ] Calendar/range/wall-time arithmetic, overflow/week policy, timezone/DST handling, SSR safety, and i18n/recurrence/parser boundaries reviewed where applicable
 - [ ] SSR/Next.js reviewed
 - [ ] RTL/i18n/IME reviewed where applicable
 - [ ] Security/performance reviewed where applicable

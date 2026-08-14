@@ -1,0 +1,387 @@
+{
+  "$schema": "../registry/schemas/reference-inventory.schema.json",
+  "schemaVersion": 1,
+  "root": "docs/content",
+  "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
+  "algorithm": "sha256",
+  "aggregate": {
+    "domainCount": 62,
+    "fileCount": 12179,
+    "byteCount": 118496308,
+    "sha256": "2b68481b897ab216625fd264a10fb323fc0071c2a589f893c488d13e91ff4862"
+  },
+  "domains": [
+    {
+      "path": "ai-components",
+      "fileCount": 23,
+      "byteCount": 249860,
+      "sha256": "1c2c383f6a8e9b225fb5f711ab43f462b2dda40ebef068a6de11540d3ddce1e8"
+    },
+    {
+      "path": "ai-tools",
+      "fileCount": 29,
+      "byteCount": 2431139,
+      "sha256": "c305672a97161d7949e1b0605bad2b7ba3ab80993a9d8031a695110cd81cbf0f"
+    },
+    {
+      "path": "all",
+      "fileCount": 5,
+      "byteCount": 47185,
+      "sha256": "766a2911ba8e7be296753ee2b6a640fd99d3e86eecfc43af237ba74f2f4725d1"
+    },
+    {
+      "path": "animation",
+      "fileCount": 129,
+      "byteCount": 198411,
+      "sha256": "c792e71685167371ba3d781b632a2698e735a56ae9cdd845454d54746340430a"
+    },
+    {
+      "path": "assets",
+      "fileCount": 410,
+      "byteCount": 45432670,
+      "sha256": "f414f8cb807e4cdd79a27f6d164c3df979067e09df72a8c63fd667e973309372"
+    },
+    {
+      "path": "barcodes",
+      "fileCount": 69,
+      "byteCount": 92010,
+      "sha256": "8a1be373f86c9cb96e460548d9c2916d907282437720c999cdfac82a913efbe7"
+    },
+    {
+      "path": "buttons",
+      "fileCount": 627,
+      "byteCount": 922690,
+      "sha256": "6d5650d953fd4207de2acf1ca14f3c3d860c3af12518e2331065870b3d2c4b88"
+    },
+    {
+      "path": "chart-wizard",
+      "fileCount": 41,
+      "byteCount": 78853,
+      "sha256": "bab00180432f596cc9e348bf9d789474084d29ae966c8ae9dfcdc7dde7535da4"
+    },
+    {
+      "path": "charts",
+      "fileCount": 926,
+      "byteCount": 2081910,
+      "sha256": "dd770c4379afc040f14444acc2b5a17d2cbca29067a900f2a13b07580d986f5b"
+    },
+    {
+      "path": "common",
+      "fileCount": 287,
+      "byteCount": 610219,
+      "sha256": "919ba35fb43b87f42effaf81e62b1efecf3ecc968cd549445d1b14cfd8db0230"
+    },
+    {
+      "path": "common-features",
+      "fileCount": 37,
+      "byteCount": 2174064,
+      "sha256": "2625c58f821c79e7de412e199e67dedf066ea9da0fc1285cf61d7229fe6fb96d"
+    },
+    {
+      "path": "conversational-ui",
+      "fileCount": 504,
+      "byteCount": 1203109,
+      "sha256": "866145f247ca23332b709ecd67ab7be52f27b5a8d6359a1be529edf5c3dd26fd"
+    },
+    {
+      "path": "datatools",
+      "fileCount": 164,
+      "byteCount": 670218,
+      "sha256": "f420f9db8f0af8ed86048629d478b827c809760ecda1b2db8a498b58d6c99bb5"
+    },
+    {
+      "path": "date-math",
+      "fileCount": 4,
+      "byteCount": 5149,
+      "sha256": "16a657d9f27fb62a2cab5ba1facfa1f67be4374a14e9481be16906c80c289256"
+    },
+    {
+      "path": "dateinputs",
+      "fileCount": 597,
+      "byteCount": 868747,
+      "sha256": "8c256bc34edfa7778a5c3e594594e9ac290defe2cab28e2f3b2dadf6922c3bc9"
+    },
+    {
+      "path": "diagram",
+      "fileCount": 264,
+      "byteCount": 961627,
+      "sha256": "70b7a59ba321a20def0265ad58d6106cdfa707924848ccafa3b9fe252d7d64de"
+    },
+    {
+      "path": "dialogs",
+      "fileCount": 87,
+      "byteCount": 123996,
+      "sha256": "d3e94a61b7b814850e87e918524c807c56d67f86e00498a2eeca4b1886e31f7e"
+    },
+    {
+      "path": "drawing",
+      "fileCount": 63,
+      "byteCount": 35981,
+      "sha256": "59b970b90a90afe4f8d5ab059a22baf8639170c8300b20e1f4aa54e7bf20ab7a"
+    },
+    {
+      "path": "dropdowns",
+      "fileCount": 772,
+      "byteCount": 1971239,
+      "sha256": "f69bc8beb490e249f09f5625c63c8ea88997128a918151e595d5124fdbbf6484"
+    },
+    {
+      "path": "editor",
+      "fileCount": 150,
+      "byteCount": 291101,
+      "sha256": "748919560937b83b61afcbb97173482b08010337ea4439190e1bb3a7c91d465a"
+    },
+    {
+      "path": "excel",
+      "fileCount": 83,
+      "byteCount": 729415,
+      "sha256": "2193f6a1ad1ff1b02d1eafcd9d52acf201765b2aeaf6c9ccf165cfb8f63020a9"
+    },
+    {
+      "path": "form",
+      "fileCount": 244,
+      "byteCount": 1302435,
+      "sha256": "bf188f3534f63f3f3b434d88ec2d6ed1030ceeb30fbc74f374f929187f6f8920"
+    },
+    {
+      "path": "gantt",
+      "fileCount": 179,
+      "byteCount": 683923,
+      "sha256": "8ccb876b2d4c9a54701710d00cad913dcceeb6bdcb7cc7a381d7997fda544562"
+    },
+    {
+      "path": "gauges",
+      "fileCount": 118,
+      "byteCount": 194903,
+      "sha256": "52d883216fa268aa4c90f04bcfb06be3438569825dc38dca870837c0d8e535b4"
+    },
+    {
+      "path": "getting-started-articles",
+      "fileCount": 16,
+      "byteCount": 657101,
+      "sha256": "f398d53baee161bb3618501d96e5f78393197aaa9628d6fd1e2baf356627ffec"
+    },
+    {
+      "path": "grid",
+      "fileCount": 1171,
+      "byteCount": 10510141,
+      "sha256": "e5eeb858074c23aa066d5278a4f53b15cd38a8b2e3eb9cf409e8ee5951e93f54"
+    },
+    {
+      "path": "index",
+      "fileCount": 47,
+      "byteCount": 1641992,
+      "sha256": "0de19360ff5b7f17ffa6d8a6be24f0eb687bd0de2bc2847ff81126788a6c84e7"
+    },
+    {
+      "path": "indicators",
+      "fileCount": 80,
+      "byteCount": 111697,
+      "sha256": "a60ba4459d767076395baf4c498beec46b82360314ba5dd75099c020c1be66cc"
+    },
+    {
+      "path": "inputs",
+      "fileCount": 813,
+      "byteCount": 2208252,
+      "sha256": "0570609749c3ff03e2e33f2298681c5ad7b173e514d5e03e783da0d39dc2110f"
+    },
+    {
+      "path": "intl",
+      "fileCount": 70,
+      "byteCount": 128903,
+      "sha256": "581b0248c999a7e1b345f015aa9f437b6130ec15adb02d051952d1a3c1483c46"
+    },
+    {
+      "path": "knowledge-base",
+      "fileCount": 1077,
+      "byteCount": 4703831,
+      "sha256": "e34ee102d4f9366597e54077cee6b4430a494e3a4830b9225506afba11d2c0ac"
+    },
+    {
+      "path": "labels",
+      "fileCount": 61,
+      "byteCount": 76637,
+      "sha256": "25cd3c71f618e47517ec7e1f40c036001fd8b0d70f4fd11b3463c5902179ed3c"
+    },
+    {
+      "path": "layout",
+      "fileCount": 838,
+      "byteCount": 4111834,
+      "sha256": "b43b3696e95f0bfbe75684b4bc1afabac7666d9ca708723b2b6a1ee948c18520"
+    },
+    {
+      "path": "listbox",
+      "fileCount": 55,
+      "byteCount": 182519,
+      "sha256": "98d2e8fa93cc20f896eae66d994a8958b230ac24031d31194c723aa42d58c9ec"
+    },
+    {
+      "path": "listview",
+      "fileCount": 44,
+      "byteCount": 231778,
+      "sha256": "db5732cd0c2b2938d604c4fe5d422ad68528c60ce6bfc7ea491645a82430ee46"
+    },
+    {
+      "path": "map",
+      "fileCount": 84,
+      "byteCount": 2055668,
+      "sha256": "6c62e09f5accb7c7eb76847fee1c611888686b1f7dfc0b758588288bc2c23d11"
+    },
+    {
+      "path": "migration",
+      "fileCount": 3,
+      "byteCount": 53195,
+      "sha256": "f56f5d4bf69f710dd473bbd4defa51659378f13e50b62d3b24e29888553476db"
+    },
+    {
+      "path": "notification",
+      "fileCount": 26,
+      "byteCount": 43985,
+      "sha256": "2f960c4a211d6dcd452d43f8a8b97195f7e9df702193c1931ea5b557c9328c86"
+    },
+    {
+      "path": "orgchart",
+      "fileCount": 56,
+      "byteCount": 108489,
+      "sha256": "869aba553e4154eb10821702e50a0992e814a0ceb3d6d7c073668757b34f3687"
+    },
+    {
+      "path": "pdf",
+      "fileCount": 64,
+      "byteCount": 187799,
+      "sha256": "1debaf878d1d8c65f3ad2485212ae11d5c58c992e96c70c6ca7e36e953fcf52a"
+    },
+    {
+      "path": "pdf-viewer",
+      "fileCount": 53,
+      "byteCount": 7816698,
+      "sha256": "7e875e6bf71248c100358fd228153e8ba27172f3110e27b8009e1446eeec249c"
+    },
+    {
+      "path": "pivotgrid",
+      "fileCount": 158,
+      "byteCount": 349956,
+      "sha256": "0b33594ef5bd910638680d920408ed3815feea001ab272c087fd5722011c98ca"
+    },
+    {
+      "path": "popup",
+      "fileCount": 65,
+      "byteCount": 76429,
+      "sha256": "385398c04dc49fed18d760fcbf7dc1e115888814e4c0525c3819bd30cb51fd2e"
+    },
+    {
+      "path": "progressbars",
+      "fileCount": 70,
+      "byteCount": 94082,
+      "sha256": "8f2d607b6546e71e33ad9d63ca2c22df1289b785171ac4966eb7eff1ecf24128"
+    },
+    {
+      "path": "project-setup",
+      "fileCount": 32,
+      "byteCount": 2235536,
+      "sha256": "1be5ddce215382d57844bdf8f8006e1b8d10265955be8a1b7e1b1472c230f993"
+    },
+    {
+      "path": "react-coffee-warehouse",
+      "fileCount": 12,
+      "byteCount": 9017036,
+      "sha256": "158a872fa3885ac7c43249809f5c4fd92a88e451b90275be4d6a77e39b993f6c"
+    },
+    {
+      "path": "ripple",
+      "fileCount": 9,
+      "byteCount": 13886,
+      "sha256": "278df0f1ad3cec6ccec2750a5284866c835dbef6ad1a5ae8382adab8c9df0b6f"
+    },
+    {
+      "path": "sample-applications",
+      "fileCount": 11,
+      "byteCount": 44256,
+      "sha256": "a4a72f3c1c182db26fb511a7ab83cfdb21107581d887d884de9763c6e1ba063d"
+    },
+    {
+      "path": "scheduler",
+      "fileCount": 435,
+      "byteCount": 1830707,
+      "sha256": "02e929bf66fa5911b45f2031eb6ea5b263b0049c593ba4f56aa7c12ee27b6950"
+    },
+    {
+      "path": "scrollview",
+      "fileCount": 47,
+      "byteCount": 54941,
+      "sha256": "20236f6d168d4dbe1fdbf627a317750e31fe9e1ba00e0738c283d77735c34920"
+    },
+    {
+      "path": "server-components",
+      "fileCount": 1,
+      "byteCount": 3752,
+      "sha256": "31e8eb9d17b969e1e257c983f2789b74baaf48eb49c83079f49dc46e61f0c943"
+    },
+    {
+      "path": "sortable",
+      "fileCount": 33,
+      "byteCount": 60506,
+      "sha256": "b08636367c90d6bcaea4a81a87a71d96b5eab36ceb7dc006d8f0140d9da4b6c5"
+    },
+    {
+      "path": "spreadsheet",
+      "fileCount": 155,
+      "byteCount": 643790,
+      "sha256": "1fe0016653b1bd5cc1f27f5644a02590787f202298a2b5154bbb4e830ff6e74e"
+    },
+    {
+      "path": "styling",
+      "fileCount": 56,
+      "byteCount": 2532770,
+      "sha256": "c7fdeeb06d98d74e4a204e0e4549415054d54cdfa3da0458456b8a3e9871010c"
+    },
+    {
+      "path": "taskboard",
+      "fileCount": 76,
+      "byteCount": 183115,
+      "sha256": "3f1c79e6a2397b497a3fd363c32fd2b8246569f9bf24c096d88119be8791ed73"
+    },
+    {
+      "path": "tooltip",
+      "fileCount": 93,
+      "byteCount": 230496,
+      "sha256": "c940b0055d11f759dface31efa432a1037291363f2260ce234e719b9621f2252"
+    },
+    {
+      "path": "treelist",
+      "fileCount": 281,
+      "byteCount": 2510912,
+      "sha256": "f6ee101088043150e0226a618a0ea4d212dad7cbf1339de71e8fc3afcf63e6bf"
+    },
+    {
+      "path": "treeview",
+      "fileCount": 76,
+      "byteCount": 190178,
+      "sha256": "a5982f2437805979d83336c9518dd2fff5912a62950d244251f65d77d58fbe7b"
+    },
+    {
+      "path": "troubleshooting",
+      "fileCount": 1,
+      "byteCount": 3073,
+      "sha256": "6773735e71889503cb06f385222fac7597b392e0c48269739d4ede9526d97244"
+    },
+    {
+      "path": "updates",
+      "fileCount": 19,
+      "byteCount": 50553,
+      "sha256": "bb134b6fdae166a4f2c2aa19e5f4cc6856f26dfe1992aad9c774155df76813cd"
+    },
+    {
+      "path": "upload",
+      "fileCount": 92,
+      "byteCount": 127524,
+      "sha256": "4b2e37c88f8c1a024b2f5ccf184124d379cad1b54e12ff41eae5c0a2209ddd5b"
+    },
+    {
+      "path": "webmcp",
+      "fileCount": 87,
+      "byteCount": 51437,
+      "sha256": "0339f10448d3ac695583706d8701e261f8cdb87e986ae14386cc7b844ea4c738"
+    }
+  ]
+}

@@ -76,6 +76,38 @@ The internal overlay foundation is validated with `pnpm validate:overlay-foundat
 `pnpm test:overlay-foundation`, and documented in `specs/foundation/overlay.md` and the internal
 overlay package README.
 
+The internal animation foundation is validated with `pnpm validate:animation-foundation`, tested
+with `pnpm test:animation-foundation`, and documented in `specs/foundation/animation.md` and the
+internal animation package README.
+
+The internal data engine is validated with `pnpm validate:data-engine`, tested with
+`pnpm test:data-engine`, benchmarked with `pnpm benchmark:data-engine`, and documented in
+`specs/foundation/data-engine.md` and the internal data package README.
+
+The internal internationalization foundation is validated with
+`pnpm validate:internationalization`, tested with `pnpm test:internationalization`, and documented
+in `specs/foundation/internationalization.md` and the internal i18n package README.
+
+The internal date-math foundation is validated with `pnpm validate:date-math`, tested with
+`pnpm test:date-math`, and documented in `specs/foundation/date-math.md` and the internal date-math
+package README. Its production route proves SSR-safe calendar/range/week and DST behavior.
+
+The internal virtualization foundation is validated with `pnpm validate:virtualization-foundation`,
+tested with `pnpm test:virtualization-foundation`, benchmarked with
+`pnpm benchmark:virtualization`, and documented in `specs/foundation/virtualization.md`. Its
+production route proves SSR-safe 1D/2D windows plus client-only dynamic measurement, anchoring and
+focused-item retention.
+
+The internal drag-drop foundation is validated with `pnpm validate:drag-drop-foundation`, tested
+with `pnpm test:drag-drop-foundation`, benchmarked with `pnpm benchmark:drag-drop`, and documented
+in `specs/foundation/drag-drop.md`. Its production route proves SSR-safe target/session state plus
+explicit pointer capture, keyboard-equivalent drop/cancel, touch events, autoscroll and cleanup.
+
+The reference baseline is validated with `pnpm validate:reference-baseline`, regression-tested
+with `pnpm test:reference-baseline`, and documented in
+`specs/foundation/reference-baseline.md`. Its dedicated local-corpus gate pins 12,179 files across
+62 domains and verifies all 127 component mappings without starting component analysis.
+
 Build/test topology and output wiring are checked with `pnpm validate:build-test-infrastructure`
 and `pnpm test:build-test-infrastructure`. Unit tests run once through `pnpm test:unit`; production
 SSR/hydration/browser checks run through `pnpm test:browser`.
@@ -90,3 +122,4 @@ pnpm reference:check
 ```
 
 Normal component/reference analysis is local-only. There is no online fallback.
+The preflight also verifies the exact SHA-256 inventory; drift is BLOCKED until approved sync.

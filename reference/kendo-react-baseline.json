@@ -1,4 +1,6 @@
 {
+  "$schema": "../registry/schemas/reference-baseline.schema.json",
+  "schemaVersion": 1,
   "repository": "telerik/kendo-react",
   "path": "docs/content",
   "branch": "master",
@@ -10,5 +12,29 @@
   "localPathEnvironmentVariable": "CASAURAN_KENDO_DOCS_PATH",
   "defaultLocalPath": "../references/kendo-react-docs/docs/content",
   "onlineFallback": false,
-  "repositoryRole": "provenance-metadata-only"
+  "repositoryRole": "provenance-metadata-only",
+  "inventory": "reference/kendo-react-inventory.json",
+  "referenceMap": "reference/reference-map.json",
+  "syncWorkflow": ".agent/workflows/reference-sync.md",
+  "analysisWorkflow": ".agent/workflows/reference-to-spec.md",
+  "snapshot": {
+    "algorithm": "sha256",
+    "domainCount": 62,
+    "fileCount": 12179,
+    "byteCount": 118496308,
+    "sha256": "2b68481b897ab216625fd264a10fb323fc0071c2a589f893c488d13e91ff4862"
+  },
+  "boundaries": {
+    "allowed": [
+      "public documentation inventory and observable behavior extraction",
+      "documented features states interactions keyboard accessibility integrations and edge cases",
+      "relative public-document paths as provenance for independent Casauran specifications"
+    ],
+    "forbidden": [
+      "competitor source CSS theme values assets bundles private architecture or undocumented internals",
+      "direct production-code generation from reference material",
+      "online fallback live documentation search engines tutorials or model memory",
+      "silent baseline movement outside the approved reference-sync workflow"
+    ]
+  }
 }

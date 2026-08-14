@@ -7,19 +7,19 @@
   },
   "Icon": {
     "category": "icons",
-    "path": "docs/content/icons",
+    "path": "docs/content/common/icon",
     "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
     "analysisStatus": "unreviewed"
   },
   "SVGIcon": {
     "category": "icons",
-    "path": "docs/content/icons",
+    "path": "docs/content/common/svgicon",
     "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
     "analysisStatus": "unreviewed"
   },
   "Typography": {
     "category": "typography",
-    "path": "docs/content/typography",
+    "path": "docs/content/common/typography",
     "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
     "analysisStatus": "unreviewed"
   },

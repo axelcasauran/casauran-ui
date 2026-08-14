@@ -15,6 +15,11 @@ Clean-room boundary: reference → feature notes → independent spec → API �
 
 The baseline never moves automatically. Use reference-sync workflow to review upstream changes before scope changes.
 
+Snapshot identity is pinned by `reference/kendo-react-inventory.json`: SHA-256 digests cover every
+regular file's relative path, byte count, and exact content, grouped by top-level documentation
+domain. `reference/kendo-react-baseline.json` repeats the aggregate summary. A matching provenance
+commit without a matching snapshot digest is not an approved baseline.
+
 ## Local-only access rule
 
 Normal Casauran reference analysis MUST use the external local documentation corpus:
@@ -49,6 +54,7 @@ Updating the local docs corpus is deliberate maintenance:
 4. execute `.agent/workflows/reference-sync.md`;
 5. classify changes;
 6. approve/defer product-scope changes;
-7. update pinned baseline metadata only after approval.
+7. regenerate the inventory and update pinned baseline metadata only after approval;
+8. run `pnpm validate:reference-baseline` and `pnpm reference:check`.
 
 A changed local corpus never silently changes an active component stage.

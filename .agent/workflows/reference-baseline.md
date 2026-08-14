@@ -12,11 +12,11 @@ Pin reproducible public documentation.
 
 ## Procedure
 
-1. record repository/path/commit/date.
-2. inventory documentation domains.
-3. generate reference map.
-4. store provenance.
-5. run validator.
+1. record repository/path/commit/date and clean-room boundaries.
+2. inventory documentation domains and exact file bytes with deterministic SHA-256 digests.
+3. generate the 127-component reference map and verify every path against the local corpus.
+4. store provenance, aggregate snapshot identity, ownership and sync workflow.
+5. run focused regression, repository-only baseline, local-corpus and full repository validators.
 
 ## Records
 

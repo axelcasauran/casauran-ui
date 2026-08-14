@@ -1,0 +1,57 @@
+{
+  "$schema": "../schemas/animation-foundation.schema.json",
+  "schemaVersion": 1,
+  "package": "@casauran-internal/animation",
+  "capabilities": [
+    {
+      "id": "motion-timing",
+      "module": "packages/animation/src/timing.ts",
+      "exports": ["parseMotionTime", "resolveMotionTiming"],
+      "evidence": ["unit", "ssr", "typing"]
+    },
+    {
+      "id": "reduced-motion",
+      "module": "packages/animation/src/reduced-motion.ts",
+      "exports": ["getReducedMotionPreference", "createReducedMotionController"],
+      "evidence": ["unit", "ssr", "browser", "accessibility", "typing"]
+    },
+    {
+      "id": "waapi-playback",
+      "module": "packages/animation/src/playback.ts",
+      "exports": ["playElementAnimation"],
+      "evidence": ["ssr", "browser", "accessibility", "typing", "performance"]
+    },
+    {
+      "id": "animation-registry",
+      "module": "packages/animation/src/registry.ts",
+      "exports": ["createAnimationRegistry"],
+      "evidence": ["unit", "ssr", "browser", "typing", "performance"]
+    },
+    {
+      "id": "presence-state",
+      "module": "packages/animation/src/presence.ts",
+      "exports": ["createPresenceState", "transitionPresence", "completePresence"],
+      "evidence": ["unit", "ssr", "typing"]
+    }
+  ],
+  "boundaries": {
+    "owned": [
+      "finite token-resolved motion time parsing and reduced-motion timing resolution",
+      "explicit prefers-reduced-motion observation and disposable change notification",
+      "Web Animations API playback completion cancellation abort and reduced-motion finalization",
+      "keyed interruption-safe animation ownership and cleanup",
+      "revision-safe enter exit presence state without timers or rendering ownership"
+    ],
+    "excluded": [
+      "public React components hooks contexts transition groups or providers",
+      "component-specific keyframes effect presets choreography or visual design",
+      "CSS token values theme assignments or reduced-motion media CSS",
+      "positioning layout measurement collision scrolling or viewport observation",
+      "gesture physics springs inertia drag scrolling or timeline scrubbing",
+      "scroll-driven view-transition canvas SVG or worklet animation policy",
+      "semantic roles focus keyboard pointer touch or announcement behavior",
+      "unmount rendering DOM insertion content styling or application open state",
+      "F0.12 data descriptors processing transport or future public animation components"
+    ]
+  }
+}

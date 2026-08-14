@@ -92,3 +92,50 @@ ordered top-layer arbitration, Escape/pointer-outside dismissal intent, nested f
 restoration, and native-inert modal isolation. Positioning owns geometry/observers; animation owns
 presence/motion; components own open state, semantics, styling, content, and pattern keyboard
 tables. Overlay remains internal and React-free.
+
+The animation owner maintains finite token-resolved timing, explicit reduced-motion preference
+observation, deterministic native Web Animations completion/cancellation/abort, token-safe keyed
+interruption ownership, and revision-safe pure presence state. Theme/CSS own token values and
+adaptive media assignments; components own keyframes/effects, rendering/unmount, semantics and
+interaction; positioning owns layout/geometry; F0.12 data remains separate. Animation remains
+internal, framework-neutral, dependency-free, and server-safe at import.
+
+The drag-drop owner maintains immutable pointer/keyboard drag sessions, activation threshold,
+token-safe target registration/collision, native Pointer Events capture/cancellation, and bounded
+inner-to-outer autoscroll. Collections/data/commands own domain state and mutations; accessibility/
+components own semantics, focus, announcements and key tables; overlay/animation/theme own previews
+and rendering; files owns external/file transfer validation. Drag-drop remains internal, React-free,
+dependency-free, and server-safe at import.
+
+The data owner maintains readonly provider-neutral filter/sort/group/aggregate/page descriptors,
+own-property field access, bounded untrusted-filter validation, stable immutable processing, and
+documented local aggregate/group/leaf-page semantics. Integrations own transport/database/query
+translation and caching; serialization owns persistence/migration; virtualization owns windows;
+F0.13 owns locale/collation; components own columns, defaults, events, semantics, and UI. Data
+remains internal, framework-neutral, dependency-free, and server-safe at import.
+
+The i18n owner maintains explicit BCP 47 canonicalization/fallback, script-derived direction,
+immutable plain-text catalogs and safe primitive interpolation, native plural/number/date-time
+formatting, and collation. Applications own request negotiation, switching state, transport, and
+persistence; components own rendering, semantics, input, IME, and logical layout; F0.14 owns date
+arithmetic/timezone strategy. I18n remains internal, React-free, dependency-free, and server-safe.
+
+The date-math owner maintains immutable validated Gregorian dates, calendar/week/range/wall-time
+arithmetic, and the provider-independent timezone strategy implemented natively through `Intl`.
+I18n owns presentation formatting/locale policy; recurrence owns recurring rules; applications own
+business calendars and timezone-data compatibility; components own parsing, rendering, semantics,
+state, and interaction. Date-math remains internal, React-free, dependency-free, and server-safe.
+
+The virtualization owner maintains logical 1D/2D windows, item overscan, stable-key dynamic size
+measurement, explicit scroll-anchor adjustment, pinned indexes for focused/active retention, and
+the caller-injected native `ResizeObserver` bridge. Collections/data own logical state and
+processing; accessibility/components own semantics/focus/input; components own scroll containers,
+rendering, RTL normalization and loading; drag-drop owns F0.16 autoscroll. Virtualization remains
+internal, framework-neutral, dependency-free, and server-safe at import.
+
+The reference-baseline owner is the maintainer with evidence-reviewer and security-reviewer
+accountability. It maintains pinned public-document provenance, the deterministic external-corpus
+inventory, the 127-component navigation map, local-only preflight, clean-room boundaries, and
+controlled sync procedure. It owns no runtime package, component feature claim, public API, or
+production implementation. Component domain owners begin targeted behavioral analysis only in the
+component's active stage.

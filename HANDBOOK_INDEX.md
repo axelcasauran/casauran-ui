@@ -22,7 +22,9 @@
 - `PLATFORM_PARITY.md`
 - `REFERENCE.md`
 - `reference/kendo-react-baseline.json`
+- `reference/kendo-react-inventory.json`
 - `reference/reference-map.json`
+- `specs/foundation/reference-baseline.md`
 - `.agent/feature-matrix.md`
 - `.agent/reference-map.md`
 
@@ -92,6 +94,16 @@
 - `registry/themes/foundation.json` — canonical light/dark, density, and adaptive theme assignments.
 - `registry/accessibility/foundation.json` — canonical focus, keyboard, live-region, and hidden-content foundation.
 - `registry/react-state/foundation.json` — canonical pure state/ID and React hook foundation.
+- `registry/collections/foundation.json` — canonical framework-neutral collection engine.
+- `registry/overlay/foundation.json` — canonical overlay lifecycle foundation.
+- `registry/animation/foundation.json` — canonical motion lifecycle foundation.
+- `registry/data/foundation.json` — canonical descriptor and data-processing engine.
+- `registry/i18n/foundation.json` — canonical locale, message, formatting, and direction foundation.
+- `registry/date-math/foundation.json` — canonical calendar/range/wall-time/timezone foundation.
+- `registry/virtualization/foundation.json` — canonical windowing, measurement, anchor, and 2D foundation.
+- `registry/drag-drop/foundation.json` — canonical session, target, capture, keyboard, and autoscroll foundation.
+- `reference/kendo-react-baseline.json` and `reference/kendo-react-inventory.json` — canonical
+  public-document provenance and immutable local snapshot identity.
 - `registry/derived/`
 
 ## Specification and review templates
@@ -123,6 +135,13 @@ beside it.
 - `scripts/validate-react-state-foundation.mjs`
 - `scripts/validate-collection-engine.mjs`
 - `scripts/validate-overlay-foundation.mjs`
+- `scripts/validate-animation-foundation.mjs`
+- `scripts/validate-data-engine.mjs`
+- `scripts/validate-internationalization.mjs`
+- `scripts/validate-date-math.mjs`
+- `scripts/validate-virtualization-foundation.mjs`
+- `scripts/validate-drag-drop-foundation.mjs`
+- `scripts/validate-reference-baseline.mjs`
 - architecture/registry/reference/composition/package/public-API/toolchain/platform validators
 - `dependency-cruiser.config.cjs`
 - strict TypeScript

@@ -78,6 +78,22 @@ following in one change:
 5. ownership or contributor documentation when responsibility changes;
 6. active-stage evidence describing the gate and its validation result.
 
+F0.15 adds the read-only `virtualization-foundation` validator and focused rejection suite. It
+checks the canonical inventory/boundaries, package ownership and dependency/SSR/security rules,
+future-stage isolation, specification/API markers, unit/production-browser evidence, and the
+large-data benchmark contract; it does not execute the benchmark or mutate generated artifacts.
+
+F0.16 adds the read-only `drag-drop-foundation` validator and focused rejection suite. It checks
+the canonical inventory/boundaries, internal zero-dependency/SSR/security ownership, future-stage
+isolation, session/capture/autoscroll markers, unit and three-browser evidence, and the pinned
+benchmark contract; it does not execute browser interaction or mutate artifacts.
+
+F0.17 adds the repository-only `reference-baseline` validator and focused rejection suite. It
+checks pinned provenance, inventory/map structure and agreement, clean-room ownership boundaries,
+the complete Phase 0 prefix, and isolation from public component lifecycles. The general scaffold
+suite never opens the external corpus; `pnpm reference:check` separately recomputes its exact
+SHA-256 file/domain inventory before reference analysis or sync.
+
 The validator must use precise failure messages and cover at least one rejection case for each new
 invariant. Broad exceptions, warning-only enforcement, network-dependent checks, generated file
 rewrites, test disabling, and silent validator discovery are prohibited. If a rule cannot be

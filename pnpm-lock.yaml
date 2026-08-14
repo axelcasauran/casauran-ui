@@ -160,12 +160,30 @@ importers:
       '@casauran-internal/accessibility':
         specifier: workspace:*
         version: link:../../packages/accessibility
+      '@casauran-internal/animation':
+        specifier: workspace:*
+        version: link:../../packages/animation
       '@casauran-internal/collections':
         specifier: workspace:*
         version: link:../../packages/collections
+      '@casauran-internal/data':
+        specifier: workspace:*
+        version: link:../../packages/data
+      '@casauran-internal/date-math':
+        specifier: workspace:*
+        version: link:../../packages/date-math
+      '@casauran-internal/drag-drop':
+        specifier: workspace:*
+        version: link:../../packages/drag-drop
+      '@casauran-internal/i18n':
+        specifier: workspace:*
+        version: link:../../packages/i18n
       '@casauran-internal/overlay':
         specifier: workspace:*
         version: link:../../packages/overlay
+      '@casauran-internal/virtualization':
+        specifier: workspace:*
+        version: link:../../packages/virtualization
       '@casauran/icons':
         specifier: workspace:*
         version: link:../../packages/icons

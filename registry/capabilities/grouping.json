@@ -1,7 +1,7 @@
 {
   "name": "grouping",
   "owner": "packages/data",
-  "status": "planned",
+  "status": "implemented",
   "consumers": ["DataGrid"],
   "externalAdapterPolicy": "native-first; adapter only after dependency approval and real alternate implementation"
 }

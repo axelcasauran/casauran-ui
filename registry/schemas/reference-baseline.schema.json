@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://casauran.dev/schemas/reference-baseline.schema.json",
+  "title": "Casauran reference baseline contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "repository",
+    "path",
+    "branch",
+    "commit",
+    "capturedAt",
+    "purpose",
+    "policy",
+    "accessMode",
+    "localPathEnvironmentVariable",
+    "defaultLocalPath",
+    "onlineFallback",
+    "repositoryRole",
+    "inventory",
+    "referenceMap",
+    "syncWorkflow",
+    "analysisWorkflow",
+    "snapshot",
+    "boundaries"
+  ],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": 1 },
+    "repository": { "const": "telerik/kendo-react" },
+    "path": { "const": "docs/content" },
+    "branch": { "const": "master" },
+    "commit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+    "capturedAt": { "type": "string", "format": "date" },
+    "purpose": { "const": "functional-behavioral-reference-only" },
+    "policy": { "const": "KENDO_REFERENCE_POLICY.md" },
+    "accessMode": { "const": "local-only" },
+    "localPathEnvironmentVariable": { "const": "CASAURAN_KENDO_DOCS_PATH" },
+    "defaultLocalPath": { "const": "../references/kendo-react-docs/docs/content" },
+    "onlineFallback": { "const": false },
+    "repositoryRole": { "const": "provenance-metadata-only" },
+    "inventory": { "const": "reference/kendo-react-inventory.json" },
+    "referenceMap": { "const": "reference/reference-map.json" },
+    "syncWorkflow": { "const": ".agent/workflows/reference-sync.md" },
+    "analysisWorkflow": { "const": ".agent/workflows/reference-to-spec.md" },
+    "snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm", "domainCount", "fileCount", "byteCount", "sha256"],
+      "properties": {
+        "algorithm": { "const": "sha256" },
+        "domainCount": { "type": "integer", "minimum": 1 },
+        "fileCount": { "type": "integer", "minimum": 1 },
+        "byteCount": { "type": "integer", "minimum": 1 },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "boundaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["allowed", "forbidden"],
+      "properties": {
+        "allowed": { "$ref": "#/$defs/nonEmptyStrings" },
+        "forbidden": { "$ref": "#/$defs/nonEmptyStrings" }
+      }
+    }
+  },
+  "$defs": {
+    "nonEmptyStrings": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    }
+  }
+}

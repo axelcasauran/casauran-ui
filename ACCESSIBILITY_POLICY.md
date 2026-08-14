@@ -59,3 +59,34 @@ Escape is ignored during IME composition or with command modifiers. These mechan
 roles, names, `aria-modal`, close controls, visible focus, announcements, or a pattern keyboard
 table; each overlay component must supply and verify those semantics and decide whether modal
 isolation is appropriate.
+
+## Animation lifecycle
+
+The animation foundation observes `prefers-reduced-motion` only through an explicit browser
+environment and resolves nonessential motion to immediate deterministic completion. It does not
+own semantics or focus; component stages must still prove that reduced motion reaches the same
+content, state, and interaction result.
+
+The i18n foundation resolves the same plain text for visible labels and accessible names/
+descriptions, supplies native plural/number/date formatting, and derives `ltr | rtl` for host
+attributes. It never reverses text or handles input/composition. Components must localize visible
+and announced content consistently, apply logical layout, and preserve IME composition before
+committing user text.
+
+The date-math foundation renders no role/name/state, focus, announcement, keyboard, pointer, touch,
+or IME behavior. Its explicit week/timezone/DST results let later date and planning components
+present predictable localized semantics, but those components still own formatting, accessible
+labels, date-grid navigation, error communication, composition handling, and manual review.
+
+The virtualization foundation keeps caller-selected focused/active indexes mounted and reports
+complete logical index/size geometry, but renders no semantics and moves no focus. Components must
+preserve logical count/position metadata, keyboard reachability, visible focus, selection,
+announcements, zoom/reflow and an accessibility-appropriate non-virtual fallback. Virtualization
+does not make an incomplete DOM collection semantically complete by itself.
+
+The drag-drop foundation gives pointer and keyboard interactions the same session/target/drop/
+cancel result model and preserves no hidden pointer-only domain state. It renders no semantics,
+instructions, live announcement, focus movement/style, or APG keyboard table. Each component must
+keep visible focus stable, expose localized lift/move/drop/cancel instructions and results, define
+disabled/read-only behavior, meet target-size and zoom/reflow requirements, and manually review
+the final keyboard and assistive-technology workflow. Drag visuals never replace text feedback.

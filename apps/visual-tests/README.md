@@ -29,3 +29,29 @@ it adds no React client boundary or public component.
 `/overlay-foundation` is the F0.10 production SSR/browser probe for the compiled internal overlay
 entry point. Its local client fixture verifies portal scope/cleanup, nested dismissal, focus
 containment/restoration, and inert isolation. It is engine evidence, not a public overlay component.
+
+`/animation-foundation` is the F0.11 production SSR/browser probe for the compiled internal
+animation entry point. Its local client fixture verifies token-resolved native playback,
+reduced-motion changes, abort, interruption-safe cleanup, and presence revisions. It is engine
+evidence, not a public animation component.
+
+`/data-engine` is the F0.12 server-only production probe for the compiled internal data entry
+point. It verifies deterministic filter/sort/aggregate/leaf-page/group output and serializable
+provider-neutral state without a client boundary. It is engine evidence, not a public data
+component or remote integration.
+
+`/internationalization` is the F0.13 server-only production probe for the compiled internal i18n
+entry point. It verifies explicit locale fallback, RTL, plain-text messages, plural/number/date
+formatting, and collation without a client boundary, public component, provider, or date arithmetic.
+
+`/date-math` is the F0.14 server-only production probe for the compiled internal date-math entry
+point. It verifies month-end overflow, inclusive range length, ISO week-year, and explicit DST
+gap/overlap disambiguation without a client boundary, parser, recurrence engine, or public component.
+
+`/virtualization` is the F0.15 production probe for compiled internal axis/grid SSR plus one local
+client measurement fixture. It verifies overscan, dynamic row measurement, scroll-anchor
+adjustment, focused-item pinning and observer cleanup without exporting a public component.
+
+`/drag-drop` is the F0.16 production probe for compiled internal session/target SSR plus one local
+client fixture. It verifies Pointer Events capture/threshold/drop, keyboard-equivalent drop/cancel,
+touch events, edge autoscroll and lifecycle cleanup without exporting a public component.

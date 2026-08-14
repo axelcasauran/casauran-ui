@@ -38,7 +38,9 @@ if (overlay.status !== 'implemented' || overlay.owner !== 'packages/overlay') {
 const positioning = json('registry/capabilities/positioning.json');
 if (positioning.status !== 'planned') errors.push('F0.10 must not implement positioning geometry');
 const animation = json('registry/capabilities/animation.json');
-if (animation.status !== 'planned') errors.push('F0.10 must not advance F0.11 animation');
+if (!['planned', 'implemented'].includes(animation.status)) {
+  errors.push('animation capability must remain at a legal roadmap status');
+}
 for (const platformName of ['accessibility', 'data-binding']) {
   if (json(`registry/platform/${platformName}.json`).status !== 'unreviewed') {
     errors.push(`F0.10 must not advance reference-derived ${platformName} parity`);

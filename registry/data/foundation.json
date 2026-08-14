@@ -1,0 +1,78 @@
+{
+  "$schema": "../schemas/data-engine.schema.json",
+  "schemaVersion": 1,
+  "package": "@casauran-internal/data",
+  "capabilities": [
+    {
+      "id": "data-descriptors",
+      "module": "packages/data/src/descriptors.ts",
+      "exports": [
+        "DataState",
+        "DataResult",
+        "FilterDescriptor",
+        "SortDescriptor",
+        "GroupDescriptor",
+        "AggregateDescriptor",
+        "PageDescriptor"
+      ],
+      "evidence": ["unit", "ssr", "typing"]
+    },
+    {
+      "id": "field-access",
+      "module": "packages/data/src/fields.ts",
+      "exports": ["getFieldValue"],
+      "evidence": ["unit", "ssr", "security", "typing"]
+    },
+    {
+      "id": "filtering",
+      "module": "packages/data/src/filter.ts",
+      "exports": ["filterData"],
+      "evidence": ["unit", "ssr", "security", "typing", "performance"]
+    },
+    {
+      "id": "sorting",
+      "module": "packages/data/src/sort.ts",
+      "exports": ["sortData"],
+      "evidence": ["unit", "ssr", "typing", "performance"]
+    },
+    {
+      "id": "aggregation",
+      "module": "packages/data/src/aggregate.ts",
+      "exports": ["aggregateData"],
+      "evidence": ["unit", "ssr", "typing"]
+    },
+    {
+      "id": "grouping",
+      "module": "packages/data/src/group.ts",
+      "exports": ["groupData"],
+      "evidence": ["unit", "ssr", "typing", "performance"]
+    },
+    {
+      "id": "paging-processing",
+      "module": "packages/data/src/process.ts",
+      "exports": ["pageData", "processData"],
+      "evidence": ["unit", "ssr", "browser", "typing", "performance"]
+    }
+  ],
+  "boundaries": {
+    "owned": [
+      "serializable filter sort group aggregate page and composite data-state descriptors",
+      "own-property field access with missing fields represented as undefined",
+      "deterministic immutable filtering stable sorting grouping aggregation and paging",
+      "provider-neutral client and server state processing without transport assumptions",
+      "bounded runtime validation for untrusted recursive filter descriptor structures"
+    ],
+    "excluded": [
+      "public React components hooks contexts renderers or component event APIs",
+      "database REST GraphQL query generation fetching caching mutation or synchronization",
+      "persistence serialization version migration storage or URL state encoding",
+      "virtualization windowing measurement scrolling or viewport ownership",
+      "locale-aware comparison collation parsing formatting messages or F0.13 internationalization",
+      "tree hierarchy projection pivot cube formula recurrence chart or scheduler processing",
+      "selection active item focus keyboard pointer touch drag drop or IME behavior",
+      "HTML URL SVG file clipboard content rendering sanitization or dynamic execution",
+      "component-specific defaults business rules column models or server protocol conventions",
+      "F0.13 internationalization runtime or future public Grid TreeList ListView components"
+    ]
+  }
+}

@@ -25,7 +25,14 @@
       "scripts/accessibility-foundation.mjs",
       "scripts/react-state-foundation.mjs",
       "scripts/collection-engine.mjs",
-      "scripts/overlay-foundation.mjs"
+      "scripts/overlay-foundation.mjs",
+      "scripts/animation-foundation.mjs",
+      "scripts/data-engine.mjs",
+      "scripts/internationalization.mjs",
+      "scripts/date-math.mjs",
+      "scripts/virtualization-foundation.mjs",
+      "scripts/drag-drop-foundation.mjs",
+      "scripts/reference-baseline.mjs"
     ]
   },
   "unitTests": {
@@ -130,11 +137,91 @@
       ]
     },
     {
+      "id": "animation-foundation",
+      "script": "scripts/validate-animation-foundation.mjs",
+      "packageScript": "validate:animation-foundation",
+      "ownerRoles": ["maintainer", "domain-owner", "evidence-reviewer"],
+      "contracts": [
+        "registry/animation/foundation.json",
+        "specs/foundation/animation.md",
+        "packages/animation/src/index.ts"
+      ]
+    },
+    {
+      "id": "data-engine",
+      "script": "scripts/validate-data-engine.mjs",
+      "packageScript": "validate:data-engine",
+      "ownerRoles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"],
+      "contracts": [
+        "DATA_ARCHITECTURE.md",
+        "registry/data/foundation.json",
+        "specs/foundation/data-engine.md",
+        "packages/data/src/index.ts"
+      ]
+    },
+    {
+      "id": "internationalization",
+      "script": "scripts/validate-internationalization.mjs",
+      "packageScript": "validate:internationalization",
+      "ownerRoles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"],
+      "contracts": [
+        "registry/i18n/foundation.json",
+        "specs/foundation/internationalization.md",
+        "packages/i18n/src/index.ts"
+      ]
+    },
+    {
+      "id": "date-math",
+      "script": "scripts/validate-date-math.mjs",
+      "packageScript": "validate:date-math",
+      "ownerRoles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"],
+      "contracts": [
+        "registry/date-math/foundation.json",
+        "specs/foundation/date-math.md",
+        "packages/date-math/src/index.ts"
+      ]
+    },
+    {
+      "id": "virtualization-foundation",
+      "script": "scripts/validate-virtualization-foundation.mjs",
+      "packageScript": "validate:virtualization-foundation",
+      "ownerRoles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"],
+      "contracts": [
+        "registry/virtualization/foundation.json",
+        "specs/foundation/virtualization.md",
+        "packages/virtualization/src/index.ts"
+      ]
+    },
+    {
+      "id": "drag-drop-foundation",
+      "script": "scripts/validate-drag-drop-foundation.mjs",
+      "packageScript": "validate:drag-drop-foundation",
+      "ownerRoles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"],
+      "contracts": [
+        "registry/drag-drop/foundation.json",
+        "specs/foundation/drag-drop.md",
+        "packages/drag-drop/src/index.ts"
+      ]
+    },
+    {
       "id": "local-reference-config",
       "script": "scripts/validate-local-reference-config.mjs",
       "packageScript": "validate:local-reference-config",
       "ownerRoles": ["maintainer", "evidence-reviewer"],
       "contracts": ["KENDO_REFERENCE_POLICY.md", "reference/local-reference.json"]
+    },
+    {
+      "id": "reference-baseline",
+      "script": "scripts/validate-reference-baseline.mjs",
+      "packageScript": "validate:reference-baseline",
+      "ownerRoles": ["maintainer", "evidence-reviewer", "security-reviewer"],
+      "contracts": [
+        "KENDO_REFERENCE_POLICY.md",
+        "reference/kendo-react-baseline.json",
+        "reference/kendo-react-inventory.json",
+        "reference/reference-map.json",
+        "specs/foundation/reference-baseline.md"
+      ]
     },
     {
       "id": "branding",

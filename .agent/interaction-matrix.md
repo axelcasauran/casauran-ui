@@ -18,3 +18,33 @@ Overlay dismissal is top-layer-only for unmodified, non-composing Escape and pri
 outside the layer/branches. Nested focus scopes suspend parents, wrap current tabbables, and restore
 in stack order. Components still own close controls, pattern-specific keys, open-state updates,
 pointer/touch policy, and whether modal containment/isolation applies.
+
+Animation playback exposes explicit finish, cancel, AbortSignal, reduced-motion, and token-safe
+replacement settlement. It does not infer a keyboard, pointer, touch, IME, gesture, or semantic
+interaction; component owners map their complete interaction contract to the motion lifecycle.
+
+Data descriptors express requested filter/sort/group/aggregate/page state but contain no event,
+selection, active-item, keyboard, pointer, touch, drag, focus, or IME policy. Components own
+intent-to-state mapping, server loading/errors, optimistic behavior, and accessible feedback;
+collections and virtualization retain their separate interaction owners.
+
+F0.13 functions receive locale and data explicitly and emit immutable metadata or strings. They
+have no event, keyboard, pointer, touch, focus, selection, drag, or composition lifecycle. Input
+components must suppress premature IME commits and applications own locale-switch state; both
+recompute through the stateless engine rather than mutating a global locale.
+
+F0.14 operations consume validated values and explicit overflow/week/timezone/DST policies. They
+have no event, selection, keyboard, pointer, touch, drag, focus, or composition lifecycle. Date and
+planning components own parsing, edit state, IME commit timing, navigation, disabled dates,
+drag/resize intent, and feedback for rejected or adjusted local times.
+
+F0.15 consumes logical scroll geometry and emits windows, target offsets, and explicit anchor
+adjustments. It subscribes to no scroll/keyboard/pointer/touch/IME event and mutates no scroll
+container or focus. Components own scheduling, RTL DOM normalization, applying corrections,
+focus/selection pinning, loading, drag/drop, and all pattern interaction semantics.
+
+F0.16 accepts only primary button-zero Pointer Events, activates at an explicit movement threshold,
+retains capture through move/up, and cancels on pointercancel, capture loss, disposal, or explicit
+intent. Keyboard sessions use the same target/drop/cancel state but consume caller-supplied logical
+deltas; components own key maps, focus, announcements, composition/modifier gating, touch-action,
+click suppression, domain mutations, and RTL logical intent. Autoscroll stops explicitly.

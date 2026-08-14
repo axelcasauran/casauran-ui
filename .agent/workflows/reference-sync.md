@@ -17,7 +17,8 @@ Review upstream changes without silent scope expansion.
 3. classify additions/changes/removals.
 4. create parity backlog.
 5. approve/defer each change.
-6. move baseline after approval.
+6. after approval, regenerate the inventory and update provenance/map/snapshot together.
+7. run `pnpm validate:reference-baseline` and `pnpm reference:check`.
 
 ## Records
 

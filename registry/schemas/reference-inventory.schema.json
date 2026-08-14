@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://casauran.dev/schemas/reference-inventory.schema.json",
+  "title": "Casauran local reference inventory",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "root", "commit", "algorithm", "aggregate", "domains"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": 1 },
+    "root": { "const": "docs/content" },
+    "commit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+    "algorithm": { "const": "sha256" },
+    "aggregate": { "$ref": "#/$defs/inventoryEntry" },
+    "domains": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "allOf": [
+          { "$ref": "#/$defs/inventoryEntry" },
+          {
+            "type": "object",
+            "required": ["path"],
+            "properties": {
+              "path": { "type": "string", "pattern": "^(?:\\.|[a-z0-9]+(?:-[a-z0-9]+)*)$" }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "inventoryEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fileCount", "byteCount", "sha256"],
+      "properties": {
+        "path": { "type": "string" },
+        "domainCount": { "type": "integer", "minimum": 1 },
+        "fileCount": { "type": "integer", "minimum": 1 },
+        "byteCount": { "type": "integer", "minimum": 1 },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    }
+  }
+}

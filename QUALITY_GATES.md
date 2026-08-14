@@ -20,3 +20,8 @@ Release gate: compatibility/security/public API/packages/docs certified.
 1.0 gate: enterprise certification plus three serious applications using supported public API only.
 
 BLOCKED never rolls forward silently.
+
+Reference gate: `pnpm validate:reference-baseline` checks stored provenance/inventory/map/lifecycle
+contracts, while `pnpm reference:check` recomputes the external local-only snapshot digest and
+mapped paths. Both pass before reference-derived work; the full stage-close gate remains
+`pnpm validate`.

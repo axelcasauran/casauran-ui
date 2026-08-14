@@ -1,7 +1,7 @@
 {
   "name": "aggregation",
   "owner": "packages/data",
-  "status": "planned",
+  "status": "implemented",
   "consumers": [],
   "externalAdapterPolicy": "native-first; adapter only after dependency approval and real alternate implementation"
 }

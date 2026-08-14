@@ -35,3 +35,8 @@ Before any reference-analysis stage:
 ```bash
 pnpm reference:check
 ```
+
+The preflight recomputes `reference/kendo-react-inventory.json` and verifies all component paths in
+`reference/reference-map.json`. Do not regenerate the inventory merely to make a mismatch pass.
+`pnpm reference:inventory:write` is restricted to the approved reference-baseline/reference-sync
+workflow, followed by review of provenance and scope impact.

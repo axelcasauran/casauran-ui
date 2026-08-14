@@ -1,0 +1,66 @@
+{
+  "$schema": "../schemas/virtualization-foundation.schema.json",
+  "schemaVersion": 1,
+  "package": "@casauran-internal/virtualization",
+  "capabilities": [
+    {
+      "id": "axis-windowing",
+      "module": "packages/virtualization/src/axis.ts",
+      "exports": ["createVirtualAxis", "VirtualAxis", "VirtualWindow", "VirtualItem"],
+      "evidence": ["unit", "ssr", "browser", "typing", "performance"]
+    },
+    {
+      "id": "dynamic-measurement",
+      "module": "packages/virtualization/src/axis.ts",
+      "exports": ["VirtualMeasurement", "VirtualAxisMutation"],
+      "evidence": ["unit", "browser", "typing", "performance", "security"]
+    },
+    {
+      "id": "scroll-anchoring",
+      "module": "packages/virtualization/src/axis.ts",
+      "exports": ["VirtualAnchor", "VirtualAxisMutation"],
+      "evidence": ["unit", "browser", "typing"]
+    },
+    {
+      "id": "focus-pinning",
+      "module": "packages/virtualization/src/axis.ts",
+      "exports": ["VirtualWindowOptions", "VirtualWindow"],
+      "evidence": ["unit", "browser", "typing", "accessibility"]
+    },
+    {
+      "id": "two-dimensional-windowing",
+      "module": "packages/virtualization/src/grid.ts",
+      "exports": ["createVirtualGrid", "VirtualGrid", "VirtualGridWindow"],
+      "evidence": ["unit", "ssr", "browser", "typing", "performance"]
+    },
+    {
+      "id": "element-measurement",
+      "module": "packages/virtualization/src/measurement.ts",
+      "exports": ["createElementMeasurementObserver", "ElementMeasurementObserver"],
+      "evidence": ["unit", "browser", "typing", "security"]
+    }
+  ],
+  "boundaries": {
+    "owned": [
+      "framework-neutral one-dimensional estimated and measured window calculation with item overscan",
+      "stable-key dynamic size measurement with bounded count and finite positive geometry validation",
+      "explicit scroll adjustment that preserves a stable anchor across measurement and count changes",
+      "disjoint pinned indexes that keep caller-owned focused or active items mounted",
+      "two-dimensional row and column window composition without materializing a cell matrix",
+      "explicit native ResizeObserver bridge that starts only after a browser constructor and elements are supplied",
+      "dependency-free server-safe package imports with logarithmic offset lookup and measurement updates"
+    ],
+    "excluded": [
+      "public React components hooks providers renderers DOM structure styles or component event APIs",
+      "collection registration active state selection tree projection or data processing",
+      "focus movement restoration keyboard mapping ARIA roles names states announcements or tab order",
+      "scroll container ownership event subscription scheduling rendering or browser scroll mutation",
+      "automatic adaptive overscan velocity prediction infinite loading pagination or remote transport",
+      "masonry lane packing sticky headers merged cells frozen panes or spreadsheet formulas",
+      "locale formatting RTL browser scrollLeft normalization theme density CSS or responsive layout policy",
+      "HTML URLs SVG files serialized executable data storage network or dynamic code execution",
+      "reference-derived virtualization parity or future public list grid tree scheduler spreadsheet components",
+      "F0.16 drag and drop autoscroll or any later-stage capability"
+    ]
+  }
+}

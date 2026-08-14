@@ -1,7 +1,14 @@
 {
   "name": "animation",
   "owner": "packages/animation",
-  "status": "planned",
-  "consumers": [],
+  "status": "implemented",
+  "consumers": [
+    "registry/components/expand.json",
+    "registry/components/fade.json",
+    "registry/components/push.json",
+    "registry/components/reveal.json",
+    "registry/components/slide.json",
+    "registry/components/zoom.json"
+  ],
   "externalAdapterPolicy": "native-first; adapter only after dependency approval and real alternate implementation"
 }

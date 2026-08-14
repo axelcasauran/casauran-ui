@@ -269,6 +269,36 @@
       "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
     },
     {
+      "pattern": "/registry/animation/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/registry/data/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
+      "pattern": "/registry/i18n/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
+      "pattern": "/registry/date-math/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
+      "pattern": "/registry/virtualization/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
+      "pattern": "/registry/drag-drop/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
       "pattern": "/packages/tokens/**",
       "owners": ["@axelcasauran"],
       "roles": ["maintainer", "domain-owner"]
@@ -304,6 +334,36 @@
       "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
     },
     {
+      "pattern": "/packages/animation/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/packages/data/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
+      "pattern": "/packages/i18n/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
+      "pattern": "/packages/date-math/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
+      "pattern": "/packages/virtualization/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
+      "pattern": "/packages/drag-drop/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
       "pattern": "/scripts/*token*.mjs",
       "owners": ["@axelcasauran"],
       "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
@@ -334,6 +394,46 @@
       "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
     },
     {
+      "pattern": "/scripts/*animation*.mjs",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/scripts/*data-engine*.mjs",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
+      "pattern": "/scripts/*internationalization*.mjs",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
+      "pattern": "/scripts/*date-math*.mjs",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
+      "pattern": "/scripts/*virtualization*.mjs",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
+      "pattern": "/scripts/*drag-drop*.mjs",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
+      "pattern": "/scripts/*reference*.mjs",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "evidence-reviewer", "security-reviewer"]
+    },
+    {
+      "pattern": "/reference/**",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "evidence-reviewer", "security-reviewer"]
+    },
+    {
       "pattern": "/specs/foundation/tokens.md",
       "owners": ["@axelcasauran"],
       "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
@@ -362,6 +462,41 @@
       "pattern": "/specs/foundation/overlay.md",
       "owners": ["@axelcasauran"],
       "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
+      "pattern": "/specs/foundation/animation.md",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer"]
+    },
+    {
+      "pattern": "/specs/foundation/data-engine.md",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
+      "pattern": "/specs/foundation/internationalization.md",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
+      "pattern": "/specs/foundation/date-math.md",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
+      "pattern": "/specs/foundation/virtualization.md",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
+      "pattern": "/specs/foundation/drag-drop.md",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "domain-owner", "evidence-reviewer", "security-reviewer"]
+    },
+    {
+      "pattern": "/specs/foundation/reference-baseline.md",
+      "owners": ["@axelcasauran"],
+      "roles": ["maintainer", "evidence-reviewer", "security-reviewer"]
     },
     {
       "pattern": "/.github/workflows/**",

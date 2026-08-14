@@ -1,7 +1,7 @@
 {
   "name": "date-math",
   "owner": "packages/date-math",
-  "status": "planned",
-  "consumers": [],
+  "status": "implemented",
+  "consumers": ["calendar", "date-input", "scheduler", "gantt"],
   "externalAdapterPolicy": "native-first; adapter only after dependency approval and real alternate implementation"
 }
