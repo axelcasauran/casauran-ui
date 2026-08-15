@@ -18,7 +18,7 @@
     "totalStages": 172,
     "skills": 42,
     "workflows": 20,
-    "acceptedADRs": 22
+    "acceptedADRs": 23
   },
   "toolchain": {
     "node": "24.18.0 LTS baseline",

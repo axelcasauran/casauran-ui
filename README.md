@@ -120,6 +120,12 @@ Foundation specification status is bound to stage status with `pnpm validate:fou
 contract-tested through `pnpm test:contracts`, and declared in
 `.agent/foundation-specifications.json`.
 
+Component capability audits are bound to their parity documents with
+`pnpm validate:capability-completeness`, contract-tested through `pnpm test:contracts`, and declared
+in `.agent/capability-completeness.json` under ADR-022. A component at `parity-verified` or
+`improved` must give every materially relevant reference capability one explicit disposition, name
+an owning stage for any deferral, and publish a summary that matches its own table.
+
 Build/test topology and output wiring are checked with `pnpm validate:build-test-infrastructure`
 and `pnpm test:build-test-infrastructure`. Unit tests run once through `pnpm test:unit`; production
 SSR/hydration/browser checks run through `pnpm test:browser`.

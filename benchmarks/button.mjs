@@ -42,5 +42,5 @@ if (elapsed > 1_000) {
 }
 
 console.log(
-  `PASS: ${count} initial and updated Button SSR projections in ${elapsed.toFixed(2)}ms (Node ${process.version}, win32 x64)`,
+  `PASS: ${count} initial and updated Button SSR projections in ${elapsed.toFixed(2)}ms (Node ${process.version}, ${process.platform} ${process.arch})`,
 );

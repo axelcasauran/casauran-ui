@@ -1,10 +1,11 @@
-import { Button } from '@casauran/react';
+import { Button, Icon } from '@casauran/react';
 
 import './button-probe.css';
 import { ButtonClientProbe } from './client-probe';
 
 const appearances = ['solid', 'soft', 'outline', 'ghost', 'link'] as const;
 const tones = ['neutral', 'accent', 'positive', 'caution', 'critical', 'inverse'] as const;
+const sizes = ['xs', 'sm', 'md', 'lg'] as const;
 
 export default function ButtonPage() {
   return (
@@ -16,6 +17,18 @@ export default function ButtonPage() {
           <div className="button-probe__row">
             {appearances.map((appearance) => (
               <Button appearance={appearance} key={appearance} tone="accent">
+                {appearance}
+              </Button>
+            ))}
+          </div>
+          <div className="button-probe__row" data-testid="neutral-appearances">
+            {appearances.map((appearance) => (
+              <Button
+                appearance={appearance}
+                data-testid={`neutral-${appearance}`}
+                key={appearance}
+                tone="neutral"
+              >
                 {appearance}
               </Button>
             ))}
@@ -63,6 +76,49 @@ export default function ButtonPage() {
           </div>
           <div className="button-probe__narrow">
             <Button>Long localized action that may wrap safely</Button>
+          </div>
+        </article>
+
+        <article className="button-probe__panel" data-testid="button-size-scale" data-theme="light">
+          <h2>Control size scale</h2>
+          <div className="button-probe__row">
+            {sizes.map((size) => (
+              <Button key={size} size={size} tone="accent">
+                {size}
+              </Button>
+            ))}
+          </div>
+          <div className="button-probe__row">
+            {sizes.map((size) => (
+              <Button
+                aria-label={`Search ${size}`}
+                data-testid={`icon-only-${size}`}
+                iconOnly
+                key={size}
+                size={size}
+              >
+                <Icon name="search" size={size === 'lg' ? 'lg' : 'md'} />
+              </Button>
+            ))}
+          </div>
+        </article>
+
+        <article
+          className="button-probe__panel"
+          data-testid="button-icon-composition"
+          data-theme="light"
+        >
+          <h2>Canonical Icon composition</h2>
+          <div className="button-probe__row">
+            <Button appearance="solid" startContent={<Icon name="add" />} tone="accent">
+              Add record
+            </Button>
+            <Button appearance="outline" endContent={<Icon name="arrow-right" />}>
+              Continue
+            </Button>
+            <Button appearance="ghost" startContent={<Icon name="image" />} tone="neutral">
+              Media
+            </Button>
           </div>
         </article>
       </div>

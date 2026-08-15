@@ -32,4 +32,7 @@ projections through `react-dom/server` after production package builds, on Node 
 x64. Ceiling: 1,000 ms. Recorded stage result: 196.78 ms. The emitted Button implementation module
 is 2,373 bytes before minification/compression and introduces no external runtime dependency,
 observer, portal, timer, or global listener. This is a bounded regression scenario, not a universal
-speed claim.
+speed claim. Re-measured during the 2026-08-15 capability revalidation after the `xs` size and
+icon-only geometry change; the revalidation result and its runtime/platform are recorded in
+`.agent/stages/1.01-button.md`, because the additive change touches CSS and one type union rather
+than the render path.

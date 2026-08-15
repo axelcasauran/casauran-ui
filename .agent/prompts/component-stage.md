@@ -442,7 +442,7 @@ Run the targeted checks while developing — the validators for every foundation
 pnpm validate
 ```
 
-`pnpm validate` runs `pnpm validate:static` (36 read-only validators, formatting, build and output
+`pnpm validate` runs `pnpm validate:static` (38 read-only validators, formatting, build and output
 verification, lint, strict types, dependency architecture, contract and unit tests) followed by the
 production browser matrix in Chromium, Firefox, and WebKit.
 

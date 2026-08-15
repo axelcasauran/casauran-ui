@@ -152,6 +152,7 @@ beside it.
 - `scripts/validate-reference-baseline.mjs`
 - `scripts/validate-documentation-experience.mjs`
 - `scripts/validate-foundation-specifications.mjs`
+- `scripts/validate-capability-completeness.mjs`
 - architecture/registry/reference/composition/package/public-API/toolchain/platform validators
 - `dependency-cruiser.config.cjs`
 - strict TypeScript

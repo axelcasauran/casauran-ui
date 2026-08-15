@@ -59,4 +59,6 @@ Button `1.01` delegates pointer, touch, Enter, Space, focus order, and form acti
 owner transition. Production Playwright evidence covers pointer/click, touch tap, Enter, Space,
 disabled suppression, controlled/uncontrolled pressed state, cancellation, form submission, and
 forwarded focus across Chromium, Firefox, and WebKit. It owns no text input, clipboard, drag,
-resize, or IME commit path.
+resize, or IME commit path. The 2026-08-15 capability revalidation confirmed against the reference
+that Button's keyboard model is deliberately _standard_ — one tab stop, native activation, no
+component-owned shortcut table — so no arrow-key or roving-focus model is missing.

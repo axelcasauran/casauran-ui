@@ -6,6 +6,11 @@ Public behavioral input is the pinned local corpus recorded in `button.reference
 The reference preflight passed for the repository snapshot; all examined relative paths are listed
 there. This specification is an independent Casauran contract.
 
+Revision history: approved 2026-08-14 for stage `1.01`; amended 2026-08-15 by the capability
+completeness revalidation recorded in `.agent/reviews/2026-08-15-button-revalidation.md`. The
+amendment is additive — one new `size` value and one geometry correction — and was re-approved under
+`API_GOVERNANCE.md` before implementation, with a changeset for the supported public API change.
+
 ## Purpose and scope
 
 Button owns the platform's canonical action semantic. It renders one native `<button>` for
@@ -20,11 +25,16 @@ polymorphic elements. Those belong to later stages or caller composition.
 
 - Native enabled, disabled, hover, active, focus-visible, and form states.
 - Optional controlled or uncontrolled toggleable mode with a pressed state.
-- `sm`, `md`, and `lg` sizes; `none`, `sm`, `md`, `lg`, and `full` radii.
+- `xs`, `sm`, `md`, and `lg` sizes; `none`, `sm`, `md`, `lg`, and `full` radii.
 - `solid`, `soft`, `outline`, `ghost`, and `link` appearances.
-- `neutral`, `accent`, `positive`, `caution`, `critical`, and `inverse` tones.
-- Main content plus decorative `startContent` and `endContent` slots.
-- Explicit icon-only geometry while preserving a caller-supplied accessible name.
+- `neutral`, `accent`, `positive`, `caution`, `critical`, and `inverse` tones. Informational
+  emphasis resolves to `accent`; secondary and tertiary emphasis are expressed by stepping the
+  appearance down on `neutral` rather than by adding brand ramps.
+- Main content plus decorative `startContent` and `endContent` slots that accept any composed node,
+  including the canonical `Icon`, an application image, or an element carrying a third-party icon
+  class. Button interprets no icon name, URL, class string, or SVG source of its own.
+- Explicit icon-only geometry while preserving a caller-supplied accessible name. Icon-only layout
+  is square at every size because both axes resolve from one internal size custom property.
 - Stable state data attributes and one documented root styling hook.
 
 ## Anatomy and composition
@@ -37,6 +47,11 @@ other composites must reuse this Button when they need this semantic action.
 The React package owns rendering and state coordination. The React state foundation owns
 controlled/uncontrolled mechanics. The events package owns cancellable event composition. Tokens
 and theme own public custom-property defaults. No new runtime dependency is required.
+
+Artwork is composed, not owned. The canonical `Icon` component (stage `1.02`) and, once it exists,
+`SVGIcon` (stage `1.03`) are placed by the caller into the decorative slots or the icon-only
+content. Button therefore imports no icon package, and the declared integration obligation for
+`1.03` is to revalidate Button × SVGIcon evidence rather than to change Button.
 
 ## State model
 
@@ -69,7 +84,8 @@ native activation. Disabled buttons are not focusable or activatable. Explicit `
 - Focus: a high-contrast `:focus-visible` indicator is never removed.
 - Decorative slots are `aria-hidden` and cannot contain interactive content.
 - Minimum target block size is at least 44 CSS pixels in comfortable `md`/`lg` presentation; the
-  compact and `sm` presentations remain usable and are documented for dense desktop contexts.
+  compact, `sm` and `xs` presentations remain usable and are documented for dense desktop contexts,
+  with the documented expectation that a touch-sized action stays available on touch-first screens.
 - Logical layout supports RTL without reversing content strings.
 - Forced colors use system colors and preserve border/focus/pressed distinction. Reduced motion
   removes transition duration through the theme token.
@@ -84,7 +100,7 @@ distinction, light/dark, RTL, forced colors, reduced motion, zoom/reflow, and to
 ```ts
 type ButtonAppearance = 'solid' | 'soft' | 'outline' | 'ghost' | 'link';
 type ButtonTone = 'neutral' | 'accent' | 'positive' | 'caution' | 'critical' | 'inverse';
-type ButtonSize = 'sm' | 'md' | 'lg';
+type ButtonSize = 'xs' | 'sm' | 'md' | 'lg';
 type ButtonRadius = 'none' | 'sm' | 'md' | 'lg' | 'full';
 
 interface ButtonPressedChangeEvent {
@@ -132,6 +148,13 @@ Light/dark colors derive from semantic tokens. Density adjusts shared control sp
 properties and flex order provide RTL behavior. Forced colors and reduced motion have explicit
 media rules. No competitor theme value or class is used.
 
+The size scale resolves through one private `--_csn-button-size` custom property so that minimum
+block size and icon-only inline size can never disagree. The override seam — component custom
+properties, the `.csn-button` root hook, and the documented state attributes in the `overrides`
+layer — is the supported customization contract. Casauran does not offer a runtime class-structure
+replacement API: ADR-003 fixes static CSS and custom properties as the styling architecture, and a
+class-injection provider would make internal DOM a compatibility promise.
+
 ## Rendering
 
 The public package root stays free of a broad client directive. Button's implementation module is
@@ -172,13 +195,19 @@ universal speed claim.
 - `pressed={false}` is controlled; only `undefined` selects uncontrolled ownership.
 - Start/end content is hidden from the accessibility tree and cannot contain controls.
 - Explicit form types preserve native submit/reset semantics; omission uses `button`.
+- Icon-only layout stays square at every size; artwork larger than the resolved size is the
+  caller's responsibility because Button does not scale composed content.
+- Button has no busy or loading state; a caller that needs one disables the action and owns its own
+  status message.
 
 ## Test matrix
 
 - Unit/SSR: defaults, attributes, slots, class/style passthrough, ref typing, controlled and
-  uncontrolled markup, safe escaping, server import, and form type.
+  uncontrolled markup, safe escaping, server import, form type, the complete size scale, the
+  appearance/tone state hooks, and canonical `Icon` composition in both slot and icon-only layout.
 - Browser interaction: pointer, touch-equivalent click, Enter, Space, cancellation, controlled/
-  uncontrolled pressed state, disabled behavior, native form submit/reset, and ref focus.
+  uncontrolled pressed state, disabled behavior, native form submit/reset, ref focus, monotonic and
+  square size geometry, and composed `Icon` artwork that introduces no second interactive element.
 - Accessibility: native role/name/state, icon-only label, focus-visible, no duplicate role,
   keyboard table, automated scan where available, and manual checklist.
 - Theme/visual: light/dark, comfortable/compact, all appearances/tones/sizes/radii, pressed,

@@ -47,4 +47,7 @@ implementation-level client boundary. Client behavior is required for activation
 composition and optional uncontrolled pressed state. Equal props produce hydration-stable native
 markup; no browser global is read during module evaluation/render, and no observer, portal, random
 source, timer, storage, or network access exists. Production Next SSR markup and hydration run in
-Chromium, Firefox, and WebKit without console or page errors.
+Chromium, Firefox, and WebKit without console or page errors. The 2026-08-15 capability
+revalidation recorded that Casauran covers the reference's separate, since-discontinued server
+component distribution from this one package instead: the App Router is the primary supported host,
+not an experimental variant.

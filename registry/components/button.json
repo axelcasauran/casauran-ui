@@ -4,7 +4,7 @@
   "category": "buttons",
   "phase": 1,
   "stage": "1.01",
-  "status": "parity-verified",
+  "status": "improved",
   "package": "@casauran/react",
   "reference": {
     "path": "docs/content/buttons",
@@ -53,6 +53,11 @@
     "rtl",
     "forced-colors",
     "reduced-motion",
-    "ssr-hydration-rsc"
+    "ssr-hydration-rsc",
+    "dense-size-scale",
+    "composed-icon-content",
+    "square-icon-only-geometry",
+    "component-token-override-seam",
+    "native-attribute-passthrough"
   ]
 }

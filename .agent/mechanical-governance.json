@@ -35,7 +35,8 @@
       "scripts/reference-baseline.mjs",
       "scripts/documentation-experience.mjs",
       "scripts/foundation-specifications.mjs",
-      "scripts/visual-baselines.mjs"
+      "scripts/visual-baselines.mjs",
+      "scripts/capability-completeness.mjs"
     ]
   },
   "unitTests": {
@@ -335,6 +336,13 @@
       "packageScript": "validate:parity",
       "ownerRoles": ["maintainer", "domain-owner", "evidence-reviewer"],
       "contracts": ["PARITY_DEFINITION.md", "KENDO_FEATURE_COMPARISON.md"]
+    },
+    {
+      "id": "capability-completeness",
+      "script": "scripts/validate-capability-completeness.mjs",
+      "packageScript": "validate:capability-completeness",
+      "ownerRoles": ["maintainer", "evidence-reviewer"],
+      "contracts": ["PARITY_DEFINITION.md", ".agent/capability-completeness.json"]
     },
     {
       "id": "package-exports",
