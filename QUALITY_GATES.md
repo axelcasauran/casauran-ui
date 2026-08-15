@@ -43,3 +43,9 @@ mapped paths. Both pass before reference-derived work; the full stage-close gate
 Documentation foundation gate: `pnpm validate:documentation-experience` checks ADR/stage
 ownership, capability/route/metadata contracts, narrow client/security boundaries, and required
 production docs-host evidence. The full browser gate starts both documentation and visual hosts.
+
+Capability completeness gate: `pnpm validate:capability-completeness` checks that every component at
+`parity-verified` or `improved` carries one governed disposition per capability, an owning stage for
+each deferral, a written rationale for each not-applicable or divergent capability, and a published
+disposition summary that agrees with its table. Components completed before ADR-022 are listed as
+named, owned pending entries rather than silent exemptions.

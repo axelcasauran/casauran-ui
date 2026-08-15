@@ -2,7 +2,7 @@ import type { ButtonHTMLAttributes, MouseEvent as ReactMouseEvent, ReactNode } f
 
 export type ButtonAppearance = 'solid' | 'soft' | 'outline' | 'ghost' | 'link';
 export type ButtonTone = 'neutral' | 'accent' | 'positive' | 'caution' | 'critical' | 'inverse';
-export type ButtonSize = 'sm' | 'md' | 'lg';
+export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg';
 export type ButtonRadius = 'none' | 'sm' | 'md' | 'lg' | 'full';
 
 export interface ButtonPressedChangeEvent {

@@ -67,12 +67,47 @@ validator. It clears in one step:
 pnpm exec playwright test --update-snapshots   # then review each image as evidence
 ```
 
-Every other gate is green: 37 validators minus this one, 129 Node contract tests, 117 Vitest tests,
+Every other gate is green: 38 validators minus this one, 144 Node contract tests, 122 Vitest tests,
 and a clean-worktree build, lint, typecheck and architecture pass.
 
 Verification coverage on 2026-08-15: 36 validators, 119 contract tests, 117 Vitest tests, and a
 clean-worktree `pnpm validate:static` all PASS; the Chromium browser suite ran 65 passing with 5
 failures, every one a missing Linux baseline and none behavioural. Firefox and WebKit remain unrun.
+
+## Closed remediation: 2026-08-15 Button capability revalidation
+
+Decision: `.agent/decisions/ADR-022-component-capability-revalidation.md`
+Record: `.agent/reviews/2026-08-15-button-revalidation.md`
+Ledger: the `## Revalidation — 2026-08-15` section of `.agent/stages/1.01-button.md`
+
+`1.01 Button` was revalidated in place against the current component-stage rules; its original
+COMPLETE record is unchanged and the registry entry advanced `parity-verified → improved`. The
+reference analysis grew from 12 to 23 examined paths, the parity document from 12 `pass` rows to 31
+rows each carrying a governed disposition, and the documentation route from 6 sections to 16. One
+capability gap (`size="xs"`), one geometry defect (icon-only actions were not square away from the
+default size), and one contrast defect (transparent appearances painted the neutral tone's surface
+colour as text) were fixed with browser guards. The Button × Icon integration obligation left open
+when `1.02` closed is now evidenced.
+
+Three repository defects were repaired in the same pass, all of which blocked the stage gate:
+`pnpm lint` failed on 7,368 vendored `kdocs` reference files; `pnpm format:write` rewrote 9,164 of
+them, which modifies read-only competitor material and invalidates the pinned reference digest; and
+`benchmarks/button.mjs` printed a hardcoded `win32 x64` environment. The corpus is now excluded from
+ESLint and Prettier with recorded rationale, and the benchmark reports its real platform.
+
+`pnpm validate:capability-completeness` is the 38th governed validator, with
+`.agent/capability-completeness.json` and 15 rejection tests. `1.02 Icon` closed under the previous
+parity contract and is the single recorded `pendingRevalidation` entry; it must be closed by its own
+governed revalidation, not by editing its parity document.
+
+Revalidation coverage: 37 of 38 validators, format, lint, three typecheck scopes, dependency
+architecture, 27 library builds and 4 production Next hosts, 144 contract tests, 122 Vitest tests,
+and `pnpm benchmark:button` at 249.14 ms against a 1,000 ms ceiling all PASS. The Chromium browser
+suite ran 69 passing with 4 failures, every one a missing Linux baseline for another stage's fixture
+and none behavioural; the reviewed `button-matrix-chromium-linux.png` is committed and the three
+stale `-win32` Button baselines were removed. Firefox and WebKit could not be installed in that
+environment, so `pnpm validate` was not run to completion and is not claimed. It clears with the
+Phase 0 re-certification above.
 
 Update only through stage/phase close workflow. BLOCKED phases cannot roll forward.
 

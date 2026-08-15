@@ -9,6 +9,8 @@ Required dimensions: light, dark, density, RTL, forced colors, reduced motion, c
 
 Button `1.01` passes light/dark, comfortable/compact density, RTL logical slot order, forced-color
 system assignments, reduced-motion duration, and scoped component-token override evidence. Its
-three-engine visual matrix covers five appearances, six semantic tones, three sizes, five radii,
-pressed/disabled/icon-only states, long content, and localized RTL content. Future visual families
-remain platform roadmap work and are not silently claimed by this component stage.
+three-engine visual matrix covers five appearances, six semantic tones, four sizes, five radii,
+pressed/disabled/icon-only states, composed Icon artwork, long content, and localized RTL content.
+The 2026-08-15 capability revalidation added the dense `xs` step and made icon-only geometry resolve
+both axes from one internal size property, so an icon-only action is square at every size. Future
+visual families remain platform roadmap work and are not silently claimed by this component stage.

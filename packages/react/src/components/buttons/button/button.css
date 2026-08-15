@@ -8,10 +8,11 @@
     --_csn-button-background: var(--_csn-button-soft);
     --_csn-button-foreground: var(--_csn-button-tone-foreground);
     --_csn-button-border-current: var(--_csn-button-border);
+    --_csn-button-size: var(--csn-button-min-block-size);
 
     position: relative;
     display: inline-flex;
-    min-block-size: var(--csn-button-min-block-size);
+    min-block-size: var(--_csn-button-size);
     align-items: center;
     justify-content: center;
     gap: var(--csn-button-gap);
@@ -105,16 +106,21 @@
     --_csn-button-foreground: var(--_csn-button-on-tone);
   }
 
+  /*
+   * Transparent appearances paint the tone's *text* colour, never its surface colour. The neutral
+   * tone's surface is a pale control fill, so using it as a foreground produced unreadable text on
+   * the canvas; `--_csn-button-tone-foreground` resolves to the readable colour for every tone.
+   */
   .csn-button[data-appearance='outline'] {
     --_csn-button-background: transparent;
-    --_csn-button-foreground: var(--_csn-button-tone);
-    --_csn-button-border-current: var(--_csn-button-tone);
+    --_csn-button-foreground: var(--_csn-button-tone-foreground);
+    --_csn-button-border-current: var(--_csn-button-border);
   }
 
   .csn-button[data-appearance='ghost'],
   .csn-button[data-appearance='link'] {
     --_csn-button-background: transparent;
-    --_csn-button-foreground: var(--_csn-button-tone);
+    --_csn-button-foreground: var(--_csn-button-tone-foreground);
     --_csn-button-border-current: transparent;
   }
 
@@ -125,14 +131,26 @@
     text-underline-offset: 0.2em;
   }
 
+  .csn-button[data-size='xs'] {
+    --_csn-button-size: calc(var(--csn-button-min-block-size) - var(--csn-ref-space-4));
+
+    gap: var(--csn-ref-space-1);
+    padding-block: var(--csn-ref-space-0);
+    padding-inline: var(--csn-ref-space-2);
+    font-size: var(--csn-ref-font-size-xs);
+  }
+
   .csn-button[data-size='sm'] {
-    min-block-size: calc(var(--csn-button-min-block-size) - var(--csn-ref-space-2));
+    --_csn-button-size: calc(var(--csn-button-min-block-size) - var(--csn-ref-space-2));
+
     padding-block: var(--csn-ref-space-1);
     padding-inline: var(--csn-ref-space-2);
     font-size: var(--csn-typography-small-size);
   }
 
   .csn-button[data-size='lg'] {
+    --_csn-button-size: calc(var(--csn-button-min-block-size) + var(--csn-ref-space-2));
+
     padding-block: var(--csn-ref-space-3);
     padding-inline: var(--csn-ref-space-4);
     font-size: var(--csn-ref-font-size-lg);
@@ -155,7 +173,7 @@
   }
 
   .csn-button[data-icon-only] {
-    inline-size: var(--csn-button-min-block-size);
+    inline-size: var(--_csn-button-size);
     padding-inline: var(--csn-button-padding-block);
   }
 

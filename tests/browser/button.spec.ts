@@ -113,6 +113,59 @@ test('supports touch activation and narrow reflow', async ({ browser }) => {
   await context.close();
 });
 
+test('renders a monotonic control size scale with square icon-only geometry', async ({ page }) => {
+  await page.goto(route);
+
+  const heights: number[] = [];
+  for (const size of ['xs', 'sm', 'md', 'lg'] as const) {
+    const iconOnly = page.getByTestId(`icon-only-${size}`);
+    const box = await iconOnly.boundingBox();
+    expect(box).not.toBeNull();
+    // Icon-only actions must stay square at every size, not only at the default size.
+    expect(Math.abs((box?.width ?? 0) - (box?.height ?? 0))).toBeLessThanOrEqual(1);
+    heights.push(box?.height ?? 0);
+  }
+
+  for (let index = 1; index < heights.length; index += 1) {
+    const previous = heights[index - 1] ?? 0;
+    const current = heights[index] ?? 0;
+    expect(current).toBeGreaterThan(previous);
+  }
+});
+
+test('paints readable text for transparent appearances on every tone', async ({ page }) => {
+  await page.goto(route);
+  const colorOf = (testId: string) =>
+    page.getByTestId(testId).evaluate((element) => getComputedStyle(element).color);
+  const backgroundOf = (testId: string) =>
+    page.getByTestId(testId).evaluate((element) => getComputedStyle(element).backgroundColor);
+
+  // A transparent appearance must use the tone's text colour, not its pale control surface.
+  const softText = await colorOf('neutral-soft');
+  const softSurface = await backgroundOf('neutral-soft');
+  for (const appearance of ['outline', 'ghost', 'link'] as const) {
+    const text = await colorOf(`neutral-${appearance}`);
+    expect(text).toBe(softText);
+    expect(text).not.toBe(softSurface);
+    expect(await backgroundOf(`neutral-${appearance}`)).toBe('rgba(0, 0, 0, 0)');
+  }
+});
+
+test('composes the canonical Icon without a second interactive element', async ({ page }) => {
+  await page.goto(route);
+  const composition = page.getByTestId('button-icon-composition');
+
+  const addRecord = composition.getByRole('button', { name: 'Add record' });
+  await expect(addRecord).toBeVisible();
+  await expect(addRecord).toHaveAccessibleName('Add record');
+  expect(await composition.locator('button').count()).toBe(3);
+  expect(await composition.locator('.csn-icon').count()).toBe(3);
+  expect(await composition.getByRole('img').count()).toBe(0);
+
+  const searchAction = page.getByTestId('icon-only-md');
+  await expect(searchAction).toHaveAccessibleName('Search md');
+});
+
 test('honors reduced motion', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto(route);

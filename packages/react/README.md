@@ -21,6 +21,11 @@ Toggleable state follows `pressed/defaultPressed/onPressedChange`; consumer `onC
 `preventDefault()` cancels the pressed-state request. Decorative start/end content must not contain
 interactive descendants, and icon-only buttons need an accessible name.
 
+`appearance`, `tone`, `size` (`xs`, `sm`, `md`, `lg`) and `radius` are independent axes. Artwork is
+composed rather than configured: pass an `Icon`, an image you own, or any decorative node into
+`startContent`/`endContent`, or as the child of an `iconOnly` button, which stays square at every
+size. Button interprets no icon name, class string, image URL, or SVG source.
+
 ## Icon
 
 `Icon` renders a named definition from `@casauran/icons`; import its CSS once at the application

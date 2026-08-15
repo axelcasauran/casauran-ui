@@ -67,4 +67,7 @@ native activation; focus remains on the button. Decorative start/end slots are h
 accessibility tree and prohibit interactive descendants. Production browser evidence covers
 role/name/state, keyboard, touch, a minimum 44px default target, visible focus, RTL, narrow reflow,
 reduced motion, and Chromium forced-colors emulation. Manual code/pattern and visual review passed;
-no claim is made for an unexecuted external screen-reader certification matrix.
+no claim is made for an unexecuted external screen-reader certification matrix. The 2026-08-15
+capability revalidation recorded that the dense `xs` and `sm` steps and the compact density fall
+below the 44px target and are documented for pointer-dense desktop surfaces only, and that composed
+`Icon` artwork inside a Button contributes no second role, name, or interactive element.

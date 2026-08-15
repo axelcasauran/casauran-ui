@@ -6,7 +6,7 @@ Public reference pages are used only under `KENDO_REFERENCE_POLICY.md`. This map
 
 | Component            | Reference domain                 | Stage   | Status          |
 | -------------------- | -------------------------------- | ------- | --------------- |
-| Button               | `docs/content/buttons`           | `1.01`  | parity-verified |
+| Button               | `docs/content/buttons`           | `1.01`  | improved        |
 | Icon                 | `docs/content/common/icon`       | `1.02`  | parity-verified |
 | SVGIcon              | `docs/content/common/svgicon`    | `1.03`  | unreviewed      |
 | Typography           | `docs/content/common/typography` | `1.04`  | unreviewed      |

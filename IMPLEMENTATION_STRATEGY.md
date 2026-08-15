@@ -12,6 +12,8 @@ Phase 0 is not "setup work to rush through"; it defines contracts that determine
 
 `F0.18 Documentation Experience Foundation` was accepted by ADR-020 as a governed Phase 0 remediation inserted at the ledger boundary after stage `1.02`. A foundation gap discovered during Phase 1 is repaired as a Phase 0 stage rather than absorbed into component stages, and the phase is re-certified afterwards.
 
+A gap inside a _completed component_ is repaired differently. ADR-022 governs component capability revalidation: the closed stage keeps its original outcome and gains a dated revalidation section, the audit and repairs are recorded as a review document, and the disposition contract that would have caught the omission is enforced by `pnpm validate:capability-completeness`. `1.01 Button` is the precedent, revalidated on 2026-08-15 without inserting a stage or rewriting a closed record.
+
 ## Proving the architecture
 
 Phase 1 uses small components as probes:

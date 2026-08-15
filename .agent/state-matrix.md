@@ -13,4 +13,7 @@ Every spec enumerates applicable visual, interaction, controlled, validation, lo
 Button covers enabled, hover, active, focus-visible, disabled, controlled pressed, uncontrolled
 pressed, and consumer-cancelled activation states. Toggle-only props are a discriminated public
 type requiring `toggleable: true`; `false` remains a valid controlled pressed value. Loading,
-validation, read-only, expanded, open, empty, and error states are not Button-owned.
+validation, read-only, expanded, open, empty, and error states are not Button-owned. The 2026-08-15
+capability revalidation confirmed by unit evidence that a controlled Button renders exactly the
+pressed value its owner supplies, including while disabled, and that ordinary action mode emits no
+pressed state at all.

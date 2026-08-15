@@ -61,6 +61,7 @@
     "validate:specs": "node scripts/validate-specs.mjs",
     "validate:foundation-specs": "node scripts/validate-foundation-specifications.mjs",
     "validate:parity": "node scripts/validate-parity.mjs",
+    "validate:capability-completeness": "node scripts/validate-capability-completeness.mjs",
     "generate:required-by": "node scripts/generate-required-by.mjs",
     "format": "prettier --check .",
     "format:write": "prettier --write .",

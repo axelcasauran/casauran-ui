@@ -13,6 +13,11 @@ export default tseslint.config(
       '**/coverage/**',
       '**/playwright-report/**',
       '**/test-results/**',
+      // Vendored, read-only KendoReact reference corpus. It is behavioral input under
+      // KENDO_REFERENCE_POLICY.md, never Casauran source: it is outside every tsconfig, so the
+      // typed linter cannot parse it, and fixing a lint finding there would mean editing
+      // competitor material the reference policy forbids modifying.
+      'kdocs/**',
     ],
   },
 
