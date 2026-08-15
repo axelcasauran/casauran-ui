@@ -7,6 +7,7 @@
 /MECHANICAL_GOVERNANCE.md @axelcasauran
 /BUILD_TEST_INFRASTRUCTURE.md @axelcasauran
 /.agent/build-test-infrastructure*.json @axelcasauran
+/.agent/foundation-specifications*.json @axelcasauran
 /.agent/mechanical-governance*.json @axelcasauran
 /scripts/validate-*.mjs @axelcasauran
 /scripts/*governance*.mjs @axelcasauran
@@ -37,6 +38,7 @@
 /registry/virtualization/** @axelcasauran
 /registry/drag-drop/** @axelcasauran
 /registry/documentation/** @axelcasauran
+/registry/capabilities/** @axelcasauran
 /apps/docs/** @axelcasauran
 /packages/tokens/** @axelcasauran
 /packages/theme/** @axelcasauran
@@ -51,6 +53,8 @@
 /packages/date-math/** @axelcasauran
 /packages/virtualization/** @axelcasauran
 /packages/drag-drop/** @axelcasauran
+/packages/events/** @axelcasauran
+/packages/icons/** @axelcasauran
 /scripts/*token*.mjs @axelcasauran
 /scripts/*theme*.mjs @axelcasauran
 /scripts/*accessibility*.mjs @axelcasauran
@@ -80,5 +84,6 @@
 /specs/foundation/drag-drop.md @axelcasauran
 /specs/foundation/reference-baseline.md @axelcasauran
 /specs/foundation/documentation-experience.md @axelcasauran
+/specs/README.md @axelcasauran
 /.github/workflows/** @axelcasauran
 /.changeset/** @axelcasauran

@@ -1,7 +1,7 @@
 # Reference Baseline Foundation Specification
 
-Stage: `F0.17`  
-Status: complete  
+Stage: `F0.17`
+Status: implemented
 Owner roles: maintainer and evidence reviewer
 
 ## Scope and ownership
@@ -100,8 +100,10 @@ snapshot. `pnpm reference:check` additionally verifies the configured snapshot a
 inventory. `pnpm reference:inventory:write` is a deliberate mutating maintenance command and may
 be used only during an approved reference-baseline/reference-sync operation followed by review.
 
-## F0.17 boundary
+## Stage boundary
 
 F0.17 creates no component source directory, public export, feature claim, API, test derived from
 competitor internals, package dependency, visual story, or production runtime. Phase certification
-and stage `1.01` remain outside this stage and are not started automatically.
+and stage `1.01` remained outside this stage and were not started automatically. This heading names
+no successor stage because F0.17 was the final foundation stage in the approved sequence at the time
+it closed; ADR-020 later inserted `F0.18` at the ledger boundary after stage `1.02`.

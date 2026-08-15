@@ -1,6 +1,7 @@
 # Documentation Experience Foundation Specification
 
-Status: accepted for implementation by F0.18 and ADR-020
+Stage: `F0.18`
+Status: implemented
 
 ## Scope and ownership
 

@@ -1,6 +1,7 @@
 # Internationalization Foundation Specification
 
-Status: approved for F0.13 implementation
+Stage: `F0.13`
+Status: implemented
 
 ## Scope and ownership
 

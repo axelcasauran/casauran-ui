@@ -1,6 +1,7 @@
 # Data Engine Foundation Specification
 
-Status: approved for F0.12 implementation
+Stage: `F0.12`
+Status: implemented
 
 ## Scope and ownership
 

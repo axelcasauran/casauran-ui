@@ -1,6 +1,7 @@
 # Accessibility Foundation Contract
 
-Status: approved and implemented by F0.07.
+Stage: `F0.07`
+Status: implemented
 
 ## Scope and ownership
 

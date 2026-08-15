@@ -98,6 +98,33 @@
     }
   ],
   "browserProjects": ["chromium", "firefox", "webkit"],
+  "rootGate": {
+    "staticScript": "validate:static",
+    "fullScript": "validate",
+    "staticSequence": [
+      "verify:scaffold",
+      "format",
+      "build",
+      "lint",
+      "typecheck",
+      "architecture",
+      "test"
+    ],
+    "fullSequence": ["validate:static", "test:e2e"],
+    "compiledOutputConsumers": ["lint", "typecheck", "architecture", "test"],
+    "rationale": "Every workspace package resolves only through its exports map into dist. Emitted output must therefore exist before any cross-package lint, type, architecture or test resolution runs, so the gate stays reproducible from a frozen-lockfile install with no prior build."
+  },
+  "visualBaselines": {
+    "root": "tests/browser",
+    "snapshotDirectorySuffix": "-snapshots",
+    "extension": ".png",
+    "runnerPlatforms": {
+      "ubuntu": "linux",
+      "macos": "darwin",
+      "windows": "win32"
+    },
+    "rationale": "Playwright resolves a baseline as <name>-<project>-<platform>.png. The browser gate is authoritative on the CI runner, so every declared browser project must have a baseline for the platform the CI workflow runs on. The required platform is derived from the runs-on label rather than declared separately, so the two cannot drift."
+  },
   "ci": {
     "workflow": ".github/workflows/ci.yml",
     "permissions": "contents: read",

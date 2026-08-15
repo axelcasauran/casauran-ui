@@ -85,6 +85,25 @@ test('contains nested Tab focus and restores each scope in order', async ({ page
   await expect(parentTrigger).toBeFocused();
 });
 
+test('ignores entry and fallback targets outside the scope root', async ({ page }) => {
+  await page.goto(route);
+  const trigger = page.getByTestId('escaped-trigger');
+  const outside = page.getByTestId('outside-target');
+  const root = page.getByTestId('escaped-root');
+
+  await trigger.click();
+  await expect(root).toBeFocused();
+  await expect(outside).not.toBeFocused();
+
+  await page.keyboard.press('Tab');
+  await expect(root).toBeFocused();
+  await expect(outside).not.toBeFocused();
+
+  await page.keyboard.press('Escape');
+  await expect(root).toHaveCount(0);
+  await expect(trigger).toBeFocused();
+});
+
 test('isolates modal background and restores native inert state after nesting', async ({
   page,
 }) => {

@@ -4,12 +4,14 @@ Independent enterprise-grade React UI platform with capability coverage benchmar
 
 ## Current state
 
-- Architecture: frozen before development.
+`.agent/status.md` is the authoritative program status. This summary mirrors it.
+
+- Architecture: frozen.
 - Reference baseline: `6a05c926c4f08b89782c25336fc159fea3a3f26b` captured 2026-08-13.
-- Public component stages: 127.
-- Product implementation: not started.
-- First engineering work: Phase 0 Product Foundation.
-- First public component after Phase 0: Button.
+- Phase 0 Product Foundation: 18 of 18 stages complete; certification re-run is pending after the
+  root-gate ordering remediation recorded in `.agent/status.md`.
+- Public component stages: 2 of 127 complete (`1.01` Button, `1.02` Icon).
+- Next stage: `1.03` SVGIcon, not started.
 
 ## Read first
 
@@ -108,9 +110,25 @@ with `pnpm test:reference-baseline`, and documented in
 `specs/foundation/reference-baseline.md`. Its dedicated local-corpus gate pins 12,179 files across
 62 domains and verifies all 127 component mappings without starting component analysis.
 
+The customer documentation foundation is validated with `pnpm validate:documentation-experience`,
+regression-tested through the contract suite, and documented in
+`specs/foundation/documentation-experience.md`, `DOCUMENTATION_POLICY.md` and ADR-020. Its
+production route set is `apps/docs`, and the browser gate starts that host alongside the visual
+fixture host.
+
+Foundation specification status is bound to stage status with `pnpm validate:foundation-specs`,
+contract-tested through `pnpm test:contracts`, and declared in
+`.agent/foundation-specifications.json`.
+
 Build/test topology and output wiring are checked with `pnpm validate:build-test-infrastructure`
 and `pnpm test:build-test-infrastructure`. Unit tests run once through `pnpm test:unit`; production
 SSR/hydration/browser checks run through `pnpm test:browser`.
+
+The static gate builds before it lints, typechecks, analyzes architecture, and tests, because
+workspace packages resolve only through their `exports` map into `dist`. `pnpm typecheck`,
+`pnpm lint`, `pnpm architecture` and `pnpm test:unit` therefore require one `pnpm build` after a
+fresh install. The ordering is declared in `.agent/build-test-infrastructure.json` and enforced by
+`pnpm validate:build-test-infrastructure`.
 
 ## Local KendoReact documentation prerequisite
 
