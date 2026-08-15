@@ -56,6 +56,20 @@ per platform, so every visual assertion fails on CI. Re-certification must regen
 snapshot names across chromium, firefox and webkit on the CI platform and review each image as
 evidence before the browser gate can be green.
 
+**The repository gate is deliberately RED on this blocker.** `pnpm validate:visual-baselines` was
+added on request as the 37th governed validator, so `pnpm verify:scaffold`, `pnpm validate:static`
+and `pnpm validate` now fail fast with the exact missing set instead of surfacing it only after a
+full browser run. The failure is real and previously hidden, not a regression introduced by the
+validator. It clears in one step:
+
+```bash
+# on ubuntu-latest, or a container matching it
+pnpm exec playwright test --update-snapshots   # then review each image as evidence
+```
+
+Every other gate is green: 37 validators minus this one, 129 Node contract tests, 117 Vitest tests,
+and a clean-worktree build, lint, typecheck and architecture pass.
+
 Verification coverage on 2026-08-15: 36 validators, 119 contract tests, 117 Vitest tests, and a
 clean-worktree `pnpm validate:static` all PASS; the Chromium browser suite ran 65 passing with 5
 failures, every one a missing Linux baseline and none behavioural. Firefox and WebKit remain unrun.

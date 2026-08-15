@@ -34,7 +34,8 @@
       "scripts/drag-drop-foundation.mjs",
       "scripts/reference-baseline.mjs",
       "scripts/documentation-experience.mjs",
-      "scripts/foundation-specifications.mjs"
+      "scripts/foundation-specifications.mjs",
+      "scripts/visual-baselines.mjs"
     ]
   },
   "unitTests": {
@@ -69,6 +70,17 @@
       "packageScript": "validate:build-test-infrastructure",
       "ownerRoles": ["maintainer", "evidence-reviewer"],
       "contracts": ["BUILD_TEST_INFRASTRUCTURE.md", ".agent/build-test-infrastructure.json"]
+    },
+    {
+      "id": "visual-baselines",
+      "script": "scripts/validate-visual-baselines.mjs",
+      "packageScript": "validate:visual-baselines",
+      "ownerRoles": ["maintainer", "evidence-reviewer"],
+      "contracts": [
+        "BUILD_TEST_INFRASTRUCTURE.md",
+        ".agent/build-test-infrastructure.json",
+        ".github/workflows/ci.yml"
+      ]
     },
     {
       "id": "token-contract",

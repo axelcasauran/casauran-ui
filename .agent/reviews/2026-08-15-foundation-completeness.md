@@ -99,11 +99,26 @@ browsers on `ubuntu-latest` (or a matching container) with
 `pnpm exec playwright test --update-snapshots`, review each image as evidence rather than accepting
 it, and commit the `-linux` set. Keeping the `-win32` set alongside is optional and local-only.
 
-A guard is available and not yet wired in: a validator that reads `browserProjects` from
-`.agent/build-test-infrastructure.json` and the runner platform from the CI workflow, then requires
-every snapshot name to have a baseline for each project on the CI platform. It would have caught
-this. It fails today, so wiring it in would turn `verify:scaffold` red — that is your call, not
-mine to make unilaterally.
+**Guard added on request.** `pnpm validate:visual-baselines` is now the 37th governed validator. It
+reads `browserProjects` and the `visualBaselines` block from `.agent/build-test-infrastructure.json`,
+derives the required platform from the `runs-on` label in the CI workflow so the two cannot drift,
+and requires every snapshot name to have a baseline for each project on that platform. Ten
+rejection tests cover missing platforms, partial browser coverage, unparseable names, baselines
+outside a snapshot directory, an unknown runner, a workflow with no runner, and an incomplete
+contract.
+
+It fails today, by design:
+
+```text
+FAIL: 15 visual baselines are missing for linux, the platform CI runs on (ubuntu-latest):
+      button-matrix [chromium, firefox, webkit]; docs-shell-dark-compact-rtl [...]; ...
+FAIL: regenerate on the CI platform with `pnpm exec playwright test --update-snapshots`,
+      review each image as evidence, and commit the linux set
+```
+
+`verify:scaffold` is therefore red until the baselines are regenerated. That is the honest state:
+CI has never been able to pass this, and the gate now says so at the cheapest step instead of after
+a full browser run.
 
 ## F-15 — date-math specification overstated its timezone coverage · FIXED
 

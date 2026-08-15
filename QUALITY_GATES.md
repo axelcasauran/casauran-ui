@@ -22,6 +22,12 @@ Build/test infrastructure is defined in `.agent/build-test-infrastructure.json` 
 tests/tooling; the full gate exercises a production Next.js runtime in Chromium, Firefox, and
 WebKit.
 
+Visual baseline gate: `pnpm validate:visual-baselines` requires every snapshot name to have a
+baseline for each configured browser project on the platform the CI workflow runs on. It is
+currently RED: all 15 committed baselines are `-win32` while CI runs `ubuntu-latest`, so every
+visual assertion fails on CI. Closing it needs one regeneration on the CI platform; see
+`.agent/status.md` and `.agent/reviews/2026-08-15-foundation-completeness.md`.
+
 Component gate: Definition of Done passes.
 Phase gate: phase certification PASS or explicitly PASS WITH DEBT.
 Release gate: compatibility/security/public API/packages/docs certified.

@@ -15,6 +15,8 @@
     "test:mechanical-governance": "node --test scripts/mechanical-governance.test.mjs",
     "validate:build-test-infrastructure": "node scripts/validate-build-test-infrastructure.mjs",
     "test:build-test-infrastructure": "node --test scripts/build-test-infrastructure.test.mjs",
+    "validate:visual-baselines": "node scripts/validate-visual-baselines.mjs",
+    "test:visual-baselines": "node --test scripts/visual-baselines.test.mjs",
     "generate:tokens": "node scripts/generate-token-module.mjs",
     "validate:tokens": "node scripts/validate-token-contract.mjs",
     "test:tokens": "vitest run --config vitest.config.mts tests/unit/tokens.test.ts",

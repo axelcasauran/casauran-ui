@@ -114,6 +114,22 @@ the state/theme/direction/viewport it proves, avoid time/network/random data, an
 evidence rather than accepted automatically. F0.04 configures this capability but does not create
 speculative component snapshots.
 
+Baselines are platform-scoped. Playwright resolves one as `<name>-<project>-<platform>.png`, and
+the browser gate is authoritative on the CI runner, so **every snapshot name must have a baseline
+for each configured browser project on the platform CI runs on**. A baseline produced only on a
+maintainer workstation does not satisfy the gate: CI fails a missing snapshot rather than writing
+it, so a Windows-only or macOS-only set leaves every visual assertion red on `ubuntu-latest`.
+
+The rule is declared in the `visualBaselines` block of `.agent/build-test-infrastructure.json` and
+enforced by `pnpm validate:visual-baselines`. The required platform is derived from the `runs-on`
+label in the CI workflow rather than declared separately, so changing the runner changes the
+requirement and the two cannot drift.
+
+Regenerate on the CI platform — a runner, or a container matching it — with
+`pnpm exec playwright test --update-snapshots`, then review each image as evidence before
+committing. Baselines produced by an unpinned browser build or a different font stack are not
+evidence and must not be committed.
+
 The infrastructure browser probe proves three distinct paths: production server response,
 server-rendered markup, and hydration of a narrowly scoped client boundary without console or page
 errors.

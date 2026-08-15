@@ -15,6 +15,7 @@
     "hosts",
     "browserProjects",
     "rootGate",
+    "visualBaselines",
     "ci",
     "generatedArtifacts"
   ],
@@ -192,6 +193,37 @@
         },
         "compiledOutputConsumers": {
           "$ref": "#/$defs/nonEmptyStrings"
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "visualBaselines": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["root", "snapshotDirectorySuffix", "extension", "runnerPlatforms", "rationale"],
+      "properties": {
+        "root": {
+          "type": "string",
+          "minLength": 1
+        },
+        "snapshotDirectorySuffix": {
+          "type": "string",
+          "minLength": 1
+        },
+        "extension": {
+          "type": "string",
+          "minLength": 1
+        },
+        "runnerPlatforms": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
         },
         "rationale": {
           "type": "string",
