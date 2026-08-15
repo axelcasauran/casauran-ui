@@ -20,11 +20,12 @@ validator, so they cannot drift when an ADR adds a stage.
 - Platform parity domains: **15**
 - Specialist skills: **42**
 - Task workflows: **20**
-- Accepted architecture ADRs: **21**
+- Accepted architecture ADRs: **22**
 - Total execution stages: **172**
 
 `F0.18 Documentation Experience Foundation` was added by ADR-020 after the original scaffold
-verification; the foundation, ADR, and total counts above include it.
+verification; the foundation, ADR, and total counts above include it. ADR-021 records the
+2026-08-15 root-gate ordering and foundation-specification binding remediation.
 
 ## Mechanical verification performed before ZIP creation
 

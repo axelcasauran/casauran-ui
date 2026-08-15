@@ -18,6 +18,8 @@ Next stage: `1.03` SVGIcon (not-started) — blocked until Phase 0 re-certificat
 
 ## Open remediation: 2026-08-15 Phase 0 foundation audit
 
+Decision: `.agent/decisions/ADR-021-reproducible-root-gate-and-foundation-specification-binding.md`
+
 A read-only audit of `specs/foundation` (`.agent/reviews/2026-08-15-foundation-audit.md`) found the
 static gate ordered `typecheck` and `test` before `build`, while every workspace package resolves
 only through its `exports` map into `dist`. On a frozen-lockfile install with no prior build,

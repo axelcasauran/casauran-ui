@@ -73,7 +73,7 @@ layers merely to increase a coverage number.
 
 ## Root gate ordering
 
-Every workspace package resolves only through its `exports` map into `dist`. Any step that resolves
+Accepted by `ADR-021`. Every workspace package resolves only through its `exports` map into `dist`. Any step that resolves
 a cross-package specifier — type-aware lint, workspace typecheck, dependency-cruiser architecture
 analysis, and the Vitest unit layer — therefore requires emitted output to already exist. A gate
 that runs those steps before `pnpm build` cannot pass on a clean checkout, even though it passes on

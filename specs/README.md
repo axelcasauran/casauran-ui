@@ -19,8 +19,8 @@ Status: implemented
 ```
 
 `Status` is `approved` while its stage is `not-started` or `in-progress`, and `implemented` once
-the stage is `complete`. The binding between a stage and its specification is declared in
-`.agent/foundation-specifications.json` and enforced by `pnpm validate:foundation-specs`, which
+the stage is `complete`. The binding is accepted by `ADR-021`, declared in
+`.agent/foundation-specifications.json`, and enforced by `pnpm validate:foundation-specs`, which
 also rejects an unbound specification file, a foundation stage with no binding, a status that
 contradicts the stage ledger, and a specification that does not close by naming what it leaves to
 another owner.

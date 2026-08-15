@@ -4,6 +4,11 @@ Companion to `.agent/reviews/2026-08-15-foundation-audit.md`. The audit is a poi
 read-only record and is not edited. This document records what was repaired, what guard now
 prevents the recurrence, and what remains open.
 
+The two contract changes — root gate ordering and foundation specification binding — are accepted
+by `ADR-021`. The F0.04, F0.10, and F0.17 stage ledgers are deliberately left unchanged; per
+`.agent/protocol.md` §7 their original evidence stands and this record plus the ADR carry the
+remediation.
+
 Principle applied throughout: **every finding is repaired together with the mechanical check that
 would have caught it.** A repaired record with no guard is a record that drifts again.
 
