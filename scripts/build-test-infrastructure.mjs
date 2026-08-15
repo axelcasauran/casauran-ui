@@ -240,6 +240,56 @@ export const validateBuildTestInfrastructure = (
     errors.push('Vitest root config may not pass with no tests');
   if (sourceExists('vitest.config.ts')) errors.push('legacy vitest.config.ts must not remain');
 
+  const rootGate = isObject(contract.rootGate) ? contract.rootGate : {};
+  const staticSequence = Array.isArray(rootGate.staticSequence) ? rootGate.staticSequence : [];
+  const fullSequence = Array.isArray(rootGate.fullSequence) ? rootGate.fullSequence : [];
+  validateUnique(staticSequence, 'static gate step', errors);
+  validateUnique(fullSequence, 'full gate step', errors);
+  if (staticSequence.length === 0) errors.push('static gate sequence must not be empty');
+  if (fullSequence.length === 0) errors.push('full gate sequence must not be empty');
+  for (const step of [...staticSequence, ...fullSequence]) {
+    if (packageManifest.scripts?.[step] === undefined) {
+      errors.push(`root gate step ${step} is not a package script`);
+    }
+  }
+  const expectedStaticGate = staticSequence.map((step) => `pnpm ${step}`).join(' && ');
+  if (packageManifest.scripts?.[rootGate.staticScript] !== expectedStaticGate) {
+    errors.push(`${rootGate.staticScript} must run exactly ${expectedStaticGate}`);
+  }
+  const expectedFullGate = fullSequence.map((step) => `pnpm ${step}`).join(' && ');
+  if (packageManifest.scripts?.[rootGate.fullScript] !== expectedFullGate) {
+    errors.push(`${rootGate.fullScript} must run exactly ${expectedFullGate}`);
+  }
+  if (!fullSequence.includes(rootGate.staticScript)) {
+    errors.push(`${rootGate.fullScript} must run the ${rootGate.staticScript} gate`);
+  }
+  // Workspace packages resolve only through exports into dist, so the emitted output must exist
+  // before any step that resolves a cross-package specifier. Ordering is the reproducibility
+  // contract for a frozen-lockfile install with no prior build.
+  const buildStepIndex = staticSequence.indexOf(build.packageScript);
+  if (buildStepIndex < 0) {
+    errors.push(`static gate must run the ${build.packageScript} step`);
+  }
+  const compiledOutputConsumers = Array.isArray(rootGate.compiledOutputConsumers)
+    ? rootGate.compiledOutputConsumers
+    : [];
+  if (compiledOutputConsumers.length === 0) {
+    errors.push('root gate must declare which steps consume compiled output');
+  }
+  for (const consumer of compiledOutputConsumers) {
+    const consumerIndex = staticSequence.indexOf(consumer);
+    if (consumerIndex < 0) {
+      errors.push(`static gate is missing compiled-output consumer ${consumer}`);
+      continue;
+    }
+    if (buildStepIndex < 0 || consumerIndex < buildStepIndex) {
+      errors.push(`static gate must run ${build.packageScript} before ${consumer}`);
+    }
+  }
+  if (typeof rootGate.rationale !== 'string' || rootGate.rationale.trim().length === 0) {
+    errors.push('root gate ordering must record its rationale');
+  }
+
   const browsers = Array.isArray(contract.browserProjects) ? contract.browserProjects : [];
   if (!sameMembers(browsers, REQUIRED_BROWSERS)) {
     errors.push('browser projects must be chromium, firefox and webkit');
@@ -304,6 +354,7 @@ export const validateBuildTestInfrastructure = (
     '## Build contract',
     '## Typecheck contract',
     '## Test layers',
+    '## Root gate ordering',
     '## Browser and visual determinism',
     '## CI and failure semantics',
     '## Extending the infrastructure',

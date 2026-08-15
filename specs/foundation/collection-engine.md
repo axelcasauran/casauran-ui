@@ -1,6 +1,7 @@
 # Collection Engine Specification
 
-Status: approved for F0.09 implementation
+Stage: `F0.09`
+Status: implemented
 
 ## Scope and ownership
 

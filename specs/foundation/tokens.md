@@ -1,6 +1,7 @@
 # Foundation Token Contract
 
-Status: approved and implemented by F0.05.
+Stage: `F0.05`
+Status: implemented
 
 ## Scope and ownership
 
@@ -8,13 +9,15 @@ Status: approved and implemented by F0.05.
 
 ## Token layers
 
-The contract reserves four ordered layers: primitive, semantic, component, and theme. F0.05 implements primitive references and semantic intent aliases. Component token inventory is deliberately empty until a component has a justified durable customization seam. Theme assignment belongs to F0.06.
+The contract reserves four ordered layers: primitive, semantic, component, and theme. F0.05 implements primitive references and semantic intent aliases. Theme assignment belongs to F0.06.
+
+The component layer is opened by F0.05 but populated only by the owning component stage that proves a durable customization seam. F0.05 itself shipped an empty component inventory; entries added later belong to their component's stage evidence, not to this contract.
 
 Primitive coverage includes color, spacing, density, typography, radius, border width, elevation, motion, opacity, and stacking. Semantic names express product intent such as `surface.canvas`, `text.primary`, and `focus.ring`; consumers should prefer them over primitive values.
 
 ## Public API contract
 
-The package exports generated `primitiveTokens`, `semanticTokens`, empty `componentTokens`, CSS-variable and reference maps, literal name unions, token definition types, and these lookup helpers:
+The package exports generated `primitiveTokens`, `semanticTokens`, `componentTokens`, CSS-variable and reference maps, literal name unions, token definition types, and these lookup helpers:
 
 - `getTokenDefinition(name)` returns the public definition;
 - `resolveTokenValue(name)` resolves a primitive or a one-hop semantic alias;

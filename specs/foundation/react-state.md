@@ -1,6 +1,7 @@
 # React State Foundation Specification
 
-Status: approved for F0.08 implementation
+Stage: `F0.08`
+Status: implemented
 
 ## Scope and ownership
 

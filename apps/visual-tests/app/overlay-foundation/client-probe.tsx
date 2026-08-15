@@ -15,8 +15,12 @@ import { useEffect, useRef, useState } from 'react';
 export function OverlayFoundationClientProbe() {
   const [parentOpen, setParentOpen] = useState(false);
   const [childOpen, setChildOpen] = useState(false);
+  const [escapedOpen, setEscapedOpen] = useState(false);
   const [dismissLog, setDismissLog] = useState('none');
   const scopeSourceRef = useRef<HTMLDivElement>(null);
+  const escapedTriggerRef = useRef<HTMLButtonElement>(null);
+  const escapedRootRef = useRef<HTMLDivElement>(null);
+  const outsideTargetRef = useRef<HTMLButtonElement>(null);
   const parentTriggerRef = useRef<HTMLButtonElement>(null);
   const parentRootRef = useRef<HTMLDivElement>(null);
   const parentInitialRef = useRef<HTMLButtonElement>(null);
@@ -89,6 +93,31 @@ export function OverlayFoundationClientProbe() {
     };
   }, [childOpen]);
 
+  // Entry and fallback targets outside the scope root must be ignored, so this scope declares an
+  // out-of-root target and contains no tabbable descendant.
+  useEffect(() => {
+    const root = escapedRootRef.current;
+    if (!escapedOpen || root === null) return;
+    const unregisterDismiss = dismissManagerRef.current?.register('escaped', {
+      element: root,
+      onDismiss: ({ reason }) => {
+        setDismissLog(`escaped:${reason}`);
+        setEscapedOpen(false);
+      },
+    });
+    const focusScope = focusManagerRef.current?.activate({
+      root,
+      initialFocus: () => outsideTargetRef.current,
+      fallbackFocus: () => outsideTargetRef.current,
+      trapFocus: true,
+      restoreFocus: () => escapedTriggerRef.current,
+    });
+    return () => {
+      unregisterDismiss?.();
+      focusScope?.deactivate();
+    };
+  }, [escapedOpen]);
+
   const createScopedPortal = () => {
     portalHostRef.current?.destroy();
     const portal = createPortalHost({
@@ -145,7 +174,33 @@ export function OverlayFoundationClientProbe() {
       <button data-testid="background-action" type="button">
         Background action
       </button>
+      <button
+        ref={escapedTriggerRef}
+        data-testid="escaped-trigger"
+        type="button"
+        onClick={() => {
+          setDismissLog('none');
+          setEscapedOpen(true);
+        }}
+      >
+        Open escaped-target layer
+      </button>
+      <button ref={outsideTargetRef} data-testid="outside-target" type="button">
+        Outside target
+      </button>
       <output aria-label="Dismiss log">{dismissLog}</output>
+
+      {escapedOpen ? (
+        <div
+          ref={escapedRootRef}
+          aria-label="Escaped target layer"
+          data-testid="escaped-root"
+          role="group"
+          tabIndex={-1}
+        >
+          <p>This layer declares an out-of-root focus target and has no tabbable descendant.</p>
+        </div>
+      ) : null}
 
       {parentOpen ? (
         <div ref={parentRootRef} aria-label="Parent layer" role="group" tabIndex={-1}>

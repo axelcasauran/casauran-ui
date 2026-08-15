@@ -98,6 +98,22 @@
     }
   ],
   "browserProjects": ["chromium", "firefox", "webkit"],
+  "rootGate": {
+    "staticScript": "validate:static",
+    "fullScript": "validate",
+    "staticSequence": [
+      "verify:scaffold",
+      "format",
+      "build",
+      "lint",
+      "typecheck",
+      "architecture",
+      "test"
+    ],
+    "fullSequence": ["validate:static", "test:e2e"],
+    "compiledOutputConsumers": ["lint", "typecheck", "architecture", "test"],
+    "rationale": "Every workspace package resolves only through its exports map into dist. Emitted output must therefore exist before any cross-package lint, type, architecture or test resolution runs, so the gate stays reproducible from a frozen-lockfile install with no prior build."
+  },
   "ci": {
     "workflow": ".github/workflows/ci.yml",
     "permissions": "contents: read",

@@ -1,13 +1,52 @@
 # Program Status
 
-Program: PHASE 1 READY FOR NEXT STAGE
+Program: PHASE 0 RE-CERTIFICATION REQUIRED BEFORE PHASE 1 CONTINUES
 Architecture: FROZEN
 Reference baseline: PINNED AND VERIFIED
-Phase 0 certification: PASS (`pnpm validate`, 2026-08-14; 151 browser tests passed, 2 platform-limited forced-colors checks skipped)
+Phase 0 certification: SUPERSEDED — the 2026-08-14 PASS (`pnpm validate`; 151 browser tests passed,
+2 platform-limited forced-colors checks skipped) predates both the `F0.18` close and the 2026-08-15
+root-gate remediation, and was obtained on a worktree that already held build output. It does not
+satisfy the reproducibility contract in `BUILD_TEST_INFRASTRUCTURE.md`.
 Public component implementation: 2 OF 127 COMPLETE
 Active stage: NONE
-Last closed stage: `F0.18 Documentation Experience Foundation` COMPLETE (ADR-020, governed stage/spec/registry/validator, reusable production docs shell, registry-derived metadata, migrated Button/Icon routes, 12/12 focused docs browser checks, in-app visual review, docs production build, and final `pnpm validate` PASS with 201 browser checks and 6 existing platform-limited skips; 2026-08-14)
-Next stage: `1.03` SVGIcon (not-started)
+Last closed stage: `F0.18 Documentation Experience Foundation` COMPLETE (ADR-020, governed
+stage/spec/registry/validator, reusable production docs shell, registry-derived metadata, migrated
+Button/Icon routes, 12/12 focused docs browser checks, in-app visual review, docs production build,
+and final `pnpm validate` PASS with 201 browser checks and 6 existing platform-limited skips;
+2026-08-14)
+Next stage: `1.03` SVGIcon (not-started) — blocked until Phase 0 re-certification records a result.
+
+## Open remediation: 2026-08-15 Phase 0 foundation audit
+
+A read-only audit of `specs/foundation` (`.agent/reviews/2026-08-15-foundation-audit.md`) found the
+static gate ordered `typecheck` and `test` before `build`, while every workspace package resolves
+only through its `exports` map into `dist`. On a frozen-lockfile install with no prior build,
+`pnpm typecheck` failed in `packages/overlay` and 4 of 16 Vitest suites failed to load. The gate has
+been reordered to build first, the ordering is now declared in the `rootGate` block of
+`.agent/build-test-infrastructure.json`, and `pnpm validate:build-test-infrastructure` fails if any
+declared compiled-output consumer is ordered before the build step.
+
+Remediation applied 2026-08-15, without rewriting historical stage evidence:
+
+- root gate reordered and mechanically guarded; `BUILD_TEST_INFRASTRUCTURE.md` and
+  `QUALITY_GATES.md` record the ordering rule and its reproducibility rationale;
+- foundation specification status bound to stage status through
+  `.agent/foundation-specifications.json` and `pnpm validate:foundation-specs`; seven specifications
+  that still read as unbuilt were corrected and the status vocabulary was governed;
+- stage inventory mirrors reconciled against `.agent/stages/index.json` and enforced by
+  `pnpm validate:stages`;
+- capability status bound to shipped source by `pnpm validate:registry`; `events` and `icons` moved
+  from `planned` to `implemented`;
+- `specs/foundation/reference-baseline.md` self-referential boundary heading corrected;
+- overlay focus-scope fallback targets outside the scope root are now ignored on every path, with
+  production browser evidence added;
+- performance budgets, ownership records, handbook indices, and README status reconciled.
+
+Required to close: run `pnpm validate` on the pinned Node 24.18.0 toolchain with the three
+Playwright engines installed, starting from `pnpm install --frozen-lockfile` on a worktree with no
+prior build output. Record the result through the phase-certification workflow and replace the
+`Phase 0 certification` line above. The audit environment could not execute the browser layer, so
+that gate remains unrun.
 
 Update only through stage/phase close workflow. BLOCKED phases cannot roll forward.
 

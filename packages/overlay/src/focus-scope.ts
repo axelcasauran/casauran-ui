@@ -41,12 +41,19 @@ function asHTMLElement(target: EventTarget | null, ownerDocument: Document): HTM
     : null;
 }
 
+// Entry and fallback targets outside the scope root are ignored, so a resolved target can never
+// move focus out of a scope that is containing it.
+function resolveContainedTarget(root: HTMLElement, target: FocusTarget): HTMLElement | null {
+  const resolved = resolveTarget(target);
+  return resolved !== null && root.contains(resolved) ? resolved : null;
+}
+
 function focusEntry(scope: FocusScopeRecord): boolean {
   const { root } = scope.options;
   const candidates = [
-    resolveTarget(scope.options.initialFocus),
+    resolveContainedTarget(root, scope.options.initialFocus),
     getTabbableElements(root)[0] ?? null,
-    resolveTarget(scope.options.fallbackFocus),
+    resolveContainedTarget(root, scope.options.fallbackFocus),
     root,
   ];
   for (const candidate of candidates) {
@@ -92,7 +99,8 @@ export function createFocusScopeManager(ownerDocument: Document): FocusScopeMana
     const tabbable = getTabbableElements(scope.options.root);
     if (tabbable.length === 0) {
       event.preventDefault();
-      if (!tryFocus(resolveTarget(scope.options.fallbackFocus))) tryFocus(scope.options.root);
+      const fallback = resolveContainedTarget(scope.options.root, scope.options.fallbackFocus);
+      if (!tryFocus(fallback)) tryFocus(scope.options.root);
       return;
     }
 

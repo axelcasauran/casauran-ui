@@ -1,23 +1,30 @@
 # Verification Report
 
-Date: 2026-08-13
+Original scaffold verification date: 2026-08-13
+Inventory last reconciled: 2026-08-15
 
 ## Scope of the claim
 
 This scaffold is verified as complete against the **agreed pre-development handbook/scaffold contract**: architecture, governance, agent instructions, skills, workflows, ADRs, prompt/stage plan, reference/parity model, registries, templates, package/app scaffolding, mechanical checks and CI/release foundations.
 
-It intentionally does **not** claim that the 127 public components are implemented. Their implementation starts after handoff at Phase 0.
+It intentionally does **not** claim that the 127 public components are implemented. `.agent/status.md` is authoritative for delivery progress; this report covers the pre-development scaffold contract only.
 
 ## Inventory
 
+Counts are reconciled against `.agent/stages/index.json` and `.agent/decisions/` by the `stages`
+validator, so they cannot drift when an ADR adds a stage.
+
 - Public component registry entries: **127**
 - Unique public-component execution stages: **127**
-- Foundation stages: **17**
+- Foundation stages: **18**
 - Platform parity domains: **15**
 - Specialist skills: **42**
 - Task workflows: **20**
-- Accepted architecture ADRs: **19**
-- Total execution stages: **171**
+- Accepted architecture ADRs: **21**
+- Total execution stages: **172**
+
+`F0.18 Documentation Experience Foundation` was added by ADR-020 after the original scaffold
+verification; the foundation, ADR, and total counts above include it.
 
 ## Mechanical verification performed before ZIP creation
 

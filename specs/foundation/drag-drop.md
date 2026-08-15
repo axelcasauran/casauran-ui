@@ -1,6 +1,7 @@
 # Drag and Drop Foundation Specification
 
-Status: implemented by F0.16
+Stage: `F0.16`
+Status: implemented
 
 ## Scope and ownership
 

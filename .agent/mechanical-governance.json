@@ -33,7 +33,8 @@
       "scripts/virtualization-foundation.mjs",
       "scripts/drag-drop-foundation.mjs",
       "scripts/reference-baseline.mjs",
-      "scripts/documentation-experience.mjs"
+      "scripts/documentation-experience.mjs",
+      "scripts/foundation-specifications.mjs"
     ]
   },
   "unitTests": {
@@ -304,6 +305,17 @@
       "packageScript": "validate:specs",
       "ownerRoles": ["maintainer", "domain-owner", "evidence-reviewer"],
       "contracts": ["specs/README.md", ".agent/decisions/ADR-010-registry-spec-before-code.md"]
+    },
+    {
+      "id": "foundation-specifications",
+      "script": "scripts/validate-foundation-specifications.mjs",
+      "packageScript": "validate:foundation-specs",
+      "ownerRoles": ["maintainer", "evidence-reviewer"],
+      "contracts": [
+        ".agent/foundation-specifications.json",
+        ".agent/stages/index.json",
+        "specs/README.md"
+      ]
     },
     {
       "id": "parity",

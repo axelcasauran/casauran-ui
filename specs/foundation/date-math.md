@@ -1,6 +1,7 @@
 # Date Math Foundation Specification
 
-Status: implemented by F0.14
+Stage: `F0.14`
+Status: implemented
 
 ## Scope and ownership
 

@@ -1,0 +1,98 @@
+{
+  "$schema": "foundation-specifications.schema.json",
+  "schemaVersion": 1,
+  "ownerRoles": ["maintainer", "evidence-reviewer"],
+  "specificationRoot": "specs/foundation",
+  "statusVocabulary": [
+    { "id": "approved", "stageStatuses": ["not-started", "in-progress"] },
+    { "id": "implemented", "stageStatuses": ["complete"] }
+  ],
+  "stages": [
+    {
+      "stage": "F0.01",
+      "title": "Repository Governance",
+      "specification": null,
+      "exemptReason": "governance contract stage owned by .agent/repository-governance.json"
+    },
+    {
+      "stage": "F0.02",
+      "title": "Agent Operating System",
+      "specification": null,
+      "exemptReason": "routing contract stage owned by .agent/agent-operating-system.json"
+    },
+    {
+      "stage": "F0.03",
+      "title": "Mechanical Governance",
+      "specification": null,
+      "exemptReason": "validator inventory stage owned by .agent/mechanical-governance.json"
+    },
+    {
+      "stage": "F0.04",
+      "title": "Build and Test Infrastructure",
+      "specification": null,
+      "exemptReason": "build/test substrate stage owned by .agent/build-test-infrastructure.json"
+    },
+    { "stage": "F0.05", "title": "Tokens", "specification": "specs/foundation/tokens.md" },
+    {
+      "stage": "F0.06",
+      "title": "CSS and Theme Runtime",
+      "specification": "specs/foundation/css-theme-runtime.md"
+    },
+    {
+      "stage": "F0.07",
+      "title": "Accessibility Foundation",
+      "specification": "specs/foundation/accessibility.md"
+    },
+    {
+      "stage": "F0.08",
+      "title": "React State Foundation",
+      "specification": "specs/foundation/react-state.md"
+    },
+    {
+      "stage": "F0.09",
+      "title": "Collection Engine",
+      "specification": "specs/foundation/collection-engine.md"
+    },
+    {
+      "stage": "F0.10",
+      "title": "Overlay Foundation",
+      "specification": "specs/foundation/overlay.md"
+    },
+    {
+      "stage": "F0.11",
+      "title": "Animation Foundation",
+      "specification": "specs/foundation/animation.md"
+    },
+    {
+      "stage": "F0.12",
+      "title": "Data Engine",
+      "specification": "specs/foundation/data-engine.md"
+    },
+    {
+      "stage": "F0.13",
+      "title": "Internationalization",
+      "specification": "specs/foundation/internationalization.md"
+    },
+    { "stage": "F0.14", "title": "Date Math", "specification": "specs/foundation/date-math.md" },
+    {
+      "stage": "F0.15",
+      "title": "Virtualization",
+      "specification": "specs/foundation/virtualization.md"
+    },
+    {
+      "stage": "F0.16",
+      "title": "Drag and Drop",
+      "specification": "specs/foundation/drag-drop.md"
+    },
+    {
+      "stage": "F0.17",
+      "title": "Reference Baseline",
+      "specification": "specs/foundation/reference-baseline.md"
+    },
+    {
+      "stage": "F0.18",
+      "title": "Documentation Experience Foundation",
+      "specification": "specs/foundation/documentation-experience.md"
+    }
+  ]
+}
