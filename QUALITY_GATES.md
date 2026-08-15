@@ -5,14 +5,28 @@ machine-readable validator inventory and gate linkage are defined in
 `.agent/mechanical-governance.json` and explained in `MECHANICAL_GOVERNANCE.md`.
 
 Pre-install gate: `pnpm verify:scaffold` runs the complete read-only mechanical suite without
-requiring repository dependencies. Static gate: `pnpm validate:static` adds formatting, lint,
-strict types, dependency architecture, tests, and builds. Full gate: `pnpm validate` adds browser
+requiring repository dependencies. Static gate: `pnpm validate:static` adds formatting, builds,
+lint, strict types, dependency architecture, and tests. Full gate: `pnpm validate` adds browser
 integration and is the stage-close/CI command.
+
+The static gate builds before it lints, typechecks, analyzes architecture, or tests, because
+workspace packages resolve only through their `exports` map into `dist`. That ordering is the
+reproducibility contract: the gate must pass starting from `pnpm install --frozen-lockfile` on a
+worktree that has never been built. It is declared in the `rootGate` block of
+`.agent/build-test-infrastructure.json` and mechanically enforced by
+`pnpm validate:build-test-infrastructure`. Stage evidence recorded from a pre-built worktree only
+does not satisfy the gate.
 
 Build/test infrastructure is defined in `.agent/build-test-infrastructure.json` and
 `BUILD_TEST_INFRASTRUCTURE.md`. The static gate verifies emitted library exports and typechecks
 tests/tooling; the full gate exercises a production Next.js runtime in Chromium, Firefox, and
 WebKit.
+
+Visual baseline gate: `pnpm validate:visual-baselines` requires every snapshot name to have a
+baseline for each configured browser project on the platform the CI workflow runs on. It is
+currently RED: all 15 committed baselines are `-win32` while CI runs `ubuntu-latest`, so every
+visual assertion fails on CI. Closing it needs one regeneration on the CI platform; see
+`.agent/status.md` and `.agent/reviews/2026-08-15-foundation-completeness.md`.
 
 Component gate: Definition of Done passes.
 Phase gate: phase certification PASS or explicitly PASS WITH DEBT.

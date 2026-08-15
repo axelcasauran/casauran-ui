@@ -1,6 +1,7 @@
 # Virtualization Foundation Specification
 
-Status: implemented by F0.15
+Stage: `F0.15`
+Status: implemented
 
 ## Scope and ownership
 

@@ -1,6 +1,7 @@
 # Animation Foundation Specification
 
-Status: approved for F0.11 implementation
+Stage: `F0.11`
+Status: implemented
 
 ## Scope and ownership
 

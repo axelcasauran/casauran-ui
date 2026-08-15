@@ -33,7 +33,9 @@
       "scripts/virtualization-foundation.mjs",
       "scripts/drag-drop-foundation.mjs",
       "scripts/reference-baseline.mjs",
-      "scripts/documentation-experience.mjs"
+      "scripts/documentation-experience.mjs",
+      "scripts/foundation-specifications.mjs",
+      "scripts/visual-baselines.mjs"
     ]
   },
   "unitTests": {
@@ -68,6 +70,17 @@
       "packageScript": "validate:build-test-infrastructure",
       "ownerRoles": ["maintainer", "evidence-reviewer"],
       "contracts": ["BUILD_TEST_INFRASTRUCTURE.md", ".agent/build-test-infrastructure.json"]
+    },
+    {
+      "id": "visual-baselines",
+      "script": "scripts/validate-visual-baselines.mjs",
+      "packageScript": "validate:visual-baselines",
+      "ownerRoles": ["maintainer", "evidence-reviewer"],
+      "contracts": [
+        "BUILD_TEST_INFRASTRUCTURE.md",
+        ".agent/build-test-infrastructure.json",
+        ".github/workflows/ci.yml"
+      ]
     },
     {
       "id": "token-contract",
@@ -304,6 +317,17 @@
       "packageScript": "validate:specs",
       "ownerRoles": ["maintainer", "domain-owner", "evidence-reviewer"],
       "contracts": ["specs/README.md", ".agent/decisions/ADR-010-registry-spec-before-code.md"]
+    },
+    {
+      "id": "foundation-specifications",
+      "script": "scripts/validate-foundation-specifications.mjs",
+      "packageScript": "validate:foundation-specs",
+      "ownerRoles": ["maintainer", "evidence-reviewer"],
+      "contracts": [
+        ".agent/foundation-specifications.json",
+        ".agent/stages/index.json",
+        "specs/README.md"
+      ]
     },
     {
       "id": "parity",

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://casauran.dev/schemas/foundation-specifications.schema.json",
+  "title": "Casauran foundation specification binding contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "ownerRoles", "specificationRoot", "statusVocabulary", "stages"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": 1 },
+    "ownerRoles": { "$ref": "#/$defs/nonEmptyStrings" },
+    "specificationRoot": { "type": "string", "minLength": 1 },
+    "statusVocabulary": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "stageStatuses"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "stageStatuses": { "$ref": "#/$defs/nonEmptyStrings" }
+        }
+      }
+    },
+    "stages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["stage", "title", "specification"],
+        "properties": {
+          "stage": { "type": "string", "pattern": "^F0\\.[0-9]{2}$" },
+          "title": { "type": "string", "minLength": 1 },
+          "specification": {
+            "oneOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }]
+          },
+          "exemptReason": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "nonEmptyStrings": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    }
+  }
+}

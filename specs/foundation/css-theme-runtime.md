@@ -1,6 +1,7 @@
 # CSS and Theme Runtime Contract
 
-Status: approved and implemented by F0.06.
+Stage: `F0.06`
+Status: implemented
 
 ## Scope and ownership
 

@@ -6,9 +6,11 @@ Build the platform bottom-up by capability ownership, but deliver visible produc
 
 ## Phase 0 is mandatory
 
-No public component work begins before repository governance, agent protocol, validators, build/test infrastructure, tokens/theme, accessibility/state/collections/overlay/data/i18n/date/virtualization/drag-drop foundations and the reference baseline have completed their gates.
+No public component work begins before repository governance, agent protocol, validators, build/test infrastructure, tokens/theme, accessibility/state/collections/overlay/data/i18n/date/virtualization/drag-drop foundations, the reference baseline, and the documentation experience foundation have completed their gates.
 
 Phase 0 is not "setup work to rush through"; it defines contracts that determine whether later enterprise widgets can reuse behavior.
+
+`F0.18 Documentation Experience Foundation` was accepted by ADR-020 as a governed Phase 0 remediation inserted at the ledger boundary after stage `1.02`. A foundation gap discovered during Phase 1 is repaired as a Phase 0 stage rather than absorbed into component stages, and the phase is re-certified afterwards.
 
 ## Proving the architecture
 

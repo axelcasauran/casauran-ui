@@ -28,6 +28,12 @@
 - `.agent/feature-matrix.md`
 - `.agent/reference-map.md`
 
+## Foundation contracts
+
+- `specs/README.md` — the fourteen foundation specifications and their stage bindings.
+- `specs/foundation/` — one governed contract per capability-owning Phase 0 stage.
+- `.agent/foundation-specifications.json` and its schema — stage/status binding contract.
+
 ## Architecture and product policies
 
 - `DEPENDENCY_POLICY.md`
@@ -102,6 +108,8 @@
 - `registry/date-math/foundation.json` — canonical calendar/range/wall-time/timezone foundation.
 - `registry/virtualization/foundation.json` — canonical windowing, measurement, anchor, and 2D foundation.
 - `registry/drag-drop/foundation.json` — canonical session, target, capture, keyboard, and autoscroll foundation.
+- `registry/documentation/foundation.json` — canonical documentation shell, primitive, and metadata foundation.
+- `.agent/foundation-specifications.json` — canonical binding of every Phase 0 stage to its specification and status.
 - `reference/kendo-react-baseline.json` and `reference/kendo-react-inventory.json` — canonical
   public-document provenance and immutable local snapshot identity.
 - `registry/derived/`
@@ -142,6 +150,8 @@ beside it.
 - `scripts/validate-virtualization-foundation.mjs`
 - `scripts/validate-drag-drop-foundation.mjs`
 - `scripts/validate-reference-baseline.mjs`
+- `scripts/validate-documentation-experience.mjs`
+- `scripts/validate-foundation-specifications.mjs`
 - architecture/registry/reference/composition/package/public-API/toolchain/platform validators
 - `dependency-cruiser.config.cjs`
 - strict TypeScript

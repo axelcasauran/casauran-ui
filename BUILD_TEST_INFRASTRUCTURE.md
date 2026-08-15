@@ -71,6 +71,37 @@ Real-browser tests own layout, focus, keyboard, pointer/touch, hydration, respon
 visual assertions. Vitest owns deterministic pure logic. A test is not duplicated into multiple
 layers merely to increase a coverage number.
 
+## Root gate ordering
+
+Accepted by `ADR-021`. Every workspace package resolves only through its `exports` map into `dist`. Any step that resolves
+a cross-package specifier — type-aware lint, workspace typecheck, dependency-cruiser architecture
+analysis, and the Vitest unit layer — therefore requires emitted output to already exist. A gate
+that runs those steps before `pnpm build` cannot pass on a clean checkout, even though it passes on
+a developer machine that still holds output from an earlier build.
+
+The ordered static gate is authoritative and machine-readable in the `rootGate` block of
+`.agent/build-test-infrastructure.json`:
+
+```text
+verify:scaffold → format → build → lint → typecheck → architecture → test
+```
+
+`pnpm validate` then adds the production browser layer. The build/test validator compares both root
+gate scripts against the declared sequences character for character and fails when any declared
+compiled-output consumer is ordered before the build step, so the reproducibility property cannot
+regress silently.
+
+Consequences for contributors and for evidence:
+
+- `pnpm typecheck`, `pnpm lint`, `pnpm architecture`, and `pnpm test:unit` are not standalone
+  entry points on a fresh clone. Run `pnpm build` once after `pnpm install`, or run the gate.
+- Stage evidence that records a passing gate must have been produced by a run that started from
+  the declared install command. A gate result obtained only on a pre-built worktree is not
+  reproducible evidence and does not satisfy stage close.
+- Reordering the gate, adding a step that resolves cross-package specifiers, or introducing a
+  development resolution condition that bypasses `dist` is an infrastructure change under
+  "Extending the infrastructure".
+
 ## Browser and visual determinism
 
 Playwright uses a fixed viewport, `en-US`, UTC, light color scheme, reduced motion, CSS-pixel
@@ -82,6 +113,22 @@ Visual baselines are added by stages that introduce visible behavior. Each basel
 the state/theme/direction/viewport it proves, avoid time/network/random data, and be reviewed as
 evidence rather than accepted automatically. F0.04 configures this capability but does not create
 speculative component snapshots.
+
+Baselines are platform-scoped. Playwright resolves one as `<name>-<project>-<platform>.png`, and
+the browser gate is authoritative on the CI runner, so **every snapshot name must have a baseline
+for each configured browser project on the platform CI runs on**. A baseline produced only on a
+maintainer workstation does not satisfy the gate: CI fails a missing snapshot rather than writing
+it, so a Windows-only or macOS-only set leaves every visual assertion red on `ubuntu-latest`.
+
+The rule is declared in the `visualBaselines` block of `.agent/build-test-infrastructure.json` and
+enforced by `pnpm validate:visual-baselines`. The required platform is derived from the `runs-on`
+label in the CI workflow rather than declared separately, so changing the runner changes the
+requirement and the two cannot drift.
+
+Regenerate on the CI platform — a runner, or a container matching it — with
+`pnpm exec playwright test --update-snapshots`, then review each image as evidence before
+committing. Baselines produced by an unpinned browser build or a different font stack are not
+evidence and must not be committed.
 
 The infrastructure browser probe proves three distinct paths: production server response,
 server-rendered markup, and hydration of a narrowly scoped client boundary without console or page

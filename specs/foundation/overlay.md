@@ -1,6 +1,7 @@
 # Overlay Foundation Specification
 
-Status: approved for F0.10 implementation
+Stage: `F0.10`
+Status: implemented
 
 ## Scope and ownership
 

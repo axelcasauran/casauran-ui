@@ -74,6 +74,22 @@ const validFixture = () => {
     ],
     hosts,
     browserProjects: ['chromium', 'firefox', 'webkit'],
+    rootGate: {
+      staticScript: 'validate:static',
+      fullScript: 'validate',
+      staticSequence: [
+        'verify:scaffold',
+        'format',
+        'build',
+        'lint',
+        'typecheck',
+        'architecture',
+        'test',
+      ],
+      fullSequence: ['validate:static', 'test:e2e'],
+      compiledOutputConsumers: ['lint', 'typecheck', 'architecture', 'test'],
+      rationale: 'compiled output must exist before cross-package resolution',
+    },
     ci: {
       workflow: '.github/workflows/ci.yml',
       permissions: 'contents: read',
@@ -105,6 +121,13 @@ const validFixture = () => {
         'pnpm --filter @casauran-internal/visual-tests build && pnpm --filter @casauran-internal/docs build && playwright test',
       test: 'pnpm test:contracts && pnpm test:unit',
       'test:e2e': 'pnpm test:browser',
+      'verify:scaffold': 'node scripts/verify-scaffold.mjs',
+      format: 'prettier --check .',
+      lint: 'eslint .',
+      architecture: 'dependency-cruiser packages apps --config dependency-cruiser.config.cjs',
+      'validate:static':
+        'pnpm verify:scaffold && pnpm format && pnpm build && pnpm lint && pnpm typecheck && pnpm architecture && pnpm test',
+      validate: 'pnpm validate:static && pnpm test:e2e',
     },
   };
   const library = {
@@ -160,7 +183,7 @@ const validFixture = () => {
     '.github/workflows/ci.yml':
       'permissions:\n  contents: read\npnpm install --frozen-lockfile\npnpm exec playwright install --with-deps chromium firefox webkit\npnpm validate',
     'BUILD_TEST_INFRASTRUCTURE.md':
-      '## Supported environment and reproducibility\n## Build contract\n## Typecheck contract\n## Test layers\n## Browser and visual determinism\n## CI and failure semantics\n## Extending the infrastructure',
+      '## Supported environment and reproducibility\n## Build contract\n## Typecheck contract\n## Test layers\n## Root gate ordering\n## Browser and visual determinism\n## CI and failure semantics\n## Extending the infrastructure',
   };
   return {
     contract,
@@ -191,6 +214,67 @@ const validFixture = () => {
 test('accepts the complete build/test infrastructure contract', () => {
   const { contract, context } = validFixture();
   assert.deepEqual(validateBuildTestInfrastructure(contract, context), []);
+});
+
+test('rejects a static gate that resolves cross-package specifiers before building', () => {
+  const { contract, context } = validFixture();
+  contract.rootGate.staticSequence = [
+    'verify:scaffold',
+    'format',
+    'lint',
+    'typecheck',
+    'architecture',
+    'test',
+    'build',
+  ];
+  context.packageManifest.scripts['validate:static'] =
+    'pnpm verify:scaffold && pnpm format && pnpm lint && pnpm typecheck && pnpm architecture && pnpm test && pnpm build';
+  const errors = validateBuildTestInfrastructure(contract, context);
+  assert.ok(errors.includes('static gate must run build before lint'));
+  assert.ok(errors.includes('static gate must run build before typecheck'));
+  assert.ok(errors.includes('static gate must run build before architecture'));
+  assert.ok(errors.includes('static gate must run build before test'));
+});
+
+test('rejects a static gate that never builds', () => {
+  const { contract, context } = validFixture();
+  contract.rootGate.staticSequence = ['verify:scaffold', 'format', 'lint', 'typecheck', 'test'];
+  context.packageManifest.scripts['validate:static'] =
+    'pnpm verify:scaffold && pnpm format && pnpm lint && pnpm typecheck && pnpm test';
+  const errors = validateBuildTestInfrastructure(contract, context);
+  assert.ok(errors.includes('static gate must run the build step'));
+  assert.ok(errors.includes('static gate is missing compiled-output consumer architecture'));
+});
+
+test('rejects a declared gate sequence that disagrees with the package script', () => {
+  const { contract, context } = validFixture();
+  context.packageManifest.scripts['validate:static'] = 'pnpm verify:scaffold && pnpm build';
+  assert.ok(
+    validateBuildTestInfrastructure(contract, context).some((error) =>
+      error.startsWith('validate:static must run exactly '),
+    ),
+  );
+});
+
+test('rejects a full gate that skips the static gate', () => {
+  const { contract, context } = validFixture();
+  contract.rootGate.fullSequence = ['test:e2e'];
+  context.packageManifest.scripts.validate = 'pnpm test:e2e';
+  assert.ok(
+    validateBuildTestInfrastructure(contract, context).includes(
+      'validate must run the validate:static gate',
+    ),
+  );
+});
+
+test('rejects a gate step that is not a package script', () => {
+  const { contract, context } = validFixture();
+  contract.rootGate.staticSequence = [...contract.rootGate.staticSequence, 'invented:step'];
+  assert.ok(
+    validateBuildTestInfrastructure(contract, context).includes(
+      'root gate step invented:step is not a package script',
+    ),
+  );
 });
 
 test('rejects duplicate package-level test execution', () => {
