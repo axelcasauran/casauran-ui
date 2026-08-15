@@ -135,6 +135,27 @@ describe('wall time and explicit timezone strategy', () => {
     expect(() => zone.toInstant(overlap, 'reject')).toThrow(RangeError);
   });
 
+  it('resolves gap and overlap in a half-hour-offset zone with daylight saving', () => {
+    // Australia/Adelaide is UTC+09:30 (ACST) and UTC+10:30 (ACDT), so a naive whole-hour offset
+    // model produces the wrong instant on both sides of each transition.
+    const zone = createIntlTimeZoneStrategy('Australia/Adelaide');
+    expect(zone.getZonedDateTime(Date.UTC(2026, 0, 1)).offsetMilliseconds).toBe(37_800_000);
+    expect(zone.getZonedDateTime(Date.UTC(2026, 6, 1)).offsetMilliseconds).toBe(34_200_000);
+
+    // Daylight saving ends 5 April 2026: 03:00 ACDT returns to 02:00 ACST, so 02:30 is ambiguous.
+    const overlap = local(2026, 4, 5, 2, 30);
+    expect(zone.toInstant(overlap)).toBe(Date.UTC(2026, 3, 4, 16, 0));
+    expect(zone.toInstant(overlap, 'earlier')).toBe(Date.UTC(2026, 3, 4, 16, 0));
+    expect(zone.toInstant(overlap, 'later')).toBe(Date.UTC(2026, 3, 4, 17, 0));
+    expect(() => zone.toInstant(overlap, 'reject')).toThrow(RangeError);
+
+    // Daylight saving starts 4 October 2026: 02:00 ACST jumps to 03:00 ACDT, so 02:30 never occurs.
+    const gap = local(2026, 10, 4, 2, 30);
+    expect(zone.toInstant(gap)).toBe(Date.UTC(2026, 9, 3, 17, 0));
+    expect(zone.toInstant(gap, 'earlier')).toBe(Date.UTC(2026, 9, 3, 16, 0));
+    expect(() => zone.toInstant(gap, 'reject')).toThrow(RangeError);
+  });
+
   it('rejects malformed structured input and inherited/prototype values safely', () => {
     expect(() => createIntlTimeZoneStrategy('Not/A_Zone')).toThrow(RangeError);
     expect(() => createIntlTimeZoneStrategy('')).toThrow(TypeError);

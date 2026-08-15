@@ -47,8 +47,18 @@ Remediation applied 2026-08-15, without rewriting historical stage evidence:
 Required to close: run `pnpm validate` on the pinned Node 24.18.0 toolchain with the three
 Playwright engines installed, starting from `pnpm install --frozen-lockfile` on a worktree with no
 prior build output. Record the result through the phase-certification workflow and replace the
-`Phase 0 certification` line above. The audit environment could not execute the browser layer, so
-that gate remains unrun.
+`Phase 0 certification` line above.
+
+Second blocker, found by execution on 2026-08-15 and recorded in
+`.agent/reviews/2026-08-15-foundation-completeness.md`: all 15 committed visual baselines carry the
+`-win32` suffix while `.github/workflows/ci.yml` runs `ubuntu-latest`. Playwright resolves baselines
+per platform, so every visual assertion fails on CI. Re-certification must regenerate the five
+snapshot names across chromium, firefox and webkit on the CI platform and review each image as
+evidence before the browser gate can be green.
+
+Verification coverage on 2026-08-15: 36 validators, 119 contract tests, 117 Vitest tests, and a
+clean-worktree `pnpm validate:static` all PASS; the Chromium browser suite ran 65 passing with 5
+failures, every one a missing Linux baseline and none behavioural. Firefox and WebKit remain unrun.
 
 Update only through stage/phase close workflow. BLOCKED phases cannot roll forward.
 

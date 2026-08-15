@@ -72,8 +72,11 @@ Local-to-instant conversion makes daylight-saving behavior explicit:
 - `later` selects the later instant/projection;
 - `reject` throws for an ambiguous overlap or nonexistent gap.
 
-Tests cover the 2026 `America/New_York` spring gap and fall overlap, a half-hour-offset zone, and
-UTC. Results depend on the deployed runtime's IANA timezone data; applications must deploy
+Tests cover the 2026 `America/New_York` spring gap and fall overlap, the 2026 `Australia/Adelaide`
+gap and overlap across its half-hour `+09:30`/`+10:30` boundary, the three-quarter-hour
+`Asia/Kathmandu` offset, and UTC. A whole-hour offset model fails the Adelaide cases, so
+sub-hour zones are proven rather than assumed. Results depend on the deployed runtime's IANA
+timezone data; applications must deploy
 compatible server/client runtime data. This package does not ship, fetch, update, or globally cache
 a timezone database.
 
