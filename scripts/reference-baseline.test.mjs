@@ -24,7 +24,7 @@ const base = {
     policy: 'KENDO_REFERENCE_POLICY.md',
     accessMode: 'local-only',
     localPathEnvironmentVariable: 'CASAURAN_KENDO_DOCS_PATH',
-    defaultLocalPath: '../references/kendo-react-docs/docs/content',
+    defaultLocalPath: 'kdocs/references/kendo-react-docs/docs/content',
     onlineFallback: false,
     repositoryRole: 'provenance-metadata-only',
     inventory: 'reference/kendo-react-inventory.json',
@@ -55,7 +55,7 @@ const base = {
   config: {
     mode: 'local-only',
     environmentVariable: 'CASAURAN_KENDO_DOCS_PATH',
-    defaultRelativePath: '../references/kendo-react-docs/docs/content',
+    defaultRelativePath: 'kdocs/references/kendo-react-docs/docs/content',
     onlineFallback: false,
     purpose: 'public-documentation-reference-only',
     allowedRoot: 'docs/content',

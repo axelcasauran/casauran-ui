@@ -77,5 +77,5 @@ failures, every one a missing Linux baseline and none behavioural. Firefox and W
 Update only through stage/phase close workflow. BLOCKED phases cannot roll forward.
 
 Reference access mode: LOCAL-ONLY
-Reference path: `../references/kendo-react-docs/docs/content`
+Reference path: `kdocs/references/kendo-react-docs/docs/content`
 Reference snapshot: `2b68481b897ab216625fd264a10fb323fc0071c2a589f893c488d13e91ff4862`

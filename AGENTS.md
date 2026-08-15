@@ -194,7 +194,7 @@ Reference analysis is **strictly local-only**.
 Canonical configuration:
 
 ```bash
-CASAURAN_KENDO_DOCS_PATH=../references/kendo-react-docs/docs/content
+CASAURAN_KENDO_DOCS_PATH=kdocs/references/kendo-react-docs/docs/content
 ```
 
 For every reference-analysis task:

@@ -6,7 +6,7 @@ if (cfg.mode !== 'local-only') fail('reference mode must be local-only');
 if (cfg.environmentVariable !== 'CASAURAN_KENDO_DOCS_PATH') {
   fail('unexpected local reference environment variable');
 }
-if (cfg.defaultRelativePath !== '../references/kendo-react-docs/docs/content') {
+if (cfg.defaultRelativePath !== 'kdocs/references/kendo-react-docs/docs/content') {
   fail('unexpected default local reference path');
 }
 if (cfg.onlineFallback !== false) fail('online fallback must be false');

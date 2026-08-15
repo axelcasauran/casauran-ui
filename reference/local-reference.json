@@ -1,7 +1,7 @@
 {
   "mode": "local-only",
   "environmentVariable": "CASAURAN_KENDO_DOCS_PATH",
-  "defaultRelativePath": "../references/kendo-react-docs/docs/content",
+  "defaultRelativePath": "kdocs/references/kendo-react-docs/docs/content",
   "onlineFallback": false,
   "purpose": "public-documentation-reference-only",
   "allowedRoot": "docs/content",

@@ -13,7 +13,7 @@ const baseline = JSON.parse(
   fs.readFileSync(path.join(root, 'reference/kendo-react-baseline.json'), 'utf8'),
 );
 const configured =
-  process.env.CASAURAN_KENDO_DOCS_PATH ?? '../references/kendo-react-docs/docs/content';
+  process.env.CASAURAN_KENDO_DOCS_PATH ?? 'kdocs/references/kendo-react-docs/docs/content';
 const resolved = path.resolve(root, configured);
 
 if (path.basename(resolved) !== 'content' || path.basename(path.dirname(resolved)) !== 'docs') {

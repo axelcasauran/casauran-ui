@@ -4,7 +4,7 @@ import { root, fail, json, pass } from './lib.mjs';
 import { computeReferenceInventory, sameReferenceInventory } from './reference-baseline.mjs';
 
 const configured =
-  process.env.CASAURAN_KENDO_DOCS_PATH ?? '../references/kendo-react-docs/docs/content';
+  process.env.CASAURAN_KENDO_DOCS_PATH ?? 'kdocs/references/kendo-react-docs/docs/content';
 
 const resolved = path.resolve(root, configured);
 

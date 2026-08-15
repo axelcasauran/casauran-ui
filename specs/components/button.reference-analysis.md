@@ -4,7 +4,7 @@
 
 Stage `1.01` analyzes only the public Button behavior in the pinned local reference corpus. The
 mandatory `pnpm reference:check` preflight passed on 2026-08-14 for
-`../references/kendo-react-docs/docs/content`, snapshot
+`kdocs/references/kendo-react-docs/docs/content`, snapshot
 `2b68481b897ab216625fd264a10fb323fc0071c2a589f893c488d13e91ff4862`. Online fallback was
 disabled.
 

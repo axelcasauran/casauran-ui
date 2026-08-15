@@ -28,7 +28,7 @@ approve a new corpus inventory, provenance commit, map, or parity scope.
 ## Local resolution and preflight
 
 `CASAURAN_KENDO_DOCS_PATH` resolves the external snapshot; when unset it defaults to
-`../references/kendo-react-docs/docs/content`. The resolved target must be a directory whose final
+`kdocs/references/kendo-react-docs/docs/content`. The resolved target must be a directory whose final
 segments are exactly `docs/content`. Online fallback is disabled.
 
 Every baseline, sync, or component reference-analysis task runs `pnpm reference:check` before

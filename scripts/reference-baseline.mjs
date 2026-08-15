@@ -132,7 +132,7 @@ export const validateReferenceBaseline = (
   if (baseline.localPathEnvironmentVariable !== 'CASAURAN_KENDO_DOCS_PATH') {
     errors.push('unexpected baseline path environment variable');
   }
-  if (baseline.defaultLocalPath !== '../references/kendo-react-docs/docs/content') {
+  if (baseline.defaultLocalPath !== 'kdocs/references/kendo-react-docs/docs/content') {
     errors.push('unexpected baseline local path');
   }
   if (baseline.onlineFallback !== false) errors.push('online fallback must be disabled');

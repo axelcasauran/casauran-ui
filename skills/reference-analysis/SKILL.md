@@ -60,7 +60,7 @@ Domain checklist and applicable project Definition of Done gates pass; `pnpm val
 ## Local reference resolution
 
 1. Read `reference/local-reference.json`.
-2. Resolve `CASAURAN_KENDO_DOCS_PATH`; default to `../references/kendo-react-docs/docs/content`.
+2. Resolve `CASAURAN_KENDO_DOCS_PATH`; default to `kdocs/references/kendo-react-docs/docs/content`.
 3. Run `pnpm reference:check`.
 4. Inventory only the relevant component/domain directory.
 5. Read targeted files; never load the entire documentation corpus merely because it is local.

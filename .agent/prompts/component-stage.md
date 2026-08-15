@@ -16,7 +16,7 @@ pnpm reference:check
 ```
 
 Reference analysis is strictly local-only through `CASAURAN_KENDO_DOCS_PATH`, default
-`../references/kendo-react-docs/docs/content`. Do not use the online KendoReact repository, live
+`kdocs/references/kendo-react-docs/docs/content`. Do not use the online KendoReact repository, live
 Telerik documentation, search engines, third-party tutorials, or model memory as a fallback. If the
 preflight fails, stop the stage as `BLOCKED`.
 

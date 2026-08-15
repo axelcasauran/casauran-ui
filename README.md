@@ -135,7 +135,7 @@ fresh install. The ordering is declared in `.agent/build-test-infrastructure.jso
 Place the external documentation corpus beside the repository and configure:
 
 ```bash
-CASAURAN_KENDO_DOCS_PATH=../references/kendo-react-docs/docs/content
+CASAURAN_KENDO_DOCS_PATH=kdocs/references/kendo-react-docs/docs/content
 pnpm reference:check
 ```
 

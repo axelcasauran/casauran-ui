@@ -5,23 +5,24 @@ Casauran uses a **strict local-only** KendoReact documentation corpus.
 Canonical path:
 
 ```bash
-CASAURAN_KENDO_DOCS_PATH=../references/kendo-react-docs/docs/content
+CASAURAN_KENDO_DOCS_PATH=kdocs/references/kendo-react-docs/docs/content
 ```
 
 Recommended workspace:
 
 ```text
 workspace/
-├── casauran-ui/
-└── references/
-    └── kendo-react-docs/
-        └── docs/
-            └── content/
+└── casauran-ui/
+    └── kdocs/
+        └── references/
+            └── kendo-react-docs/
+                └── docs/
+                    └── content/
 ```
 
 ## Hard rules
 
-- Keep the reference corpus outside the Casauran repository.
+- Keep the reference corpus in `kdocs/references`, separate from product source.
 - Treat it as read-only documentation reference material.
 - Point directly at `docs/content`, not at a full source repository root.
 - Do not inspect Kendo implementation source, compiled code, theme source, or private internals.

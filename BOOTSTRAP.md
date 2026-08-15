@@ -18,7 +18,7 @@ Phase 0, not Button.
 Before Phase 0 exits, configure:
 
 ```bash
-CASAURAN_KENDO_DOCS_PATH=../references/kendo-react-docs/docs/content
+CASAURAN_KENDO_DOCS_PATH=kdocs/references/kendo-react-docs/docs/content
 pnpm reference:check
 ```
 

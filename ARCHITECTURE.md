@@ -237,7 +237,7 @@ See `BRANDING.md`, `NAMING_CONVENTIONS.md`, and ADR-019.
 
 Casauran reference analysis uses an external documentation-only corpus at:
 
-`../references/kendo-react-docs/docs/content`
+`kdocs/references/kendo-react-docs/docs/content`
 
 or the path supplied through `CASAURAN_KENDO_DOCS_PATH`.
 

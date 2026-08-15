@@ -25,7 +25,7 @@ commit without a matching snapshot digest is not an approved baseline.
 Normal Casauran reference analysis MUST use the external local documentation corpus:
 
 ```bash
-CASAURAN_KENDO_DOCS_PATH=../references/kendo-react-docs/docs/content
+CASAURAN_KENDO_DOCS_PATH=kdocs/references/kendo-react-docs/docs/content
 ```
 
 The repository and commit recorded in `reference/kendo-react-baseline.json` are retained for provenance only.
