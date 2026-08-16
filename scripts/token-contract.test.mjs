@@ -112,3 +112,59 @@ test('renders deterministic typed token source', () => {
   assert.ok(output.includes('export const tokenContractVersion = 1 as const;'));
   assert.ok(output.includes('ComponentTokenName'));
 });
+
+test('resolves a component slug through the supplied registry resolver', () => {
+  // `SVGIcon` declares the slug `svg-icon`; deriving one from the name yields `svgicon`, so the
+  // component token would be reported against a registry entry that does not exist.
+  const contract = validContract();
+  contract.components.push({
+    component: 'SVGIcon',
+    name: 'svg-icon.size',
+    type: 'color',
+    reference: 'surface.test-0',
+    cssVariable: '--csn-svg-icon-size',
+    description: 'SVGIcon box size.',
+  });
+  assert.deepEqual(
+    validateTokenContract(
+      contract,
+      (path) =>
+        path === 'registry/components/svg-icon.json' || path.startsWith('registry/schemas/'),
+      () => 'api-approved',
+      (name) => (name === 'SVGIcon' ? 'svg-icon' : ''),
+    ),
+    [],
+  );
+});
+
+test('rejects a component token whose component the registry does not declare', () => {
+  const contract = validContract();
+  contract.components.push({
+    component: 'Imaginary',
+    name: 'imaginary.size',
+    type: 'color',
+    reference: 'surface.test-0',
+    cssVariable: '--csn-imaginary-size',
+    description: 'Imaginary box size.',
+  });
+  const errors = validateTokenContract(
+    contract,
+    () => true,
+    () => 'api-approved',
+    () => '',
+  );
+  assert.ok(errors.some((error) => error.includes('references unknown component Imaginary')));
+});
+
+test('falls back to name derivation when no registry resolver is supplied', () => {
+  const contract = validContract();
+  contract.components.push({
+    component: 'Button',
+    name: 'button.background',
+    type: 'color',
+    reference: 'surface.test-0',
+    cssVariable: '--csn-button-background',
+    description: 'Button background.',
+  });
+  assert.deepEqual(validateTokenContract(contract), []);
+});

@@ -1,0 +1,106 @@
+@layer components {
+  .csn-svg-icon {
+    display: inline-flex;
+    inline-size: var(--csn-svg-icon-size);
+    block-size: var(--csn-svg-icon-size);
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    color: var(--csn-svg-icon-color);
+    line-height: 1;
+    vertical-align: middle;
+  }
+
+  .csn-svg-icon > svg {
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  /*
+   * Paint, weight and opacity are per layer and come from the definition, because they belong to
+   * the drawing the caller owns rather than to the theme. Only the joins are a platform constant,
+   * so a caller who ships bare `d` strings gets catalog-matching artwork with no CSS of their own.
+   */
+  .csn-svg-icon > svg > path {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /*
+   * Every enumerated size and tone assigns its component token at the same specificity, including
+   * the `md` and `inherit` defaults, so a consumer override written in the `overrides` layer
+   * behaves identically for a default and for an explicit value.
+   */
+  .csn-svg-icon[data-size='xs'] {
+    --csn-svg-icon-size: var(--csn-ref-font-size-xs);
+  }
+  .csn-svg-icon[data-size='sm'] {
+    --csn-svg-icon-size: var(--csn-ref-font-size-sm);
+  }
+  .csn-svg-icon[data-size='md'] {
+    --csn-svg-icon-size: var(--csn-typography-body-size);
+  }
+  .csn-svg-icon[data-size='lg'] {
+    --csn-svg-icon-size: var(--csn-ref-font-size-lg);
+  }
+  .csn-svg-icon[data-size='xl'] {
+    --csn-svg-icon-size: var(--csn-ref-font-size-xl);
+  }
+  .csn-svg-icon[data-size='2xl'] {
+    --csn-svg-icon-size: var(--csn-ref-font-size-2xl);
+  }
+  .csn-svg-icon[data-size='3xl'] {
+    --csn-svg-icon-size: var(--csn-ref-space-12);
+  }
+
+  .csn-svg-icon[data-flip='horizontal'] {
+    transform: scaleX(-1);
+  }
+  .csn-svg-icon[data-flip='vertical'] {
+    transform: scaleY(-1);
+  }
+  .csn-svg-icon[data-flip='both'] {
+    transform: scale(-1);
+  }
+
+  /* `inherit` is the default tone and takes the colour of the text around it. */
+  .csn-svg-icon[data-tone='inherit'] {
+    --csn-svg-icon-color: currentColor;
+  }
+  .csn-svg-icon[data-tone='accent'] {
+    --csn-svg-icon-color: var(--csn-interactive-primary);
+  }
+  .csn-svg-icon[data-tone='muted'] {
+    --csn-svg-icon-color: var(--csn-text-muted);
+  }
+  .csn-svg-icon[data-tone='positive'] {
+    --csn-svg-icon-color: var(--csn-status-success);
+  }
+  .csn-svg-icon[data-tone='caution'] {
+    --csn-svg-icon-color: var(--csn-status-warning);
+  }
+  .csn-svg-icon[data-tone='critical'] {
+    --csn-svg-icon-color: var(--csn-status-danger);
+  }
+  .csn-svg-icon[data-tone='inverse'] {
+    --csn-svg-icon-color: var(--csn-text-inverse);
+  }
+}
+
+@media (forced-colors: active) {
+  @layer components {
+    .csn-svg-icon {
+      color: ButtonText;
+      forced-color-adjust: auto;
+    }
+
+    /*
+     * Duotone recedes a layer with opacity, which forced colors does not map. Against a collapsed
+     * two-colour palette that layer can disappear entirely, so the drawing flattens to one weight
+     * and stays legible instead of losing half its shape.
+     */
+    .csn-svg-icon > svg > path {
+      opacity: 1;
+    }
+  }
+}

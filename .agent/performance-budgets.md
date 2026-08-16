@@ -1,5 +1,13 @@
 # Performance Budgets
 
+SVGIcon `1.03` regression scenario: render 1,000 caller-owned three-layer definitions through
+`react-dom/server` after production package builds, alternating a shipped variant with an absent one
+so both variant resolution and the fallback path are exercised; ceiling 500 ms. Recorded stage
+result: 146.90 ms on Node v24.18.0, linux x64. Command: `pnpm benchmark:svg-icon`, which prints the
+Node version, platform and architecture it measured. The component adds no external dependency,
+client boundary, observer, listener, timer, portal, network access, or SVG parser. This is a bounded
+regression scenario, not a universal speed claim.
+
 Icon `1.02` regression scenario: render 1,000 alternating named Icons through `react-dom/server`
 after production package builds; ceiling 500 ms. Recorded stage result: 172.70 ms on Node v24.18.0,
 Windows x64. Re-measured during the 2026-08-16 capability revalidation at 137.75 ms on Node

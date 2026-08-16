@@ -4,7 +4,7 @@
   "category": "icons",
   "phase": 1,
   "stage": "1.03",
-  "status": "unreviewed",
+  "status": "parity-verified",
   "package": "@casauran/react",
   "reference": {
     "path": "docs/content/common/svgicon",
@@ -15,25 +15,156 @@
     "nativeInteractiveExceptions": []
   },
   "rendering": {
-    "serverRenderable": null,
-    "requiresClient": null,
+    "serverRenderable": true,
+    "requiresClient": false,
     "clientReasons": [],
-    "hydrationSensitive": null
+    "hydrationSensitive": false
   },
   "parity": {
-    "functionality": "unreviewed",
-    "states": "unreviewed",
-    "interaction": "unreviewed",
-    "keyboard": "unreviewed",
-    "accessibility": "unreviewed",
-    "responsive": "unreviewed",
-    "i18n": "unreviewed",
-    "rtl": "unreviewed",
-    "theming": "unreviewed",
-    "ssrNext": "unreviewed",
-    "performance": "unreviewed",
-    "security": "unreviewed",
-    "docs": "unreviewed"
+    "functionality": "pass",
+    "states": "pass",
+    "interaction": "not-applicable",
+    "keyboard": "not-applicable",
+    "accessibility": "pass",
+    "responsive": "pass",
+    "i18n": "pass",
+    "rtl": "pass",
+    "theming": "pass",
+    "ssrNext": "pass",
+    "performance": "pass",
+    "security": "pass",
+    "docs": "pass"
   },
-  "features": []
+  "features": [
+    "caller-owned-definition",
+    "structured-path-layers",
+    "layer-paint",
+    "typed-variant",
+    "variant-fallback",
+    "runtime-definition-narrowing",
+    "invalid-definition-fails-closed",
+    "view-box-default-and-override",
+    "catalog-interop",
+    "decorative-default",
+    "labelled-image",
+    "blank-label-stays-decorative",
+    "reserved-semantic-props",
+    "size",
+    "semantic-tone",
+    "inherited-colour",
+    "flip",
+    "component-token-override-seam",
+    "theme-and-density",
+    "rtl",
+    "forced-colors",
+    "ssr-rsc",
+    "native-attribute-passthrough",
+    "button-composition"
+  ],
+  "featureCoverage": {
+    "caller-owned-definition": {
+      "mode": "preview",
+      "anchor": "overview"
+    },
+    "structured-path-layers": {
+      "mode": "preview",
+      "anchor": "content"
+    },
+    "layer-paint": {
+      "mode": "preview",
+      "anchor": "content"
+    },
+    "typed-variant": {
+      "mode": "preview",
+      "anchor": "appearance",
+      "attribute": "data-variant",
+      "values": ["solid", "outline", "duotone"]
+    },
+    "variant-fallback": {
+      "mode": "preview",
+      "anchor": "states"
+    },
+    "runtime-definition-narrowing": {
+      "mode": "preview",
+      "anchor": "security"
+    },
+    "invalid-definition-fails-closed": {
+      "mode": "section",
+      "anchor": "states"
+    },
+    "view-box-default-and-override": {
+      "mode": "section",
+      "anchor": "api"
+    },
+    "catalog-interop": {
+      "mode": "preview",
+      "anchor": "content"
+    },
+    "decorative-default": {
+      "mode": "preview",
+      "anchor": "accessibility"
+    },
+    "labelled-image": {
+      "mode": "preview",
+      "anchor": "accessibility"
+    },
+    "blank-label-stays-decorative": {
+      "mode": "section",
+      "anchor": "accessibility"
+    },
+    "reserved-semantic-props": {
+      "mode": "section",
+      "anchor": "api"
+    },
+    "size": {
+      "mode": "preview",
+      "anchor": "sizes",
+      "attribute": "data-size",
+      "values": ["xs", "sm", "md", "lg", "xl", "2xl", "3xl"]
+    },
+    "semantic-tone": {
+      "mode": "preview",
+      "anchor": "appearance",
+      "attribute": "data-tone",
+      "values": ["inherit", "accent", "muted", "positive", "caution", "critical", "inverse"]
+    },
+    "inherited-colour": {
+      "mode": "preview",
+      "anchor": "appearance"
+    },
+    "flip": {
+      "mode": "preview",
+      "anchor": "content",
+      "attribute": "data-flip",
+      "values": ["none", "horizontal", "vertical", "both"]
+    },
+    "component-token-override-seam": {
+      "mode": "section",
+      "anchor": "theming"
+    },
+    "theme-and-density": {
+      "mode": "fixture",
+      "evidence": "tests/browser/svg-icon.spec.ts"
+    },
+    "rtl": {
+      "mode": "fixture",
+      "evidence": "tests/browser/svg-icon.spec.ts"
+    },
+    "forced-colors": {
+      "mode": "fixture",
+      "evidence": "tests/browser/svg-icon.spec.ts"
+    },
+    "ssr-rsc": {
+      "mode": "section",
+      "anchor": "nextjs"
+    },
+    "native-attribute-passthrough": {
+      "mode": "section",
+      "anchor": "api"
+    },
+    "button-composition": {
+      "mode": "preview",
+      "anchor": "content"
+    }
+  }
 }

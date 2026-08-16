@@ -1,7 +1,10 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { validateDocumentationExperience } from './documentation-experience.mjs';
+import {
+  validateComponentLifecycleBoundary,
+  validateDocumentationExperience,
+} from './documentation-experience.mjs';
 
 const base = {
   $schema: '../schemas/documentation-experience.schema.json',
@@ -88,4 +91,52 @@ test('rejects incomplete ownership boundaries', () => {
   contract.boundaries.owned.pop();
   contract.boundaries.excluded.pop();
   assert.equal(validate(contract).length, 2);
+});
+
+test('accepts component lifecycle states that match their own stage', () => {
+  assert.deepEqual(
+    validateComponentLifecycleBoundary(
+      [
+        { id: '1.02', type: 'public-component', status: 'complete', component: 'Icon' },
+        { id: '1.03', type: 'public-component', status: 'complete', component: 'SVGIcon' },
+        { id: '1.04', type: 'public-component', status: 'not-started', component: 'Typography' },
+      ],
+      [
+        { name: 'Icon', slug: 'icon', stage: '1.02', status: 'improved' },
+        { name: 'SVGIcon', slug: 'svg-icon', stage: '1.03', status: 'parity-verified' },
+        { name: 'Typography', slug: 'typography', stage: '1.04', status: 'unreviewed' },
+      ],
+    ),
+    [],
+  );
+});
+
+test('rejects a component advanced before its own stage starts', () => {
+  // The generalised form of the F0.18 boundary assertion: a documentation-foundation stage must
+  // not advance a component queued behind it, whichever component that happens to be.
+  const errors = validateComponentLifecycleBoundary(
+    [{ id: '1.04', type: 'public-component', status: 'not-started', component: 'Typography' }],
+    [{ name: 'Typography', slug: 'typography', stage: '1.04', status: 'specified' }],
+  );
+  assert.ok(errors.some((error) => error.includes('while stage 1.04 has not started')));
+});
+
+test('rejects a completed stage that left its component unreviewed', () => {
+  const errors = validateComponentLifecycleBoundary(
+    [{ id: '1.03', type: 'public-component', status: 'complete', component: 'SVGIcon' }],
+    [{ name: 'SVGIcon', slug: 'svg-icon', stage: '1.03', status: 'unreviewed' }],
+  );
+  assert.ok(errors.some((error) => error.includes('unreviewed while stage 1.03 is complete')));
+});
+
+test('rejects a component bound to a missing or non-component stage', () => {
+  const errors = validateComponentLifecycleBoundary(
+    [{ id: 'F0.18', type: 'foundation', status: 'complete' }],
+    [
+      { name: 'Ghost', slug: 'ghost', stage: '9.99', status: 'unreviewed' },
+      { name: 'Misfiled', slug: 'misfiled', stage: 'F0.18', status: 'unreviewed' },
+    ],
+  );
+  assert.ok(errors.some((error) => error.includes('does not exist')));
+  assert.ok(errors.some((error) => error.includes('is not a component stage')));
 });

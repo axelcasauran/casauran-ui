@@ -1,5 +1,12 @@
 # Rendering Matrix
 
+SVGIcon `1.03` is server-renderable from the package root with no client boundary and no hydration
+state. It reads no browser global at module evaluation and holds no effect, observer, listener,
+timer, portal, random value, or current-time read, so server and client markup are identical and it
+contributes nothing to the client bundle. It generates no identifier, so `useStableId` is not
+involved. A definition is a plain object, so artwork declared in a server module passes to a client
+component unchanged. Verified in the production visual-tests and documentation Next hosts.
+
 Icon `1.02` is server-renderable from the package root with no client boundary and no hydration
 sensitivity. It reads no browser global during module evaluation or render and creates no observer,
 portal, listener, timer, storage, random source, or network activity. The production visual host

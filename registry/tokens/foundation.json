@@ -1060,6 +1060,22 @@
       "reference": "text.primary",
       "cssVariable": "--csn-icon-color",
       "description": "Default Icon foreground color."
+    },
+    {
+      "component": "SVGIcon",
+      "name": "svg-icon.size",
+      "type": "font-size",
+      "reference": "typography.body-size",
+      "cssVariable": "--csn-svg-icon-size",
+      "description": "Default SVGIcon box size."
+    },
+    {
+      "component": "SVGIcon",
+      "name": "svg-icon.color",
+      "type": "color",
+      "reference": "text.primary",
+      "cssVariable": "--csn-svg-icon-color",
+      "description": "Default SVGIcon foreground color."
     }
   ]
 }

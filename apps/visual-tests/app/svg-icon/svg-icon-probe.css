@@ -1,0 +1,62 @@
+@layer base {
+  .svg-icon-probe {
+    display: grid;
+    gap: var(--csn-spacing-content-gap);
+    max-inline-size: 64rem;
+    margin-inline: auto;
+    padding: var(--csn-spacing-layout-gutter);
+  }
+  .svg-icon-probe__matrix {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: var(--csn-spacing-content-gap);
+  }
+  .svg-icon-probe__panel {
+    display: grid;
+    gap: var(--csn-spacing-control-block);
+    padding: var(--csn-spacing-content-gap);
+    border: var(--csn-border-width-default) solid var(--csn-border-default);
+    border-radius: var(--csn-radius-surface);
+    background: var(--csn-surface-canvas);
+    color: var(--csn-text-primary);
+  }
+  .svg-icon-probe__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--csn-spacing-content-gap);
+  }
+  .svg-icon-probe__inline {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--csn-spacing-control-inline);
+  }
+  .svg-icon-probe__inverse {
+    display: flex;
+    padding: var(--csn-spacing-control-block);
+    border-radius: var(--csn-radius-control);
+    background: var(--csn-surface-inverse);
+  }
+  /* `tone="inherit"` must take this colour, not the theme's primary text colour. */
+  .svg-icon-probe__toned {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--csn-spacing-control-inline);
+    color: var(--csn-status-danger);
+  }
+}
+
+/*
+ * The documented consumer seam: component tokens are overridden in the `overrides` layer, which
+ * outranks the component layer regardless of selector specificity, so the override applies to an
+ * explicit tone and size exactly as it does to the defaults.
+ */
+@layer overrides {
+  .svg-icon-probe__override {
+    --csn-svg-icon-color: var(--csn-status-success);
+    --csn-svg-icon-size: var(--csn-ref-font-size-2xl);
+  }
+  .svg-icon-probe__seam .csn-svg-icon {
+    --csn-svg-icon-color: var(--csn-status-warning);
+  }
+}

@@ -1,11 +1,23 @@
-import { exists, fail, json, pass, read } from './lib.mjs';
+import { exists, fail, files, json, pass, read } from './lib.mjs';
 import { renderTokenModule, validateTokenContract } from './token-contract.mjs';
 
 const contract = json('registry/tokens/foundation.json');
+
+// A component's slug is declared in its registry entry, not derived from its name: `SVGIcon` is
+// `svg-icon` and `PDFViewer` is `pdf-viewer`, which no mechanical derivation from the name
+// produces. Resolving through the registry keeps one source of truth for the mapping.
+const slugByComponentName = new Map(
+  files('registry/components')
+    .filter((path) => path.endsWith('.json'))
+    .map(json)
+    .map((entry) => [entry.name, entry.slug]),
+);
+
 const errors = validateTokenContract(
   contract,
   exists,
   (slug) => json(`registry/components/${slug}.json`).status,
+  (name) => slugByComponentName.get(name) ?? '',
 );
 
 if (

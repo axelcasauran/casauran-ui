@@ -2,6 +2,6 @@
   "name": "icons",
   "owner": "packages/icons",
   "status": "implemented",
-  "consumers": ["packages/react", "apps/docs", "apps/playground"],
+  "consumers": ["apps/docs", "apps/playground", "apps/visual-tests", "packages/react"],
   "externalAdapterPolicy": "native-first; adapter only after dependency approval and real alternate implementation"
 }

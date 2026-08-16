@@ -40,6 +40,18 @@ const validatePrimitiveValue = (token) => {
   return false;
 };
 
+// A hyphen is deliberately absent: it is not a metacharacter outside a character class, and `u`
+// mode rejects `\-` there as an invalid escape.
+const escapeRegExp = (value) => value.replaceAll(/[.*+?^${}()|[\]\\]/gu, String.raw`\$&`);
+
+/**
+ * Last-resort slug derivation, used only when no registry resolver is supplied.
+ *
+ * The derivation cannot express an acronym boundary: `SVGIcon` becomes `svgicon` and `PDFViewer`
+ * becomes `pdfviewer`, neither of which is the slug those components declare. `registry/components`
+ * is the source of truth for a slug, so the real gate passes a resolver backed by it and this
+ * derivation exists only to keep the contract module free of filesystem access.
+ */
 const componentSlug = (name) =>
   name
     .replaceAll(/([a-z0-9])([A-Z])/gu, '$1-$2')
@@ -60,6 +72,7 @@ export const validateTokenContract = (
   contract,
   sourceExists = () => true,
   componentStatus = () => 'api-approved',
+  componentSlugByName = componentSlug,
 ) => {
   const errors = [];
   if (!isObject(contract)) return ['token contract must be an object'];
@@ -140,14 +153,17 @@ export const validateTokenContract = (
     [...primitives, ...semantics].map((token) => [token.name, token]),
   );
   for (const token of components) {
-    const slug = componentSlug(token.component ?? '');
+    const slug = componentSlugByName(token.component ?? '') ?? '';
     if (slug.length === 0 || !sourceExists(`registry/components/${slug}.json`)) {
       errors.push(`${token.name} references unknown component ${String(token.component)}`);
     } else if (!COMPONENT_TOKEN_STATUSES.has(componentStatus(slug))) {
       errors.push(`${token.name} cannot precede the ${token.component} API approval gate`);
     }
+    // A `u`-mode regex rejects `\-` as an invalid escape, so the slug is escaped with the standard
+    // metacharacter set rather than by hand. Before this, any slug containing a hyphen — the first
+    // being `svg-icon` — threw instead of validating.
     if (
-      !new RegExp(`^${slug.replaceAll('-', '\\-')}\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$`, 'u').test(
+      !new RegExp(`^${escapeRegExp(slug)}\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$`, 'u').test(
         token.name ?? '',
       )
     ) {
