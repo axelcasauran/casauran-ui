@@ -19,7 +19,11 @@
     "registry-integration",
     "application-accessibility",
     "ssr-rsc",
-    "deterministic-visual-coverage"
+    "deterministic-visual-coverage",
+    "capability-topic-model",
+    "generated-topic-routes",
+    "interactive-examples",
+    "verified-example-source"
   ],
   "boundaries": {
     "owned": [
@@ -27,7 +31,8 @@
       "documentation-only presentation primitives and component-page composition",
       "registry-derived navigation and search metadata",
       "local post-hydration documentation presentation controls",
-      "production documentation host browser and visual evidence"
+      "production documentation host browser and visual evidence",
+      "declared topic model, generated component topic routes, and interactive example islands"
     ],
     "excluded": [
       "public React components hooks packages or supported consumer APIs",
@@ -37,5 +42,14 @@
       "apps playground engineering sandbox ownership",
       "SVGIcon or any stage 1.03 implementation"
     ]
-  }
+  },
+  "pendingCoverage": [
+    {
+      "component": "Icon",
+      "slug": "icon",
+      "stage": "1.02",
+      "reason": "Icon was documented on 2026-08-14, before ADR-023 bound every declared feature to a rendered preview; its route demonstrates a subset of its seven sizes, eight tones and four flip modes.",
+      "requiredBy": "a governed 1.02 capability revalidation that declares featureCoverage and previews every enumerated value; it may not be cleared by adding a declaration without adding the previews"
+    }
+  ]
 }

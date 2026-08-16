@@ -142,6 +142,13 @@
     "status": "complete"
   },
   {
+    "id": "F0.19",
+    "phase": 0,
+    "type": "foundation",
+    "title": "Documentation Interaction Foundation",
+    "status": "complete"
+  },
+  {
     "id": "1.03",
     "phase": 1,
     "type": "public-component",

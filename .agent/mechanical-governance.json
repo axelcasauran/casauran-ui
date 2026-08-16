@@ -34,6 +34,7 @@
       "scripts/drag-drop-foundation.mjs",
       "scripts/reference-baseline.mjs",
       "scripts/documentation-experience.mjs",
+      "scripts/documentation-coverage.mjs",
       "scripts/foundation-specifications.mjs",
       "scripts/visual-baselines.mjs",
       "scripts/capability-completeness.mjs"

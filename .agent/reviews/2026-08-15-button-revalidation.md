@@ -168,6 +168,50 @@ expanded when it does not — and reproduces the committed file byte for byte.
 generated file is committed and `prettier --check .` covers it, so any future drift between the two
 fails `pnpm format` instead of silently rewriting a tracked file.
 
+## B-12 — the documentation route still previewed no variants · FIXED
+
+Found by opening the running documentation after B-7 was closed: the page had sixteen sections and
+still showed no `outline`, `ghost` or `link` button. Rewriting the page fixed the sections; nothing
+bound the component's declared feature list to what the page actually renders, so "documented" and
+"demonstrated" stayed different things.
+
+`ADR-023` binds them. `registry/components/<slug>.json` gains `featureCoverage`, giving every
+declared feature exactly one satisfaction mode — `preview`, `section`, or `fixture` — and an
+enumerated feature must preview **every** value as an explicit prop assignment, so naming a value in
+prose or in the API table cannot satisfy the rule.
+
+**Guard.** `pnpm validate:documentation-experience` was extended rather than a new validator added,
+with thirteen rejection tests in `scripts/documentation-coverage.test.mjs`, plus a browser case that
+reads the registry and asserts each declared value renders and is visible. Applied to Button it
+immediately failed on three `radius` values — `sm`, `md`, `lg` — that had never been previewed on
+the route. They are now documented in their own example.
+
+`1.02 Icon` was documented before this rule and is recorded as the single `pendingCoverage` entry in
+`registry/documentation/foundation.json`, naming its owning stage and stating that adding a
+declaration without adding the previews does not clear it.
+
+## B-13 — documentation experience gaps that no component stage may fix · SPECIFIED
+
+The same review surfaced two structural gaps that ADR-023 cannot close: component documentation is
+one long page rather than a page per capability, and examples are static, with source strings typed
+by hand next to the JSX they claim to describe. Both are `F0.18` contract clauses — the
+`/components/<slug>` route convention and the server-only default — and both affect all 127
+component routes.
+
+`ADR-024` accepts `F0.19 Documentation Interaction Foundation` at the ledger boundary after `F0.18`,
+specified in `specs/foundation/documentation-interaction.md`: a declared topic model with generated
+routes and nested navigation, migration of the existing routes with deep-link continuity, an
+interactive example island per example, one source of truth for example code, and a recorded
+hydration cost. Global theme and density control stays with the shell; per-example switchers are
+explicitly excluded.
+
+Nothing of `F0.19` is implemented here. Inserting it required generalising the `F0.18` boundary
+assertion from "immediately between `1.02` and `1.03`" to "after `1.02`, with no public component
+stage before `1.03`" — otherwise no governed stage could ever be inserted after `F0.18`, which would
+make the ledger boundary un-extendable by accident rather than by decision. `1.03` moves one place
+later and stays `not-started`, so every component from `1.03` onward lands on the finished
+documentation model instead of being migrated afterwards.
+
 ## Observations recorded, not repaired
 
 - **Neutral `solid` and `soft` are nearly indistinguishable.** Both resolve to the same control
@@ -196,7 +240,9 @@ fails `pnpm format` instead of silently rewriting a tracked file.
 | B-9     | fixed            |
 | B-10    | fixed            |
 | B-11    | fixed, guarded   |
+| B-12    | fixed, guarded   |
+| B-13    | specified        |
 
-Validators: 37 → 38. Node contract tests: 129 → 144. Vitest: 117 → 122. Browser evidence: Chromium
+Validators: 37 → 38. Node contract tests: 129 → 157. Vitest: 117 → 122. Accepted decisions: 22 → 25. Stages: 172 → 173. Browser evidence: Chromium
 only in this environment, 69 passed with 4 pre-existing missing-baseline failures; Firefox and
 WebKit unrun and unrunnable here.

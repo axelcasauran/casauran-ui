@@ -4,8 +4,14 @@
   "ownerRoles": ["maintainer", "evidence-reviewer"],
   "specificationRoot": "specs/foundation",
   "statusVocabulary": [
-    { "id": "approved", "stageStatuses": ["not-started", "in-progress"] },
-    { "id": "implemented", "stageStatuses": ["complete"] }
+    {
+      "id": "approved",
+      "stageStatuses": ["not-started", "in-progress"]
+    },
+    {
+      "id": "implemented",
+      "stageStatuses": ["complete"]
+    }
   ],
   "stages": [
     {
@@ -32,7 +38,11 @@
       "specification": null,
       "exemptReason": "build/test substrate stage owned by .agent/build-test-infrastructure.json"
     },
-    { "stage": "F0.05", "title": "Tokens", "specification": "specs/foundation/tokens.md" },
+    {
+      "stage": "F0.05",
+      "title": "Tokens",
+      "specification": "specs/foundation/tokens.md"
+    },
     {
       "stage": "F0.06",
       "title": "CSS and Theme Runtime",
@@ -73,7 +83,11 @@
       "title": "Internationalization",
       "specification": "specs/foundation/internationalization.md"
     },
-    { "stage": "F0.14", "title": "Date Math", "specification": "specs/foundation/date-math.md" },
+    {
+      "stage": "F0.14",
+      "title": "Date Math",
+      "specification": "specs/foundation/date-math.md"
+    },
     {
       "stage": "F0.15",
       "title": "Virtualization",
@@ -93,6 +107,11 @@
       "stage": "F0.18",
       "title": "Documentation Experience Foundation",
       "specification": "specs/foundation/documentation-experience.md"
+    },
+    {
+      "stage": "F0.19",
+      "title": "Documentation Interaction Foundation",
+      "specification": "specs/foundation/documentation-interaction.md"
     }
   ]
 }

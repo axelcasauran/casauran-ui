@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://casauran.dev/schemas/documentation-topics.schema.json",
+  "title": "Casauran documentation topic model",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "owner", "decision", "topics"],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "owner": {
+      "const": "apps/docs"
+    },
+    "decision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "topics": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "title", "required", "summary"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

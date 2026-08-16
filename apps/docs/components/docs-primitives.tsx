@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react';
 
-import type { TocItem } from '../lib/content';
+import type { TocItem } from '../lib/topics';
+import { readExampleSource } from '../lib/example-source';
+import { ExampleFrame } from './example-frame';
 
 export function DocsPage({
   children,
@@ -30,7 +32,7 @@ export function DocsPage({
         <ol>
           {toc.map((item) => (
             <li key={item.id}>
-              <a href={`#${item.id}`}>{item.title}</a>
+              <a href={item.href ?? `#${item.id}`}>{item.title}</a>
             </li>
           ))}
         </ol>
@@ -77,29 +79,28 @@ export function Callout({
   );
 }
 
+/**
+ * Renders one example: the live preview and the code that produces it.
+ *
+ * There is deliberately no `source` prop. The source is read from the example's own module by
+ * `readExampleSource`, so displayed code and rendered code cannot drift — F0.19 prohibits
+ * hand-written source strings, and this signature makes them impossible rather than discouraged.
+ */
 export function Example({
   children,
-  source,
+  example,
+  slug,
   title,
 }: {
   readonly children: ReactNode;
-  readonly source: string;
+  readonly example: string;
+  readonly slug: string;
   readonly title: string;
 }) {
-  const previewId = `example-${title.toLowerCase().replaceAll(/[^a-z0-9]+/g, '-')}`;
   return (
-    <figure className="docs-example">
-      <figcaption id={previewId}>{title}</figcaption>
-      <div aria-labelledby={previewId} className="docs-example-preview" role="group">
-        {children}
-      </div>
-      <details className="docs-source">
-        <summary>View source</summary>
-        <pre tabIndex={0}>
-          <code>{source}</code>
-        </pre>
-      </details>
-    </figure>
+    <ExampleFrame source={readExampleSource(slug, example)} title={title}>
+      {children}
+    </ExampleFrame>
   );
 }
 

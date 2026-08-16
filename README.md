@@ -120,6 +120,13 @@ Foundation specification status is bound to stage status with `pnpm validate:fou
 contract-tested through `pnpm test:contracts`, and declared in
 `.agent/foundation-specifications.json`.
 
+Documentation feature coverage is bound to each component's declared features by
+`pnpm validate:documentation-experience` under ADR-023: every feature is demonstrated on its route,
+an enumerated feature previews every value, and a browser case asserts those values really render.
+Components documented before the rule are named in `registry/documentation/foundation.json`
+`pendingCoverage`. Per-capability routes and an interactive example harness are stage `F0.19`
+(ADR-024), specified in `specs/foundation/documentation-interaction.md` and not yet built.
+
 Component capability audits are bound to their parity documents with
 `pnpm validate:capability-completeness`, contract-tested through `pnpm test:contracts`, and declared
 in `.agent/capability-completeness.json` under ADR-022. A component at `parity-verified` or

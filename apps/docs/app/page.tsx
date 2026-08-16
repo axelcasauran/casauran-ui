@@ -12,7 +12,7 @@ const toc = [
 export default function Page() {
   return (
     <DocsPage
-      eyebrow="Documentation foundation · F0.18"
+      eyebrow="Documentation foundation · F0.19"
       summary="A governed, accessible home for building serious interfaces with Casauran UI—clear contracts, executable examples, and enterprise integration guidance."
       title="Build with clarity."
       toc={toc}
@@ -48,7 +48,8 @@ export default function Page() {
         </div>
         <Callout title="Stage boundary" tone="success">
           <p>
-            F0.18 establishes documentation infrastructure only. It does not begin SVGIcon or
+            F0.18 established the documentation shell and F0.19 added generated capability topics
+            and interactive examples. Both are infrastructure only; neither begins SVGIcon or
             another public component.
           </p>
         </Callout>
@@ -69,9 +70,10 @@ export default function Page() {
 
       <DocsSection id="documentation-contract" title="One documentation contract">
         <p>
-          Component pages use stable routes and anchors, a page-level contents model, executable
-          examples with escaped source, typed API tables, and reusable accessibility and keyboard
-          structures. Navigation and future search indexing come from the governed stage registry.
+          Each component publishes a declared set of capability topics, and its routes, navigation,
+          contents model and search metadata are generated from that declaration rather than
+          hand-authored. Examples are interactive where interaction is the point, and the source
+          shown is read from the module that renders it, so code and preview cannot drift.
         </p>
         <Callout title="Search-ready metadata">
           <p>

@@ -25,6 +25,10 @@ const base = {
     'application-accessibility',
     'ssr-rsc',
     'deterministic-visual-coverage',
+    'capability-topic-model',
+    'generated-topic-routes',
+    'interactive-examples',
+    'verified-example-source',
   ],
   boundaries: {
     owned: [
@@ -33,6 +37,7 @@ const base = {
       'registry-derived navigation and search metadata',
       'local post-hydration documentation presentation controls',
       'production documentation host browser and visual evidence',
+      'declared topic model, generated component topic routes, and interactive example islands',
     ],
     excluded: [
       'public React components hooks packages or supported consumer APIs',

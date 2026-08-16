@@ -1,95 +1,25 @@
-import { Button, Icon } from '@casauran/react';
-import type { Metadata } from 'next';
+import { Button } from '@casauran/react';
 
 import {
   AccessibilityChecklist,
   ApiReference,
   Callout,
-  DocsPage,
-  DocsSection,
   Example,
   KeyboardTable,
-} from '../../../components/docs-primitives';
-import { getDocument } from '../../../lib/content';
+} from '../../components/docs-primitives';
+import type { ComponentTopics } from '../../lib/topics';
+import { ActionHierarchyExample } from './examples/action-hierarchy';
+import { AppearancesExample } from './examples/appearances';
+import { CancellableActivationExample } from './examples/cancellable-activation';
+import { ControlledToggleExample } from './examples/controlled-toggle';
+import { FormActionsExample } from './examples/form-actions';
+import { IconCompositionExample } from './examples/icon-composition';
+import { RadiiExample } from './examples/radii';
+import { SizesExample } from './examples/sizes';
+import { StatesExample } from './examples/states';
+import { TonesExample } from './examples/tones';
 
-export const metadata: Metadata = { title: 'Button' };
-const document = getDocument('1.01');
-
-const basicSource = `import { Button } from '@casauran/react';
-
-export function Actions() {
-  return (
-    <>
-      <Button appearance="solid" tone="accent">Save changes</Button>
-      <Button appearance="outline">Cancel</Button>
-    </>
-  );
-}`;
-
-const appearanceSource = `<Button appearance="solid" tone="accent">Solid</Button>
-<Button appearance="soft" tone="accent">Soft</Button>
-<Button appearance="outline" tone="accent">Outline</Button>
-<Button appearance="ghost" tone="accent">Ghost</Button>
-<Button appearance="link" tone="accent">Link</Button>`;
-
-const toneSource = `<Button appearance="solid" tone="neutral">Neutral</Button>
-<Button appearance="solid" tone="accent">Accent</Button>
-<Button appearance="solid" tone="positive">Positive</Button>
-<Button appearance="solid" tone="caution">Caution</Button>
-<Button appearance="solid" tone="critical">Critical</Button>
-<Button appearance="solid" tone="inverse">Inverse</Button>`;
-
-const sizeSource = `<Button size="xs">Extra small</Button>
-<Button size="sm">Small</Button>
-<Button size="md">Medium</Button>
-<Button size="lg">Large</Button>
-
-<Button radius="none">Square</Button>
-<Button radius="full">Pill</Button>`;
-
-const stateSource = `<Button disabled>Unavailable</Button>
-<Button defaultPressed toggleable>Pinned</Button>
-<Button toggleable>Not pinned</Button>`;
-
-const contentSource = `import { Button, Icon } from '@casauran/react';
-
-<Button startContent={<Icon name="add" />} tone="accent">Add record</Button>
-<Button endContent={<Icon name="arrow-right" />} appearance="outline">Continue</Button>
-<Button aria-label="Search records" iconOnly>
-  <Icon name="search" />
-</Button>
-
-// Any decorative node works, including an image you own.
-<Button startContent={<img alt="" height={16} src="/brand.svg" width={16} />}>
-  Export
-</Button>`;
-
-const eventsSource = `<Button
-  onClick={(event) => {
-    if (!canPin) event.preventDefault(); // cancels the pressed-state request
-    track('pin-clicked');
-  }}
-  onPressedChange={({ pressed, nativeEvent }) => setPinned(pressed)}
-  toggleable
->
-  Pin record
-</Button>`;
-
-const formSource = `<form action={saveRecord}>
-  <Button name="intent" type="submit" value="save" tone="accent">Save</Button>
-  <Button type="reset" appearance="ghost">Reset</Button>
-  <Button onClick={closeDrawer}>Cancel</Button>
-</form>`;
-
-const controlledSource = `const [pinned, setPinned] = useState(false);
-
-<Button
-  onPressedChange={(event) => setPinned(event.pressed)}
-  pressed={pinned}
-  toggleable
->
-  {pinned ? 'Pinned' : 'Pin'}
-</Button>`;
+const slug = 'button';
 
 const apiRows = [
   {
@@ -224,79 +154,42 @@ const styleHookRows = [
   },
 ] as const;
 
-export default function ButtonDocumentationPage() {
-  return (
-    <DocsPage
-      eyebrow="Component · 1.01 · parity verified · capability revalidated"
-      summary={document.summary}
-      title="Button"
-      toc={document.headings}
-    >
-      <DocsSection id="overview" title="Overview">
+export const buttonTopics: ComponentTopics = {
+  overview: {
+    summary: 'The canonical native action: semantic, form-safe, and composable.',
+    content: (
+      <>
         <p>
           Button is Casauran UI&apos;s canonical native action. It renders a semantic{' '}
           <code>button</code>, defaults to <code>type=&quot;button&quot;</code>, and keeps
           appearance, semantic tone, size, radius, and pressed state orthogonal.
         </p>
+        <Example example="action-hierarchy" slug={slug} title="Action hierarchy">
+          <ActionHierarchyExample />
+        </Example>
         <Callout title="Form safety">
           <p>
             Choose <code>type=&quot;submit&quot;</code> or <code>type=&quot;reset&quot;</code>{' '}
             explicitly when the action owns native form behavior.
           </p>
         </Callout>
-      </DocsSection>
+      </>
+    ),
+  },
 
-      <DocsSection id="examples" title="Examples">
-        <p>Examples render the supported package API and expose their source as escaped text.</p>
-        <Example source={basicSource} title="Action hierarchy">
-          <Button appearance="solid" tone="accent">
-            Save changes
-          </Button>
-          <Button appearance="outline">Cancel</Button>
-        </Example>
-      </DocsSection>
-
-      <DocsSection id="appearance" title="Appearance and tone">
+  appearance: {
+    summary: 'Five visual treatments and six semantic tones, chosen independently.',
+    content: (
+      <>
         <p>
           <code>appearance</code> selects the visual treatment and <code>tone</code> selects the
           semantic intent. The two are independent, so any tone works with any appearance.
         </p>
-        <Example source={appearanceSource} title="Appearances">
-          <Button appearance="solid" tone="accent">
-            Solid
-          </Button>
-          <Button appearance="soft" tone="accent">
-            Soft
-          </Button>
-          <Button appearance="outline" tone="accent">
-            Outline
-          </Button>
-          <Button appearance="ghost" tone="accent">
-            Ghost
-          </Button>
-          <Button appearance="link" tone="accent">
-            Link
-          </Button>
+        <Example example="appearances" slug={slug} title="Appearances">
+          <AppearancesExample />
         </Example>
-        <Example source={toneSource} title="Semantic tones">
-          <Button appearance="solid" tone="neutral">
-            Neutral
-          </Button>
-          <Button appearance="solid" tone="accent">
-            Accent
-          </Button>
-          <Button appearance="solid" tone="positive">
-            Positive
-          </Button>
-          <Button appearance="solid" tone="caution">
-            Caution
-          </Button>
-          <Button appearance="solid" tone="critical">
-            Critical
-          </Button>
-          <Button appearance="solid" tone="inverse">
-            Inverse
-          </Button>
+        <Example example="tones" slug={slug} title="Semantic tones">
+          <TonesExample />
         </Example>
         <Callout title="Choosing a tone">
           <p>
@@ -313,20 +206,23 @@ export default function ButtonDocumentationPage() {
           performs a command. Real navigation belongs to an anchor element; Button never renders
           one.
         </p>
-      </DocsSection>
+      </>
+    ),
+  },
 
-      <DocsSection id="sizes" title="Sizes and shapes">
+  sizes: {
+    summary: 'Four control sizes and five corner treatments, square when icon-only.',
+    content: (
+      <>
         <p>
           Four control sizes and five corner treatments cover dense desktop toolbars through primary
           page actions. Icon-only buttons stay square at every size.
         </p>
-        <Example source={sizeSource} title="Size and radius scale">
-          <Button size="xs">Extra small</Button>
-          <Button size="sm">Small</Button>
-          <Button size="md">Medium</Button>
-          <Button size="lg">Large</Button>
-          <Button radius="none">Square</Button>
-          <Button radius="full">Pill</Button>
+        <Example example="sizes" slug={slug} title="Control sizes">
+          <SizesExample />
+        </Example>
+        <Example example="radii" slug={slug} title="Corner radii">
+          <RadiiExample />
         </Example>
         <Callout title="Target size" tone="caution">
           <p>
@@ -336,20 +232,21 @@ export default function ButtonDocumentationPage() {
             touch-first screens.
           </p>
         </Callout>
-      </DocsSection>
+      </>
+    ),
+  },
 
-      <DocsSection id="states" title="States">
+  states: {
+    summary: 'Native interaction states plus opt-in pressed semantics.',
+    content: (
+      <>
         <p>
           Enabled, hover, active, focus-visible, and disabled come from the native element. Pressed
           state is opt-in through <code>toggleable</code> and is exposed as{' '}
           <code>aria-pressed</code>.
         </p>
-        <Example source={stateSource} title="Disabled and pressed">
-          <Button disabled>Unavailable</Button>
-          <Button defaultPressed toggleable>
-            Pinned
-          </Button>
-          <Button toggleable>Not pinned</Button>
+        <Example example="states" slug={slug} title="Disabled and pressed">
+          <StatesExample />
         </Example>
         <p>
           A disabled button keeps its rendered pressed state visible but cannot change it, and
@@ -357,25 +254,22 @@ export default function ButtonDocumentationPage() {
           read-only state; a command that must stay focusable and explain itself should stay enabled
           and report the reason on activation.
         </p>
-      </DocsSection>
+      </>
+    ),
+  },
 
-      <DocsSection id="content" title="Icons, images, and content">
+  content: {
+    summary: 'Composed artwork in decorative slots — no icon names, URLs, or raw SVG.',
+    content: (
+      <>
         <p>
           <code>startContent</code> and <code>endContent</code> take any decorative node — most
           often the canonical <code>Icon</code> component. Both slots are hidden from the accessible
           name and must not contain interactive descendants. Button parses no icon name string,
           image URL, or raw SVG of its own; you compose the artwork you already trust.
         </p>
-        <Example source={contentSource} title="Icon composition">
-          <Button startContent={<Icon name="add" />} tone="accent">
-            Add record
-          </Button>
-          <Button appearance="outline" endContent={<Icon name="arrow-right" />}>
-            Continue
-          </Button>
-          <Button aria-label="Search records" iconOnly>
-            <Icon name="search" />
-          </Button>
+        <Example example="icon-composition" slug={slug} title="Icon composition">
+          <IconCompositionExample />
         </Example>
         <Callout title="Icon-only actions" tone="caution">
           <p>
@@ -384,27 +278,36 @@ export default function ButtonDocumentationPage() {
             rather than labelling the artwork itself.
           </p>
         </Callout>
-      </DocsSection>
+        <p>
+          An image you own works the same way: pass an <code>img</code> element with an empty{' '}
+          <code>alt</code> into a slot, and let the button&apos;s own accessible name describe the
+          action.
+        </p>
+      </>
+    ),
+  },
 
-      <DocsSection id="events" title="Events">
+  events: {
+    summary: 'Native events, with cancellation that stops the pressed-state request.',
+    content: (
+      <>
         <p>
           Button forwards every native button event. <code>onClick</code> runs before the internal
           pressed-state transition, so calling <code>preventDefault()</code> cancels the toggle
           request while leaving the native event intact. <code>onPressedChange</code> reports the
           requested state with the originating native event.
         </p>
-        <Example source={eventsSource} title="Cancellable activation">
-          <Button toggleable>Pin record</Button>
+        <Example example="cancellable-activation" slug={slug} title="Cancellable activation">
+          <CancellableActivationExample />
         </Example>
-        <p>
-          Documentation examples render on the server, so the handlers above appear in the source
-          rather than being wired into the preview. The interactive equivalent — cancellation,
-          controlled ownership, form submission, and focus through a ref — runs in the production
-          browser suite for this component.
-        </p>
-      </DocsSection>
+      </>
+    ),
+  },
 
-      <DocsSection id="forms" title="Forms">
+  forms: {
+    summary: 'Submit, reset, and submitter attributes pass through unchanged.',
+    content: (
+      <>
         <p>
           Button participates in native form behavior. It defaults to{' '}
           <code>type=&quot;button&quot;</code> so an action inside a form never submits by accident;
@@ -413,28 +316,25 @@ export default function ButtonDocumentationPage() {
           <code>formAction</code>, and <code>formMethod</code> attributes pass through unchanged, so
           submitter-specific values and Next.js server actions work as they do with a plain button.
         </p>
-        <Example source={formSource} title="Submit, reset, and cancel">
-          <Button name="intent" tone="accent" type="submit" value="save">
-            Save
-          </Button>
-          <Button appearance="ghost" type="reset">
-            Reset
-          </Button>
-          <Button>Cancel</Button>
+        <Example example="form-actions" slug={slug} title="Submit, reset, and cancel">
+          <FormActionsExample />
         </Example>
-      </DocsSection>
+      </>
+    ),
+  },
 
-      <DocsSection id="controlled-state" title="Controlled and uncontrolled state">
+  'controlled-state': {
+    summary: 'Pressed state follows the project-wide ownership convention.',
+    content: (
+      <>
         <p>
           Pressed state follows the project-wide convention. <code>defaultPressed</code> keeps
           ownership inside Button; supplying <code>pressed</code> moves ownership to the caller, and
           Button then renders exactly what it is given. Only <code>undefined</code> selects
           uncontrolled ownership, so <code>pressed={'{false}'}</code> is a controlled value.
         </p>
-        <Example source={controlledSource} title="Controlled toggle">
-          <Button pressed toggleable>
-            Pinned
-          </Button>
+        <Example example="controlled-toggle" slug={slug} title="Controlled toggle">
+          <ControlledToggleExample />
         </Example>
         <Callout title="State ownership" tone="caution">
           <p>
@@ -443,9 +343,14 @@ export default function ButtonDocumentationPage() {
             button does not move until its owner supplies the next value.
           </p>
         </Callout>
-      </DocsSection>
+      </>
+    ),
+  },
 
-      <DocsSection id="api" title="API reference">
+  api: {
+    summary: 'Props, defaults, ref behaviour, and the supported styling hooks.',
+    content: (
+      <>
         <p>
           Button also accepts compatible native button attributes, including form and ARIA
           attributes. <code>aria-pressed</code>, <code>children</code>, and the legacy HTML{' '}
@@ -457,9 +362,14 @@ export default function ButtonDocumentationPage() {
           documented start, content, and end slots is not a compatibility promise.
         </p>
         <ApiReference caption="Styling hooks" rows={styleHookRows} />
-      </DocsSection>
+      </>
+    ),
+  },
 
-      <DocsSection id="accessibility" title="Accessibility">
+  accessibility: {
+    summary: 'Native button semantics, standard keys, and consumer responsibilities.',
+    content: (
+      <>
         <AccessibilityChecklist
           items={[
             'Native button semantics provide role, focus, and activation behavior.',
@@ -484,9 +394,14 @@ export default function ButtonDocumentationPage() {
           the consumer you own the accessible name, the disabled decision, and any live announcement
           that follows the action.
         </p>
-      </DocsSection>
+      </>
+    ),
+  },
 
-      <DocsSection id="theming" title="Theming, density, RTL, and globalization">
+  theming: {
+    summary: 'Token seams, density, logical layout, and localization posture.',
+    content: (
+      <>
         <p>
           Import <code>@casauran/react/button.css</code> once from an application layout. Button
           consumes semantic and component custom properties for light/dark presentation,
@@ -500,58 +415,76 @@ export default function ButtonDocumentationPage() {
           <code>.csn-button</code> in the <code>overrides</code> cascade layer, instead of forking
           the stylesheet.
         </p>
-      </DocsSection>
+        <div className="docs-example-preview">
+          <Button appearance="solid" tone="accent">
+            Themed action
+          </Button>
+          <Button appearance="outline">Themed secondary</Button>
+        </div>
+      </>
+    ),
+  },
 
-      <DocsSection id="nextjs" title="Next.js and rendering">
+  nextjs: {
+    summary: 'Server-renderable, with a narrow local client boundary.',
+    content: (
+      <p>
+        Import Button from <code>@casauran/react</code> in Server or Client Components. Its narrow
+        package client boundary supports events and uncontrolled pressed state while producing
+        stable server markup. Browser listeners and globals are not read at package-root module
+        evaluation, and the component adds no portal, observer, or timer.
+      </p>
+    ),
+  },
+
+  performance: {
+    summary: 'A recorded regression budget, not a universal speed claim.',
+    content: (
+      <p>
+        Button adds no runtime dependency, observer, listener, portal, or timer. Its recorded
+        regression scenario renders 1,000 toggleable buttons on the server and projects 1,000
+        pressed updates; the governed ceiling is 1,000 ms on the pinned Node runtime. That budget is
+        a regression guard for a specific scenario, not a universal speed claim.
+      </p>
+    ),
+  },
+
+  security: {
+    summary: 'No raw HTML, URL, icon-name, or SVG input crosses the boundary.',
+    content: (
+      <Callout title="Trust boundary" tone="security">
         <p>
-          Import Button from <code>@casauran/react</code> in Server or Client Components. Its narrow
-          package client boundary supports events and uncontrolled pressed state while producing
-          stable server markup. Browser listeners and globals are not read at package-root module
-          evaluation, and the component adds no portal, observer, or timer.
+          Button renders normal escaped React content and parses no raw HTML, image URL, icon name
+          string, or SVG source. Content and event callbacks you pass are treated as trusted
+          application code, so validate anything that originates from user input before it becomes a
+          label. Decorative slots prohibit interactive descendants to keep activation and focus
+          unambiguous.
         </p>
-      </DocsSection>
+      </Callout>
+    ),
+  },
 
-      <DocsSection id="performance" title="Performance">
-        <p>
-          Button adds no runtime dependency, observer, listener, portal, or timer. Its recorded
-          regression scenario renders 1,000 toggleable buttons on the server and projects 1,000
-          pressed updates; the governed ceiling is 1,000 ms on the pinned Node runtime. That budget
-          is a regression guard for a specific scenario, not a universal speed claim.
-        </p>
-      </DocsSection>
-
-      <DocsSection id="security" title="Security">
-        <Callout title="Trust boundary" tone="security">
-          <p>
-            Button renders normal escaped React content and parses no raw HTML, image URL, icon name
-            string, or SVG source. Content and event callbacks you pass are treated as trusted
-            application code, so validate anything that originates from user input before it becomes
-            a label. Decorative slots prohibit interactive descendants to keep activation and focus
-            unambiguous.
-          </p>
-        </Callout>
-      </DocsSection>
-
-      <DocsSection id="limitations" title="Known limitations">
-        <ul className="docs-checklist">
-          <li>
-            Button renders a native <code>button</code> only; it is not polymorphic and never
-            renders an anchor.
-          </li>
-          <li>
-            Grouped selection, split and dropdown actions, floating placement, toolbars, and
-            asynchronous loading orchestration are separate components in later stages.
-          </li>
-          <li>
-            There is no built-in busy or loading state; disable the action and render your own
-            status message while work is in flight.
-          </li>
-          <li>
-            Decorative slots are hidden from assistive technology by design, so meaningful artwork
-            must be described by the button&apos;s own accessible name.
-          </li>
-        </ul>
-      </DocsSection>
-    </DocsPage>
-  );
-}
+  limitations: {
+    summary: 'What Button deliberately does not do.',
+    content: (
+      <ul className="docs-checklist">
+        <li>
+          Button renders a native <code>button</code> only; it is not polymorphic and never renders
+          an anchor.
+        </li>
+        <li>
+          Grouped selection, split and dropdown actions, floating placement, toolbars, and
+          asynchronous loading orchestration are separate components in later stages.
+        </li>
+        <li>
+          There is no built-in busy or loading state; disable the action and render your own status
+          message while work is in flight.
+        </li>
+        <li>
+          Decorative slots are hidden from assistive technology by design, so meaningful artwork
+          must be described by the button&apos;s own accessible name.
+        </li>
+      </ul>
+    ),
+  },
+};
