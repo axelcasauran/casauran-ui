@@ -1,5 +1,11 @@
 # Interaction Matrix
 
+SVGIcon `1.03` has no interaction contract, for the same reason Icon has none: it is a drawing, not
+a control. Pointer, keyboard, touch, focus, IME, clipboard, drag, and activation behavior belong to
+the component that composes it. Native handlers pass through so a caller can integrate the element,
+but the component never handles one, and `tabIndex` is rejected by the type because an element
+hidden from assistive technology must never be reachable by keyboard.
+
 Icon `1.02` has no interaction contract. Pointer, keyboard, touch, focus, IME, clipboard, drag,
 resize, scroll, and animation behavior are not applicable; native attributes are forwarded only for
 caller-owned noninteractive integration. Its flip transform is visual and does not alter direction

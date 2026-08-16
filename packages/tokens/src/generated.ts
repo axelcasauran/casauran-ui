@@ -1045,6 +1045,22 @@ export const componentTokens = [
     "reference": "text.primary",
     "cssVariable": "--csn-icon-color",
     "description": "Default Icon foreground color."
+  },
+  {
+    "component": "SVGIcon",
+    "name": "svg-icon.size",
+    "type": "font-size",
+    "reference": "typography.body-size",
+    "cssVariable": "--csn-svg-icon-size",
+    "description": "Default SVGIcon box size."
+  },
+  {
+    "component": "SVGIcon",
+    "name": "svg-icon.color",
+    "type": "color",
+    "reference": "text.primary",
+    "cssVariable": "--csn-svg-icon-color",
+    "description": "Default SVGIcon foreground color."
   }
 ] as const satisfies readonly ComponentTokenDefinition[];
 export const tokenCssVariables = {
@@ -1193,7 +1209,9 @@ export const tokenCssVariables = {
   "button.transition-duration": "--csn-button-transition-duration",
   "button.icon-size": "--csn-button-icon-size",
   "icon.size": "--csn-icon-size",
-  "icon.color": "--csn-icon-color"
+  "icon.color": "--csn-icon-color",
+  "svg-icon.size": "--csn-svg-icon-size",
+  "svg-icon.color": "--csn-svg-icon-color"
 } as const;
 export const semanticTokenReferences = {
   "surface.canvas": "color.neutral.0",

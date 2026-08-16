@@ -116,3 +116,18 @@ capability remains: every row above carries a disposition, the single deferral n
 and both `NOT_APPLICABLE` rows name the owning subsystem and why Button is not that owner. Link
 navigation, ButtonGroup, SVGIcon, dropdown/split/floating buttons, Toolbar, ripple decoration, agent
 command surfaces, and loading orchestration remain outside this component.
+
+## Integration revalidation — stage `1.03 SVGIcon`, 2026-08-16
+
+Capability 19, direct SVG icon definition, is resolved by `1.03` with no Button change, exactly as
+this audit predicted. An `SVGIcon` element composes into `startContent`, `endContent` and the
+icon-only geometry the same way an `Icon` element does, because Button's contract is a content slot
+rather than an artwork-shaped property.
+
+Revalidated evidence: a browser case asserts a leading-artwork Button, an `aria-label`led icon-only
+Button whose composed drawing stays `aria-hidden` and whose box stays square, and that artwork inside
+a solid accent Button resolves to the button's own foreground colour. The visual fixture renders the
+same three cases. Nothing above is rewritten; the original audit stands.
+
+Evidence: `specs/components/svg-icon.parity.md`, `tests/browser/svg-icon.spec.ts`,
+`apps/visual-tests/app/svg-icon/page.tsx`, and `.agent/stages/1.03-svg-icon.md`.

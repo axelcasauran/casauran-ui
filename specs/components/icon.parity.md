@@ -130,3 +130,24 @@ and every `NOT_APPLICABLE` row names the owning subsystem and why Icon is not th
 definitions, drawing variants, built-in glyph replacement, icon fonts, a glyph class vocabulary, an
 ambient icon provider, loading orchestration, and agent command surfaces remain outside this
 component.
+
+## Integration revalidation — stage `1.03 SVGIcon`, 2026-08-16
+
+The three obligations this audit deferred to `1.03` are resolved there. Nothing above is rewritten;
+this note records the outcome and where its evidence lives.
+
+- **Capability 16, drawing variants.** Resolved without an Icon change. Variants are a property of a
+  definition, and `1.03` introduced the definition surface, so `variants` lives on
+  `SVGIconDefinition` and `variant` on `SVGIcon`. The Casauran catalog deliberately does not gain
+  variants — every catalog glyph ships one drawing — so Icon needs no variant selection and keeps
+  its current API.
+- **Capability 17, caller-supplied custom SVG definitions.** Resolved by `SVGIcon`. The boundary was
+  revalidated in both directions: Icon still accepts only a catalog `IconName` and still refuses
+  caller artwork, and a catalog definition now renders unchanged through `SVGIcon` at the same
+  stroke weight Icon paints it, asserted by unit and browser cases.
+- **Capability 18, replacing a built-in glyph inside another component.** Resolved by the same
+  surface. Artwork remains a caller-supplied slot rather than an ambient registry read; what `1.03`
+  adds is the ability for the caller to supply a definition it owns to that slot.
+
+Evidence: `specs/components/svg-icon.parity.md`, `tests/unit/svg-icon.test.tsx`,
+`tests/browser/svg-icon.spec.ts`, and `.agent/stages/1.03-svg-icon.md`.

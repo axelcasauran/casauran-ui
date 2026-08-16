@@ -1,5 +1,16 @@
 # Accessibility Matrix
 
+SVGIcon `1.03` is decorative (`aria-hidden`) by default; a `label` carrying text promotes the span
+to `role="img"` with that trimmed name, and a blank or whitespace-only label keeps it decorative
+rather than publishing an image with an empty accessible name. The nested SVG is hidden and
+unfocusable in every mode. It owns no focus, keyboard, pointer, disabled, target-size, IME, or
+announcement behavior; actions compose SVGIcon within their own control, and it publishes no
+keyboard table rather than an empty one. It rejects `tabIndex`, `role`, `aria-hidden` and
+`aria-label`, which would contradict the semantics the component derives from `label`. Under forced
+colors the drawing paints a system foreground and layer opacity is flattened so duotone artwork keeps
+its full shape. Reflow at 320 CSS pixels is asserted. SVGIcon meets the WCAG 2.2 AA baseline fixed by
+ADR-009; manual review is recorded in `specs/components/svg-icon.parity.md`.
+
 Icon `1.02` is decorative (`aria-hidden`) by default; `label` deliberately promotes the span to a
 named `role=img`. Its nested SVG is always hidden and unfocusable. It owns no keyboard, focus,
 pointer, disabled, target-size, IME, or announcement behavior; actions compose Icon within their

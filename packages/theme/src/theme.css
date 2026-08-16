@@ -231,6 +231,8 @@
     --csn-button-icon-size: var(--csn-typography-body-size);
     --csn-icon-size: var(--csn-typography-body-size);
     --csn-icon-color: var(--csn-text-primary);
+    --csn-svg-icon-size: var(--csn-typography-body-size);
+    --csn-svg-icon-color: var(--csn-text-primary);
   }
 }
 

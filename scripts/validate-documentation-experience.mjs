@@ -1,4 +1,7 @@
-import { validateDocumentationExperience } from './documentation-experience.mjs';
+import {
+  validateComponentLifecycleBoundary,
+  validateDocumentationExperience,
+} from './documentation-experience.mjs';
 import {
   publishedTopics,
   validateFeatureCoverage,
@@ -86,14 +89,24 @@ if (
 ) {
   errors.push('documentation architecture requires accepted ADR-020');
 }
-if (json('registry/components/svg-icon.json').status !== 'unreviewed') {
-  errors.push('F0.18 must not advance SVGIcon lifecycle');
-}
+// F0.18 originally asserted this by naming SVGIcon and requiring it to stay `unreviewed`. That
+// held only until `1.03` ran and covered exactly one component; the generalised rule binds every
+// component's lifecycle to its own stage, so a foundation stage still cannot advance a component
+// queued behind it.
+errors.push(
+  ...validateComponentLifecycleBoundary(
+    stages,
+    files('registry/components')
+      .filter((path) => path.endsWith('.json'))
+      .map(json),
+  ),
+);
 
 const metadataSource = read('apps/docs/lib/content.ts');
 for (const marker of [
   "stageId: '1.01'",
   "stageId: '1.02'",
+  "stageId: '1.03'",
   '.agent/stages/index.json',
   'docsIndex',
 ]) {
@@ -102,6 +115,7 @@ for (const marker of [
 for (const document of [
   ['1.01', 'button'],
   ['1.02', 'icon'],
+  ['1.03', 'svg-icon'],
 ]) {
   if (!exists(`apps/docs/content/${document[1]}/index.tsx`)) {
     errors.push(`completed stage ${document[0]} is missing its documentation content module`);

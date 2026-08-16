@@ -1,5 +1,14 @@
 # Theme Matrix
 
+SVGIcon `1.03` passes light/dark and comfortable/compact scoped themes, inherited RTL, semantic
+tones, custom `--csn-svg-icon-color`/`--csn-svg-icon-size` overrides written in the `overrides`
+layer, forced-color foreground, and no-motion behavior. Every enumerated size and tone assigns its
+component token at the same specificity including the defaults, so an override behaves identically
+for a default and an explicit value. Forced colors additionally flattens per-layer opacity, because
+a receded duotone layer would otherwise disappear against a collapsed two-colour palette. Stroke
+weight is deliberately not a theme seam: it belongs to the caller-owned drawing and is declared per
+layer in the definition.
+
 Icon `1.02` passes light/dark and comfortable/compact scoped themes, inherited RTL, semantic tones,
 custom `--csn-icon-color`/`--csn-icon-size` overrides, forced-color foreground, and no-motion
 rendering. The visual matrix covers named definitions, every size, tone and flip value, an inverse

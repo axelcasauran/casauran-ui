@@ -7,16 +7,23 @@ Phase 0 certification: SUPERSEDED — the 2026-08-14 PASS (`pnpm validate`; 151 
 2 platform-limited forced-colors checks skipped) predates both the `F0.18` close and the 2026-08-15
 root-gate remediation, and was obtained on a worktree that already held build output. It does not
 satisfy the reproducibility contract in `BUILD_TEST_INFRASTRUCTURE.md`.
-Public component implementation: 2 OF 127 COMPLETE
+Public component implementation: 3 OF 127 COMPLETE
 Active stage: NONE
-Last closed stage: `F0.19 Documentation Interaction Foundation` COMPLETE (ADR-024, governed topic
+Last closed stage: `1.03 SVGIcon` COMPLETE (caller-owned SVG artwork as structured data with no
+markup sink, three governed drawing variants with an observable fallback, per-layer paint/weight/
+fill-rule/opacity, fail-closed definition validation, catalog interoperability, a twelve-topic
+documentation route, 18 unit and 16 Chromium browser checks, and `pnpm benchmark:svg-icon` at
+146.90 ms against a 500 ms ceiling; Firefox and WebKit were unavailable in that environment so
+`pnpm validate` was not run to completion; 2026-08-16). Previous:
+`F0.19 Documentation Interaction Foundation` COMPLETE (ADR-024, governed topic
 model and schema, 23 generated component topic routes with deep-link continuity, nested topic
 navigation, interactive example islands whose published source is read from the module that renders
 them, migrated Button and Icon content, 5/5 Chromium docs behavioural checks with both visual
 baselines regenerated and reviewed, and a recorded island bundle budget; Firefox and WebKit were
 unavailable in that environment so `pnpm validate` was not run to completion; 2026-08-15). Previous:
 `F0.18 Documentation Experience Foundation` COMPLETE (ADR-020; 2026-08-14).
-Next stage: `1.03` SVGIcon (not-started) — blocked until Phase 0 re-certification records a result.
+Next stage: `1.04` Typography (not-started) — blocked until Phase 0 re-certification records a
+result.
 
 ## Open remediation: 2026-08-15 Phase 0 foundation audit
 
@@ -62,12 +69,13 @@ evidence before the browser gate can be green.
 added on request as the 37th governed validator, so `pnpm verify:scaffold`, `pnpm validate:static`
 and `pnpm validate` now fail fast with the exact missing set instead of surfacing it only after a
 full browser run. The failure is real and previously hidden, not a regression introduced by the
-validator. As of the 2026-08-16 Icon revalidation the missing set is 11 rather than 12: the Icon
-Chromium baseline is committed and reviewed, and the Button and docs-shell Chromium baselines were
-regenerated and reviewed because that revalidation changed what they render. Every remaining miss
-needs either a Firefox or WebKit engine that no available environment can install, or belongs to the
-`theme-runtime` Phase 0 fixture, which no component stage should accept evidence for. It clears in
-one step:
+validator. As of the 2026-08-16 `1.03 SVGIcon` close the missing set is 13: that stage added a
+fixture of its own, whose reviewed Chromium baseline is committed while its Firefox and WebKit
+baselines cannot be produced here, and it regenerated and reviewed the two docs-shell Chromium
+baselines its navigation change altered. Every remaining miss needs either a Firefox or WebKit
+engine that no available environment can install — the Playwright CDN hosts are refused by the
+network policy with HTTP 403 — or belongs to the `theme-runtime` Phase 0 fixture, which no component
+stage should accept evidence for. It clears in one step:
 
 ```bash
 # on ubuntu-latest, or a container matching it

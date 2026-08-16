@@ -1,5 +1,20 @@
 # State Matrix
 
+## SVGIcon (`1.03`)
+
+SVGIcon covers the default drawing, each of three variant drawings, the variant fallback,
+decorative and labelled semantic mode, the blank-label guard, the unusable-definition state, seven
+sizes, seven tones, and four flip states. It owns no controlled/uncontrolled, disabled, loading,
+validation, selection, expanded, open, or interaction state, so `useControllableState` is not
+involved and there is no dual source of truth. Invalid states are unreachable through types wherever
+practical: the variant, size, tone and flip vocabularies are closed unions, `variants` keys are
+constrained to the governed names, and `role`, `aria-hidden`, `aria-label`, `tabIndex`, `children`
+and `color` are rejected because they would contradict semantics the component derives from `icon`,
+`tone` and `label`. The two states a type cannot reach — a definition that crossed a runtime boundary
+and a variant a definition does not ship — are resolved at render: the first fails closed with no
+artwork and no `data-icon-name`, the second falls back to the default drawing and reports `default`
+in `data-variant` so the fallback is observable rather than silent.
+
 ## Icon (`1.02`)
 
 Icon covers known/unknown definition, decorative/labelled semantic mode, seven sizes, seven tones,

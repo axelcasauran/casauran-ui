@@ -1,6 +1,7 @@
 import stageRegistry from '../../../.agent/stages/index.json';
 import { buttonTopics } from '../content/button';
 import { iconTopics } from '../content/icon';
+import { svgIconTopics } from '../content/svg-icon';
 import { type ComponentTopics, orderTopics, type TocItem } from './topics';
 
 export type { TocItem };
@@ -63,6 +64,26 @@ const componentSources: readonly ComponentSource[] = [
       'decorative',
     ],
     topics: iconTopics,
+  },
+  {
+    stageId: '1.03',
+    slug: 'svg-icon',
+    title: 'SVGIcon',
+    summary:
+      'Caller-owned SVG artwork as structured data, with drawing variants and no markup sink.',
+    keywords: [
+      'svg icon',
+      'custom icon',
+      'svg',
+      'definition',
+      'variant',
+      'duotone',
+      'outline',
+      'solid',
+      'path',
+      'artwork',
+    ],
+    topics: svgIconTopics,
   },
 ];
 

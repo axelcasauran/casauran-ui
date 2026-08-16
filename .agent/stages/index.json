@@ -154,7 +154,7 @@
     "type": "public-component",
     "title": "SVGIcon",
     "component": "SVGIcon",
-    "status": "not-started"
+    "status": "complete"
   },
   {
     "id": "1.04",

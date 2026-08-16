@@ -65,3 +65,15 @@ F0.18 provides no Markdown HTML bypass, raw HTML sink, remote fetch, executable 
 module path, URL protocol sink, storage bootstrap, analytics, or third-party search transport. The
 public metadata route serializes a bounded normalized index. Any future CMS/search/analytics or
 interactive source execution introduces a new reviewed trust boundary.
+
+Caller-supplied icon artwork is untrusted SVG. `1.03 SVGIcon` renders a structured definition —
+geometry strings plus a closed set of scalar paint values — as one `<path>` element per layer, and
+therefore has no markup sink to review: it never parses SVG or HTML, never injects raw markup, and
+its API cannot express a script, a `use` reference, an embedded image, foreign content, an event
+attribute, an external URL, or a data URI, whatever the definition's origin. `isSVGIconDefinition`
+narrows a definition that crossed a runtime boundary, and `resolveSVGIcon` applies the same rule so
+an unusable definition renders no artwork instead of partial output. The component has no network,
+storage, clipboard, file, or dynamic-code surface and adds no content-security-policy allowance;
+rendering caller artwork needs no `unsafe-inline` relaxation. Converting an `.svg` file into a
+definition is a build-time responsibility outside the component, and any future API that accepted
+markup would be a new reviewed trust boundary.

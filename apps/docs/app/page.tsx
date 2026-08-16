@@ -49,8 +49,8 @@ export default function Page() {
         <Callout title="Stage boundary" tone="success">
           <p>
             F0.18 established the documentation shell and F0.19 added generated capability topics
-            and interactive examples. Both are infrastructure only; neither begins SVGIcon or
-            another public component.
+            and interactive examples. Both are infrastructure only: every component route below is
+            published by the component&apos;s own stage, once that stage is complete.
           </p>
         </Callout>
       </DocsSection>
