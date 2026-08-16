@@ -77,7 +77,7 @@ Disposition counts: `IMPLEMENTED` 21, `IMPLEMENTED_DIFFERENTLY` 10,
 
 | Dimension              | Result         | Evidence and applicability                                                                                                                                         |
 | ---------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Functionality          | pass           | Spec, public implementation, unit and browser cases, eleven documentation topics, playground, and visual fixture agree                                             |
+| Functionality          | pass           | Spec, public implementation, unit and browser cases, twelve documentation topics, playground, and visual fixture agree                                             |
 | States                 | pass           | Default drawing, each variant, variant fallback, decorative, labelled, blank-label, and unusable-definition states are each rendered and asserted                  |
 | Typing/API consistency | pass           | Closed variant, size, tone and flip unions; reserved props rejected by the type; `@ts-expect-error` cases lock every rejection                                     |
 | Accessibility          | pass           | Decorative default, single labelling escape, blank-label guard, hidden unfocusable SVG, no tab stop, forced colours with opacity flattening, reflow, manual review |
@@ -90,7 +90,7 @@ Disposition counts: `IMPLEMENTED` 21, `IMPLEMENTED_DIFFERENTLY` 10,
 | SSR/hydration/RSC      | pass           | Server-renderable root export, no client boundary, no module-evaluation browser access, production Next builds                                                     |
 | Responsive/adaptive    | pass           | 320 px reflow case with no horizontal overflow; no adaptive modal behaviour exists to implement                                                                    |
 | Integration            | pass           | Public root and CSS exports, the `@casauran/icons` definition surface, Button composition evidence from both sides, Icon interoperability                          |
-| Documentation          | pass           | Eleven-topic canonical route with a preview per enumerated value, API and styling-hook tables, playground, executable visual fixture                               |
+| Documentation          | pass           | Twelve-topic canonical route with a preview per enumerated value, API and styling-hook tables, playground, executable visual fixture                               |
 
 `interaction` and `keyboard` are the two registry dimensions recorded as `not-applicable`; the rows
 above state why, and capabilities 25 and 39 record the same conclusion against the reference.
