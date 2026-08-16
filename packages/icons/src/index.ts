@@ -1,2 +1,3 @@
 export type { IconDefinition } from './types.js';
-export { getIconDefinition, iconNames } from './definitions.js';
+export type { IconName } from './definitions.js';
+export { getIconDefinition, iconNames, isIconName } from './definitions.js';

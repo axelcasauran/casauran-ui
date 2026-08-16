@@ -774,6 +774,31 @@
     font-size: 0.72rem;
     font-weight: 700;
   }
+  .docs-icon-swatch {
+    display: inline-grid;
+    min-inline-size: 5.5rem;
+    justify-items: center;
+    gap: 0.4rem;
+    color: var(--docs-ink);
+  }
+  .docs-icon-swatch code {
+    font-size: 0.7rem;
+  }
+  .docs-icon-inline {
+    display: inline-flex;
+    max-inline-size: 22rem;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--docs-ink);
+    font-size: 0.85rem;
+    text-align: start;
+  }
+  .docs-icon-inverse {
+    display: inline-flex;
+    padding: 0.6rem;
+    border-radius: 0.6rem;
+    background: var(--docs-surface-strong);
+  }
 }
 
 @media (max-width: 74rem) {

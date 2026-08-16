@@ -26,8 +26,37 @@
     align-items: center;
     gap: var(--csn-spacing-content-gap);
   }
+  .icon-probe__inline {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--csn-spacing-control-inline);
+  }
+  .icon-probe__inverse {
+    display: flex;
+    padding: var(--csn-spacing-control-block);
+    border-radius: var(--csn-radius-control);
+    background: var(--csn-surface-inverse);
+  }
+  /* `tone="inherit"` must take this colour, not the theme's primary text colour. */
+  .icon-probe__toned {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--csn-spacing-control-inline);
+    color: var(--csn-status-danger);
+  }
+}
+
+/*
+ * The documented consumer seam: component tokens are overridden in the `overrides` layer, which
+ * outranks the component layer regardless of selector specificity, so the override applies to an
+ * explicit tone and size exactly as it does to the defaults.
+ */
+@layer overrides {
   .icon-probe__override {
     --csn-icon-color: var(--csn-status-success);
     --csn-icon-size: var(--csn-ref-font-size-2xl);
+  }
+  .icon-probe__seam .csn-icon {
+    --csn-icon-color: var(--csn-status-warning);
   }
 }

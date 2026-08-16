@@ -21,11 +21,19 @@
     stroke-width: 1.8;
   }
 
+  /*
+   * Every enumerated size and tone assigns its component token at the same specificity, including
+   * the defaults. Before this, `md` and `inherit` had no rule and fell through to the theme root,
+   * so a consumer override behaved differently for the default than for any explicit value.
+   */
   .csn-icon[data-size='xs'] {
     --csn-icon-size: var(--csn-ref-font-size-xs);
   }
   .csn-icon[data-size='sm'] {
     --csn-icon-size: var(--csn-ref-font-size-sm);
+  }
+  .csn-icon[data-size='md'] {
+    --csn-icon-size: var(--csn-typography-body-size);
   }
   .csn-icon[data-size='lg'] {
     --csn-icon-size: var(--csn-ref-font-size-lg);
@@ -39,6 +47,7 @@
   .csn-icon[data-size='3xl'] {
     --csn-icon-size: var(--csn-ref-space-12);
   }
+
   .csn-icon[data-flip='horizontal'] {
     transform: scaleX(-1);
   }
@@ -48,14 +57,20 @@
   .csn-icon[data-flip='both'] {
     transform: scale(-1);
   }
+
+  /*
+   * `inherit` is the default tone and must take the colour of the text around it. Painting the
+   * theme's primary text colour instead made a composed icon unreadable wherever the surrounding
+   * foreground differs from it — inside a solid Button, on an inverse surface, or beside toned text.
+   */
+  .csn-icon[data-tone='inherit'] {
+    --csn-icon-color: currentColor;
+  }
   .csn-icon[data-tone='accent'] {
     --csn-icon-color: var(--csn-interactive-primary);
   }
   .csn-icon[data-tone='muted'] {
     --csn-icon-color: var(--csn-text-muted);
-  }
-  .csn-icon[data-tone='info'] {
-    --csn-icon-color: var(--csn-interactive-primary);
   }
   .csn-icon[data-tone='positive'] {
     --csn-icon-color: var(--csn-status-success);

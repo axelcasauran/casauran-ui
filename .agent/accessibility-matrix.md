@@ -6,6 +6,13 @@ pointer, disabled, target-size, IME, or announcement behavior; actions compose I
 semantic owner. Browser and manual visual review cover labelled/decorative separation, RTL, narrow
 reflow, dark/light, and Chromium forced-colors exposure.
 
+The 2026-08-16 capability revalidation closed two accessibility defects. A blank or whitespace-only
+`label` published `role="img"` with an empty accessible name; such a label now keeps the icon
+decorative, and a non-blank one is trimmed. `tabIndex` was forwarded, so an `aria-hidden` element
+could take a tab stop; it is now rejected by the type, along with `role`, `aria-hidden` and
+`aria-label`, which would contradict the semantics the component derives from `label`. Icon meets
+the ADR-009 WCAG 2.2 AA baseline and publishes no keyboard table, because it owns no interaction.
+
 Map each component to its native semantic or applicable APG pattern and record role/name/state,
 keyboard table, focus entry/movement/exit/restoration, announcements, disabled/read-only behavior,
 touch/target size, zoom/reflow, forced colors, reduced motion, RTL, and IME requirements.
