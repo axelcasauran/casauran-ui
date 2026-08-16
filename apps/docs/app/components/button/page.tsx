@@ -42,9 +42,12 @@ const toneSource = `<Button appearance="solid" tone="neutral">Neutral</Button>
 const sizeSource = `<Button size="xs">Extra small</Button>
 <Button size="sm">Small</Button>
 <Button size="md">Medium</Button>
-<Button size="lg">Large</Button>
+<Button size="lg">Large</Button>`;
 
-<Button radius="none">Square</Button>
+const radiusSource = `<Button radius="none">None</Button>
+<Button radius="sm">Small</Button>
+<Button radius="md">Medium</Button>
+<Button radius="lg">Large</Button>
 <Button radius="full">Pill</Button>`;
 
 const stateSource = `<Button disabled>Unavailable</Button>
@@ -320,12 +323,17 @@ export default function ButtonDocumentationPage() {
           Four control sizes and five corner treatments cover dense desktop toolbars through primary
           page actions. Icon-only buttons stay square at every size.
         </p>
-        <Example source={sizeSource} title="Size and radius scale">
+        <Example source={sizeSource} title="Control sizes">
           <Button size="xs">Extra small</Button>
           <Button size="sm">Small</Button>
           <Button size="md">Medium</Button>
           <Button size="lg">Large</Button>
-          <Button radius="none">Square</Button>
+        </Example>
+        <Example source={radiusSource} title="Corner radii">
+          <Button radius="none">None</Button>
+          <Button radius="sm">Small</Button>
+          <Button radius="md">Medium</Button>
+          <Button radius="lg">Large</Button>
           <Button radius="full">Pill</Button>
         </Example>
         <Callout title="Target size" tone="caution">

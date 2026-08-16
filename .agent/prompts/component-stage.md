@@ -328,6 +328,14 @@ headings, summary, and keywords in `apps/docs/lib/content.ts`, which derives act
 `KeyboardTable`, `AccessibilityChecklist`, `Callout`. Do not fork the shell, create a second
 registry, or build a one-off documentation system.
 
+Every feature in `registry/components/<slug>.json.features` is demonstrated on the route, and the
+`featureCoverage` block declares how: `preview` (a rendered example; an enumerated feature previews
+**every value** as an explicit prop assignment), `section` (a durable-id section for behaviour with
+nothing to render), or `fixture` (a named browser/visual case for forced colors, reduced motion, RTL
+and similar). `pnpm validate:documentation-experience` rejects a feature with no declaration, a
+declaration pointing at a section the route does not define, and an enumerated value that is never
+previewed. ADR-023 governs the rule.
+
 Document every applicable implemented capability family, using only sections that apply: overview
 and getting started; examples; appearance and variants; sizes and shapes; states; icons and
 content; events; forms; controlled state; data binding; keyboard navigation; accessibility; RTL and

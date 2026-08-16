@@ -1,6 +1,26 @@
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+
 import { expect, test } from '@playwright/test';
 
 const docsUrl = 'http://localhost:3100';
+const repositoryRoot = process.cwd();
+
+interface CoverageRule {
+  readonly mode: string;
+  readonly attribute?: string;
+  readonly values?: readonly string[];
+}
+
+interface ComponentRegistryEntry {
+  readonly slug: string;
+  readonly featureCoverage?: Readonly<Record<string, CoverageRule>>;
+}
+
+const registryEntry = (slug: string): ComponentRegistryEntry =>
+  JSON.parse(
+    readFileSync(path.join(repositoryRoot, `registry/components/${slug}.json`), 'utf8'),
+  ) as ComponentRegistryEntry;
 
 test.beforeEach(async ({ page }) => {
   await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'reduce' });
@@ -63,6 +83,28 @@ test('skip navigation and application controls have durable keyboard semantics',
   await expect(page.getByRole('main')).toBeFocused();
   await expect(page.getByRole('group', { name: 'Documentation presentation' })).toBeVisible();
   await expect(page.getByRole('note', { name: 'Stage boundary' })).toBeVisible();
+});
+
+test('every enumerated feature value declared in the registry renders on its documentation route', async ({
+  page,
+}) => {
+  // ADR-023: a value can be named in the API table and still paint nothing. The registry declares
+  // the value set and the attribute that reflects it, so the page is checked against real markup.
+  const { featureCoverage } = registryEntry('button');
+  await page.goto(`${docsUrl}/components/button`);
+
+  const enumerated = Object.entries(featureCoverage ?? {}).filter(
+    ([, rule]) => rule.mode === 'preview' && rule.attribute !== undefined && rule.values,
+  );
+  expect(enumerated.length).toBeGreaterThan(0);
+
+  for (const [feature, rule] of enumerated) {
+    for (const value of rule.values ?? []) {
+      const rendered = page.locator(`[${String(rule.attribute)}="${value}"]`);
+      expect(await rendered.count(), `${feature}=${value} must be previewed`).toBeGreaterThan(0);
+      await expect(rendered.first()).toBeVisible();
+    }
+  }
 });
 
 test('presentation controls remain a narrow hydration boundary and shell is deterministic', async ({

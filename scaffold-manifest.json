@@ -9,16 +9,16 @@
   "inventory": {
     "publicComponents": 127,
     "platformParityDomains": 15,
-    "foundationStages": 18,
+    "foundationStages": 19,
     "publicComponentStages": 127,
     "patternStages": 10,
     "blockStages": 10,
     "templateStages": 6,
     "certificationStages": 1,
-    "totalStages": 172,
+    "totalStages": 173,
     "skills": 42,
     "workflows": 20,
-    "acceptedADRs": 23
+    "acceptedADRs": 25
   },
   "toolchain": {
     "node": "24.18.0 LTS baseline",

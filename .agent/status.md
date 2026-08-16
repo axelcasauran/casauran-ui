@@ -14,7 +14,10 @@ stage/spec/registry/validator, reusable production docs shell, registry-derived 
 Button/Icon routes, 12/12 focused docs browser checks, in-app visual review, docs production build,
 and final `pnpm validate` PASS with 201 browser checks and 6 existing platform-limited skips;
 2026-08-14)
-Next stage: `1.03` SVGIcon (not-started) — blocked until Phase 0 re-certification records a result.
+Next stage: `F0.19` Documentation Interaction Foundation (not-started, ADR-024) — per-capability
+documentation routes and an interactive example harness, inserted at the ledger boundary after
+`F0.18` so every component from `1.03` onward inherits the finished model. `1.03` SVGIcon follows it
+and stays not-started. Both remain blocked until Phase 0 re-certification records a result.
 
 ## Open remediation: 2026-08-15 Phase 0 foundation audit
 
@@ -99,6 +102,23 @@ ESLint and Prettier with recorded rationale, and the benchmark reports its real 
 `.agent/capability-completeness.json` and 15 rejection tests. `1.02 Icon` closed under the previous
 parity contract and is the single recorded `pendingRevalidation` entry; it must be closed by its own
 governed revalidation, not by editing its parity document.
+
+A second review pass — running the documentation rather than reading it — found that the route still
+previewed no `outline`, `ghost` or `link` button, because nothing bound a component's declared
+features to what its page renders. `ADR-023` adds `featureCoverage` to the component registry:
+every declared feature is satisfied by a `preview`, a `section`, or a named `fixture`, and an
+enumerated feature previews every value. `pnpm validate:documentation-experience` enforces it with
+13 rejection tests plus a browser case that asserts the declared values really render; it
+immediately caught three `radius` values that had never been previewed. `1.02 Icon` is the single
+`pendingCoverage` entry.
+
+`ADR-024` inserts `F0.19 Documentation Interaction Foundation` at the ledger boundary after `F0.18`,
+specified in `specs/foundation/documentation-interaction.md` and **not implemented**: per-capability
+routes generated from a declared topic model, an interactive example island per example, one source
+of truth for example code, and deep-link continuity. `1.03` moves one place later and stays
+`not-started`, so every component from `1.03` onward inherits the finished documentation model. The
+`F0.18` boundary assertion was generalised from "immediately between 1.02 and 1.03" to "after 1.02
+with no public component stage before 1.03" so that a governed stage can be inserted there at all.
 
 Revalidation coverage: 37 of 38 validators, format, lint, three typecheck scopes, dependency
 architecture, 27 library builds and 4 production Next hosts, 144 contract tests, 122 Vitest tests,

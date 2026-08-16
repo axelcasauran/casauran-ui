@@ -1,5 +1,6 @@
-import { exists, fail, files, json, pass, read } from './lib.mjs';
 import { validateDocumentationExperience } from './documentation-experience.mjs';
+import { validateFeatureCoverage, validatePendingCoverage } from './documentation-coverage.mjs';
+import { exists, fail, files, json, pass, read } from './lib.mjs';
 
 const contract = json('registry/documentation/foundation.json');
 const errors = validateDocumentationExperience(contract, { sourceExists: exists });
@@ -41,12 +42,23 @@ for (const source of requiredSources) {
 
 const stages = json('.agent/stages/index.json');
 const stageIndex = stages.findIndex((stage) => stage.id === 'F0.18');
-if (
-  stageIndex < 1 ||
-  stages[stageIndex - 1]?.id !== '1.02' ||
-  stages[stageIndex + 1]?.id !== '1.03'
-) {
-  errors.push('F0.18 must remain at the governed current boundary between 1.02 and 1.03');
+// ADR-020 inserted F0.18 at the ledger boundary after 1.02, and it must not have started 1.03.
+// ADR-024 generalised the second half of that assertion: another governed stage may now be
+// inserted after F0.18, so what is checked is that no public component stage intervenes.
+const firstComponentAfter = stages
+  .slice(stageIndex + 1)
+  .find((stage) => stage.type === 'public-component');
+if (stageIndex < 1 || stages[stageIndex - 1]?.id !== '1.02') {
+  errors.push('F0.18 must remain at the governed current boundary immediately after 1.02');
+}
+if (firstComponentAfter?.id !== '1.03') {
+  errors.push('F0.18 must precede 1.03 with no public component stage inserted between them');
+}
+for (const stage of stages.slice(stageIndex + 1)) {
+  if (stage.id === firstComponentAfter?.id) break;
+  if (stage.status !== 'not-started') {
+    errors.push(`${stage.id} was inserted after F0.18 and must remain not-started until it runs`);
+  }
 }
 if (!['in-progress', 'complete'].includes(stages[stageIndex]?.status)) {
   errors.push('F0.18 must be active or complete');
@@ -142,6 +154,33 @@ for (const marker of [
 const playground = read('apps/playground/README.md');
 if (!playground.includes('interactive component experimentation')) {
   errors.push('apps/playground must remain documented as an engineering sandbox');
+}
+
+// ADR-023: every declared feature of a documented component is demonstrated on its route, and an
+// enumerated feature is demonstrated by showing every value rather than one representative.
+const pendingCoverage = Array.isArray(contract.pendingCoverage) ? contract.pendingCoverage : [];
+const pendingSlugs = new Set();
+for (const pending of pendingCoverage) {
+  errors.push(...validatePendingCoverage(pending));
+  if (typeof pending?.slug === 'string') pendingSlugs.add(pending.slug);
+}
+const documentedStatuses = new Set(['documented', 'parity-verified', 'improved']);
+for (const component of files('registry/components')
+  .filter((path) => path.endsWith('.json'))
+  .map(json)) {
+  if (!documentedStatuses.has(component.status)) continue;
+  const route = `apps/docs/app/components/${component.slug}/page.tsx`;
+  if (!exists(route)) {
+    errors.push(`${component.name}: ${component.status} requires ${route}`);
+    continue;
+  }
+  if (pendingSlugs.has(component.slug)) continue;
+  errors.push(...validateFeatureCoverage(component, read(route), exists));
+}
+for (const pending of pendingSlugs) {
+  if (!exists(`registry/components/${pending}.json`)) {
+    errors.push(`pending coverage names an unknown component ${pending}`);
+  }
 }
 
 for (const error of errors) fail(error);

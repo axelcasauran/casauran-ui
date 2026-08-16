@@ -6,23 +6,68 @@
   "additionalProperties": false,
   "required": ["schemaVersion", "owner", "sourceRegistry", "capabilities", "boundaries"],
   "properties": {
-    "$schema": { "type": "string" },
-    "schemaVersion": { "const": 1 },
-    "owner": { "const": "apps/docs" },
-    "sourceRegistry": { "const": ".agent/stages/index.json" },
+    "$schema": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "owner": {
+      "const": "apps/docs"
+    },
+    "sourceRegistry": {
+      "const": ".agent/stages/index.json"
+    },
     "capabilities": {
       "type": "array",
       "minItems": 10,
       "uniqueItems": true,
-      "items": { "type": "string", "minLength": 1 }
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
     },
     "boundaries": {
       "type": "object",
       "additionalProperties": false,
       "required": ["owned", "excluded"],
       "properties": {
-        "owned": { "$ref": "#/$defs/nonEmptyStrings" },
-        "excluded": { "$ref": "#/$defs/nonEmptyStrings" }
+        "owned": {
+          "$ref": "#/$defs/nonEmptyStrings"
+        },
+        "excluded": {
+          "$ref": "#/$defs/nonEmptyStrings"
+        }
+      }
+    },
+    "pendingCoverage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["component", "slug", "stage", "reason", "requiredBy"],
+        "properties": {
+          "component": {
+            "type": "string",
+            "minLength": 1
+          },
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "stage": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "requiredBy": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
       }
     }
   },
@@ -31,7 +76,10 @@
       "type": "array",
       "minItems": 1,
       "uniqueItems": true,
-      "items": { "type": "string", "minLength": 1 }
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
     }
   }
 }

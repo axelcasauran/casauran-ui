@@ -59,5 +59,107 @@
     "square-icon-only-geometry",
     "component-token-override-seam",
     "native-attribute-passthrough"
-  ]
+  ],
+  "featureCoverage": {
+    "native-action-semantics": {
+      "mode": "section",
+      "anchor": "overview"
+    },
+    "disabled-state": {
+      "mode": "preview",
+      "anchor": "states"
+    },
+    "controlled-pressed-state": {
+      "mode": "preview",
+      "anchor": "controlled-state"
+    },
+    "uncontrolled-pressed-state": {
+      "mode": "preview",
+      "anchor": "states"
+    },
+    "native-events-and-forms": {
+      "mode": "preview",
+      "anchor": "forms"
+    },
+    "leading-and-trailing-content": {
+      "mode": "preview",
+      "anchor": "content"
+    },
+    "icon-only-layout": {
+      "mode": "preview",
+      "anchor": "content"
+    },
+    "size": {
+      "mode": "preview",
+      "anchor": "sizes",
+      "attribute": "data-size",
+      "values": ["xs", "sm", "md", "lg"]
+    },
+    "radius": {
+      "mode": "preview",
+      "anchor": "sizes",
+      "attribute": "data-radius",
+      "values": ["none", "sm", "md", "lg", "full"]
+    },
+    "appearance": {
+      "mode": "preview",
+      "anchor": "appearance",
+      "attribute": "data-appearance",
+      "values": ["solid", "soft", "outline", "ghost", "link"]
+    },
+    "semantic-tone": {
+      "mode": "preview",
+      "anchor": "appearance",
+      "attribute": "data-tone",
+      "values": ["neutral", "accent", "positive", "caution", "critical", "inverse"]
+    },
+    "keyboard-activation": {
+      "mode": "section",
+      "anchor": "accessibility"
+    },
+    "focus-visible": {
+      "mode": "fixture",
+      "evidence": "tests/browser/button.spec.ts"
+    },
+    "theme-and-density": {
+      "mode": "fixture",
+      "evidence": "tests/browser/button.spec.ts"
+    },
+    "rtl": {
+      "mode": "fixture",
+      "evidence": "tests/browser/button.spec.ts"
+    },
+    "forced-colors": {
+      "mode": "fixture",
+      "evidence": "tests/browser/button.spec.ts"
+    },
+    "reduced-motion": {
+      "mode": "fixture",
+      "evidence": "tests/browser/button.spec.ts"
+    },
+    "ssr-hydration-rsc": {
+      "mode": "section",
+      "anchor": "nextjs"
+    },
+    "dense-size-scale": {
+      "mode": "preview",
+      "anchor": "sizes"
+    },
+    "composed-icon-content": {
+      "mode": "preview",
+      "anchor": "content"
+    },
+    "square-icon-only-geometry": {
+      "mode": "fixture",
+      "evidence": "tests/browser/button.spec.ts"
+    },
+    "component-token-override-seam": {
+      "mode": "section",
+      "anchor": "theming"
+    },
+    "native-attribute-passthrough": {
+      "mode": "section",
+      "anchor": "api"
+    }
+  }
 }

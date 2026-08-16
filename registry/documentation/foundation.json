@@ -37,5 +37,14 @@
       "apps playground engineering sandbox ownership",
       "SVGIcon or any stage 1.03 implementation"
     ]
-  }
+  },
+  "pendingCoverage": [
+    {
+      "component": "Icon",
+      "slug": "icon",
+      "stage": "1.02",
+      "reason": "Icon was documented on 2026-08-14, before ADR-023 bound every declared feature to a rendered preview; its route demonstrates a subset of its seven sizes, eight tones and four flip modes.",
+      "requiredBy": "a governed 1.02 capability revalidation that declares featureCoverage and previews every enumerated value; it may not be cleared by adding a declaration without adding the previews"
+    }
+  ]
 }

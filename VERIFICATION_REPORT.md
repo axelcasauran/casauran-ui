@@ -16,12 +16,12 @@ validator, so they cannot drift when an ADR adds a stage.
 
 - Public component registry entries: **127**
 - Unique public-component execution stages: **127**
-- Foundation stages: **18**
+- Foundation stages: **19**
 - Platform parity domains: **15**
 - Specialist skills: **42**
 - Task workflows: **20**
-- Accepted architecture ADRs: **23**
-- Total execution stages: **172**
+- Accepted architecture ADRs: **25**
+- Total execution stages: **173**
 
 `F0.18 Documentation Experience Foundation` was added by ADR-020 after the original scaffold
 verification; the foundation, ADR, and total counts above include it. ADR-021 records the
