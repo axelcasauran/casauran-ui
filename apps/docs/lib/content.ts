@@ -51,7 +51,17 @@ const componentSources: readonly ComponentSource[] = [
     slug: 'icon',
     title: 'Icon',
     summary: 'Tree-shakeable Casauran SVG definitions with decorative and labelled modes.',
-    keywords: ['icon', 'svg', 'symbol', 'accessible image', 'direction'],
+    keywords: [
+      'icon',
+      'svg',
+      'symbol',
+      'accessible image',
+      'direction',
+      'tone',
+      'size',
+      'flip',
+      'decorative',
+    ],
     topics: iconTopics,
   },
 ];

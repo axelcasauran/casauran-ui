@@ -62,7 +62,12 @@ evidence before the browser gate can be green.
 added on request as the 37th governed validator, so `pnpm verify:scaffold`, `pnpm validate:static`
 and `pnpm validate` now fail fast with the exact missing set instead of surfacing it only after a
 full browser run. The failure is real and previously hidden, not a regression introduced by the
-validator. It clears in one step:
+validator. As of the 2026-08-16 Icon revalidation the missing set is 11 rather than 12: the Icon
+Chromium baseline is committed and reviewed, and the Button and docs-shell Chromium baselines were
+regenerated and reviewed because that revalidation changed what they render. Every remaining miss
+needs either a Firefox or WebKit engine that no available environment can install, or belongs to the
+`theme-runtime` Phase 0 fixture, which no component stage should accept evidence for. It clears in
+one step:
 
 ```bash
 # on ubuntu-latest, or a container matching it
@@ -75,6 +80,52 @@ and a clean-worktree build, lint, typecheck and architecture pass.
 Verification coverage on 2026-08-15: 36 validators, 119 contract tests, 117 Vitest tests, and a
 clean-worktree `pnpm validate:static` all PASS; the Chromium browser suite ran 65 passing with 5
 failures, every one a missing Linux baseline and none behavioural. Firefox and WebKit remain unrun.
+
+## Closed remediation: 2026-08-16 Icon capability revalidation
+
+Decision: `.agent/decisions/ADR-022-component-capability-revalidation.md` and
+`.agent/decisions/ADR-023-documentation-feature-coverage.md`
+Record: `.agent/reviews/2026-08-16-icon-revalidation.md`
+Ledger: the `## Revalidation — 2026-08-16` section of `.agent/stages/1.02-icon.md`
+
+`1.02 Icon` was revalidated in place against the current component-stage rules; its original
+COMPLETE record is unchanged and the registry entry advanced `parity-verified → improved`. It was
+the last entry on both governed debt lists: `.agent/capability-completeness.json` now reports 2 of 2
+audited components with 0 awaiting revalidation, and `registry/documentation/foundation.json` has no
+`pendingCoverage` entry. Neither list was cleared by editing a document — the reference analysis was
+re-run and the previews were built.
+
+The reference analysis grew from 8 examined paths to 31, the parity document from nine lines of
+prose to 38 rows each carrying a governed disposition, and the documentation route from 5 topics
+with one example to 10 topics with seven. Four capability families had never been examined at all:
+the application-level icon provider, drawing variants, the class-replacement unstyled mode, and the
+two consumption modes with the migration and CSP reasoning behind them.
+
+Pulling that thread found five defects in shipped behaviour, each now fixed with a guard:
+`tone="inherit"` painted the theme's primary text colour instead of `currentColor`, so an Icon
+composed into a solid Button rendered dark artwork on a saturated fill; a blank `label` published an
+image with an empty accessible name; `tabIndex` passed through, letting an `aria-hidden` element take
+a tab stop; the `info` tone resolved to the same colour as `accent`, so two public values were
+indistinguishable; and the component token seam applied to the default size and tone but lost to any
+explicit one. A sixth defect was in the documentation itself: `name` was typed `string`, and the
+route's only example rendered a labelled empty box because the catalog had no `check` definition.
+`name` is now the `IconName` catalog union, so that mistake is a build failure; `isIconName` narrows
+a name that crossed a runtime boundary, and four needed definitions were added.
+
+The `benchmarks/icon.mjs` environment-reporting obligation that the Button revalidation left to this
+stage is resolved.
+
+Revalidation coverage: 37 of 38 validators, format, lint, three typecheck scopes, dependency
+architecture, 27 library builds and 4 production Next hosts, 159 contract tests, 128 Vitest tests,
+and `pnpm benchmark:icon` at 137.75 ms against a 500 ms ceiling all PASS from a clean worktree on the
+pinned Node 24.18.0 toolchain. The Chromium browser suite ran 81 passing with 1 failure — the
+missing `theme-runtime` Linux baseline, a Phase 0 fixture this stage does not own and did not
+change, and none of it behavioural. The reviewed `icon-matrix-chromium-linux.png` is committed, the
+three stale `-win32` Icon baselines were
+removed, and the Button and docs-shell Chromium baselines were regenerated and reviewed because this
+stage's fixes changed what they render. Firefox and WebKit could not be installed in that
+environment, so `pnpm validate` was not run to completion and is not claimed. It clears with the
+Phase 0 re-certification above.
 
 ## Closed remediation: 2026-08-15 Button capability revalidation
 

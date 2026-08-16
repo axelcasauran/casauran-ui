@@ -3,7 +3,9 @@
 Icon `1.02` is server-renderable from the package root with no client boundary and no hydration
 sensitivity. It reads no browser global during module evaluation or render and creates no observer,
 portal, listener, timer, storage, random source, or network activity. The production visual host
-renders deterministic known and unknown names across Chromium, Firefox, and WebKit.
+renders deterministic known and unknown names across Chromium, Firefox, and WebKit. The 2026-08-16
+capability revalidation added a browser assertion that the glyph is present in the server response
+itself, so a future client boundary cannot be introduced without failing the gate.
 
 Every registry entry declares serverRenderable, requiresClient, clientReasons, hydrationSensitive, observer and portal implications. RSC-safe import and client interaction are separate concerns.
 

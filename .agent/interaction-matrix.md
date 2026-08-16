@@ -3,7 +3,10 @@
 Icon `1.02` has no interaction contract. Pointer, keyboard, touch, focus, IME, clipboard, drag,
 resize, scroll, and animation behavior are not applicable; native attributes are forwarded only for
 caller-owned noninteractive integration. Its flip transform is visual and does not alter direction
-or input semantics.
+or input semantics. The 2026-08-16 capability revalidation made that boundary enforceable rather
+than advisory: `tabIndex` is rejected by the type, because an element hidden from assistive
+technology must never be reachable by keyboard, and an icon that participates in an interaction
+belongs inside the control that owns the tab stop, focus ring, and key model.
 
 Evaluate keyboard, pointer/mouse, touch, screen-reader modes, IME composition, clipboard, drag/drop, resize/scroll, reduced motion and high zoom. Mouse behavior is not the primary model for keyboard semantics.
 

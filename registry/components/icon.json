@@ -4,7 +4,7 @@
   "category": "icons",
   "phase": 1,
   "stage": "1.02",
-  "status": "parity-verified",
+  "status": "improved",
   "package": "@casauran/react",
   "reference": {
     "path": "docs/content/common/icon",
@@ -37,14 +37,102 @@
   },
   "features": [
     "named-definition",
+    "typed-definition-name",
+    "runtime-name-narrowing",
+    "closed-catalog-fallback",
     "decorative-default",
     "labelled-image",
+    "blank-label-stays-decorative",
+    "reserved-semantic-props",
     "size",
     "semantic-tone",
+    "inherited-colour",
     "flip",
+    "component-token-override-seam",
     "theme-and-density",
     "rtl",
     "forced-colors",
-    "ssr-rsc"
-  ]
+    "ssr-rsc",
+    "native-attribute-passthrough"
+  ],
+  "featureCoverage": {
+    "named-definition": {
+      "mode": "preview",
+      "anchor": "overview"
+    },
+    "typed-definition-name": {
+      "mode": "section",
+      "anchor": "overview"
+    },
+    "runtime-name-narrowing": {
+      "mode": "preview",
+      "anchor": "content"
+    },
+    "closed-catalog-fallback": {
+      "mode": "section",
+      "anchor": "security"
+    },
+    "decorative-default": {
+      "mode": "preview",
+      "anchor": "accessibility"
+    },
+    "labelled-image": {
+      "mode": "preview",
+      "anchor": "accessibility"
+    },
+    "blank-label-stays-decorative": {
+      "mode": "section",
+      "anchor": "accessibility"
+    },
+    "reserved-semantic-props": {
+      "mode": "section",
+      "anchor": "api"
+    },
+    "size": {
+      "mode": "preview",
+      "anchor": "sizes",
+      "attribute": "data-size",
+      "values": ["xs", "sm", "md", "lg", "xl", "2xl", "3xl"]
+    },
+    "semantic-tone": {
+      "mode": "preview",
+      "anchor": "appearance",
+      "attribute": "data-tone",
+      "values": ["inherit", "accent", "muted", "positive", "caution", "critical", "inverse"]
+    },
+    "inherited-colour": {
+      "mode": "preview",
+      "anchor": "appearance"
+    },
+    "flip": {
+      "mode": "preview",
+      "anchor": "content",
+      "attribute": "data-flip",
+      "values": ["none", "horizontal", "vertical", "both"]
+    },
+    "component-token-override-seam": {
+      "mode": "section",
+      "anchor": "theming"
+    },
+    "theme-and-density": {
+      "mode": "fixture",
+      "evidence": "tests/browser/icon.spec.ts"
+    },
+    "rtl": {
+      "mode": "fixture",
+      "evidence": "tests/browser/icon.spec.ts"
+    },
+    "forced-colors": {
+      "mode": "fixture",
+      "evidence": "tests/browser/icon.spec.ts"
+    },
+    "ssr-rsc": {
+      "mode": "section",
+      "anchor": "nextjs"
+    },
+    "native-attribute-passthrough": {
+      "mode": "section",
+      "anchor": "api"
+    }
+  }
 }

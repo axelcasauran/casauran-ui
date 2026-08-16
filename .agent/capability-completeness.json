@@ -13,13 +13,5 @@
     "BLOCKED"
   ],
   "forbiddenStates": ["UNKNOWN", "NOT_CHECKED", "TODO", "TBD", "FIXME"],
-  "pendingRevalidation": [
-    {
-      "component": "Icon",
-      "slug": "icon",
-      "stage": "1.02",
-      "reason": "Icon closed on 2026-08-14 under the previous parity contract, before ADR-022 required a per-capability disposition table. Its parity record is a prose audit, not a governed disposition table.",
-      "requiredBy": "a governed 1.02 capability revalidation, executed the way 1.01 was on 2026-08-15; it may not be closed by editing the Icon parity document without re-running the reference analysis"
-    }
-  ]
+  "pendingRevalidation": []
 }

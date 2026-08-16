@@ -2,8 +2,13 @@
 
 Icon `1.02` passes light/dark and comfortable/compact scoped themes, inherited RTL, semantic tones,
 custom `--csn-icon-color`/`--csn-icon-size` overrides, forced-color foreground, and no-motion
-rendering. The visual matrix covers named definitions, six size samples, semantic tones, flips, and
-RTL text; future visual families are not claimed.
+rendering. The visual matrix covers named definitions, every size, tone and flip value, an inverse
+surface, a composed Button panel, and RTL text; future visual families are not claimed. The
+2026-08-16 capability revalidation corrected two token defects: `tone="inherit"` painted the theme's
+primary text colour instead of `currentColor`, so composed artwork ignored its context, and the
+default `md` size and `inherit` tone had no rule of their own, so the override seam behaved
+differently for a default than for an explicit value. Every enumerated size and tone now assigns its
+component token at the same specificity, and overrides belong in the `overrides` cascade layer.
 
 Required dimensions: light, dark, density, RTL, forced colors, reduced motion, custom overrides. Independent planned visual families: Material-inspired, Bootstrap-inspired, Fluent-inspired.
 

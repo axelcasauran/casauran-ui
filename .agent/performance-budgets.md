@@ -1,9 +1,13 @@
 # Performance Budgets
 
 Icon `1.02` regression scenario: render 1,000 alternating named Icons through `react-dom/server`
-after production package builds on Node v24.18.0, Windows x64; ceiling 500 ms. Recorded result:
-172.70 ms. The component adds no external dependency, client boundary, observer, listener, timer,
-portal, network access, or SVG parser.
+after production package builds; ceiling 500 ms. Recorded stage result: 172.70 ms on Node v24.18.0,
+Windows x64. Re-measured during the 2026-08-16 capability revalidation at 137.75 ms on Node
+v24.18.0, linux x64. Command: `pnpm benchmark:icon`, which now prints the Node version, platform and
+architecture it measured; the original script printed no environment at all, so its figure could not
+be tied to a runtime. The component adds no external dependency, client boundary, observer,
+listener, timer, portal, network access, or SVG parser. This is a bounded regression scenario, not a
+universal speed claim.
 
 Budgets require scenario, dataset and environment. Track initial render, interaction latency, frame time, memory, bundle and server render cost where material. Complex widgets define explicit benchmark plans.
 

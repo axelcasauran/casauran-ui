@@ -9,6 +9,17 @@ function joinClassNames(componentClass: string, consumerClass: string | undefine
     : `${componentClass} ${consumerClass}`;
 }
 
+/**
+ * A label that carries no text names nothing. Promoting such an icon to `role="img"` would publish
+ * an image with an empty accessible name, which is worse for a screen-reader user than the
+ * decorative default, so it stays decorative.
+ */
+function resolveLabel(label: string | undefined): string | undefined {
+  if (label === undefined) return undefined;
+  const trimmed = label.trim();
+  return trimmed.length === 0 ? undefined : trimmed;
+}
+
 export const Icon = forwardRef<HTMLSpanElement, IconProps>(function Icon(props, ref) {
   const {
     className,
@@ -20,20 +31,21 @@ export const Icon = forwardRef<HTMLSpanElement, IconProps>(function Icon(props, 
     ...nativeProps
   } = props;
   const definition = getIconDefinition(name);
+  const accessibleName = resolveLabel(label);
 
   return (
     <span
       {...nativeProps}
       ref={ref}
-      aria-hidden={label === undefined ? true : undefined}
-      aria-label={label}
+      aria-hidden={accessibleName === undefined ? true : undefined}
+      aria-label={accessibleName}
       className={joinClassNames('csn-icon', className)}
       data-csn-component="icon"
       data-flip={flip}
       data-icon-name={name}
       data-size={size}
       data-tone={tone}
-      role={label === undefined ? undefined : 'img'}
+      role={accessibleName === undefined ? undefined : 'img'}
     >
       {definition === undefined ? null : (
         <svg aria-hidden="true" focusable="false" viewBox={definition.viewBox}>

@@ -8,4 +8,10 @@ export type {
   ButtonSize,
   ButtonTone,
 } from './components/buttons/button/index.js';
-export type { IconFlip, IconProps, IconSize, IconTone } from './components/icons/icon/index.js';
+export type {
+  IconFlip,
+  IconName,
+  IconProps,
+  IconSize,
+  IconTone,
+} from './components/icons/icon/index.js';
