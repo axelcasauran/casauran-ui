@@ -14,6 +14,7 @@
     "testLayers",
     "hosts",
     "browserProjects",
+    "hostEntrypoints",
     "rootGate",
     "visualBaselines",
     "ci",
@@ -164,6 +165,61 @@
     },
     "browserProjects": {
       "$ref": "#/$defs/nonEmptyStrings"
+    },
+    "hostEntrypoints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rootDevScript",
+        "defaultHost",
+        "dependencyBuildFilter",
+        "devScripts",
+        "rationale",
+        "browserLayerRationale"
+      ],
+      "properties": {
+        "rootDevScript": {
+          "type": "string",
+          "minLength": 1
+        },
+        "defaultHost": {
+          "enum": ["docs", "playground", "showcase", "visual-tests"]
+        },
+        "dependencyBuildFilter": {
+          "const": "^..."
+        },
+        "devScripts": {
+          "type": "object",
+          "minProperties": 4,
+          "additionalProperties": false,
+          "properties": {
+            "docs": {
+              "type": "string",
+              "minLength": 1
+            },
+            "playground": {
+              "type": "string",
+              "minLength": 1
+            },
+            "showcase": {
+              "type": "string",
+              "minLength": 1
+            },
+            "visual-tests": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "browserLayerRationale": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
     },
     "rootGate": {
       "type": "object",

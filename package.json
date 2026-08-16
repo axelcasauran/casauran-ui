@@ -73,7 +73,7 @@
     "typecheck": "pnpm typecheck:workspaces && pnpm typecheck:tests && pnpm typecheck:tooling",
     "test:contracts": "node --test scripts/*.test.mjs",
     "test:unit": "vitest run --config vitest.config.mts",
-    "test:browser": "pnpm --filter @casauran-internal/visual-tests build && pnpm --filter @casauran-internal/docs build && playwright test",
+    "test:browser": "pnpm --filter \"@casauran-internal/visual-tests...\" --filter \"@casauran-internal/docs...\" build && playwright test",
     "test": "pnpm test:contracts && pnpm test:unit",
     "test:e2e": "pnpm test:browser",
     "architecture": "dependency-cruiser packages apps --config dependency-cruiser.config.cjs",
@@ -90,11 +90,11 @@
     "reference:check": "node scripts/reference-check.mjs",
     "reference:inventory:write": "node scripts/reference-inventory.mjs --write",
     "validate:local-reference-config": "node scripts/validate-local-reference-config.mjs",
-    "dev": "pnpm --filter @casauran-internal/docs dev",
-    "dev:docs": "pnpm --filter @casauran-internal/docs dev",
-    "dev:playground": "pnpm --filter @casauran-internal/playground dev",
-    "dev:showcase": "pnpm --filter @casauran-internal/showcase dev",
-    "dev:visual": "pnpm --filter @casauran-internal/visual-tests dev"
+    "dev": "pnpm dev:docs",
+    "dev:docs": "pnpm --filter \"@casauran-internal/docs^...\" build && pnpm --filter @casauran-internal/docs dev",
+    "dev:playground": "pnpm --filter \"@casauran-internal/playground^...\" build && pnpm --filter @casauran-internal/playground dev",
+    "dev:showcase": "pnpm --filter \"@casauran-internal/showcase^...\" build && pnpm --filter @casauran-internal/showcase dev",
+    "dev:visual": "pnpm --filter \"@casauran-internal/visual-tests^...\" build && pnpm --filter @casauran-internal/visual-tests dev"
   },
   "devDependencies": {
     "@changesets/cli": "2.31.0",
