@@ -1,0 +1,110 @@
+{
+  "$schema": "../schemas/documentation-topics.schema.json",
+  "schemaVersion": 1,
+  "owner": "apps/docs",
+  "decision": ".agent/decisions/ADR-024-documentation-interaction-foundation.md",
+  "topics": [
+    {
+      "id": "overview",
+      "title": "Overview",
+      "required": true,
+      "summary": "What the component is for, its default shape, and the first example."
+    },
+    {
+      "id": "appearance",
+      "title": "Appearance and tone",
+      "required": false,
+      "summary": "Visual treatments and semantic colour intent."
+    },
+    {
+      "id": "sizes",
+      "title": "Sizes and shapes",
+      "required": false,
+      "summary": "Control size scale and corner treatments."
+    },
+    {
+      "id": "states",
+      "title": "States",
+      "required": false,
+      "summary": "Disabled, selected, pressed, busy, and other rendered states."
+    },
+    {
+      "id": "content",
+      "title": "Icons, images, and content",
+      "required": false,
+      "summary": "Composed artwork, slots, and content rules."
+    },
+    {
+      "id": "events",
+      "title": "Events",
+      "required": false,
+      "summary": "Event surface, ordering, and cancellation."
+    },
+    {
+      "id": "forms",
+      "title": "Forms",
+      "required": false,
+      "summary": "Native form participation and submission behaviour."
+    },
+    {
+      "id": "controlled-state",
+      "title": "Controlled and uncontrolled state",
+      "required": false,
+      "summary": "State ownership, defaults, and change reporting."
+    },
+    {
+      "id": "data",
+      "title": "Data",
+      "required": false,
+      "summary": "Data binding, shaping, and virtualization behaviour."
+    },
+    {
+      "id": "keyboard",
+      "title": "Keyboard",
+      "required": false,
+      "summary": "The supported key model when it goes beyond native behaviour."
+    },
+    {
+      "id": "api",
+      "title": "API reference",
+      "required": true,
+      "summary": "Props, defaults, events, refs, and styling hooks."
+    },
+    {
+      "id": "accessibility",
+      "title": "Accessibility",
+      "required": true,
+      "summary": "Semantics, naming, focus, and consumer responsibilities."
+    },
+    {
+      "id": "theming",
+      "title": "Theming, density, RTL, and globalization",
+      "required": false,
+      "summary": "Token seams, density, direction, and localization posture."
+    },
+    {
+      "id": "nextjs",
+      "title": "Next.js and rendering",
+      "required": false,
+      "summary": "Server rendering, client boundaries, and hydration behaviour."
+    },
+    {
+      "id": "performance",
+      "title": "Performance",
+      "required": false,
+      "summary": "Recorded budget, scenario, and cost characteristics."
+    },
+    {
+      "id": "security",
+      "title": "Security",
+      "required": false,
+      "summary": "Trust boundary and consumer responsibilities."
+    },
+    {
+      "id": "limitations",
+      "title": "Known limitations",
+      "required": false,
+      "summary": "What the component deliberately does not do."
+    }
+  ]
+}

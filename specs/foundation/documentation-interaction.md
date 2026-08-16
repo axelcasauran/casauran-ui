@@ -1,7 +1,7 @@
 # Documentation Interaction Foundation Specification
 
 Stage: `F0.19`
-Status: approved
+Status: implemented
 
 ## Scope and ownership
 

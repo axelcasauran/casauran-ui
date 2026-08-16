@@ -9,15 +9,14 @@ root-gate remediation, and was obtained on a worktree that already held build ou
 satisfy the reproducibility contract in `BUILD_TEST_INFRASTRUCTURE.md`.
 Public component implementation: 2 OF 127 COMPLETE
 Active stage: NONE
-Last closed stage: `F0.18 Documentation Experience Foundation` COMPLETE (ADR-020, governed
-stage/spec/registry/validator, reusable production docs shell, registry-derived metadata, migrated
-Button/Icon routes, 12/12 focused docs browser checks, in-app visual review, docs production build,
-and final `pnpm validate` PASS with 201 browser checks and 6 existing platform-limited skips;
-2026-08-14)
-Next stage: `F0.19` Documentation Interaction Foundation (not-started, ADR-024) — per-capability
-documentation routes and an interactive example harness, inserted at the ledger boundary after
-`F0.18` so every component from `1.03` onward inherits the finished model. `1.03` SVGIcon follows it
-and stays not-started. Both remain blocked until Phase 0 re-certification records a result.
+Last closed stage: `F0.19 Documentation Interaction Foundation` COMPLETE (ADR-024, governed topic
+model and schema, 23 generated component topic routes with deep-link continuity, nested topic
+navigation, interactive example islands whose published source is read from the module that renders
+them, migrated Button and Icon content, 5/5 Chromium docs behavioural checks with both visual
+baselines regenerated and reviewed, and a recorded island bundle budget; Firefox and WebKit were
+unavailable in that environment so `pnpm validate` was not run to completion; 2026-08-15). Previous:
+`F0.18 Documentation Experience Foundation` COMPLETE (ADR-020; 2026-08-14).
+Next stage: `1.03` SVGIcon (not-started) — blocked until Phase 0 re-certification records a result.
 
 ## Open remediation: 2026-08-15 Phase 0 foundation audit
 

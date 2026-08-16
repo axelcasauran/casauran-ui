@@ -15,6 +15,11 @@ const REQUIRED_CAPABILITIES = [
   'application-accessibility',
   'ssr-rsc',
   'deterministic-visual-coverage',
+  // F0.19 (ADR-024)
+  'capability-topic-model',
+  'generated-topic-routes',
+  'interactive-examples',
+  'verified-example-source',
 ];
 const REQUIRED_OWNED = [
   'private documentation application shell and information architecture',
@@ -22,6 +27,7 @@ const REQUIRED_OWNED = [
   'registry-derived navigation and search metadata',
   'local post-hydration documentation presentation controls',
   'production documentation host browser and visual evidence',
+  'declared topic model, generated component topic routes, and interactive example islands',
 ];
 const REQUIRED_EXCLUDED = [
   'public React components hooks packages or supported consumer APIs',

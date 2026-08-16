@@ -27,6 +27,17 @@ bounded autoscroll calculations on the pinned Node runtime; ceiling 5,000 ms. Re
 memory, bundle and virtualized-component budgets remain later component-stage requirements.
 Command: `pnpm benchmark:drag-drop`.
 
+F0.19 documentation interaction scenario: build the production documentation host and load one
+component topic route that mounts an interactive example island
+(`/components/button/events`), counting every client chunk the document references. Ceilings: the
+example islands stay under 32 KiB raw in their own chunk, and a documentation route stays under
+256 KiB of gzipped client JavaScript. Recorded result on Node v22.22.2, linux x64, Next 16.2.11:
+the islands — the example frame plus four interactive Button examples, 5,304 bytes of source —
+compile into a single 15.1 KiB chunk, and the route loads 624.6 KiB raw / 185.3 KiB gzipped across
+8 chunks. Command: `pnpm --filter @casauran-internal/docs build`, then measure the chunks a topic
+route references. Interactive examples are the first client JavaScript shipped to documentation
+readers, so this budget is a ceiling on that decision, not a claim about page speed.
+
 Button `1.01` regression scenario: render 1,000 initial toggleable Buttons and 1,000 updated pressed
 projections through `react-dom/server` after production package builds, on Node v24.18.0, Windows
 x64. Ceiling: 1,000 ms. Recorded stage result: 196.78 ms. The emitted Button implementation module

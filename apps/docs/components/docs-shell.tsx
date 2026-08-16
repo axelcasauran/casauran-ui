@@ -32,10 +32,26 @@ function Navigation() {
       <div className="docs-nav-group">
         <p>Components</p>
         {docsDocuments.map((document) => (
-          <CurrentLink className="docs-nav-link" href={document.href} key={document.stageId}>
-            <span>{document.title}</span>
-            <span className="docs-nav-stage">{document.stageId}</span>
-          </CurrentLink>
+          <div className="docs-nav-component" key={document.stageId}>
+            <CurrentLink className="docs-nav-link" href={document.href}>
+              <span>{document.title}</span>
+              <span className="docs-nav-stage">{document.stageId}</span>
+            </CurrentLink>
+            <ul aria-label={`${document.title} topics`} className="docs-nav-topics">
+              {document.headings
+                .filter((heading) => heading.id !== 'overview')
+                .map((heading) => (
+                  <li key={heading.id}>
+                    <CurrentLink
+                      className="docs-nav-topic-link"
+                      href={`${document.href}/${heading.id}`}
+                    >
+                      {heading.title}
+                    </CurrentLink>
+                  </li>
+                ))}
+            </ul>
+          </div>
         ))}
         {plannedComponent ? (
           <span className="docs-nav-link docs-nav-link-planned">
