@@ -176,6 +176,49 @@ export const validateBuildTestInfrastructure = (
     }
   }
 
+  // next dev never builds a workspace dependency, and every host resolves @casauran specifiers
+  // through the exports map into dist. A dev entry point that starts the server directly serves
+  // whatever dist is on disk — absent on a fresh clone, stale after any commit that adds an export.
+  const entrypoints = isObject(contract.hostEntrypoints) ? contract.hostEntrypoints : {};
+  const devScripts = isObject(entrypoints.devScripts) ? entrypoints.devScripts : {};
+  const dependencyFilter = entrypoints.dependencyBuildFilter;
+  if (dependencyFilter !== '^...') {
+    errors.push('host dev entry points must select dependencies with the pnpm ^... filter');
+  }
+  for (const declared of contract.hosts ?? []) {
+    const devScript = devScripts[declared.id];
+    if (typeof devScript !== 'string') {
+      errors.push(`host ${declared.id} has no declared root dev entry point`);
+      continue;
+    }
+    const expectedDev = `pnpm --filter "${declared.package}${dependencyFilter}" build && pnpm --filter ${declared.package} dev`;
+    if (packageManifest.scripts?.[devScript] !== expectedDev) {
+      errors.push(
+        `${devScript} must build host dependencies before starting the ${declared.id} dev server`,
+      );
+    }
+  }
+  for (const id of Object.keys(devScripts)) {
+    if (!(contract.hosts ?? []).some((host) => host.id === id)) {
+      errors.push(`dev entry point declared for unknown host ${id}`);
+    }
+  }
+  const defaultDevScript = devScripts[entrypoints.defaultHost];
+  if (typeof defaultDevScript !== 'string') {
+    errors.push('host entry points must name a default host with a declared dev entry point');
+  } else if (packageManifest.scripts?.[entrypoints.rootDevScript] !== `pnpm ${defaultDevScript}`) {
+    errors.push(`${entrypoints.rootDevScript} must delegate to ${defaultDevScript}`);
+  }
+  for (const [field, label] of [
+    ['rationale', 'host dev entry point ordering'],
+    ['browserLayerRationale', 'browser layer host build'],
+  ]) {
+    const value = entrypoints[field];
+    if (typeof value !== 'string' || value.trim().length === 0) {
+      errors.push(`${label} must record its rationale`);
+    }
+  }
+
   const typecheck = isObject(contract.typecheck) ? contract.typecheck : {};
   const expectedTypecheck = `pnpm ${typecheck.workspaceScript} && pnpm ${typecheck.testsScript} && pnpm ${typecheck.toolingScript}`;
   if (packageManifest.scripts?.[typecheck.packageScript] !== expectedTypecheck) {
@@ -203,11 +246,18 @@ export const validateBuildTestInfrastructure = (
     errors.push('test layers must be contracts, unit and browser');
   }
   const layerById = Object.fromEntries(layers.map((layer) => [layer.id, layer]));
+  // The browser layer builds its hosts through next build, which resolves workspace specifiers
+  // into dist exactly like the dev servers do. Selecting each host together with its dependencies
+  // in one topological build keeps the layer runnable from a clean checkout.
+  const browserHostFilters = ['visual-tests', 'docs']
+    .map((id) => (contract.hosts ?? []).find((host) => host.id === id)?.package)
+    .filter((packageName) => typeof packageName === 'string')
+    .map((packageName) => `--filter "${packageName}..."`)
+    .join(' ');
   const expectedTestCommands = {
     [layerById.contracts?.packageScript]: 'node --test scripts/*.test.mjs',
     [layerById.unit?.packageScript]: 'vitest run --config vitest.config.mts',
-    [layerById.browser?.packageScript]:
-      'pnpm --filter @casauran-internal/visual-tests build && pnpm --filter @casauran-internal/docs build && playwright test',
+    [layerById.browser?.packageScript]: `pnpm ${browserHostFilters} build && playwright test`,
   };
   for (const [script, expected] of Object.entries(expectedTestCommands)) {
     if (script === 'undefined' || packageManifest.scripts?.[script] !== expected) {
@@ -355,6 +405,7 @@ export const validateBuildTestInfrastructure = (
     '## Typecheck contract',
     '## Test layers',
     '## Root gate ordering',
+    '## Host entry points',
     '## Browser and visual determinism',
     '## CI and failure semantics',
     '## Extending the infrastructure',

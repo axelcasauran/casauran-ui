@@ -62,8 +62,9 @@ Tests run at the cheapest reliable layer and are centrally orchestrated once per
 - `pnpm test:unit` uses Vitest once from the repository root for package-local pure tests and
   cross-package tests under `tests/unit`. Empty discovery is a failure; `--passWithNoTests` is not
   part of the root gate.
-- `pnpm test:browser` builds the visual-test and documentation hosts, starts both with `next start`,
-  and uses Playwright against those production runtimes. Chromium, Firefox, and WebKit are mandatory.
+- `pnpm test:browser` builds the visual-test and documentation hosts together with their workspace
+  dependencies, starts both with `next start`, and uses Playwright against those production
+  runtimes. Chromium, Firefox, and WebKit are mandatory.
 - `pnpm test` combines contract and unit layers. `pnpm validate` combines the full static gate with
   the production browser layer.
 
@@ -101,6 +102,34 @@ Consequences for contributors and for evidence:
 - Reordering the gate, adding a step that resolves cross-package specifiers, or introducing a
   development resolution condition that bypasses `dist` is an infrastructure change under
   "Extending the infrastructure".
+
+## Host entry points
+
+The `dist` resolution property in "Root gate ordering" is not limited to the gate. A host resolves
+every `@casauran` specifier through the package `exports` map into `dist`, and `next dev` never
+builds a workspace dependency. A dev entry point that starts the server directly therefore serves
+whatever `dist` happens to be on disk: absent on a fresh clone, and stale after any commit that adds
+an export. A stale `dist` does not report itself as a missing build — it fails as a missing export
+from a module that does declare the symbol in source, which reads as a source defect rather than an
+infrastructure one.
+
+Every root dev entry point therefore emits its host's workspace dependencies before starting the
+server, so the running host always matches the checked-out source:
+
+```text
+pnpm --filter "<host>^..." build → pnpm --filter <host> dev
+```
+
+The `^...` filter selects a host's transitive workspace dependencies and excludes the host itself,
+which is what keeps the emit step separate from the long-running server. `pnpm dev` delegates to
+`pnpm dev:docs`. `pnpm test:browser` applies the same property to the production hosts, selecting
+each host together with its dependencies in a single topological build so every shared library is
+built exactly once.
+
+Host packages keep their `next dev -p <port>` command unchanged. Ordering is a repository-level
+concern, so it lives in the root entry points and is declared in the `hostEntrypoints` block of
+`.agent/build-test-infrastructure.json`, which the build/test validator compares against
+`package.json` character for character.
 
 ## Browser and visual determinism
 

@@ -74,6 +74,19 @@ const validFixture = () => {
     ],
     hosts,
     browserProjects: ['chromium', 'firefox', 'webkit'],
+    hostEntrypoints: {
+      rootDevScript: 'dev',
+      defaultHost: 'docs',
+      dependencyBuildFilter: '^...',
+      devScripts: {
+        docs: 'dev:docs',
+        playground: 'dev:playground',
+        showcase: 'dev:showcase',
+        'visual-tests': 'dev:visual',
+      },
+      rationale: 'dev servers resolve workspace specifiers into dist',
+      browserLayerRationale: 'browser hosts resolve workspace specifiers into dist',
+    },
     rootGate: {
       staticScript: 'validate:static',
       fullScript: 'validate',
@@ -118,7 +131,16 @@ const validFixture = () => {
       'test:contracts': 'node --test scripts/*.test.mjs',
       'test:unit': 'vitest run --config vitest.config.mts',
       'test:browser':
-        'pnpm --filter @casauran-internal/visual-tests build && pnpm --filter @casauran-internal/docs build && playwright test',
+        'pnpm --filter "@casauran-internal/visual-tests..." --filter "@casauran-internal/docs..." build && playwright test',
+      dev: 'pnpm dev:docs',
+      'dev:docs':
+        'pnpm --filter "@casauran-internal/docs^..." build && pnpm --filter @casauran-internal/docs dev',
+      'dev:playground':
+        'pnpm --filter "@casauran-internal/playground^..." build && pnpm --filter @casauran-internal/playground dev',
+      'dev:showcase':
+        'pnpm --filter "@casauran-internal/showcase^..." build && pnpm --filter @casauran-internal/showcase dev',
+      'dev:visual':
+        'pnpm --filter "@casauran-internal/visual-tests^..." build && pnpm --filter @casauran-internal/visual-tests dev',
       test: 'pnpm test:contracts && pnpm test:unit',
       'test:e2e': 'pnpm test:browser',
       'verify:scaffold': 'node scripts/verify-scaffold.mjs',
@@ -183,7 +205,7 @@ const validFixture = () => {
     '.github/workflows/ci.yml':
       'permissions:\n  contents: read\npnpm install --frozen-lockfile\npnpm exec playwright install --with-deps chromium firefox webkit\npnpm validate',
     'BUILD_TEST_INFRASTRUCTURE.md':
-      '## Supported environment and reproducibility\n## Build contract\n## Typecheck contract\n## Test layers\n## Root gate ordering\n## Browser and visual determinism\n## CI and failure semantics\n## Extending the infrastructure',
+      '## Supported environment and reproducibility\n## Build contract\n## Typecheck contract\n## Test layers\n## Root gate ordering\n## Host entry points\n## Browser and visual determinism\n## CI and failure semantics\n## Extending the infrastructure',
   };
   return {
     contract,
@@ -234,6 +256,61 @@ test('rejects a static gate that resolves cross-package specifiers before buildi
   assert.ok(errors.includes('static gate must run build before typecheck'));
   assert.ok(errors.includes('static gate must run build before architecture'));
   assert.ok(errors.includes('static gate must run build before test'));
+});
+
+test('rejects a dev entry point that starts a host without emitting its dependencies', () => {
+  const { contract, context } = validFixture();
+  context.packageManifest.scripts['dev:docs'] = 'pnpm --filter @casauran-internal/docs dev';
+  const errors = validateBuildTestInfrastructure(contract, context);
+  assert.ok(
+    errors.includes('dev:docs must build host dependencies before starting the docs dev server'),
+  );
+});
+
+test('rejects a dependency build filter that would also build the host itself', () => {
+  const { contract, context } = validFixture();
+  contract.hostEntrypoints.dependencyBuildFilter = '...';
+  const errors = validateBuildTestInfrastructure(contract, context);
+  assert.ok(
+    errors.includes('host dev entry points must select dependencies with the pnpm ^... filter'),
+  );
+});
+
+test('rejects a host with no declared dev entry point', () => {
+  const { contract, context } = validFixture();
+  delete contract.hostEntrypoints.devScripts.showcase;
+  contract.hostEntrypoints.devScripts.legacy = 'dev:legacy';
+  const errors = validateBuildTestInfrastructure(contract, context);
+  assert.ok(errors.includes('host showcase has no declared root dev entry point'));
+  assert.ok(errors.includes('dev entry point declared for unknown host legacy'));
+});
+
+test('rejects a root dev script that bypasses its default host entry point', () => {
+  const { contract, context } = validFixture();
+  context.packageManifest.scripts.dev = 'pnpm --filter @casauran-internal/docs dev';
+  const errors = validateBuildTestInfrastructure(contract, context);
+  assert.ok(errors.includes('dev must delegate to dev:docs'));
+});
+
+test('rejects a browser layer that builds hosts without their dependencies', () => {
+  const { contract, context } = validFixture();
+  context.packageManifest.scripts['test:browser'] =
+    'pnpm --filter @casauran-internal/visual-tests build && pnpm --filter @casauran-internal/docs build && playwright test';
+  const errors = validateBuildTestInfrastructure(contract, context);
+  assert.ok(
+    errors.includes(
+      'test package script test:browser must be pnpm --filter "@casauran-internal/visual-tests..." --filter "@casauran-internal/docs..." build && playwright test',
+    ),
+  );
+});
+
+test('rejects host entry points that record no ordering rationale', () => {
+  const { contract, context } = validFixture();
+  contract.hostEntrypoints.rationale = '   ';
+  delete contract.hostEntrypoints.browserLayerRationale;
+  const errors = validateBuildTestInfrastructure(contract, context);
+  assert.ok(errors.includes('host dev entry point ordering must record its rationale'));
+  assert.ok(errors.includes('browser layer host build must record its rationale'));
 });
 
 test('rejects a static gate that never builds', () => {

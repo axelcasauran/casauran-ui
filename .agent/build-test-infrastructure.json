@@ -98,6 +98,19 @@
     }
   ],
   "browserProjects": ["chromium", "firefox", "webkit"],
+  "hostEntrypoints": {
+    "rootDevScript": "dev",
+    "defaultHost": "docs",
+    "dependencyBuildFilter": "^...",
+    "devScripts": {
+      "docs": "dev:docs",
+      "playground": "dev:playground",
+      "showcase": "dev:showcase",
+      "visual-tests": "dev:visual"
+    },
+    "rationale": "A host resolves every workspace specifier through the package exports map into dist, and next dev never builds a workspace dependency. A dev entry point that starts the server directly therefore renders against whatever dist happens to be on disk: absent on a fresh clone, and stale after any commit that adds an export, which surfaces as a build-time missing-export failure rather than as a missing build. Each root dev entry point emits its host's workspace dependencies first so the running server always matches the checked-out source.",
+    "browserLayerRationale": "The browser layer builds its hosts with next build, which resolves the same exports maps into dist. Selecting each host together with its dependencies in one topological build keeps pnpm test:browser reproducible from a frozen-lockfile install with no prior build, and builds every shared library exactly once."
+  },
   "rootGate": {
     "staticScript": "validate:static",
     "fullScript": "validate",
