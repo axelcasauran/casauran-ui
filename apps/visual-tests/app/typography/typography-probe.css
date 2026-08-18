@@ -1,0 +1,48 @@
+@layer base {
+  .typography-probe {
+    display: grid;
+    gap: var(--csn-spacing-content-gap);
+    max-inline-size: 64rem;
+    margin-inline: auto;
+    padding: var(--csn-spacing-layout-gutter);
+  }
+  .typography-probe__matrix {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: var(--csn-spacing-content-gap);
+  }
+  .typography-probe__panel {
+    display: grid;
+    gap: var(--csn-spacing-control-block);
+    padding: var(--csn-spacing-content-gap);
+    border: var(--csn-border-width-default) solid var(--csn-border-default);
+    border-radius: var(--csn-radius-surface);
+    background: var(--csn-surface-canvas);
+    color: var(--csn-text-primary);
+  }
+  .typography-probe__inverse {
+    padding: var(--csn-spacing-control-block);
+    border-radius: var(--csn-radius-control);
+    background: var(--csn-surface-inverse);
+  }
+  /* `tone="inherit"` must take this colour, not the theme's primary text colour. */
+  .typography-probe__toned {
+    color: var(--csn-status-danger);
+  }
+  .typography-probe__narrow {
+    max-inline-size: 12rem;
+  }
+}
+
+/*
+ * The documented consumer seam: component tokens are overridden in the `overrides` layer, which
+ * outranks the component layer regardless of selector specificity, so the override applies to an
+ * explicit role, size and tone exactly as it does to the defaults.
+ */
+@layer overrides {
+  .typography-probe__override {
+    --csn-typography-color: var(--csn-status-success);
+    --csn-typography-font-size: var(--csn-ref-font-size-2xl);
+    --csn-typography-font-weight: var(--csn-ref-font-weight-bold);
+  }
+}

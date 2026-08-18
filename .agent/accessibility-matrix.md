@@ -1,5 +1,19 @@
 # Accessibility Matrix
 
+Typography `1.04` derives its semantics from the element the caller selects through `as`, and adds
+no ARIA of its own. No typographic role ever produces a heading: `display`, `title`, `heading` and
+`subheading` are sizes, so a document outline exists only where a heading element is written, which
+is the defect the analysed model carried. `role` and `aria-level` are rejected by the type because
+either would contradict that element. The accessible name is the text content, and `transform` is a
+visual effect that does not change it. Every size and spacing step is a `rem` value, so text scales
+with the reader's font-size preference and at 200% zoom; reflow at 320 CSS pixels is asserted, and a
+long code block scrolls inside its own box rather than widening the page. Each tone is bound to a
+text-role token meeting the WCAG 2.2 AA 4.5:1 baseline against its intended surface, and every tone
+collapses to the system foreground under forced colours, which is why colour is never the only
+signal. It owns no focus, tab stop, key model, announcement, or animation. Typography meets the
+WCAG 2.2 AA baseline fixed by ADR-009; manual review is recorded in
+`specs/components/typography.parity.md`.
+
 SVGIcon `1.03` is decorative (`aria-hidden`) by default; a `label` carrying text promotes the span
 to `role="img"` with that trimmed name, and a blank or whitespace-only label keeps it decorative
 rather than publishing an image with an empty accessible name. The nested SVG is hidden and

@@ -362,6 +362,13 @@
       "description": "Heading text size reference."
     },
     {
+      "name": "font.size.3xl",
+      "type": "font-size",
+      "value": "1.875rem",
+      "cssVariable": "--csn-ref-font-size-3xl",
+      "description": "Display text size reference."
+    },
+    {
       "name": "font.weight.regular",
       "type": "font-weight",
       "value": 400,
@@ -1076,6 +1083,46 @@
       "reference": "text.primary",
       "cssVariable": "--csn-svg-icon-color",
       "description": "Default SVGIcon foreground color."
+    },
+    {
+      "component": "Typography",
+      "name": "typography.font-family",
+      "type": "font-family",
+      "reference": "typography.body-family",
+      "cssVariable": "--csn-typography-font-family",
+      "description": "Default Typography font family."
+    },
+    {
+      "component": "Typography",
+      "name": "typography.font-size",
+      "type": "font-size",
+      "reference": "typography.body-size",
+      "cssVariable": "--csn-typography-font-size",
+      "description": "Default Typography font size."
+    },
+    {
+      "component": "Typography",
+      "name": "typography.font-weight",
+      "type": "font-weight",
+      "reference": "typography.body-weight",
+      "cssVariable": "--csn-typography-font-weight",
+      "description": "Default Typography font weight."
+    },
+    {
+      "component": "Typography",
+      "name": "typography.line-height",
+      "type": "line-height",
+      "reference": "typography.body-line-height",
+      "cssVariable": "--csn-typography-line-height",
+      "description": "Default Typography line height."
+    },
+    {
+      "component": "Typography",
+      "name": "typography.color",
+      "type": "color",
+      "reference": "text.primary",
+      "cssVariable": "--csn-typography-color",
+      "description": "Default Typography foreground color."
     }
   ]
 }

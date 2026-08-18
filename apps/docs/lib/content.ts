@@ -2,6 +2,7 @@ import stageRegistry from '../../../.agent/stages/index.json';
 import { buttonTopics } from '../content/button';
 import { iconTopics } from '../content/icon';
 import { svgIconTopics } from '../content/svg-icon';
+import { typographyTopics } from '../content/typography';
 import { type ComponentTopics, orderTopics, type TocItem } from './topics';
 
 export type { TocItem };
@@ -84,6 +85,26 @@ const componentSources: readonly ComponentSource[] = [
       'artwork',
     ],
     topics: svgIconTopics,
+  },
+  {
+    stageId: '1.04',
+    slug: 'typography',
+    title: 'Typography',
+    summary: 'One text primitive that keeps the document outline and the type scale separable.',
+    keywords: [
+      'typography',
+      'text',
+      'heading',
+      'paragraph',
+      'type scale',
+      'font size',
+      'font weight',
+      'alignment',
+      'code block',
+      'tone',
+      'spacing',
+    ],
+    topics: typographyTopics,
   },
 ];
 

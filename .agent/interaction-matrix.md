@@ -1,5 +1,14 @@
 # Interaction Matrix
 
+Typography `1.04` has no interaction contract, for the same reason Icon and SVGIcon have none: it is
+text, not a control. Pointer, keyboard, touch, focus, IME, clipboard, drag, resize and activation
+behaviour belong to the component that composes the text. Native handlers pass through so a caller
+can integrate the element, but the component never registers or handles one and never adds a tab
+stop. The one scrollable surface it can produce — a code block wider than its container — is reached
+through the browser's own scroll-container affordance rather than through a tab index the component
+assigns. Its element vocabulary excludes every interactive element, so it can never become a second
+owner of a native control.
+
 SVGIcon `1.03` has no interaction contract, for the same reason Icon has none: it is a drawing, not
 a control. Pointer, keyboard, touch, focus, IME, clipboard, drag, and activation behavior belong to
 the component that composes it. Native handlers pass through so a caller can integrate the element,

@@ -2,6 +2,7 @@ import '@casauran/theme/theme.css';
 import '@casauran/react/button.css';
 import '@casauran/react/icon.css';
 import '@casauran/react/svg-icon.css';
+import '@casauran/react/typography.css';
 import './globals.css';
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';

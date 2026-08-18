@@ -18,9 +18,9 @@ describe('@casauran/tokens', () => {
     expect(semanticTokens.length).toBeGreaterThanOrEqual(50);
     expect(new Set(tokens.map((token) => token.name)).size).toBe(tokens.length);
     expect(new Set(tokens.map((token) => token.cssVariable)).size).toBe(tokens.length);
-    expect(componentTokens.length).toBe(19);
+    expect(componentTokens.length).toBe(24);
     expect(new Set(componentTokens.map((token) => token.component))).toEqual(
-      new Set(['Button', 'Icon', 'SVGIcon']),
+      new Set(['Button', 'Icon', 'SVGIcon', 'Typography']),
     );
   });
 

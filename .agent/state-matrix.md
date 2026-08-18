@@ -1,5 +1,20 @@
 # State Matrix
 
+## Typography (`1.04`)
+
+Typography owns no state at all: no controlled or uncontrolled value, no default or initial state,
+no transition, no event, no async behaviour, no reset, and no disabled, read-only, loading,
+validation, selection, expanded or open mode. `useControllableState` is not involved and there is no
+dual source of truth. Every prop is a pure presentational input resolved during render, and the two
+derived resolutions — the element from the role and the role from the element — are pure functions
+of the props, computed identically on the server and the client. Invalid states are unreachable
+through types: the element, role, size, weight, alignment, casing, tone and spacing vocabularies are
+closed unions, the spacing object accepts only logical sides, and React's raw-markup escape hatch,
+`color`, `role` and `aria-level` are rejected because each would contradict semantics the component
+derives from `as` and `tone`. The rendered states this component does cover — fourteen elements,
+eleven roles, four defaulting combinations, seven sizes, four weights, four alignments, four casing
+values, eight tones and six spacing steps on four logical sides — are each rendered and asserted.
+
 ## SVGIcon (`1.03`)
 
 SVGIcon covers the default drawing, each of three variant drawings, the variant fallback,

@@ -49,6 +49,7 @@
     "benchmark:button": "pnpm --filter @casauran-internal/core build && pnpm --filter @casauran-internal/events build && pnpm --filter @casauran/react build && node benchmarks/button.mjs",
     "benchmark:icon": "pnpm --filter @casauran/icons build && pnpm --filter @casauran/react build && node benchmarks/icon.mjs",
     "benchmark:svg-icon": "pnpm --filter @casauran/icons build && pnpm --filter @casauran/react build && node benchmarks/svg-icon.mjs",
+    "benchmark:typography": "pnpm --filter @casauran/react build && node benchmarks/typography.mjs",
     "validate:reference-baseline": "node scripts/validate-reference-baseline.mjs",
     "test:reference-baseline": "node --test scripts/reference-baseline.test.mjs",
     "validate:documentation-experience": "node scripts/validate-documentation-experience.mjs",

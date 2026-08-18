@@ -1,5 +1,16 @@
 # Performance Budgets
 
+Typography `1.04` regression scenario: render 5,000 text elements through `react-dom/server` after a
+production package build, cycling the element, role, size, tone and spacing surfaces so an element
+with a derived role, a role with a derived element, both given, explicit size and weight overrides,
+and both spacing forms are each exercised; ceiling 500 ms. Recorded stage result: 194.85 ms on Node
+v22.22.2, linux x64. The pinned toolchain is Node 24.18.0, which could not be installed in the stage
+environment, so this figure is bounded to the runtime it names and will be re-measured on the pinned
+runtime at Phase 0 re-certification. Command: `pnpm benchmark:typography`, which prints the Node
+version, platform and architecture it measured. The component adds no external dependency, client
+boundary, observer, listener, timer, portal, or network access. This is a bounded regression
+scenario, not a universal speed claim.
+
 SVGIcon `1.03` regression scenario: render 1,000 caller-owned three-layer definitions through
 `react-dom/server` after production package builds, alternating a shipped variant with an absent one
 so both variant resolution and the fallback path are exercised; ceiling 500 ms. Recorded stage

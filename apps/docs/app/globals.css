@@ -799,6 +799,29 @@
     border-radius: 0.6rem;
     background: var(--docs-surface-strong);
   }
+  /* An inverse surface, so `tone="inverse"` is legible in the example that demonstrates it. */
+  .docs-text-inverse {
+    padding: 0.6rem 0.8rem;
+    border-radius: 0.6rem;
+    background: var(--csn-surface-inverse);
+  }
+  /* A toned context, so an inheriting element visibly follows it rather than the theme default. */
+  .docs-text-context {
+    color: var(--csn-status-danger);
+  }
+  .docs-text-narrow {
+    max-inline-size: 18rem;
+  }
+  /*
+   * The preview frame centres inline items, which is right for a row of icons or actions and wrong
+   * for text: block margins and a type ramp are only legible in normal block flow. A preview whose
+   * direct children are Typography elements therefore flows as a block, so a spacing example
+   * demonstrates the spacing it claims rather than a flex gap.
+   */
+  .docs-example-preview:has(> .csn-typography) {
+    display: block;
+    text-align: start;
+  }
 }
 
 @media (max-width: 74rem) {

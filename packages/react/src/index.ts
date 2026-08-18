@@ -1,6 +1,7 @@
 export { Button } from './components/buttons/button/index.js';
 export { Icon } from './components/icons/icon/index.js';
 export { SVGIcon } from './components/icons/svg-icon/index.js';
+export { Typography } from './components/typography/typography/index.js';
 export type {
   ButtonAppearance,
   ButtonPressedChangeEvent,
@@ -24,3 +25,16 @@ export type {
   SVGIconTone,
   SVGIconVariant,
 } from './components/icons/svg-icon/index.js';
+export type {
+  TypographyAlign,
+  TypographyElement,
+  TypographyProps,
+  TypographySize,
+  TypographySpace,
+  TypographySpacing,
+  TypographySpacingSides,
+  TypographyTone,
+  TypographyTransform,
+  TypographyVariant,
+  TypographyWeight,
+} from './components/typography/typography/index.js';

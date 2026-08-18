@@ -1,5 +1,16 @@
 # Theme Matrix
 
+Typography `1.04` passes light/dark and comfortable/compact scoped themes, inherited RTL, semantic
+tones, and custom `--csn-typography-font-family`/`-font-size`/`-font-weight`/`-line-height`/`-color`
+overrides written in the `overrides` layer. Every role, size, weight and tone assigns its component
+tokens at the same specificity including the defaults, so an override behaves identically for a
+default and for an explicit value. Type sizes deliberately do not change with density: density
+governs control spacing on this platform, and rescaling body text by density would fight the
+reader's own font-size preference. Under forced colours text takes the system foreground and the
+quotation rule takes a system colour so the block keeps its structural cue. The stage added one
+primitive to the token contract, `font.size.3xl`, because the scale stopped at the step the `title`
+role occupies and `display` had none to bind to.
+
 SVGIcon `1.03` passes light/dark and comfortable/compact scoped themes, inherited RTL, semantic
 tones, custom `--csn-svg-icon-color`/`--csn-svg-icon-size` overrides written in the `overrides`
 layer, forced-color foreground, and no-motion behavior. Every enumerated size and tone assigns its

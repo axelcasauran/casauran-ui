@@ -347,6 +347,13 @@ export const primitiveTokens = [
     "description": "Heading text size reference."
   },
   {
+    "name": "font.size.3xl",
+    "type": "font-size",
+    "value": "1.875rem",
+    "cssVariable": "--csn-ref-font-size-3xl",
+    "description": "Display text size reference."
+  },
+  {
     "name": "font.weight.regular",
     "type": "font-weight",
     "value": 400,
@@ -1061,6 +1068,46 @@ export const componentTokens = [
     "reference": "text.primary",
     "cssVariable": "--csn-svg-icon-color",
     "description": "Default SVGIcon foreground color."
+  },
+  {
+    "component": "Typography",
+    "name": "typography.font-family",
+    "type": "font-family",
+    "reference": "typography.body-family",
+    "cssVariable": "--csn-typography-font-family",
+    "description": "Default Typography font family."
+  },
+  {
+    "component": "Typography",
+    "name": "typography.font-size",
+    "type": "font-size",
+    "reference": "typography.body-size",
+    "cssVariable": "--csn-typography-font-size",
+    "description": "Default Typography font size."
+  },
+  {
+    "component": "Typography",
+    "name": "typography.font-weight",
+    "type": "font-weight",
+    "reference": "typography.body-weight",
+    "cssVariable": "--csn-typography-font-weight",
+    "description": "Default Typography font weight."
+  },
+  {
+    "component": "Typography",
+    "name": "typography.line-height",
+    "type": "line-height",
+    "reference": "typography.body-line-height",
+    "cssVariable": "--csn-typography-line-height",
+    "description": "Default Typography line height."
+  },
+  {
+    "component": "Typography",
+    "name": "typography.color",
+    "type": "color",
+    "reference": "text.primary",
+    "cssVariable": "--csn-typography-color",
+    "description": "Default Typography foreground color."
   }
 ] as const satisfies readonly ComponentTokenDefinition[];
 export const tokenCssVariables = {
@@ -1113,6 +1160,7 @@ export const tokenCssVariables = {
   "font.size.lg": "--csn-ref-font-size-lg",
   "font.size.xl": "--csn-ref-font-size-xl",
   "font.size.2xl": "--csn-ref-font-size-2xl",
+  "font.size.3xl": "--csn-ref-font-size-3xl",
   "font.weight.regular": "--csn-ref-font-weight-regular",
   "font.weight.medium": "--csn-ref-font-weight-medium",
   "font.weight.semibold": "--csn-ref-font-weight-semibold",
@@ -1211,7 +1259,12 @@ export const tokenCssVariables = {
   "icon.size": "--csn-icon-size",
   "icon.color": "--csn-icon-color",
   "svg-icon.size": "--csn-svg-icon-size",
-  "svg-icon.color": "--csn-svg-icon-color"
+  "svg-icon.color": "--csn-svg-icon-color",
+  "typography.font-family": "--csn-typography-font-family",
+  "typography.font-size": "--csn-typography-font-size",
+  "typography.font-weight": "--csn-typography-font-weight",
+  "typography.line-height": "--csn-typography-line-height",
+  "typography.color": "--csn-typography-color"
 } as const;
 export const semanticTokenReferences = {
   "surface.canvas": "color.neutral.0",

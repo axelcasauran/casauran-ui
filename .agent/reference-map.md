@@ -7,9 +7,9 @@ Public reference pages are used only under `KENDO_REFERENCE_POLICY.md`. This map
 | Component            | Reference domain                 | Stage   | Status          |
 | -------------------- | -------------------------------- | ------- | --------------- |
 | Button               | `docs/content/buttons`           | `1.01`  | improved        |
-| Icon                 | `docs/content/common/icon`       | `1.02`  | parity-verified |
-| SVGIcon              | `docs/content/common/svgicon`    | `1.03`  | unreviewed      |
-| Typography           | `docs/content/common/typography` | `1.04`  | unreviewed      |
+| Icon                 | `docs/content/common/icon`       | `1.02`  | improved        |
+| SVGIcon              | `docs/content/common/svgicon`    | `1.03`  | parity-verified |
+| Typography           | `docs/content/common/typography` | `1.04`  | parity-verified |
 | Label                | `docs/content/labels`            | `1.05`  | unreviewed      |
 | Input                | `docs/content/inputs`            | `1.06`  | unreviewed      |
 | Checkbox             | `docs/content/inputs`            | `1.07`  | unreviewed      |

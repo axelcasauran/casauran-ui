@@ -1,0 +1,300 @@
+@layer components {
+  /*
+   * Everything the component paints resolves from five governed component tokens. The role rules
+   * below assign those tokens rather than the CSS properties directly, so one override written in
+   * the `overrides` layer reaches a default and an explicit value alike — the seam defect the Icon
+   * revalidation found, avoided here from the start.
+   */
+  .csn-typography {
+    margin-block-start: var(--_csn-typography-space-block-start, 0);
+    margin-block-end: var(--_csn-typography-space-block-end, 0);
+    margin-inline-start: var(--_csn-typography-space-inline-start, 0);
+    margin-inline-end: var(--_csn-typography-space-inline-end, 0);
+    color: var(--csn-typography-color);
+    font-family: var(--csn-typography-font-family);
+    font-size: var(--csn-typography-font-size);
+    font-weight: var(--csn-typography-font-weight);
+    line-height: var(--csn-typography-line-height);
+    text-align: var(--_csn-typography-align, inherit);
+    text-transform: var(--_csn-typography-transform, none);
+  }
+
+  /* Typographic roles. Every role assigns all four type tokens, including the body default. */
+  .csn-typography[data-variant='display'] {
+    --csn-typography-font-family: var(--csn-typography-body-family);
+    --csn-typography-font-size: var(--csn-ref-font-size-3xl);
+    --csn-typography-font-weight: var(--csn-ref-font-weight-bold);
+    --csn-typography-line-height: var(--csn-typography-heading-line-height);
+  }
+  .csn-typography[data-variant='title'] {
+    --csn-typography-font-family: var(--csn-typography-body-family);
+    --csn-typography-font-size: var(--csn-typography-heading-size);
+    --csn-typography-font-weight: var(--csn-ref-font-weight-bold);
+    --csn-typography-line-height: var(--csn-typography-heading-line-height);
+  }
+  .csn-typography[data-variant='heading'] {
+    --csn-typography-font-family: var(--csn-typography-body-family);
+    --csn-typography-font-size: var(--csn-ref-font-size-xl);
+    --csn-typography-font-weight: var(--csn-typography-heading-weight);
+    --csn-typography-line-height: var(--csn-typography-heading-line-height);
+  }
+  .csn-typography[data-variant='subheading'] {
+    --csn-typography-font-family: var(--csn-typography-body-family);
+    --csn-typography-font-size: var(--csn-ref-font-size-lg);
+    --csn-typography-font-weight: var(--csn-typography-heading-weight);
+    --csn-typography-line-height: var(--csn-typography-body-line-height);
+  }
+  .csn-typography[data-variant='body'] {
+    --csn-typography-font-family: var(--csn-typography-body-family);
+    --csn-typography-font-size: var(--csn-typography-body-size);
+    --csn-typography-font-weight: var(--csn-typography-body-weight);
+    --csn-typography-line-height: var(--csn-typography-body-line-height);
+  }
+  .csn-typography[data-variant='body-small'] {
+    --csn-typography-font-family: var(--csn-typography-body-family);
+    --csn-typography-font-size: var(--csn-typography-small-size);
+    --csn-typography-font-weight: var(--csn-typography-body-weight);
+    --csn-typography-line-height: var(--csn-typography-body-line-height);
+  }
+  .csn-typography[data-variant='caption'] {
+    --csn-typography-font-family: var(--csn-typography-body-family);
+    --csn-typography-font-size: var(--csn-ref-font-size-xs);
+    --csn-typography-font-weight: var(--csn-typography-body-weight);
+    --csn-typography-line-height: var(--csn-typography-body-line-height);
+  }
+  /*
+   * `overline` sets tracking and weight but never a casing transform. Uppercasing is locale
+   * specific — Turkish dotted and dotless i, German eszett, scripts with no case at all — so it is
+   * the caller's decision through `transform`, not a default the component imposes.
+   */
+  .csn-typography[data-variant='overline'] {
+    --csn-typography-font-family: var(--csn-typography-body-family);
+    --csn-typography-font-size: var(--csn-ref-font-size-xs);
+    --csn-typography-font-weight: var(--csn-typography-heading-weight);
+    --csn-typography-line-height: var(--csn-typography-body-line-height);
+
+    letter-spacing: 0.08em;
+  }
+  .csn-typography[data-variant='code'] {
+    --csn-typography-font-family: var(--csn-typography-code-family);
+    --csn-typography-font-size: var(--csn-typography-small-size);
+    --csn-typography-font-weight: var(--csn-typography-body-weight);
+    --csn-typography-line-height: var(--csn-typography-body-line-height);
+  }
+  /*
+   * Whitespace is preserved in CSS and wrapped, so multi-line code arrives as children and never
+   * through a markup sink. The block owns its own horizontal overflow so a long line scrolls
+   * inside the block instead of widening the page at 320 CSS pixels.
+   */
+  .csn-typography[data-variant='code-block'] {
+    --csn-typography-font-family: var(--csn-typography-code-family);
+    --csn-typography-font-size: var(--csn-typography-small-size);
+    --csn-typography-font-weight: var(--csn-typography-body-weight);
+    --csn-typography-line-height: var(--csn-ref-line-height-relaxed);
+
+    max-inline-size: 100%;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  .csn-typography[data-variant='quote'] {
+    --csn-typography-font-family: var(--csn-typography-body-family);
+    --csn-typography-font-size: var(--csn-typography-body-size);
+    --csn-typography-font-weight: var(--csn-typography-body-weight);
+    --csn-typography-line-height: var(--csn-ref-line-height-relaxed);
+
+    border-inline-start: var(--csn-border-width-strong) solid var(--csn-border-strong);
+    padding-inline-start: var(--csn-ref-space-4);
+  }
+
+  /*
+   * Size and weight overrides are written after the roles deliberately: they assign the same
+   * component tokens at the same specificity, so source order is what makes an explicit value win
+   * over the one its role assigned. `auto` has no rule, so an unset override never competes.
+   */
+  .csn-typography[data-size='xs'] {
+    --csn-typography-font-size: var(--csn-ref-font-size-xs);
+  }
+  .csn-typography[data-size='sm'] {
+    --csn-typography-font-size: var(--csn-ref-font-size-sm);
+  }
+  .csn-typography[data-size='md'] {
+    --csn-typography-font-size: var(--csn-ref-font-size-md);
+  }
+  .csn-typography[data-size='lg'] {
+    --csn-typography-font-size: var(--csn-ref-font-size-lg);
+  }
+  .csn-typography[data-size='xl'] {
+    --csn-typography-font-size: var(--csn-ref-font-size-xl);
+  }
+  .csn-typography[data-size='2xl'] {
+    --csn-typography-font-size: var(--csn-ref-font-size-2xl);
+  }
+  .csn-typography[data-size='3xl'] {
+    --csn-typography-font-size: var(--csn-ref-font-size-3xl);
+  }
+
+  .csn-typography[data-weight='regular'] {
+    --csn-typography-font-weight: var(--csn-ref-font-weight-regular);
+  }
+  .csn-typography[data-weight='medium'] {
+    --csn-typography-font-weight: var(--csn-ref-font-weight-medium);
+  }
+  .csn-typography[data-weight='semibold'] {
+    --csn-typography-font-weight: var(--csn-ref-font-weight-semibold);
+  }
+  .csn-typography[data-weight='bold'] {
+    --csn-typography-font-weight: var(--csn-ref-font-weight-bold);
+  }
+
+  /* Alignment is logical, so `start` follows the ambient direction rather than fighting it. */
+  .csn-typography[data-align='start'] {
+    --_csn-typography-align: start;
+  }
+  .csn-typography[data-align='end'] {
+    --_csn-typography-align: end;
+  }
+  .csn-typography[data-align='center'] {
+    --_csn-typography-align: center;
+  }
+  .csn-typography[data-align='justify'] {
+    --_csn-typography-align: justify;
+  }
+
+  .csn-typography[data-transform='none'] {
+    --_csn-typography-transform: none;
+  }
+  .csn-typography[data-transform='uppercase'] {
+    --_csn-typography-transform: uppercase;
+  }
+  .csn-typography[data-transform='lowercase'] {
+    --_csn-typography-transform: lowercase;
+  }
+  .csn-typography[data-transform='capitalize'] {
+    --_csn-typography-transform: capitalize;
+  }
+
+  /* `inherit` is the default tone and takes the colour of the text around it. */
+  .csn-typography[data-tone='inherit'] {
+    --csn-typography-color: currentColor;
+  }
+  .csn-typography[data-tone='default'] {
+    --csn-typography-color: var(--csn-text-primary);
+  }
+  .csn-typography[data-tone='muted'] {
+    --csn-typography-color: var(--csn-text-muted);
+  }
+  .csn-typography[data-tone='accent'] {
+    --csn-typography-color: var(--csn-interactive-primary);
+  }
+  .csn-typography[data-tone='positive'] {
+    --csn-typography-color: var(--csn-status-success);
+  }
+  .csn-typography[data-tone='caution'] {
+    --csn-typography-color: var(--csn-status-warning);
+  }
+  .csn-typography[data-tone='critical'] {
+    --csn-typography-color: var(--csn-status-danger);
+  }
+  .csn-typography[data-tone='inverse'] {
+    --csn-typography-color: var(--csn-text-inverse);
+  }
+
+  /*
+   * Spacing steps resolve from the governed space scale into per-side internal properties. Every
+   * side is always reflected, including `none`, so a zero margin is expressible and beats a margin
+   * inherited from a consumer reset.
+   */
+  .csn-typography[data-space-block-start='none'] {
+    --_csn-typography-space-block-start: var(--csn-ref-space-0);
+  }
+  .csn-typography[data-space-block-start='xs'] {
+    --_csn-typography-space-block-start: var(--csn-ref-space-1);
+  }
+  .csn-typography[data-space-block-start='sm'] {
+    --_csn-typography-space-block-start: var(--csn-ref-space-2);
+  }
+  .csn-typography[data-space-block-start='md'] {
+    --_csn-typography-space-block-start: var(--csn-ref-space-4);
+  }
+  .csn-typography[data-space-block-start='lg'] {
+    --_csn-typography-space-block-start: var(--csn-ref-space-6);
+  }
+  .csn-typography[data-space-block-start='xl'] {
+    --_csn-typography-space-block-start: var(--csn-ref-space-10);
+  }
+
+  .csn-typography[data-space-block-end='none'] {
+    --_csn-typography-space-block-end: var(--csn-ref-space-0);
+  }
+  .csn-typography[data-space-block-end='xs'] {
+    --_csn-typography-space-block-end: var(--csn-ref-space-1);
+  }
+  .csn-typography[data-space-block-end='sm'] {
+    --_csn-typography-space-block-end: var(--csn-ref-space-2);
+  }
+  .csn-typography[data-space-block-end='md'] {
+    --_csn-typography-space-block-end: var(--csn-ref-space-4);
+  }
+  .csn-typography[data-space-block-end='lg'] {
+    --_csn-typography-space-block-end: var(--csn-ref-space-6);
+  }
+  .csn-typography[data-space-block-end='xl'] {
+    --_csn-typography-space-block-end: var(--csn-ref-space-10);
+  }
+
+  .csn-typography[data-space-inline-start='none'] {
+    --_csn-typography-space-inline-start: var(--csn-ref-space-0);
+  }
+  .csn-typography[data-space-inline-start='xs'] {
+    --_csn-typography-space-inline-start: var(--csn-ref-space-1);
+  }
+  .csn-typography[data-space-inline-start='sm'] {
+    --_csn-typography-space-inline-start: var(--csn-ref-space-2);
+  }
+  .csn-typography[data-space-inline-start='md'] {
+    --_csn-typography-space-inline-start: var(--csn-ref-space-4);
+  }
+  .csn-typography[data-space-inline-start='lg'] {
+    --_csn-typography-space-inline-start: var(--csn-ref-space-6);
+  }
+  .csn-typography[data-space-inline-start='xl'] {
+    --_csn-typography-space-inline-start: var(--csn-ref-space-10);
+  }
+
+  .csn-typography[data-space-inline-end='none'] {
+    --_csn-typography-space-inline-end: var(--csn-ref-space-0);
+  }
+  .csn-typography[data-space-inline-end='xs'] {
+    --_csn-typography-space-inline-end: var(--csn-ref-space-1);
+  }
+  .csn-typography[data-space-inline-end='sm'] {
+    --_csn-typography-space-inline-end: var(--csn-ref-space-2);
+  }
+  .csn-typography[data-space-inline-end='md'] {
+    --_csn-typography-space-inline-end: var(--csn-ref-space-4);
+  }
+  .csn-typography[data-space-inline-end='lg'] {
+    --_csn-typography-space-inline-end: var(--csn-ref-space-6);
+  }
+  .csn-typography[data-space-inline-end='xl'] {
+    --_csn-typography-space-inline-end: var(--csn-ref-space-10);
+  }
+}
+
+@media (forced-colors: active) {
+  @layer components {
+    /*
+     * Text takes the system foreground, and the quotation rule takes a system colour, so a quote
+     * keeps the structural cue that its tone otherwise carries. Tones collapse to one colour in
+     * this mode by design, which is why no tone is allowed to be the only signal of meaning.
+     */
+    .csn-typography {
+      color: CanvasText;
+    }
+
+    .csn-typography[data-variant='quote'] {
+      border-inline-start-color: CanvasText;
+    }
+  }
+}

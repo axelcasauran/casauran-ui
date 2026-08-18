@@ -1,5 +1,12 @@
 # Rendering Matrix
 
+Typography `1.04` is server-renderable from the package root with no client boundary and no
+hydration state. It reads no browser global at module evaluation or during render and holds no
+effect, observer, listener, timer, portal, random value, or current-time read, so server and client
+markup are identical and it contributes nothing to the client bundle. It generates no identifier, so
+`useStableId` is not involved. Verified in the production visual-tests, documentation and playground
+Next hosts, with a browser case asserting the text is present in the server response itself.
+
 SVGIcon `1.03` is server-renderable from the package root with no client boundary and no hydration
 state. It reads no browser global at module evaluation and holds no effect, observer, listener,
 timer, portal, random value, or current-time read, so server and client markup are identical and it
