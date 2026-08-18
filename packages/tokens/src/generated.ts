@@ -1108,6 +1108,78 @@ export const componentTokens = [
     "reference": "text.primary",
     "cssVariable": "--csn-typography-color",
     "description": "Default Typography foreground color."
+  },
+  {
+    "component": "Label",
+    "name": "label.font-family",
+    "type": "font-family",
+    "reference": "typography.body-family",
+    "cssVariable": "--csn-label-font-family",
+    "description": "Default Label font family."
+  },
+  {
+    "component": "Label",
+    "name": "label.font-size",
+    "type": "font-size",
+    "reference": "typography.body-size",
+    "cssVariable": "--csn-label-font-size",
+    "description": "Default Label font size."
+  },
+  {
+    "component": "Label",
+    "name": "label.font-weight",
+    "type": "font-weight",
+    "reference": "typography.emphasis-weight",
+    "cssVariable": "--csn-label-font-weight",
+    "description": "Label caption font weight."
+  },
+  {
+    "component": "Label",
+    "name": "label.line-height",
+    "type": "line-height",
+    "reference": "typography.body-line-height",
+    "cssVariable": "--csn-label-line-height",
+    "description": "Label caption line height."
+  },
+  {
+    "component": "Label",
+    "name": "label.color",
+    "type": "color",
+    "reference": "text.primary",
+    "cssVariable": "--csn-label-color",
+    "description": "Default Label foreground color."
+  },
+  {
+    "component": "Label",
+    "name": "label.requirement-color",
+    "type": "color",
+    "reference": "text.muted",
+    "cssVariable": "--csn-label-requirement-color",
+    "description": "Label requirement marker color."
+  },
+  {
+    "component": "Label",
+    "name": "label.invalid-color",
+    "type": "color",
+    "reference": "status.danger",
+    "cssVariable": "--csn-label-invalid-color",
+    "description": "Label foreground color when the editor is invalid."
+  },
+  {
+    "component": "Label",
+    "name": "label.disabled-opacity",
+    "type": "number",
+    "reference": "opacity.disabled",
+    "cssVariable": "--csn-label-disabled-opacity",
+    "description": "Label opacity when the editor is disabled."
+  },
+  {
+    "component": "Label",
+    "name": "label.gap",
+    "type": "dimension",
+    "reference": "space.1",
+    "cssVariable": "--csn-label-gap",
+    "description": "Gap between the Label caption and its requirement marker."
   }
 ] as const satisfies readonly ComponentTokenDefinition[];
 export const tokenCssVariables = {
@@ -1264,7 +1336,16 @@ export const tokenCssVariables = {
   "typography.font-size": "--csn-typography-font-size",
   "typography.font-weight": "--csn-typography-font-weight",
   "typography.line-height": "--csn-typography-line-height",
-  "typography.color": "--csn-typography-color"
+  "typography.color": "--csn-typography-color",
+  "label.font-family": "--csn-label-font-family",
+  "label.font-size": "--csn-label-font-size",
+  "label.font-weight": "--csn-label-font-weight",
+  "label.line-height": "--csn-label-line-height",
+  "label.color": "--csn-label-color",
+  "label.requirement-color": "--csn-label-requirement-color",
+  "label.invalid-color": "--csn-label-invalid-color",
+  "label.disabled-opacity": "--csn-label-disabled-opacity",
+  "label.gap": "--csn-label-gap"
 } as const;
 export const semanticTokenReferences = {
   "surface.canvas": "color.neutral.0",

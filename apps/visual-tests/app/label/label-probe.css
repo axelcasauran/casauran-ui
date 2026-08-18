@@ -1,0 +1,64 @@
+@layer base {
+  .label-probe {
+    display: grid;
+    gap: var(--csn-spacing-content-gap);
+    max-inline-size: 64rem;
+    margin-inline: auto;
+    padding: var(--csn-spacing-layout-gutter);
+  }
+  .label-probe__matrix {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: var(--csn-spacing-content-gap);
+  }
+  .label-probe__panel {
+    display: grid;
+    gap: var(--csn-spacing-content-gap);
+    padding: var(--csn-spacing-content-gap);
+    border: var(--csn-border-width-default) solid var(--csn-border-default);
+    border-radius: var(--csn-radius-surface);
+    background: var(--csn-surface-canvas);
+    color: var(--csn-text-primary);
+  }
+  /* A field is a caption above its editor; the probe owns this layout, not the component. */
+  .label-probe__field {
+    display: grid;
+    gap: var(--csn-ref-space-1);
+  }
+  .label-probe__row {
+    display: flex;
+    align-items: center;
+    gap: var(--csn-ref-space-2);
+  }
+  .label-probe__editor {
+    border: var(--csn-border-width-default) solid var(--csn-border-strong);
+    border-radius: var(--csn-radius-control);
+    background: var(--csn-surface-canvas);
+    padding: var(--csn-spacing-control-block) var(--csn-spacing-control-inline);
+    color: inherit;
+    font: inherit;
+  }
+  /* Stands in for a widget that renders no native control until 1.06 ships one. */
+  .label-probe__widget {
+    border: var(--csn-border-width-default) solid var(--csn-border-strong);
+    border-radius: var(--csn-radius-control);
+    background: var(--csn-surface-subtle);
+    padding: var(--csn-spacing-control-block) var(--csn-spacing-control-inline);
+  }
+  .label-probe__narrow {
+    max-inline-size: 12rem;
+  }
+}
+
+/*
+ * The documented consumer seam: component tokens are overridden in the `overrides` layer, which
+ * outranks the component layer regardless of selector specificity, so the override applies to a
+ * state colour exactly as it does to the default.
+ */
+@layer overrides {
+  .label-probe__override {
+    --csn-label-color: var(--csn-status-success);
+    --csn-label-font-size: var(--csn-ref-font-size-lg);
+    --csn-label-requirement-color: var(--csn-interactive-primary);
+  }
+}

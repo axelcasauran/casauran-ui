@@ -813,6 +813,48 @@
     max-inline-size: 18rem;
   }
   /*
+   * Field layout for the Label examples. A caption above its editor is the surrounding form's
+   * decision, not the component's, so the arrangement lives here rather than in the component.
+   */
+  .docs-field {
+    display: grid;
+    gap: 0.25rem;
+    inline-size: 100%;
+    max-inline-size: 22rem;
+    text-align: start;
+  }
+  .docs-field-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    inline-size: 100%;
+    max-inline-size: 22rem;
+  }
+  .docs-input {
+    border: 1px solid var(--docs-border);
+    border-radius: 0.4rem;
+    background: var(--docs-surface);
+    padding: 0.45rem 0.6rem;
+    color: var(--docs-ink);
+    font: inherit;
+  }
+  .docs-input[type='checkbox'],
+  .docs-input[type='radio'] {
+    padding: 0;
+  }
+  .docs-widget {
+    border: 1px solid var(--docs-border);
+    border-radius: 0.4rem;
+    background: var(--docs-surface);
+    padding: 0.45rem 0.6rem;
+  }
+  .docs-example-preview:has(> .docs-field),
+  .docs-example-preview:has(> .docs-field-row) {
+    display: grid;
+    justify-items: start;
+    gap: 0.9rem;
+  }
+  /*
    * The preview frame centres inline items, which is right for a row of icons or actions and wrong
    * for text: block margins and a type ramp are only legible in normal block flow. A preview whose
    * direct children are Typography elements therefore flows as a block, so a spacing example

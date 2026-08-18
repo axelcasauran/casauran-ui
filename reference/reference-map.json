@@ -27,7 +27,7 @@
     "category": "labels",
     "path": "docs/content/labels",
     "commit": "6a05c926c4f08b89782c25336fc159fea3a3f26b",
-    "analysisStatus": "unreviewed"
+    "analysisStatus": "parity-verified"
   },
   "Input": {
     "category": "inputs",

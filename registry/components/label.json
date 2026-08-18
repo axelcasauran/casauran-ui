@@ -4,7 +4,7 @@
   "category": "labels",
   "phase": 1,
   "stage": "1.05",
-  "status": "unreviewed",
+  "status": "parity-verified",
   "package": "@casauran/react",
   "reference": {
     "path": "docs/content/labels",
@@ -15,25 +15,135 @@
     "nativeInteractiveExceptions": []
   },
   "rendering": {
-    "serverRenderable": null,
-    "requiresClient": null,
+    "serverRenderable": true,
+    "requiresClient": false,
     "clientReasons": [],
-    "hydrationSensitive": null
+    "hydrationSensitive": false
   },
   "parity": {
-    "functionality": "unreviewed",
-    "states": "unreviewed",
-    "interaction": "unreviewed",
-    "keyboard": "unreviewed",
-    "accessibility": "unreviewed",
-    "responsive": "unreviewed",
-    "i18n": "unreviewed",
-    "rtl": "unreviewed",
-    "theming": "unreviewed",
-    "ssrNext": "unreviewed",
-    "performance": "unreviewed",
-    "security": "unreviewed",
-    "docs": "unreviewed"
+    "functionality": "pass",
+    "states": "pass",
+    "interaction": "pass",
+    "keyboard": "not-applicable",
+    "accessibility": "pass",
+    "responsive": "pass",
+    "i18n": "pass",
+    "rtl": "pass",
+    "theming": "pass",
+    "ssrNext": "pass",
+    "performance": "pass",
+    "security": "pass",
+    "docs": "pass"
   },
-  "features": []
+  "features": [
+    "native-association",
+    "non-labelable-association",
+    "label-activation",
+    "requirement-marker",
+    "supplied-marker-text",
+    "invalid-state",
+    "disabled-state",
+    "disabled-precedence",
+    "empty-caption",
+    "reflected-state-attributes",
+    "composed-caption-content",
+    "component-token-override-seam",
+    "theme-and-density",
+    "rtl",
+    "forced-colors",
+    "reflow",
+    "text-scaling",
+    "ssr-rsc",
+    "native-attribute-passthrough",
+    "reserved-semantic-props",
+    "caption-escaping"
+  ],
+  "featureCoverage": {
+    "native-association": {
+      "mode": "preview",
+      "anchor": "forms"
+    },
+    "non-labelable-association": {
+      "mode": "preview",
+      "anchor": "forms"
+    },
+    "label-activation": {
+      "mode": "fixture",
+      "evidence": "tests/browser/label.spec.ts"
+    },
+    "requirement-marker": {
+      "mode": "preview",
+      "anchor": "content",
+      "attribute": "data-requirement",
+      "values": ["none", "optional", "required"]
+    },
+    "supplied-marker-text": {
+      "mode": "section",
+      "anchor": "content"
+    },
+    "invalid-state": {
+      "mode": "preview",
+      "anchor": "states"
+    },
+    "disabled-state": {
+      "mode": "preview",
+      "anchor": "states"
+    },
+    "disabled-precedence": {
+      "mode": "section",
+      "anchor": "states"
+    },
+    "empty-caption": {
+      "mode": "preview",
+      "anchor": "states"
+    },
+    "reflected-state-attributes": {
+      "mode": "section",
+      "anchor": "api"
+    },
+    "composed-caption-content": {
+      "mode": "preview",
+      "anchor": "content"
+    },
+    "component-token-override-seam": {
+      "mode": "section",
+      "anchor": "theming"
+    },
+    "theme-and-density": {
+      "mode": "fixture",
+      "evidence": "tests/browser/label.spec.ts"
+    },
+    "rtl": {
+      "mode": "fixture",
+      "evidence": "tests/browser/label.spec.ts"
+    },
+    "forced-colors": {
+      "mode": "fixture",
+      "evidence": "tests/browser/label.spec.ts"
+    },
+    "reflow": {
+      "mode": "fixture",
+      "evidence": "tests/browser/label.spec.ts"
+    },
+    "text-scaling": {
+      "mode": "fixture",
+      "evidence": "tests/browser/label.spec.ts"
+    },
+    "ssr-rsc": {
+      "mode": "section",
+      "anchor": "nextjs"
+    },
+    "native-attribute-passthrough": {
+      "mode": "section",
+      "anchor": "api"
+    },
+    "reserved-semantic-props": {
+      "mode": "section",
+      "anchor": "api"
+    },
+    "caption-escaping": {
+      "mode": "preview",
+      "anchor": "security"
+    }
+  }
 }

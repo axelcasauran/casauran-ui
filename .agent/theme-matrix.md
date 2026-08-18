@@ -1,5 +1,17 @@
 # Theme Matrix
 
+Label `1.05` passes light/dark and comfortable/compact scoped themes, inherited RTL, and custom
+`--csn-label-color`/`-font-*`/`-line-height`/`-gap`/`-requirement-color`/`-invalid-color`/
+`-disabled-opacity` overrides written in the `overrides` layer. Every state assigns the component
+token rather than the CSS property, so an override applies to a default caption and to an invalid or
+disabled one alike; the browser case proves an override beats the invalid state's own colour. The
+caption does not rescale with density, for the reason `1.04 Typography` recorded. Under forced
+colours the caption takes `CanvasText` and the disabled caption `GrayText` with its opacity
+flattened, so that distinction survives while the invalid colour collapses — which is the argument
+the documentation uses for never signalling invalid by colour alone. The marker gap is a logical
+inline margin and is visual separation only; the separator that reaches the accessible name is a
+literal space in the content.
+
 Typography `1.04` passes light/dark and comfortable/compact scoped themes, inherited RTL, semantic
 tones, and custom `--csn-typography-font-family`/`-font-size`/`-font-weight`/`-line-height`/`-color`
 overrides written in the `overrides` layer. Every role, size, weight and tone assigns its component

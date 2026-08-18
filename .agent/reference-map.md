@@ -10,7 +10,7 @@ Public reference pages are used only under `KENDO_REFERENCE_POLICY.md`. This map
 | Icon                 | `docs/content/common/icon`       | `1.02`  | improved        |
 | SVGIcon              | `docs/content/common/svgicon`    | `1.03`  | parity-verified |
 | Typography           | `docs/content/common/typography` | `1.04`  | parity-verified |
-| Label                | `docs/content/labels`            | `1.05`  | unreviewed      |
+| Label                | `docs/content/labels`            | `1.05`  | parity-verified |
 | Input                | `docs/content/inputs`            | `1.06`  | unreviewed      |
 | Checkbox             | `docs/content/inputs`            | `1.07`  | unreviewed      |
 | RadioButton          | `docs/content/inputs`            | `1.08`  | unreviewed      |

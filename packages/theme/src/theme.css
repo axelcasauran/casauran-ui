@@ -239,6 +239,15 @@
     --csn-typography-font-weight: var(--csn-typography-body-weight);
     --csn-typography-line-height: var(--csn-typography-body-line-height);
     --csn-typography-color: var(--csn-text-primary);
+    --csn-label-font-family: var(--csn-typography-body-family);
+    --csn-label-font-size: var(--csn-typography-body-size);
+    --csn-label-font-weight: var(--csn-typography-emphasis-weight);
+    --csn-label-line-height: var(--csn-typography-body-line-height);
+    --csn-label-color: var(--csn-text-primary);
+    --csn-label-requirement-color: var(--csn-text-muted);
+    --csn-label-invalid-color: var(--csn-status-danger);
+    --csn-label-disabled-opacity: var(--csn-opacity-disabled);
+    --csn-label-gap: var(--csn-ref-space-1);
   }
 }
 
