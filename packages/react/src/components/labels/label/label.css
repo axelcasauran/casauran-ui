@@ -1,0 +1,72 @@
+@layer components {
+  /*
+   * The caption is ordinary inline text rather than a flex container, so a long caption wraps
+   * naturally and the requirement marker stays in the text flow with it instead of being pushed
+   * onto a line of its own by a flex gap.
+   */
+  .csn-label {
+    display: inline-block;
+    max-inline-size: 100%;
+    color: var(--csn-label-color);
+    font-family: var(--csn-label-font-family);
+    font-size: var(--csn-label-font-size);
+    font-weight: var(--csn-label-font-weight);
+    line-height: var(--csn-label-line-height);
+  }
+
+  /*
+   * A caption omitted on purpose still holds one line of height, so a field with no visible label
+   * keeps its row aligned with the fields around it.
+   */
+  .csn-label[data-empty='true'] {
+    min-block-size: calc(var(--csn-label-font-size) * var(--csn-label-line-height));
+  }
+
+  .csn-label[data-invalid='true'] {
+    --csn-label-color: var(--csn-label-invalid-color);
+    --csn-label-requirement-color: var(--csn-label-invalid-color);
+  }
+
+  /*
+   * Disabled presentation wins over invalid, and is written after it for that reason: an editor the
+   * user cannot change should not be presented as a problem to fix. Both states stay reflected on
+   * the element, so a test or a consumer selector still sees the full state.
+   */
+  .csn-label[data-disabled='true'] {
+    --csn-label-color: var(--csn-text-muted);
+    --csn-label-requirement-color: var(--csn-text-muted);
+
+    opacity: var(--csn-label-disabled-opacity);
+    cursor: not-allowed;
+  }
+
+  /* The gap is a logical inline margin, so the marker follows the caption in both directions. */
+  .csn-label__requirement {
+    margin-inline-start: var(--csn-label-gap);
+    color: var(--csn-label-requirement-color);
+    font-weight: var(--csn-typography-body-weight);
+  }
+}
+
+@media (forced-colors: active) {
+  @layer components {
+    /*
+     * Colour carries no information in this mode, which is precisely why the documentation refuses
+     * to let the invalid colour be the only signal: the machine-readable one is `aria-invalid` on
+     * the editor. The disabled caption still separates, because a system grey is available for it.
+     */
+    .csn-label {
+      color: CanvasText;
+    }
+
+    .csn-label__requirement {
+      color: CanvasText;
+    }
+
+    .csn-label[data-disabled='true'],
+    .csn-label[data-disabled='true'] .csn-label__requirement {
+      color: GrayText;
+      opacity: 1;
+    }
+  }
+}

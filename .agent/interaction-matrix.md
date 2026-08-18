@@ -1,5 +1,25 @@
 # Interaction Matrix
 
+Label `1.05` is the first component in Phase 1 with an interaction contract that is not its own. It
+registers no listener, holds no handler and adds no tab stop, but it participates in exactly one
+interaction: the browser's, where a `label` carrying a `for` attribute forwards a click to the
+control it names. That is asserted in the browser for a text field and a checkbox, works without
+JavaScript, and is the reason the component needs no client boundary. Everything else — focus,
+keyboard, touch, IME, clipboard, drag and activation of a widget that renders no native control —
+belongs to the component that owns the editor. Click forwarding through a reference to a custom
+editor is rejected by the type rather than implemented, because duck-typing a foreign ref for a
+`focus` method fails silently when the shape does not match and would put a listener on every
+caption in an application.
+
+Typography `1.04` has no interaction contract, for the same reason Icon and SVGIcon have none: it is
+text, not a control. Pointer, keyboard, touch, focus, IME, clipboard, drag, resize and activation
+behaviour belong to the component that composes the text. Native handlers pass through so a caller
+can integrate the element, but the component never registers or handles one and never adds a tab
+stop. The one scrollable surface it can produce — a code block wider than its container — is reached
+through the browser's own scroll-container affordance rather than through a tab index the component
+assigns. Its element vocabulary excludes every interactive element, so it can never become a second
+owner of a native control.
+
 SVGIcon `1.03` has no interaction contract, for the same reason Icon has none: it is a drawing, not
 a control. Pointer, keyboard, touch, focus, IME, clipboard, drag, and activation behavior belong to
 the component that composes it. Native handlers pass through so a caller can integrate the element,

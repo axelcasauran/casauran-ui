@@ -4,7 +4,7 @@
   "category": "typography",
   "phase": 1,
   "stage": "1.04",
-  "status": "unreviewed",
+  "status": "parity-verified",
   "package": "@casauran/react",
   "reference": {
     "path": "docs/content/common/typography",
@@ -15,25 +15,205 @@
     "nativeInteractiveExceptions": []
   },
   "rendering": {
-    "serverRenderable": null,
-    "requiresClient": null,
+    "serverRenderable": true,
+    "requiresClient": false,
     "clientReasons": [],
-    "hydrationSensitive": null
+    "hydrationSensitive": false
   },
   "parity": {
-    "functionality": "unreviewed",
-    "states": "unreviewed",
-    "interaction": "unreviewed",
-    "keyboard": "unreviewed",
-    "accessibility": "unreviewed",
-    "responsive": "unreviewed",
-    "i18n": "unreviewed",
-    "rtl": "unreviewed",
-    "theming": "unreviewed",
-    "ssrNext": "unreviewed",
-    "performance": "unreviewed",
-    "security": "unreviewed",
-    "docs": "unreviewed"
+    "functionality": "pass",
+    "states": "pass",
+    "interaction": "not-applicable",
+    "keyboard": "not-applicable",
+    "accessibility": "pass",
+    "responsive": "pass",
+    "i18n": "pass",
+    "rtl": "pass",
+    "theming": "pass",
+    "ssrNext": "pass",
+    "performance": "pass",
+    "security": "pass",
+    "docs": "pass"
   },
-  "features": []
+  "features": [
+    "semantic-element",
+    "typographic-variant",
+    "independent-defaulting",
+    "heading-level-never-inferred",
+    "size-override",
+    "weight-override",
+    "logical-alignment",
+    "casing-transform",
+    "semantic-tone",
+    "inherited-colour",
+    "block-spacing-scale",
+    "per-side-spacing",
+    "code-as-content",
+    "content-escaping",
+    "no-markup-sink",
+    "nested-composition",
+    "button-composition",
+    "component-token-override-seam",
+    "theme-and-density",
+    "rtl",
+    "forced-colors",
+    "reflow",
+    "ssr-rsc",
+    "native-attribute-passthrough",
+    "reserved-semantic-props"
+  ],
+  "featureCoverage": {
+    "semantic-element": {
+      "mode": "preview",
+      "anchor": "overview",
+      "attribute": "data-as",
+      "values": [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "p",
+        "span",
+        "div",
+        "strong",
+        "em",
+        "code",
+        "pre",
+        "blockquote"
+      ]
+    },
+    "typographic-variant": {
+      "mode": "preview",
+      "anchor": "appearance",
+      "attribute": "data-variant",
+      "values": [
+        "display",
+        "title",
+        "heading",
+        "subheading",
+        "body",
+        "body-small",
+        "caption",
+        "overline",
+        "code",
+        "code-block",
+        "quote"
+      ]
+    },
+    "independent-defaulting": {
+      "mode": "preview",
+      "anchor": "overview"
+    },
+    "heading-level-never-inferred": {
+      "mode": "preview",
+      "anchor": "accessibility"
+    },
+    "size-override": {
+      "mode": "preview",
+      "anchor": "sizes",
+      "attribute": "data-size",
+      "values": ["xs", "sm", "md", "lg", "xl", "2xl", "3xl"]
+    },
+    "weight-override": {
+      "mode": "preview",
+      "anchor": "sizes",
+      "attribute": "data-weight",
+      "values": ["regular", "medium", "semibold", "bold"]
+    },
+    "logical-alignment": {
+      "mode": "preview",
+      "anchor": "appearance",
+      "attribute": "data-align",
+      "values": ["start", "end", "center", "justify"]
+    },
+    "casing-transform": {
+      "mode": "preview",
+      "anchor": "appearance",
+      "attribute": "data-transform",
+      "values": ["none", "uppercase", "lowercase", "capitalize"]
+    },
+    "semantic-tone": {
+      "mode": "preview",
+      "anchor": "appearance",
+      "attribute": "data-tone",
+      "values": [
+        "inherit",
+        "default",
+        "muted",
+        "accent",
+        "positive",
+        "caution",
+        "critical",
+        "inverse"
+      ]
+    },
+    "inherited-colour": {
+      "mode": "preview",
+      "anchor": "appearance"
+    },
+    "block-spacing-scale": {
+      "mode": "preview",
+      "anchor": "sizes",
+      "attribute": "data-spacing",
+      "values": ["none", "xs", "sm", "md", "lg", "xl"]
+    },
+    "per-side-spacing": {
+      "mode": "preview",
+      "anchor": "sizes"
+    },
+    "code-as-content": {
+      "mode": "preview",
+      "anchor": "content"
+    },
+    "content-escaping": {
+      "mode": "preview",
+      "anchor": "security"
+    },
+    "no-markup-sink": {
+      "mode": "section",
+      "anchor": "security"
+    },
+    "nested-composition": {
+      "mode": "preview",
+      "anchor": "content"
+    },
+    "button-composition": {
+      "mode": "preview",
+      "anchor": "content"
+    },
+    "component-token-override-seam": {
+      "mode": "section",
+      "anchor": "theming"
+    },
+    "theme-and-density": {
+      "mode": "fixture",
+      "evidence": "tests/browser/typography.spec.ts"
+    },
+    "rtl": {
+      "mode": "fixture",
+      "evidence": "tests/browser/typography.spec.ts"
+    },
+    "forced-colors": {
+      "mode": "fixture",
+      "evidence": "tests/browser/typography.spec.ts"
+    },
+    "reflow": {
+      "mode": "fixture",
+      "evidence": "tests/browser/typography.spec.ts"
+    },
+    "ssr-rsc": {
+      "mode": "section",
+      "anchor": "nextjs"
+    },
+    "native-attribute-passthrough": {
+      "mode": "section",
+      "anchor": "api"
+    },
+    "reserved-semantic-props": {
+      "mode": "section",
+      "anchor": "api"
+    }
+  }
 }

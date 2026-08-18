@@ -1,6 +1,8 @@
 import { ButtonDemo } from './button-demo';
 import { IconDemo } from './icon-demo';
+import { LabelDemo } from './label-demo';
 import { SVGIconDemo } from './svg-icon-demo';
+import { TypographyDemo } from './typography-demo';
 
 export default function Page() {
   return (
@@ -10,6 +12,8 @@ export default function Page() {
       <ButtonDemo />
       <IconDemo />
       <SVGIconDemo />
+      <TypographyDemo />
+      <LabelDemo />
     </main>
   );
 }

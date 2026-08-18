@@ -1,5 +1,36 @@
 # State Matrix
 
+## Label (`1.05`)
+
+Label owns no state: no controlled or uncontrolled value, no default or initial state, no
+transition, no event, no async behaviour and no reset, so `useControllableState` is not involved and
+there is no dual source of truth. `invalid` and `disabled` are reflections of the editor's state
+rather than sources of it — Label never disables anything and never marks anything invalid — and the
+specification says so because the opposite assumption is the likely misuse. Emptiness is derived
+from the `children` value, using the four values React itself renders as nothing, rather than from
+what the tree eventually produces. Invalid combinations are unreachable through types: `requirement`
+is a closed union, and the marker and its text are a discriminated pair, so a marker without text
+and text without a marker are both compile errors; React's raw-markup escape hatch, `color` and
+`role` are rejected because each would contradict semantics the component owns. The one state
+interaction the component resolves rather than reflects is precedence: a caption that is both
+disabled and invalid presents as disabled, because an editor the user cannot change should not be
+presented as a problem to fix, and both values stay reflected so the full state is still observable.
+
+## Typography (`1.04`)
+
+Typography owns no state at all: no controlled or uncontrolled value, no default or initial state,
+no transition, no event, no async behaviour, no reset, and no disabled, read-only, loading,
+validation, selection, expanded or open mode. `useControllableState` is not involved and there is no
+dual source of truth. Every prop is a pure presentational input resolved during render, and the two
+derived resolutions — the element from the role and the role from the element — are pure functions
+of the props, computed identically on the server and the client. Invalid states are unreachable
+through types: the element, role, size, weight, alignment, casing, tone and spacing vocabularies are
+closed unions, the spacing object accepts only logical sides, and React's raw-markup escape hatch,
+`color`, `role` and `aria-level` are rejected because each would contradict semantics the component
+derives from `as` and `tone`. The rendered states this component does cover — fourteen elements,
+eleven roles, four defaulting combinations, seven sizes, four weights, four alignments, four casing
+values, eight tones and six spacing steps on four logical sides — are each rendered and asserted.
+
 ## SVGIcon (`1.03`)
 
 SVGIcon covers the default drawing, each of three variant drawings, the variant fallback,

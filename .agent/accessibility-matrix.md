@@ -1,5 +1,38 @@
 # Accessibility Matrix
 
+Label `1.05` renders a real `<label>`, so the browser establishes the relationship and computes the
+editor's accessible name from the caption; no ARIA is added and a passthrough `role` is rejected.
+Two association paths are supported and no third: `htmlFor` for any labelable control, and the
+Label's `id` plus the widget's `aria-labelledby` for an editor that renders no native control. Both
+are asserted against the real accessibility tree, together with the native click forwarding that
+focuses a text field and toggles a checkbox — which is also what enlarges a checkbox's effective
+activation area. The requirement marker is text inside the label and therefore part of the
+accessible name; a literal space separates it from the caption, because accessible-name computation
+concatenates the text of inline descendants without inserting one and a CSS margin contributes
+nothing to a name. That was a real defect found by this stage's browser assertion and fixed before
+completion. The marker is a convention rather than the mechanism: `required` and `aria-required`
+stay on the editor, and the documentation asks for a word rather than a bare glyph. Invalid is never
+signalled by colour alone, disabled styling is presentation only, sizes are `rem` values, reflow at
+320 CSS pixels wraps a long caption without horizontal overflow, and under forced colours the
+caption takes a system foreground while the disabled caption takes a system grey. Label owns no
+focus, tab stop, key model, announcement or motion, and publishes no keyboard table rather than an
+empty one. It meets the WCAG 2.2 AA baseline fixed by ADR-009; manual review is recorded in
+`specs/components/label.parity.md`.
+
+Typography `1.04` derives its semantics from the element the caller selects through `as`, and adds
+no ARIA of its own. No typographic role ever produces a heading: `display`, `title`, `heading` and
+`subheading` are sizes, so a document outline exists only where a heading element is written, which
+is the defect the analysed model carried. `role` and `aria-level` are rejected by the type because
+either would contradict that element. The accessible name is the text content, and `transform` is a
+visual effect that does not change it. Every size and spacing step is a `rem` value, so text scales
+with the reader's font-size preference and at 200% zoom; reflow at 320 CSS pixels is asserted, and a
+long code block scrolls inside its own box rather than widening the page. Each tone is bound to a
+text-role token meeting the WCAG 2.2 AA 4.5:1 baseline against its intended surface, and every tone
+collapses to the system foreground under forced colours, which is why colour is never the only
+signal. It owns no focus, tab stop, key model, announcement, or animation. Typography meets the
+WCAG 2.2 AA baseline fixed by ADR-009; manual review is recorded in
+`specs/components/typography.parity.md`.
+
 SVGIcon `1.03` is decorative (`aria-hidden`) by default; a `label` carrying text promotes the span
 to `role="img"` with that trimmed name, and a blank or whitespace-only label keeps it decorative
 rather than publishing an image with an empty accessible name. The nested SVG is hidden and

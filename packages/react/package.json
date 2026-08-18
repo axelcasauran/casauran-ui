@@ -15,7 +15,9 @@
     },
     "./button.css": "./src/components/buttons/button/button.css",
     "./icon.css": "./src/components/icons/icon/icon.css",
+    "./label.css": "./src/components/labels/label/label.css",
     "./svg-icon.css": "./src/components/icons/svg-icon/svg-icon.css",
+    "./typography.css": "./src/components/typography/typography/typography.css",
     "./state": {
       "types": "./dist/state/index.d.ts",
       "import": "./dist/state/index.js"
